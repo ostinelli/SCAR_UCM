@@ -1,0 +1,57 @@
+/*
+	Author: _SCAR
+
+	Description:
+	Drop materials from provided vehicle.
+
+	Parameter(s):
+	0: OBJECT - The store.
+	1: UNIT - The vehicle dropping the materials.
+
+	Return:
+	0: BOOLEAN
+
+	Example:
+	[_store, _vehicle] call SCAR_UCM_fnc_dropMaterialFromHelicopter;
+*/
+
+if !(isServer) exitWith {};
+
+params ["_store", "_vehicle"];
+
+// vars
+private _materialsClass  = _store getVariable "SCAR_UCM_materialsClass";
+private _materialsWeight = _store getVariable "SCAR_UCM_materialsWeight";
+
+// create parachute & materials
+private _pos = getPos _vehicle;
+private _chute = createVehicle ["B_Parachute_02_F", [100, 100, 200], [], 0, 'FLY'];
+_chute setPos [_pos select 0, _pos select 1, (_pos select 2) - 10];
+private _material = createVehicle [_materialsClass, getPos _chute, [], 0, 'NONE'];
+_material attachTo [_chute, [0, 0, -1.3]];
+
+// fall
+waitUntil { position _material select 2 < 0.5 || isNull _chute };
+
+// detach parachute
+detach _material;
+
+// duplicate the material to solve the arma "hurting object" bug
+_pos = getPos _material;
+deleteVehicle _material;
+private _newMaterial = _materialsClass createVehicle _pos;
+
+// make materials loadable
+[_newMaterial, true, _materialsWeight] remoteExec ["ace_cargo_fnc_makeLoadable"];
+
+// add to available materials
+private _materials = _store getVariable "SCAR_UCM_materials";
+_materials pushBack [_newMaterial, 1.0];
+_store setVariable ["SCAR_UCM_materials", _materials, true];
+
+// destroy chute
+sleep 5;
+deleteVehicle _chute;
+
+// return
+true

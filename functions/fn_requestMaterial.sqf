@@ -1,19 +1,19 @@
 /*
-	Author: _SCAR
+    Author: _SCAR
 
-	Description:
-	Request new workers. The missing workers up to maximum specified in settings will be created.
-	This is an action callback.
+    Description:
+    Request new workers. The missing workers up to maximum specified in settings will be created.
+    This is an action callback.
 
-	Parameter(s):
-	0: OBJECT - The store.
-	1: UNIT - The unit calling this function.
+    Parameter(s):
+    0: OBJECT - The store.
+    1: UNIT - The unit calling this function.
 
-	Return:
-	0: BOOLEAN
+    Return:
+    0: BOOLEAN
 
-	Example:
-	[_store, player] call SCAR_UCM_fnc_requestMaterial;
+    Example:
+    [_store, player] call SCAR_UCM_fnc_requestMaterial;
 */
 
 if !(isServer) exitWith {};
@@ -24,10 +24,10 @@ private _onGoing = _store getVariable ["SCAR_UCM_requestMaterialOngoing", false]
 private _side    = _store getVariable "SCAR_UCM_side";
 
 if (_onGoing) exitWith {
-	// chat
-	[_side, "HQ"] sideChat (localize "STR_SCAR_UCM_Radio_ErrorRequestMaterialsAlreadyInProgress");
-	// return
-	false
+    // chat
+    [_side, "HQ"] sideChat (localize "STR_SCAR_UCM_Radio_ErrorRequestMaterialsAlreadyInProgress");
+    // return
+    false
 };
 
 // flag
@@ -43,9 +43,9 @@ private _heliPad          = _store getVariable "SCAR_UCM_heliPad";
 private _size = sizeOf _helicopterClass;
 private _helicopterOriginPos = getPos _helicopterOrigin;
 private _helicopterOriginMaterialPos = [
-	(_helicopterOriginPos select 0) + 2 * _size,
-	(_helicopterOriginPos select 1) + 2 * _size,
-	(_helicopterOriginPos select 2)
+    (_helicopterOriginPos select 0) + 2 * _size,
+    (_helicopterOriginPos select 1) + 2 * _size,
+    (_helicopterOriginPos select 2)
 ];
 private _result  = [_helicopterOriginMaterialPos, 0, _helicopterClass, _side] call BIS_fnc_spawnVehicle;
 private _vehicle = _result select 0;

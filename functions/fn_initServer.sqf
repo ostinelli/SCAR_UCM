@@ -1,17 +1,17 @@
 /*
-	Author: _SCAR
+    Author: _SCAR
 
-	Description:
-	Initializes the server.
+    Description:
+    Initializes the server.
 
-	Paramster(s):
-	0:  OBJECT - The store.
+    Paramster(s):
+    0:  OBJECT - The store.
 
-	Return:
-	0: true
+    Return:
+    0: true
 
-	Example:
-	[_store] call SCAR_UCM_fnc_initServer;
+    Example:
+    [_store] call SCAR_UCM_fnc_initServer;
 */
 
 if !(isServer) exitWith {};

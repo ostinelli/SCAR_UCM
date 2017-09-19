@@ -1,18 +1,18 @@
 /*
-	Author: _SCAR
+    Author: _SCAR
 
-	Description:
-	Drop materials from provided vehicle.
+    Description:
+    Drop materials from provided vehicle.
 
-	Parameter(s):
-	0: OBJECT - The store.
-	1: UNIT - The vehicle dropping the materials.
+    Parameter(s):
+    0: OBJECT - The store.
+    1: UNIT - The vehicle dropping the materials.
 
-	Return:
-	0: BOOLEAN
+    Return:
+    0: BOOLEAN
 
-	Example:
-	[_store, _vehicle] call SCAR_UCM_fnc_dropMaterialFromHelicopter;
+    Example:
+    [_store, _vehicle] call SCAR_UCM_fnc_dropMaterialFromHelicopter;
 */
 
 if !(isServer) exitWith {};

@@ -1,17 +1,17 @@
 /*
-	Author: _SCAR
+    Author: _SCAR
 
-	Description:
-	Gets the active piece of the construction.
+    Description:
+    Gets the active piece of the construction.
 
-	Parameter(s):
-	0: OBJECT - The store.
+    Parameter(s):
+    0: OBJECT - The store.
 
-	Return:
-	0: OBJECT
+    Return:
+    0: OBJECT
 
-	Example:
-	[_store] call SCAR_UCM_fnc_getCurrentPiece;
+    Example:
+    [_store] call SCAR_UCM_fnc_getCurrentPiece;
 */
 
 params ["_store"];

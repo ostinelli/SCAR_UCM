@@ -1,17 +1,17 @@
 /*
-	Author: _SCAR
+    Author: _SCAR
 
-	Description:
-	Initializes the player. This function is called automatically on mission init.
+    Description:
+    Initializes the player. This function is called automatically on mission init.
 
-	Parameter(s):
-	0: OBJECT - The store.
+    Parameter(s):
+    0: OBJECT - The store.
 
-	Return:
-	0: true
+    Return:
+    0: true
 
-	Example:
-	[_store] call SCAR_UCM_fnc_initPlayer;
+    Example:
+    [_store] call SCAR_UCM_fnc_initPlayer;
 */
 
 if !(hasInterface) exitWith {};

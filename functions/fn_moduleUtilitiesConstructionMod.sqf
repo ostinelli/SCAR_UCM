@@ -25,8 +25,8 @@ if (_activated) then {
 	private _pieceNamePrefix            = _store getVariable "PieceNamePrefix";
 	private _piecesFromMaterial         = _store getVariable "PiecesFromMaterial";
 	private _workingDistance            = _store getVariable "WorkingDistance";
-	private _pieceStartNegativeHeight   = _store getVariable "PieceStartNegativeHeight";
-	private _materialEndNegativeHeight  = _store getVariable "MaterialEndNegativeHeight";
+	private _pieceStartHeight   = _store getVariable "PieceStartNegativeHeight";
+	private _materialEndHeight  = _store getVariable "MaterialEndNegativeHeight";
 	private _workersBoss                = _store getVariable "WorkersBoss";
 	private _helicopterLandingZone      = _store getVariable "HelicopterLandingZone";
 	private _helicopterOrigin           = _store getVariable "HelicopterOrigin";
@@ -43,8 +43,8 @@ if (_activated) then {
 	private _pieceNamePrefix            = "scar_pipeline_";    // the prefix.
 	private _piecesFromMaterial         = 3;      // total number of piece pieces that can be built with a single material.
 	private _workingDistance            = 75;     // distance for workers to work (also applies to materials).
-	private _pieceStartNegativeHeight   = 0.6;    // starting Z position of piece in the ground, end will be Z = 0;
-	private _materialEndNegativeHeight  = 1.4;    // end position of material consumed, start is Z = 0;
+	private _pieceStartHeight   = 0.6;    // starting Z position of piece in the ground, end will be Z = 0;
+	private _materialEndHeight  = 1.4;    // end position of material consumed, start is Z = 0;
 	private _workersBoss                = "SCAR_UCM_worker_boss"; // the variable name of the boss
 	private _helicopterLandingZone      = "SCAR_UCM_helicopter_landing_zone"; // the variable name of the landing zone
 	private _helicopterOrigin           = "SCAR_UCM_helicopter_origin"; // the variable name of the heli spawn
@@ -64,8 +64,8 @@ if (_activated) then {
 			_pieceNamePrefix,
 			_piecesFromMaterial,
 			_workingDistance,
-			_pieceStartNegativeHeight,
-			_materialEndNegativeHeight,
+			_pieceStartHeight,
+			_materialEndHeight,
 			_workersBoss,
 			_helicopterLandingZone,
 			_helicopterOrigin,

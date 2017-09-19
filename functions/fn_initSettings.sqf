@@ -57,8 +57,8 @@ params [
 	"_pieceNamePrefix",
 	"_piecesFromMaterial",
 	"_workingDistance",
-	"_pieceStartNegativeHeight",
-	"_materialEndNegativeHeight",
+	"_pieceStartHeight",
+	"_materialEndHeight",
 	"_workersBoss",
 	"_helicopterLandingZone",
 	"_helicopterOrigin",
@@ -87,8 +87,8 @@ _store setVariable ["SCAR_UCM_pieceWorkingManSeconds", _pieceWorkingManSeconds, 
 _store setVariable ["SCAR_UCM_pieceNamePrefix", _pieceNamePrefix, true];
 _store setVariable ["SCAR_UCM_piecesFromMaterial", _piecesFromMaterial, true];
 _store setVariable ["SCAR_UCM_workingDistance", _workingDistance, true];
-_store setVariable ["SCAR_UCM_pieceStartNegativeHeight", _pieceStartNegativeHeight, true];
-_store setVariable ["SCAR_UCM_materialEndNegativeHeight", _materialEndNegativeHeight, true];
+_store setVariable ["SCAR_UCM_pieceStartHeight", _pieceStartHeight, true];
+_store setVariable ["SCAR_UCM_materialEndHeight", _materialEndHeight, true];
 _store setVariable ["SCAR_UCM_workersBoss", _workersBoss, true];
 _store setVariable ["SCAR_UCM_helicopterLandingZone", _helicopterLandingZone, true];
 _store setVariable ["SCAR_UCM_helicopterOrigin", _helicopterOrigin, true];

@@ -19,9 +19,9 @@ if !(isServer) exitWith {};
 params ["_store"];
 
 // vars
-private _piecesCount              = _store getVariable "SCAR_UCM_piecesCount";
-private _pieceNamePrefix          = _store getVariable "SCAR_UCM_pieceNamePrefix";
-private _pieceStartNegativeHeight = _store getVariable "SCAR_UCM_pieceStartNegativeHeight";
+private _piecesCount      = _store getVariable "SCAR_UCM_piecesCount";
+private _pieceNamePrefix  = _store getVariable "SCAR_UCM_pieceNamePrefix";
+private _pieceStartHeight = _store getVariable "SCAR_UCM_pieceStartHeight";
 
 // init construction position & visibility
 for "_i" from (_store getVariable "SCAR_UCM_pieceCurrentId") to (_piecesCount - 1) do {
@@ -34,13 +34,13 @@ for "_i" from (_store getVariable "SCAR_UCM_pieceCurrentId") to (_piecesCount - 
 	// hide
 	_piece hideObjectGlobal true;
 	// lower to ground
-	[_piece, -_pieceStartNegativeHeight] call SCAR_UCM_fnc_setAltitudeToGround;
+	[_piece, _pieceStartHeight] call SCAR_UCM_fnc_setAltitudeToGround;
 };
 
 // show current piece
 private _currentPiece = [_store] call SCAR_UCM_fnc_getCurrentPiece;
 _currentPiece hideObjectGlobal false;
-private _altitude = -_pieceStartNegativeHeight + ( (_store getVariable "SCAR_UCM_pieceCurrentPercentage") * _pieceStartNegativeHeight);
+private _altitude = _pieceStartHeight + ( (_store getVariable "SCAR_UCM_pieceCurrentPercentage") * (-_pieceStartHeight));
 [_currentPiece, _altitude] call SCAR_UCM_fnc_setAltitudeToGround;
 
 // show marker
@@ -51,13 +51,13 @@ private _null = [_store] spawn {
 	params ["_store"];
 
 	// vars
-	private _pieceStartNegativeHeight  = _store getVariable "SCAR_UCM_pieceStartNegativeHeight";
-	private _materialEndNegativeHeight = _store getVariable "SCAR_UCM_materialEndNegativeHeight";
-	private _workingDistance           = _store getVariable "SCAR_UCM_workingDistance";
-	private _pieceWorkingManSeconds    = _store getVariable "SCAR_UCM_pieceWorkingManSeconds";
-	private _piecesFromMaterial        = _store getVariable "SCAR_UCM_piecesFromMaterial";
-	private _piecesCount               = _store getVariable "SCAR_UCM_piecesCount";
-	private _side                      = _store getVariable "SCAR_UCM_side";
+	private _pieceStartHeight       = _store getVariable "SCAR_UCM_pieceStartHeight";
+	private _materialEndHeight      = _store getVariable "SCAR_UCM_materialEndHeight";
+	private _workingDistance        = _store getVariable "SCAR_UCM_workingDistance";
+	private _pieceWorkingManSeconds = _store getVariable "SCAR_UCM_pieceWorkingManSeconds";
+	private _piecesFromMaterial     = _store getVariable "SCAR_UCM_piecesFromMaterial";
+	private _piecesCount            = _store getVariable "SCAR_UCM_piecesCount";
+	private _side                   = _store getVariable "SCAR_UCM_side";
 
 	// init
 	private _sleepTime = 10;
@@ -113,7 +113,7 @@ private _null = [_store] spawn {
 			_store setVariable ["SCAR_UCM_pieceCurrentPercentage", _pieceCurrentPercentage, true];
 
 			// set piece height for current work
-			_altitude = -_pieceStartNegativeHeight + ((_store getVariable "SCAR_UCM_pieceCurrentPercentage") * _pieceStartNegativeHeight);
+			_altitude = _pieceStartHeight + ((_store getVariable "SCAR_UCM_pieceCurrentPercentage") * (-_pieceStartHeight));
 			[_currentPiece, _altitude] call SCAR_UCM_fnc_setAltitudeToGround;
 
             // piece status?
@@ -136,7 +136,7 @@ private _null = [_store] spawn {
 					// material still usable, update percentage
 					_materials pushBack [_material, _remainingPercentage];
 					// set altitude
-					_altitude = -_materialEndNegativeHeight + (_remainingPercentage * _materialEndNegativeHeight);
+					_altitude = _materialEndHeight + (_remainingPercentage * (-_materialEndHeight));
 					[_material, _altitude] call SCAR_UCM_fnc_setAltitudeToGround;
 				};
 				_store setVariable ["SCAR_UCM_materials", _materials, true];

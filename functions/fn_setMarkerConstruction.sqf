@@ -1,18 +1,18 @@
 /*
-	Author: _SCAR
+    Author: _SCAR
 
-	Description:
-	Sets the pieceline's map marker.
+    Description:
+    Sets the pieceline's map marker.
 
-	Parameter(s):
-	0: OBJECT - The store.
-	1: POSITION - The position of the marker.
+    Parameter(s):
+    0: OBJECT - The store.
+    1: POSITION - The position of the marker.
 
-	Return:
-	0: true
+    Return:
+    0: true
 
-	Example:
-	[_store, _pos] call SCAR_UCM_fnc_setMarkerConstruction;
+    Example:
+    [_store, _pos] call SCAR_UCM_fnc_setMarkerConstruction;
 */
 
 if !(isServer) exitWith {};
@@ -24,7 +24,7 @@ private _marker = _store getVariable "SCAR_UCM_markerObj";
 
 // delete previous marker, if any
 if !(_marker isEqualTo objNull) then {
-	deleteMarker _marker;
+    deleteMarker _marker;
 };
 
 // create

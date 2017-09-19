@@ -1,108 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="SCAR_UCM">
-	<Package name="Main">
-		<Key ID="STR_SCAR_UCM_Main_Yes">
-			<English>Yes</English>
-			<Italian>Si</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_No">
-			<English>No</English>
-			<Italian>No</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_RequestStatus">
-			<English>Request Status</English>
-			<Italian>Richiedi Stato</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_RequestWorkers">
-			<English>Request Workers</English>
-			<Italian>Richiedi Lavoratori</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_RequestMaterials">
-			<English>Request Materials</English>
-			<Italian>Richiedi Materiale</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_ConstructionArea">
-			<English>Construction Area</English>
-			<Italian>Cantiere</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_ConstructionStatus">
-			<English>Construction Status</English>
-			<Italian>Stato della costruzione</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_ConstructionActive">
-			<English>In progress</English>
-			<Italian>In corso</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_ConstructionProgressTotal">
-			<English>TOT progress</English>
-			<Italian>Avanzamento TOT</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_ConstructionPieceProgress">
-			<English>Current piece's progress</English>
-			<Italian>Avanzamento pezzo corrente</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_Worker">
-			<English>Worker</English>
-			<Italian>Lavoratore</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_Workers">
-			<English>Workers</English>
-			<Italian>Lavoratori</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_InArea">
-			<English>in area</English>
-			<Italian>in cantiere</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_Materials">
-			<English>Materials</English>
-			<Italian>Materiali</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_GoToArea">
-			<English>Go to construction area</English>
-			<Italian>Vai al cantiere</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_GoToVehicle">
-			<English>Go to vehicle</English>
-			<Italian>Vai al veicolo</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Main_ExitVehicle">
-			<English>Exit vehicle</English>
-			<Italian>Esci veicolo</Italian>
-		</Key>
-	</Package>
+    <Package name="Main">
+        <Key ID="STR_SCAR_UCM_Main_Yes">
+            <English>Yes</English>
+            <Italian>Si</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_No">
+            <English>No</English>
+            <Italian>No</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_RequestStatus">
+            <English>Request Status</English>
+            <Italian>Richiedi Stato</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_RequestWorkers">
+            <English>Request Workers</English>
+            <Italian>Richiedi Lavoratori</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_RequestMaterials">
+            <English>Request Materials</English>
+            <Italian>Richiedi Materiale</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_ConstructionArea">
+            <English>Construction Area</English>
+            <Italian>Cantiere</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_ConstructionStatus">
+            <English>Construction Status</English>
+            <Italian>Stato della costruzione</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_ConstructionActive">
+            <English>In progress</English>
+            <Italian>In corso</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_ConstructionProgressTotal">
+            <English>TOT progress</English>
+            <Italian>Avanzamento TOT</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_ConstructionPieceProgress">
+            <English>Current piece's progress</English>
+            <Italian>Avanzamento pezzo corrente</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_Worker">
+            <English>Worker</English>
+            <Italian>Lavoratore</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_Workers">
+            <English>Workers</English>
+            <Italian>Lavoratori</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_InArea">
+            <English>in area</English>
+            <Italian>in cantiere</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_Materials">
+            <English>Materials</English>
+            <Italian>Materiali</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_GoToArea">
+            <English>Go to construction area</English>
+            <Italian>Vai al cantiere</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_GoToVehicle">
+            <English>Go to vehicle</English>
+            <Italian>Vai al veicolo</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_ExitVehicle">
+            <English>Exit vehicle</English>
+            <Italian>Esci veicolo</Italian>
+        </Key>
+    </Package>
 
-	<Package name="Radio">
-		<Key ID="STR_SCAR_UCM_Radio_ErrorRequestMaterialsAlreadyInProgress">
-			<English>You have requested additional materials, but a delivery is already in progress.</English>
-			<Italian>Hai richiesto materiale aggiuntivo, ma una consegna è già in corso.</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Radio_ErrorRequestWorkersAlreadyMaxed">
-			<English>You have requested additional workers, but the available maximum (%1) is already there.</English>
-			<Italian>Hai richiesto lavoratori aggiuntivi, ma il massimo (%1) è già presente.</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Radio_RequestedWorkers">
-			<English>Attention: new workers have been requested and are coming to the base.</English>
-			<Italian>Attenzione: nuovi lavoratori sono stati richiesti e sono in arrivo presso la base.</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Radio_RequestedMaterials">
-			<English>Attention: new material has been requested and is currently being delivered to the base.</English>
-			<Italian>Attenzione: nuovo materiale è stato richiesto ed è in consegna presso la base.</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Radio_WorkerKilled">
-			<English>Warning: a worker has been killed.</English>
-			<Italian>Attenzione: un lavoratore è stato ucciso.</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Radio_NoWorkersInConstructionArea">
-			<English>Warning, construction works are stopped: there are no more workers on the site.</English>
-			<Italian>Attenzione, i lavori sono fermi: non vi sono più lavoratori in cantiere.</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Radio_NoMaterialsInConstructionArea">
-			<English>Warning, construction works are stopped: there are no more workers on the site.</English>
-			<Italian>Attenzione, i lavori sono fermi: non c'è più materiale disponibile in cantiere.</Italian>
-		</Key>
-		<Key ID="STR_SCAR_UCM_Radio_ConstructionNowInProgress">
-			<English>Construction work is under way.</English>
-			<Italian>I lavori in cantiere sono ora in corso.</Italian>
-		</Key>
-	</Package>
+    <Package name="Radio">
+        <Key ID="STR_SCAR_UCM_Radio_ErrorRequestMaterialsAlreadyInProgress">
+            <English>You have requested additional materials, but a delivery is already in progress.</English>
+            <Italian>Hai richiesto materiale aggiuntivo, ma una consegna è già in corso.</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Radio_ErrorRequestWorkersAlreadyMaxed">
+            <English>You have requested additional workers, but the available maximum (%1) is already there.</English>
+            <Italian>Hai richiesto lavoratori aggiuntivi, ma il massimo (%1) è già presente.</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Radio_RequestedWorkers">
+            <English>Attention: new workers have been requested and are coming to the base.</English>
+            <Italian>Attenzione: nuovi lavoratori sono stati richiesti e sono in arrivo presso la base.</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Radio_RequestedMaterials">
+            <English>Attention: new material has been requested and is currently being delivered to the base.</English>
+            <Italian>Attenzione: nuovo materiale è stato richiesto ed è in consegna presso la base.</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Radio_WorkerKilled">
+            <English>Warning: a worker has been killed.</English>
+            <Italian>Attenzione: un lavoratore è stato ucciso.</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Radio_NoWorkersInConstructionArea">
+            <English>Warning, construction works are stopped: there are no more workers on the site.</English>
+            <Italian>Attenzione, i lavori sono fermi: non vi sono più lavoratori in cantiere.</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Radio_NoMaterialsInConstructionArea">
+            <English>Warning, construction works are stopped: there are no more workers on the site.</English>
+            <Italian>Attenzione, i lavori sono fermi: non c'è più materiale disponibile in cantiere.</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Radio_ConstructionNowInProgress">
+            <English>Construction work is under way.</English>
+            <Italian>I lavori in cantiere sono ora in corso.</Italian>
+        </Key>
+    </Package>
 </Project>

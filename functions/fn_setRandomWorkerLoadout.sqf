@@ -1,17 +1,17 @@
 /*
-	Author: _SCAR
+    Author: _SCAR
 
-	Description:
-	Gets a random worker loadout
+    Description:
+    Gets a random worker loadout
 
-	Parameter(s):
-	0: UNIT - The worker.
+    Parameter(s):
+    0: UNIT - The worker.
 
-	Return:
-	0:true
+    Return:
+    0:true
 
-	Example:
-	[_worker] call SCAR_UCM_fnc_setRandomWorkerLoadout;
+    Example:
+    [_worker] call SCAR_UCM_fnc_setRandomWorkerLoadout;
 */
 
 params ["_worker"];

@@ -1,18 +1,18 @@
 /*
-	Author: _SCAR
+    Author: _SCAR
 
-	Description:
-	Request new workers. The missing workers up to maximum specified in settings will be created.
+    Description:
+    Request new workers. The missing workers up to maximum specified in settings will be created.
 
-	Parameter(s):
-	0: OBJECT - The store.
-	1: UNIT - The unit calling this function.
+    Parameter(s):
+    0: OBJECT - The store.
+    1: UNIT - The unit calling this function.
 
-	Return:
-	0: BOOLEAN
+    Return:
+    0: BOOLEAN
 
-	Example:
-	[_store, player] call SCAR_UCM_fnc_requestWorkers;
+    Example:
+    [_store, player] call SCAR_UCM_fnc_requestWorkers;
 */
 
 if !(isServer) exitWith {};
@@ -29,10 +29,10 @@ private _heliPad          = _store getVariable "SCAR_UCM_heliPad";
 private _side             = _store getVariable "SCAR_UCM_side";
 
 if ((count _workers) >= _workersCount) exitWith {
-	// chat
-	[_side, "HQ"] sideChat format[(localize "STR_SCAR_UCM_Radio_ErrorRequestWorkersAlreadyMaxed"), _workersCount];
-	// return
-	false
+    // chat
+    [_side, "HQ"] sideChat format[(localize "STR_SCAR_UCM_Radio_ErrorRequestWorkersAlreadyMaxed"), _workersCount];
+    // return
+    false
 };
 
 // how many?
@@ -43,9 +43,9 @@ if (_workersCount < 1) exitWith {};
 private _size = sizeOf _helicopterClass;
 private _helicopterOriginPos = getPos _helicopterOrigin;
 private _helicopterOriginWorkersPos = [
-	(_helicopterOriginPos select 0) - 2 * _size,
-	(_helicopterOriginPos select 1) - 2 * _size,
-	(_helicopterOriginPos select 2)
+    (_helicopterOriginPos select 0) - 2 * _size,
+    (_helicopterOriginPos select 1) - 2 * _size,
+    (_helicopterOriginPos select 2)
 ];
 private _result  = [_helicopterOriginWorkersPos, 0, _helicopterClass, _side] call BIS_fnc_spawnVehicle;
 private _vehicle = _result select 0;
@@ -80,8 +80,8 @@ _wpUnload setWaypointType "TR UNLOAD";
 // --> cargo: get out
 _destinationPos = getPos _workersBoss;
 {
-	_wp = (group _x) addWaypoint [_destinationPos, 0];
-	_wp setWaypointType "GETOUT";
+    _wp = (group _x) addWaypoint [_destinationPos, 0];
+    _wp setWaypointType "GETOUT";
 } forEach _newWorkers;
 
 // --> heli: leave
@@ -92,8 +92,8 @@ _wpLeave setWaypointStatements ["true", "deleteVehicle (vehicle this); { deleteV
 // --> cargo: move
 _destinationPos = getPos _workersBoss;
 {
-	_wp = (group _x) addWaypoint [_destinationPos, 10];
-	_wp setWaypointType "MOVE";
+    _wp = (group _x) addWaypoint [_destinationPos, 10];
+    _wp setWaypointType "MOVE";
 } forEach _newWorkers;
 
 // return

@@ -8,7 +8,7 @@
     0: OBJECT - The store.
 
     Return:
-    0: OBJECT
+    0: OBJECT or objNull
 
     Example:
     [_store] call SCAR_UCM_fnc_getCurrentPiece;
@@ -21,4 +21,4 @@ private _pieceNamePrefix = _store getVariable "SCAR_UCM_pieceNamePrefix";
 private _currentPieceId  = _store getVariable "SCAR_UCM_pieceCurrentId";
 
 // return
-missionNamespace getVariable format["%1%2", _pieceNamePrefix, _currentPieceId];
+missionNamespace getVariable [format["%1%2", _pieceNamePrefix, _currentPieceId], objNull];

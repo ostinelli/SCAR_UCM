@@ -46,6 +46,12 @@ private _null = [_store, _worker] spawn {
         // get current piece
         private _currentPiece = [_store] call SCAR_UCM_fnc_getCurrentPiece;
 
+        // has work ended?
+        if (_currentPiece isEqualTo objNull) exitWith {
+            // stop animation & sound
+            [_store, _worker, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
+        };
+
         // set marker worker
         [_worker] call SCAR_UCM_fnc_setMarkerWorker;
 

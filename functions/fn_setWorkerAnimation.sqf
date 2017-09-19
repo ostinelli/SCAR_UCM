@@ -35,9 +35,9 @@ if (_state == 1) then {
     // init sound
     private _soundSource = "Logic" createVehicleLocal getPos _worker;
     _soundSource attachTo [_worker, [0, 0, 0]];
-    _sound     = format["SCAR_UCM_working_%1", (floor(random 8) + 1)];
-    _soundInfo = getArray (configFile  >> "CfgSounds" >> _sound >> "sound");
-    _duration  = parseNumber( ((_soundInfo select 0) splitString "-.") select 1 );
+    private _sound     = format["SCAR_UCM_working_%1", (floor(random 5) + 1)];
+    private _soundInfo = getArray (configFile  >> "CfgSounds" >> _sound >> "sound");
+    private _duration  = parseNumber( ((_soundInfo select 0) splitString "-.") select 1 );
 
     // create light
     private _light = "#lightpoint" createVehicleLocal getPos _worker;

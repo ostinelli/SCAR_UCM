@@ -25,14 +25,6 @@ params ["_store", "_worker", "_state", "_animation", "_pos", "_rotation"];
 private _workerObjects = _store getVariable "SCAR_UCM_workerObjects";
 
 if (_state == 1) then {
-systemChat str _pos;
-    // attach (we need to do this hack because units do not get close to objects) TODO remove?
-    // _worker attachTo [_currentPiece, _relativePos];
-
-    // set to ground
-    // _worker setPos [getPos _worker select 0, getPos _worker select 1, 0];
-    //private _modelToWorldPos = _currentPiece modelToWorld _relativePos;
-
     // set to ground and correct rotation
     _worker setPos [_pos select 0, _pos select 1, 0];
     _worker setDir _rotation;

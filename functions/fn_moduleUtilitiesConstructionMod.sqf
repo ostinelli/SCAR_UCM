@@ -22,7 +22,7 @@ if (_activated) then {
 	private _side                   = _logic getVariable ["Side", "BLUFOR"];
 	private _workersCount           = _logic getVariable ["WorkersCount", 3];
 	private _pieceWorkingManSeconds = _logic getVariable ["PieceWorkingManSeconds", 1800];
-	private _pieceNamePrefix        = _logic getVariable ["PieceNamePrefix", "UCM_"];
+	private _pieceNamePrefix        = _logic getVariable ["PieceNamePrefix", "UCM_piece_"];
 	private _piecesFromMaterial     = _logic getVariable ["PiecesFromMaterial", 3];
 	private _workingDistance        = _logic getVariable ["WorkingDistance", 75];
 	private _pieceStartHeight       = _logic getVariable ["PieceStartHeight", -0.6];

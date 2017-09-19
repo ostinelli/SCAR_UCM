@@ -82,7 +82,7 @@ class CfgVehicles
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_displayName;
                 tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_tooltip;
                 typeName     = "STRING";
-                defaultValue = """UCM_""";
+                defaultValue = """UCM_piece_""";
             };
             class PieceWorkingManSeconds: Edit
             {

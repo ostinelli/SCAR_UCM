@@ -18,7 +18,7 @@ params ["_store"];
 
 // vars
 private _pieceNamePrefix = _store getVariable "SCAR_UCM_pieceNamePrefix";
-private _pieceCurrentId  = _store getVariable "SCAR_UCM_pieceCurrentId";
+private _currentPieceId  = _store getVariable "SCAR_UCM_pieceCurrentId";
 
 // return
-missionNamespace getVariable format["%1%2", _pieceNamePrefix, _pieceCurrentId];
+missionNamespace getVariable format["%1%2", _pieceNamePrefix, _currentPieceId];

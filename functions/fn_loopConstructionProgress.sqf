@@ -157,7 +157,7 @@ private _null = [_store] spawn {
 					[_store, getPos _newPiece] call SCAR_UCM_fnc_setMarkerConstruction;
 
 					// fire event
-					["SCAR_UCM_ConstructionAreaMoved", [_store, _newPiece]] call CBA_fnc_serverEvent;
+					["SCAR_UCM_ConstructionAreaMoved", [_store, _nextId, _newPiece]] call CBA_fnc_serverEvent;
 				} else {
 					// construction work is done, TODO call event
 
@@ -175,22 +175,23 @@ private _null = [_store] spawn {
 
 		if !(_previous_workersAreWorking isEqualTo (_store getVariable "SCAR_UCM_workersAreWorking")) then {
 		    _currentPiece = [_store] call SCAR_UCM_fnc_getCurrentPiece;
+		    private _currentPieceId  = _store getVariable "SCAR_UCM_pieceCurrentId";
 
 			if (_store getVariable "SCAR_UCM_workersAreWorking") then {
 			    // fire event
-			    ["SCAR_UCM_ConstructionNowInProgress", [_store, _currentPiece]] call CBA_fnc_serverEvent;
+			    ["SCAR_UCM_ConstructionNowInProgress", [_store, _currentPieceId, _currentPiece]] call CBA_fnc_serverEvent;
 			    // radio
 				[[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_ConstructionNowInProgress")] remoteExec ["sideChat"];
 			} else {
 				if ( (count _workersInArea) == 0) then {
                     // fire event
-                    ["SCAR_UCM_NoWorkersInConstructionArea", [_store, _currentPiece]] call CBA_fnc_serverEvent;
+                    ["SCAR_UCM_NoWorkersInConstructionArea", [_store, _currentPieceId, _currentPiece]] call CBA_fnc_serverEvent;
                     // radio
 					[[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_NoWorkersInConstructionArea")] remoteExec ["sideChat"];
 				};
 				if ( (count _materialsInArea) == 0) then {
                     // fire event
-                    ["SCAR_UCM_NoMaterialsInConstructionArea", [_store, _currentPiece]] call CBA_fnc_serverEvent;
+                    ["SCAR_UCM_NoMaterialsInConstructionArea", [_store, _currentPieceId, _currentPiece]] call CBA_fnc_serverEvent;
                     // radio
 					[[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_NoMaterialsInConstructionArea")] remoteExec ["sideChat"];
 				};

@@ -34,6 +34,12 @@ private _uniform = selectRandom [
     "U_C_ConstructionCoverall_Vrana_F"
 ];
 
+private _vest     = [
+    "V_Safety_yellow_F",
+    "V_Safety_orange_F",
+    "V_Safety_blue_F"
+];
+
 private _headgear = selectRandom [
     "H_Construction_earprot_red_F",
     "H_Construction_earprot_yellow_F",
@@ -48,17 +54,31 @@ private _face = selectRandom [
     "WhiteHead_17"
 ];
 
+private _goggles = selectRandom [
+    "G_Respirator_yellow_F",
+    "WhiteG_Shades_Red"
+];
+
 // set
 _worker forceAddUniform _uniform;
 _worker addItemToUniform "FirstAidKit";
 _worker addHeadgear _headgear;
-_worker addGoggles "G_Respirator_yellow_F";
+_worker addGoggles _goggles;
 _worker linkItem "ItemMap";
 _worker linkItem "ItemCompass";
 _worker linkItem "ItemWatch";
 _worker linkItem "ItemRadio";
 _worker setFace _face;
 _worker setSpeaker "";
+
+// optionals
+if ((random 1) > 0.25) then {
+    _worker addVest _vest;
+};
+if ((random 1) > 0.25) then {
+    _worker addBackpack "B_LegStrapBag_black_repair_F";
+    _worker addItemToBackpack "ToolKit";
+};
 
 // return
 true

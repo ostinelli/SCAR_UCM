@@ -70,8 +70,8 @@ private _null = [_store, _worker] spawn {
 
                 // random position
                 private _side = selectRandom [1, -1];
-                private _relX = _side * (_maxWidth + 2); // ensure at least some space of 2m
-                private _relY = (random _maxLength) - _maxLength / 2 + 2; // ensure at least some space of 2m
+                private _relX = _side * (_maxWidth + 1); // ensure at least some space
+                private _relY = (random _maxLength) - _maxLength / 2 + 1; // ensure at least some space
                 private _relativePos = [_relX, _relY, 0];
 
                 // move worker close to piece

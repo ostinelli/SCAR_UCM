@@ -90,7 +90,7 @@ class CfgVehicles
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_displayName;
                 description  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_description;
                 typeName     = "NUMBER";
-                defaultValue = "300";
+                defaultValue = "1800";
             };
             class PiecesFromMaterial: Edit
             {

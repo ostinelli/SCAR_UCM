@@ -34,24 +34,6 @@ if (_activated) then {
 	private _materialsClass             = _store getVariable "MaterialsClass";
 	private _materialsWeight            = _store getVariable "MaterialsWeight";
 
-	// TEMP VALUES!!! TODO REMOVE
-	/*
-	private _store                      = SCAR_UCM_module;
-	private _side                       = "blufor";
-	private _workersCount               = 3;      // total number of workers.
-	private _pieceWorkingManSeconds     = 300;    // total number of working man seconds to finish a piece piece.
-	private _pieceNamePrefix            = "scar_pipeline_";    // the prefix.
-	private _piecesFromMaterial         = 3;      // total number of piece pieces that can be built with a single material.
-	private _workingDistance            = 75;     // distance for workers to work (also applies to materials).
-	private _pieceStartHeight   = 0.6;    // starting Z position of piece in the ground, end will be Z = 0;
-	private _materialEndHeight  = 1.4;    // end position of material consumed, start is Z = 0;
-	private _workersBoss                = "SCAR_UCM_worker_boss"; // the variable name of the boss
-	private _helicopterLandingZone      = "SCAR_UCM_helicopter_landing_zone"; // the variable name of the landing zone
-	private _helicopterOrigin           = "SCAR_UCM_helicopter_origin"; // the variable name of the heli spawn
-	private _helicopterClass            = "B_Heli_Transport_03_unarmed_F";//"RHS_Mi8amt_civilian";
-	private _materialsClass             = "Land_IronPipes_F";
-	private _materialsWeight            = 20;
-	*/
 
 	// init
 	if (isServer) then {

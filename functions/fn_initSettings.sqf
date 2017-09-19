@@ -123,7 +123,7 @@ private _workerClass = switch (_side) do {
     case west:        { "B_Soldier_F" };
     case east:        { "O_Soldier_F" };
     case independent: { "I_Soldier_F" };
-    default { "I_Soldier_F" };
+    default           { "C_man_1" };
 };
 
 _store setVariable ["SCAR_UCM_workerClass", _workerClass, true];

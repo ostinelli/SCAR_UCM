@@ -42,12 +42,20 @@
             <Italian>Il numero di pezzi che possono essere completati con un singolo materiale</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_displayName">
-            <English>Working distance (m)</English>
-            <Italian>Distanza di lavoro (m)</Italian>
+            <English>Max Working distance (m)</English>
+            <Italian>Distanza max di lavoro (m)</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_tooltip">
             <English>The distance (in meters) of workers and materials from the current piece for the construction to be active</English>
             <Italian>La distanza (in metri) dei lavoratori e del materiale dal pezzo corrente affinché il cantiere sia in corso</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkersMinDistanceFromCenter_displayName">
+            <English>Worker min distance from piece (m)</English>
+            <Italian>Distanza min del lavoratore dal pezzo (m)</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkersMinDistanceFromCenter_tooltip">
+            <English>The minimum distance (in meters) of every worker from the piece's center when working.</English>
+            <Italian>La distanza minima (in metri) di ogni lavoratore dal centro del pezzo durante la lavorazione.</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_displayName">
             <English>Piece starting position (Z)</English>

@@ -24,8 +24,9 @@ private _null = [_store, _worker] spawn {
     params ["_store", "_worker"];
 
     // vars
-    private _workingDistance  = _store getVariable "SCAR_UCM_workingDistance";
-    private _workerAnimations = _store getVariable "SCAR_UCM_workerAnimations";
+    private _workingDistance              = _store getVariable "SCAR_UCM_workingDistance";
+    private _workerAnimations             = _store getVariable "SCAR_UCM_workerAnimations";
+    private _workersMinDistanceFromCenter = _store getVariable "SCAR_UCM_workersMinDistanceFromCenter";
 
     // init
     private _lastPiece = objNull;
@@ -69,9 +70,10 @@ private _null = [_store, _worker] spawn {
                 private _maxLength = abs ((_p2 select 1) - (_p1 select 1));
 
                 // random position
-                private _side = selectRandom [1, -1];
-                private _relX = _side * (_maxWidth + 0.3); // ensure at least some space
-                private _relY = (random _maxLength) - _maxLength / 2 + 0.3; // ensure at least some space
+                private _sideX = selectRandom [1, -1];
+                private _sideY = selectRandom [1, -1];
+                private _relX = _sideX * (abs(random ((_maxWidth / 2) - _workersMinDistanceFromCenter)) + _workersMinDistanceFromCenter);
+                private _relY = _sideY * (abs(random ((_maxLength / 2) - _workersMinDistanceFromCenter)) + _workersMinDistanceFromCenter);
                 private _relativePos = [_relX, _relY, 0];
 
                 // move worker close to piece
@@ -86,7 +88,7 @@ private _null = [_store, _worker] spawn {
                 // set vars
                 private _animation       = selectRandom _workerAnimations;
                 private _pieceToWorldPos = _currentPiece modelToWorld _relativePos;
-                private _rotation        = ((getDir _currentPiece) - _side * 90);
+                private _rotation        = ((getDir _currentPiece) - _sideX * 90);
                 _store setVariable ["_store", _store, true];
                 _worker setVariable ["_animation", _animation, true];
                 _worker setVariable ["_pieceToWorldPos", _pieceToWorldPos, true];

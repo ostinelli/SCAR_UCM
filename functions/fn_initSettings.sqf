@@ -12,15 +12,16 @@
 	4:  STRING - The pieces' prefix.
 	5:  NUMBER - The total number of pieces that can be built with a single material.
 	6:  NUMBER - The distance of workers and materials from the current piece for the construction to be active.
-	7:  NUMBER - The starting Z position of piece in the ground, end will be Z = 0.
-	8:  NUMBER - The end position of material consumed, start is Z = 0;
-	9:  STRING - The variable name of the foreman.
-	10: STRING - The variable name of the helicopter landing zone object.
-	11: STRING - The variable name of the object that defines the helicopters' origin.
-	12: STRING - The helicopters' class.
-	13: STRING - The materials' class.
-	14: NUMBER - The materials' weight.
-	15: STRING - The worker classes, separated by single spaces.
+	7:  NUMBER - The minimum distance of every worker from the piece's center when working.
+	8:  NUMBER - The starting Z position of piece in the ground, end will be Z = 0.
+	9:  NUMBER - The end position of material consumed, start is Z = 0;
+	10: STRING - The variable name of the foreman.
+	11: STRING - The variable name of the helicopter landing zone object.
+	12: STRING - The variable name of the object that defines the helicopters' origin.
+	13: STRING - The helicopters' class.
+	14: STRING - The materials' class.
+	15: NUMBER - The materials' weight.
+	16: STRING - The worker classes, separated by single spaces.
 
 	Return:
 	0: true
@@ -34,6 +35,7 @@
 		"scar_pipeline_",
 		3,
 		75,
+		"1 10",
 		0.6,
 		1.4,
 		"SCAR_UCM_foreman",
@@ -57,6 +59,7 @@ params [
 	"_pieceNamePrefix",
 	"_piecesFromMaterial",
 	"_workingDistance",
+	"_workersMinDistanceFromCenter",
 	"_pieceStartHeight",
 	"_materialEndHeight",
 	"_foremanVarname",
@@ -78,20 +81,20 @@ private _sideKeys   = ["west", "blufor", "east", "opfor", "independent", "resist
 private _sideValues = [west, west, east, east, independent, independent, civilian];
 
 _side = toLower(_side);
-if !(_side in _sideKeys) then { throw format ["SCAR_UCG: specified side '%1' is invalid", _side]; };
+if !(_side in _sideKeys) then { throw format ["UCG: specified side '%1' is invalid", _side]; };
 _side = _sideValues select (_sideKeys find toLower(_side));
 
 // objects
 _foreman = missionNamespace getVariable _foremanVarname;
-if (isNil "_foreman") then { throw format ["SCAR_UCG: can't find the foreman object with specified name '%1'", _foremanVarname]; };
+if (isNil "_foreman") then { throw format ["UCG: can't find the foreman object with specified name '%1'", _foremanVarname]; };
 
 _helicopterLandingZone = missionNamespace getVariable _helicopterLandingZoneVarname;
 if (isNil "_helicopterLandingZone") then {
-    throw format ["SCAR_UCG: can't find the helicopter Landing Zone object with specified name '%1'", _helicopterLandingZoneVarname];
+    throw format ["UCG: can't find the helicopter Landing Zone object with specified name '%1'", _helicopterLandingZoneVarname];
 };
 
 _helicopterOrigin = missionNamespace getVariable _helicopterOriginVarname;
-if (isNil "_helicopterOrigin") then { throw format ["SCAR_UCG: can't find the helicopter area origin object with specified name '%1'", _helicopterOriginVarname]; };
+if (isNil "_helicopterOrigin") then { throw format ["UCG: can't find the helicopter area origin object with specified name '%1'", _helicopterOriginVarname]; };
 
 // store params in object
 _store setVariable ["SCAR_UCM_side", _side, true];
@@ -100,6 +103,7 @@ _store setVariable ["SCAR_UCM_pieceWorkingManSeconds", _pieceWorkingManSeconds, 
 _store setVariable ["SCAR_UCM_pieceNamePrefix", _pieceNamePrefix, true];
 _store setVariable ["SCAR_UCM_piecesFromMaterial", _piecesFromMaterial, true];
 _store setVariable ["SCAR_UCM_workingDistance", _workingDistance, true];
+_store setVariable ["SCAR_UCM_workersMinDistanceFromCenter", _workersMinDistanceFromCenter, true];
 _store setVariable ["SCAR_UCM_pieceStartHeight", _pieceStartHeight, true];
 _store setVariable ["SCAR_UCM_materialEndHeight", _materialEndHeight, true];
 _store setVariable ["SCAR_UCM_foreman", _foreman, true];

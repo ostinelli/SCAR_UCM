@@ -142,6 +142,15 @@ class CfgVehicles
                 typeName     = "NUMBER";
                 defaultValue = "75";
             };
+            class WorkersMinDistanceFromCenter: Edit
+            {
+                property     = "SCAR_UCM_WorkersMinDistanceFromCenter";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersMinDistanceFromCenter_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersMinDistanceFromCenter_tooltip;
+                typeName     = "NUMBER";
+                defaultValue = "1";
+            };
+
             class Foreman: Edit
             {
                 property     = "SCAR_UCM_Foreman";

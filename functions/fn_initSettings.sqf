@@ -14,7 +14,7 @@
 	6:  NUMBER - The distance of workers and materials from the current piece for the construction to be active.
 	7:  NUMBER - The starting Z position of piece in the ground, end will be Z = 0.
 	8:  NUMBER - The end position of material consumed, start is Z = 0;
-	9:  STRING - The variable name of the workers' boss.
+	9:  STRING - The variable name of the foreman.
 	10: STRING - The variable name of the helicopter landing zone object.
 	11: STRING - The variable name of the object that defines the helicopters' origin.
 	12: STRING - The helicopters' class.
@@ -36,7 +36,7 @@
 		75,
 		0.6,
 		1.4,
-		"SCAR_UCM_worker_boss",
+		"SCAR_UCM_foreman",
 		"SCAR_UCM_heli_landing_zone",
 		"SCAR_UCM_helicopter_origin",
 		"B_Heli_Transport_03_unarmed_F",
@@ -59,7 +59,7 @@ params [
 	"_workingDistance",
 	"_pieceStartHeight",
 	"_materialEndHeight",
-	"_workersBoss",
+	"_foreman",
 	"_helicopterLandingZone",
 	"_helicopterOrigin",
 	"_helicopterClass",
@@ -76,7 +76,7 @@ private _sideKeys   = ["west", "blufor", "east", "opfor", "independent", "resist
 private _sideValues = [west, west, east, east, independent, independent, civilian];
 _side               = _sideValues select (_sideKeys find toLower(_side));
 
-_workersBoss            = missionNamespace getVariable _workersBoss;
+_foreman            = missionNamespace getVariable _foreman;
 _helicopterLandingZone  = missionNamespace getVariable _helicopterLandingZone;
 _helicopterOrigin       = missionNamespace getVariable _helicopterOrigin;
 
@@ -89,7 +89,7 @@ _store setVariable ["SCAR_UCM_piecesFromMaterial", _piecesFromMaterial, true];
 _store setVariable ["SCAR_UCM_workingDistance", _workingDistance, true];
 _store setVariable ["SCAR_UCM_pieceStartHeight", _pieceStartHeight, true];
 _store setVariable ["SCAR_UCM_materialEndHeight", _materialEndHeight, true];
-_store setVariable ["SCAR_UCM_workersBoss", _workersBoss, true];
+_store setVariable ["SCAR_UCM_foreman", _foreman, true];
 _store setVariable ["SCAR_UCM_helicopterLandingZone", _helicopterLandingZone, true];
 _store setVariable ["SCAR_UCM_helicopterOrigin", _helicopterOrigin, true];
 _store setVariable ["SCAR_UCM_helicopterClass", _helicopterClass, true];

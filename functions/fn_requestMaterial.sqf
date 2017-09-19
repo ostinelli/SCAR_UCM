@@ -36,7 +36,7 @@ _store setVariable ["SCAR_UCM_requestMaterialOngoing", true, true];
 // vars
 private _helicopterClass  = _store getVariable "SCAR_UCM_helicopterClass";
 private _helicopterOrigin = _store getVariable "SCAR_UCM_helicopterOrigin";
-private _workersBoss      = _store getVariable "SCAR_UCM_workersBoss";
+private _foreman          = _store getVariable "SCAR_UCM_foreman";
 private _heliPad          = _store getVariable "SCAR_UCM_heliPad";
 
 // create helicopter with crew

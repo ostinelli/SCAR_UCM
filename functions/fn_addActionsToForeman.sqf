@@ -2,7 +2,7 @@
     Author: _SCAR
 
     Description:
-    Adds the actions to the boss.
+    Adds the actions to the foreman.
 
     Parameter(s):
     0: OBJECT - The store.
@@ -11,7 +11,7 @@
     0: true
 
     Example:
-    [_store] call SCAR_UCM_fnc_addActionsToBoss;
+    [_store] call SCAR_UCM_fnc_addActionsToForeman;
 */
 
 if !(hasInterface) exitWith {};
@@ -19,7 +19,7 @@ if !(hasInterface) exitWith {};
 params ["_store"];
 
 // vars
-_workersBoss = _store getVariable "SCAR_UCM_workersBoss";
+_foreman = _store getVariable "SCAR_UCM_foreman";
 
 // workers
 _action = [
@@ -36,7 +36,7 @@ _action = [
     {},
     _store
 ] call ace_interact_menu_fnc_createAction;
-[_workersBoss,	0, ["ACE_MainActions"],	_action] call ace_interact_menu_fnc_addActionToObject;
+[_foreman,	0, ["ACE_MainActions"],	_action] call ace_interact_menu_fnc_addActionToObject;
 
 // materials
 _action = [
@@ -53,10 +53,10 @@ _action = [
     {},
     _store
 ] call ace_interact_menu_fnc_createAction;
-[_workersBoss,	0, ["ACE_MainActions"],	_action] call ace_interact_menu_fnc_addActionToObject;
+[_foreman,	0, ["ACE_MainActions"],	_action] call ace_interact_menu_fnc_addActionToObject;
 
 // status
-[_store, _workersBoss] call SCAR_UCM_fnc_addActionRequestStatus;
+[_store, _foreman] call SCAR_UCM_fnc_addActionRequestStatus;
 
 // return
 true

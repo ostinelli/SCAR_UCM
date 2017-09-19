@@ -19,8 +19,8 @@ if !(isServer) exitWith {};
 // params
 params ["_store"];
 
-// init boss
-[_store] call SCAR_UCM_fnc_initBoss;
+// init foreman
+[_store] call SCAR_UCM_fnc_initForeman;
 
 // add listener
 [] call SCAR_UCM_fnc_onUnloadedCargoPos;

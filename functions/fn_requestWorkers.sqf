@@ -24,7 +24,7 @@ private _workers          = _store getVariable "SCAR_UCM_workers";
 private _workersCount     = _store getVariable "SCAR_UCM_workersCount";
 private _helicopterClass  = _store getVariable "SCAR_UCM_helicopterClass";
 private _helicopterOrigin = _store getVariable "SCAR_UCM_helicopterOrigin";
-private _workersBoss      = _store getVariable "SCAR_UCM_workersBoss";
+private _foreman          = _store getVariable "SCAR_UCM_foreman";
 private _heliPad          = _store getVariable "SCAR_UCM_heliPad";
 private _side             = _store getVariable "SCAR_UCM_side";
 
@@ -78,7 +78,7 @@ private _wpUnload = _group addWaypoint [_destinationPos, 0];
 _wpUnload setWaypointType "TR UNLOAD";
 
 // --> cargo: get out
-_destinationPos = getPos _workersBoss;
+_destinationPos = getPos _foreman;
 {
     _wp = (group _x) addWaypoint [_destinationPos, 0];
     _wp setWaypointType "GETOUT";
@@ -90,7 +90,7 @@ _wpLeave setWaypointType "MOVE";
 _wpLeave setWaypointStatements ["true", "deleteVehicle (vehicle this); { deleteVehicle _x } forEach thisList;"];
 
 // --> cargo: move
-_destinationPos = getPos _workersBoss;
+_destinationPos = getPos _foreman;
 {
     _wp = (group _x) addWaypoint [_destinationPos, 10];
     _wp setWaypointType "MOVE";

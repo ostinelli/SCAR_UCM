@@ -22,7 +22,7 @@ params ["_store"];
 // waitUntil { SCAR_UCM_initialized }; TODO REMOVE
 
 // init actions
-[_store] call SCAR_UCM_fnc_addActionsToBoss;
+[_store] call SCAR_UCM_fnc_addActionsToForeman;
 
 // return
 true

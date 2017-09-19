@@ -65,11 +65,11 @@
             <English>The ending Z position of a material on the ground (it will start with Z = 0 at the beginning)</English>
             <Italian>La posizione Z alla fine di un materiale per terra (comincerà a Z = 0 all'inizio)</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkersBoss_displayName">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_Foreman_displayName">
             <English>The foreman</English>
             <Italian>Il capocantiere</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkersBoss_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_Foreman_description">
             <English>The foreman's variable name</English>
             <Italian>Il nome della variabile del capocantiere</Italian>
         </Key>

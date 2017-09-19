@@ -12,7 +12,7 @@ class CfgFunctions {
             // inits
             class initServer {};
             class initPlayer {};
-            class initBoss {};
+            class initForeman {};
             class initSettings {};
 
             // events
@@ -23,7 +23,7 @@ class CfgFunctions {
             class loopConstructionProgress {};
 
             // actions
-            class addActionsToBoss {};
+            class addActionsToForeman {};
             class addActionsToWorker {};
             class addActionRequestStatus {};
             class addActionWorkerGetIn {};

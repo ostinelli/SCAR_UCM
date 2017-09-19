@@ -27,7 +27,7 @@ if (_activated) then {
 	private _workingDistance        = _logic getVariable "WorkingDistance";
 	private _pieceStartHeight       = _logic getVariable "PieceStartHeight";
 	private _materialEndHeight      = _logic getVariable "MaterialEndHeight";
-	private _workersBoss            = _logic getVariable "WorkersBoss";
+	private _foreman                = _logic getVariable "Foreman";
 	private _helicopterLandingZone  = _logic getVariable "HelicopterLandingZone";
 	private _helicopterOrigin       = _logic getVariable "HelicopterOrigin";
 	private _helicopterClass        = _logic getVariable "HelicopterClass";
@@ -47,7 +47,7 @@ if (_activated) then {
 			_workingDistance,
 			_pieceStartHeight,
 			_materialEndHeight,
-			_workersBoss,
+			_foreman,
 			_helicopterLandingZone,
 			_helicopterOrigin,
 			_helicopterClass,

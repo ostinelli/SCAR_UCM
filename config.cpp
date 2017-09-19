@@ -94,7 +94,7 @@ class CfgVehicles
             };
             class PiecesFromMaterial: Edit
             {
-                property     = "SCAR_UCM_piecesFromMaterial";
+                property     = "SCAR_UCM_PiecesFromMaterial";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_displayName;
                 description  = $STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_description;
                 typeName     = "NUMBER";
@@ -102,7 +102,7 @@ class CfgVehicles
             };
             class PieceStartHeight: Edit
             {
-                property     = "SCAR_UCM_pieceStartHeight";
+                property     = "SCAR_UCM_PieceStartHeight";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_displayName;
                 description  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_description;
                 typeName     = "NUMBER";
@@ -119,7 +119,7 @@ class CfgVehicles
             };
             class MaterialEndHeight: Edit
             {
-                property     = "SCAR_UCM_materialEndHeight";
+                property     = "SCAR_UCM_MaterialEndHeight";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_displayName;
                 description  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_description;
                 typeName     = "NUMBER";
@@ -142,13 +142,13 @@ class CfgVehicles
                 typeName     = "NUMBER";
                 defaultValue = "75";
             };
-            class WorkersBoss: Edit
+            class Foreman: Edit
             {
-                property     = "SCAR_UCM_WorkersBoss";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersBoss_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersBoss_description;
+                property     = "SCAR_UCM_Foreman";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_Foreman_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_Foreman_description;
                 typeName     = "STRING";
-                defaultValue = """SCAR_UCM_worker_boss""";
+                defaultValue = """SCAR_UCM_foreman""";
             };
 
             class HelicopterClass: Edit

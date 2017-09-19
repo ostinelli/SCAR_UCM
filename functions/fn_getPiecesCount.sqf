@@ -17,7 +17,7 @@
 params ["_store"];
 
 // vars
-private _pieceNamePrefix = "scar_";
+private _pieceNamePrefix = _store getVariable "SCAR_UCM_pieceNamePrefix";
 
 // init
 private _prefixLength = count _pieceNamePrefix;

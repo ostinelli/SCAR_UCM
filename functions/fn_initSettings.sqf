@@ -59,9 +59,9 @@ params [
 	"_workingDistance",
 	"_pieceStartHeight",
 	"_materialEndHeight",
-	"_foreman",
-	"_helicopterLandingZone",
-	"_helicopterOrigin",
+	"_foremanVarname",
+	"_helicopterLandingZoneVarname",
+	"_helicopterOriginVarname",
 	"_helicopterClass",
 	"_materialsClass",
 	"_materialsWeight"
@@ -71,14 +71,27 @@ diag_log format["SCAR_UCG: Initializing settings on store %1", _store];
 
 // ====================================================== \/ MODULE VARS ===================================================
 
-// interpret
+// interpret & checks
+
+// side
 private _sideKeys   = ["west", "blufor", "east", "opfor", "independent", "resistance", "civilian"];
 private _sideValues = [west, west, east, east, independent, independent, civilian];
-_side               = _sideValues select (_sideKeys find toLower(_side));
 
-_foreman            = missionNamespace getVariable _foreman;
-_helicopterLandingZone  = missionNamespace getVariable _helicopterLandingZone;
-_helicopterOrigin       = missionNamespace getVariable _helicopterOrigin;
+_side = toLower(_side);
+if !(_side in _sideKeys) then { throw format ["SCAR_UCG: specified side '%1' is invalid", _side]; };
+_side = _sideValues select (_sideKeys find toLower(_side));
+
+// objects
+_foreman = missionNamespace getVariable _foremanVarname;
+if (isNil "_foreman") then { throw format ["SCAR_UCG: can't find the foreman object with specified name '%1'", _foremanVarname]; };
+
+_helicopterLandingZone = missionNamespace getVariable _helicopterLandingZoneVarname;
+if (isNil "_helicopterLandingZone") then {
+    throw format ["SCAR_UCG: can't find the helicopter Landing Zone object with specified name '%1'", _helicopterLandingZoneVarname];
+};
+
+_helicopterOrigin = missionNamespace getVariable _helicopterOriginVarname;
+if (isNil "_helicopterOrigin") then { throw format ["SCAR_UCG: can't find the helicopter area origin object with specified name '%1'", _helicopterOriginVarname]; };
 
 // store params in object
 _store setVariable ["SCAR_UCM_side", _side, true];
@@ -95,8 +108,6 @@ _store setVariable ["SCAR_UCM_helicopterOrigin", _helicopterOrigin, true];
 _store setVariable ["SCAR_UCM_helicopterClass", _helicopterClass, true];
 _store setVariable ["SCAR_UCM_materialsClass", _materialsClass, true];
 _store setVariable ["SCAR_UCM_materialsWeight", _materialsWeight, true];
-
-// TODO: input error handling
 
 // ====================================================== /\ MODULE VARS ===================================================
 
@@ -142,7 +153,6 @@ _store setVariable ["SCAR_UCM_initialized", false, true];
 // ====================================================== /\ OTHER VARS ====================================================
 
 // ====================================================== \/ PROGRESS VARS =================================================
-
 
 [_store, "SCAR_UCM_pieceCurrentId", 0] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
 [_store, "SCAR_UCM_pieceCurrentPercentage", 0.0] call SCAR_UCM_fnc_setGlobalVariableIfUnset;

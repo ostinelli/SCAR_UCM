@@ -5,7 +5,7 @@
             <English>Side</English>
             <Italian>Fazione</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_Side_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_Side_tooltip">
             <English>The side of the construction workers (can be 'blufor', 'opfor', 'independent', 'civilian')</English>
             <Italian>La fazione dei lavoratori (può essere 'blufor', 'opfor', 'independent', 'civilian')</Italian>
         </Key>
@@ -13,15 +13,15 @@
             <English>Workers Count</English>
             <Italian>Numero di lavoratori</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkersCount_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkersCount_tooltip">
             <English>The maximum number of construction workers</English>
             <Italian>Il numero massimo di lavoratori in cantiere</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_displayName">
-            <English>Man-Seconds required to complete a piece</English>
-            <Italian>Secondi-Uomo richiesti per completare un pezzo</Italian>
+            <English>Man-Seconds per piece</English>
+            <Italian>Secondi-Uomo per pezzo</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_tooltip">
             <English>The number of man-seconds needed to complete a single piece</English>
             <Italian>Il numero di secondi-uomo richiesti per completare un pezzo</Italian>
         </Key>
@@ -29,7 +29,7 @@
             <English>Pieces' name prefix</English>
             <Italian>Prefisso del nome dei pezzi</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_tooltip">
             <English>The prefix to be used in piece variable names</English>
             <Italian>Il prefisso da usare nel nome delle variabili dei pezzi</Italian>
         </Key>
@@ -37,7 +37,7 @@
             <English>Pieces from material</English>
             <Italian>Pezzi da un materiale</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_tooltip">
             <English>The number of pieces that can be built with a single material</English>
             <Italian>Il numero di pezzi che possono essere completati con un singolo materiale</Italian>
         </Key>
@@ -45,7 +45,7 @@
             <English>Working distance (m)</English>
             <Italian>Distanza di lavoro (m)</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_tooltip">
             <English>The distance (in meters) of workers and materials from the current piece for the construction to be active</English>
             <Italian>La distanza (in metri) dei lavoratori e del materiale dal pezzo corrente affinché il cantiere sia in corso</Italian>
         </Key>
@@ -53,7 +53,7 @@
             <English>Piece starting position (Z)</English>
             <Italian>Posizione di partenza del pezzo (Z)</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_tooltip">
             <English>The starting Z position of a piece on the ground (it will raise to be Z = 0 at the end)</English>
             <Italian>La posizione Z di partenza di un pezzo per terra (salirà per diventare Z = 0 alla fine)</Italian>
         </Key>
@@ -61,7 +61,7 @@
             <English>Material end position (Z)</English>
             <Italian>Posizione alla fine del materiale (Z)</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_tooltip">
             <English>The ending Z position of a material on the ground (it will start with Z = 0 at the beginning)</English>
             <Italian>La posizione Z alla fine di un materiale per terra (comincerà a Z = 0 all'inizio)</Italian>
         </Key>
@@ -69,7 +69,7 @@
             <English>The foreman</English>
             <Italian>Il capocantiere</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_Foreman_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_Foreman_tooltip">
             <English>The foreman's variable name</English>
             <Italian>Il nome della variabile del capocantiere</Italian>
         </Key>
@@ -77,7 +77,7 @@
             <English>The landing zone</English>
             <Italian>La zona d'atterraggio</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_HelicopterLandingZone_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_HelicopterLandingZone_tooltip">
             <English>The landing zone's variable name</English>
             <Italian>Il nome della variabile della zona d'atterraggio</Italian>
         </Key>
@@ -85,7 +85,7 @@
             <English>The helicopters' origin</English>
             <Italian>L'origine degli elicotteri</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_tooltip">
             <English>The helicopters' origin (area object variable name)</English>
             <Italian>Il nome della variabile dell'oggetto area (riferimento della zona d'atterraggio)</Italian>
         </Key>
@@ -93,7 +93,7 @@
             <English>The helicopters' class</English>
             <Italian>La classe degli elicotteri</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_tooltip">
             <English>The helicopters' class name</English>
             <Italian>Il nome della classe degli elicotteri</Italian>
         </Key>
@@ -101,7 +101,7 @@
             <English>The materials' class</English>
             <Italian>La classe dei materiali</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_tooltip">
             <English>The materials' class name</English>
             <Italian>Il nome della classe dei materiali</Italian>
         </Key>
@@ -109,7 +109,7 @@
             <English>The materials' weight</English>
             <Italian>Il peso dei materiali</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_description">
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_tooltip">
             <English>The materials' weight (as defined by ACE cargo)</English>
             <Italian>Il peso dei materiali (come definito da ACE cargo)</Italian>
         </Key>

@@ -10,7 +10,7 @@ class CfgPatches
         requiredAddons[] = {
             "A3_Modules_F",
             "ace_cargo",
-            "ace_interactions",
+            "ace_interaction",
             "ace_interact_menu"
         };
         fileName = "scar_ucm.pbo";
@@ -63,16 +63,16 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_Side";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_Side_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_Side_description;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_Side_tooltip;
                 typeName     = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
                 defaultValue = """BLUFOR"""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             };
             class WorkersCount: Edit
             {
                 property     = "SCAR_UCM_WorkersCount";
-                displayName  = "Workers Count";
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersCount_displayName
-                typeName     = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersCount_description;
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersCount_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersCount_tooltip;
+                typeName     = "NUMBER";
                 defaultValue = "3";
             };
 
@@ -80,7 +80,7 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_PieceNamePrefix";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_description;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_tooltip;
                 typeName     = "STRING";
                 defaultValue = """SCAR_UCM_""";
             };
@@ -88,7 +88,7 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_PieceWorkingManSeconds";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_description;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "1800";
             };
@@ -96,7 +96,7 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_PiecesFromMaterial";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_description;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "3";
             };
@@ -104,7 +104,7 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_PieceStartHeight";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_description;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "-0.6";
             };
@@ -113,7 +113,7 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_MaterialsClass";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_description;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_tooltip;
                 typeName     = "STRING";
                 defaultValue = """Land_IronPipes_F""";
             };
@@ -121,7 +121,7 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_MaterialEndHeight";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_description;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "-1.4";
             };
@@ -129,7 +129,7 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_MaterialsWeight";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_description;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "20";
             };
@@ -138,7 +138,7 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_WorkingDistance";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_description;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "75";
             };
@@ -146,7 +146,7 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_Foreman";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_Foreman_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_Foreman_description;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_Foreman_tooltip;
                 typeName     = "STRING";
                 defaultValue = """SCAR_UCM_foreman""";
             };
@@ -155,7 +155,7 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_HelicopterClass";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_description;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_tooltip;
                 typeName     = "STRING";
                 defaultValue = """B_Heli_Transport_03_unarmed_F""";
             };
@@ -163,7 +163,7 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_HelicopterLandingZone";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterLandingZone_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterLandingZone_description;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterLandingZone_tooltip;
                 typeName     = "STRING";
                 defaultValue = """SCAR_UCM_helicopter_landing_zone""";
             };
@@ -171,7 +171,7 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_HelicopterOrigin";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_description;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_tooltip;
                 typeName     = "STRING";
                 defaultValue = """SCAR_UCM_helicopter_origin""";
             };
@@ -179,7 +179,7 @@ class CfgVehicles
 
         class ModuleDescription: ModuleDescription
         {
-            description = "Utilities Construction Mod";
+            tooltip = "Utilities Construction Mod";
             sync[] = {};
         };
     };

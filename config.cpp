@@ -9,8 +9,9 @@ class CfgPatches
         requiredVersion = 1.0;
         requiredAddons[] = {
             "A3_Modules_F",
-            "ace_interact_menu",
-            "ace_cargo"
+            "ace_cargo",
+            "ace_interactions",
+            "ace_interact_menu"
         };
         fileName = "scar_ucm.pbo";
     };

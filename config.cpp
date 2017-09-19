@@ -75,14 +75,7 @@ class CfgVehicles
                 typeName     = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersCount_description;
                 defaultValue = "3";
             };
-            class PieceWorkingManSeconds: Edit
-            {
-                property     = "SCAR_UCM_PieceWorkingManSeconds";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_description;
-                typeName     = "NUMBER";
-                defaultValue = "300";
-            };
+
             class PieceNamePrefix: Edit
             {
                 property     = "SCAR_UCM_PieceNamePrefix";
@@ -90,6 +83,14 @@ class CfgVehicles
                 description  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_description;
                 typeName     = "STRING";
                 defaultValue = """SCAR_UCM_""";
+            };
+            class PieceWorkingManSeconds: Edit
+            {
+                property     = "SCAR_UCM_PieceWorkingManSeconds";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_description;
+                typeName     = "NUMBER";
+                defaultValue = "300";
             };
             class PiecesFromMaterial: Edit
             {
@@ -99,14 +100,6 @@ class CfgVehicles
                 typeName     = "NUMBER";
                 defaultValue = "3";
             };
-            class WorkingDistance: Edit
-            {
-                property     = "SCAR_UCM_WorkingDistance";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_description;
-                typeName     = "NUMBER";
-                defaultValue = "75";
-            };
             class PieceStartHeight: Edit
             {
                 property     = "SCAR_UCM_pieceStartHeight";
@@ -114,6 +107,15 @@ class CfgVehicles
                 description  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_description;
                 typeName     = "NUMBER";
                 defaultValue = "-0.6";
+            };
+
+            class MaterialsClass: Edit
+            {
+                property     = "SCAR_UCM_MaterialsClass";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_description;
+                typeName     = "STRING";
+                defaultValue = """Land_IronPipes_F""";
             };
             class MaterialEndHeight: Edit
             {
@@ -123,6 +125,23 @@ class CfgVehicles
                 typeName     = "NUMBER";
                 defaultValue = "-1.4";
             };
+            class MaterialsWeight: Edit
+            {
+                property     = "SCAR_UCM_MaterialsWeight";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_description;
+                typeName     = "NUMBER";
+                defaultValue = "20";
+            };
+
+            class WorkingDistance: Edit
+            {
+                property     = "SCAR_UCM_WorkingDistance";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_description;
+                typeName     = "NUMBER";
+                defaultValue = "75";
+            };
             class WorkersBoss: Edit
             {
                 property     = "SCAR_UCM_WorkersBoss";
@@ -130,6 +149,15 @@ class CfgVehicles
                 description  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersBoss_description;
                 typeName     = "STRING";
                 defaultValue = """SCAR_UCM_worker_boss""";
+            };
+
+            class HelicopterClass: Edit
+            {
+                property     = "SCAR_UCM_HelicopterClass";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_description;
+                typeName     = "STRING";
+                defaultValue = """B_Heli_Transport_03_unarmed_F""";
             };
             class HelicopterLandingZone: Edit
             {
@@ -146,30 +174,6 @@ class CfgVehicles
                 description  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_description;
                 typeName     = "STRING";
                 defaultValue = """SCAR_UCM_helicopter_origin""";
-            };
-            class HelicopterClass: Edit
-            {
-                property     = "SCAR_UCM_HelicopterClass";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_description;
-                typeName     = "STRING";
-                defaultValue = """B_Heli_Transport_03_unarmed_F""";
-            };
-            class MaterialsClass: Edit
-            {
-                property     = "SCAR_UCM_MaterialsClass";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_description;
-                typeName     = "STRING";
-                defaultValue = """Land_IronPipes_F""";
-            };
-            class MaterialsWeight: Edit
-            {
-                property     = "SCAR_UCM_MaterialsWeight";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_displayName;
-                description  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_description;
-                typeName     = "NUMBER";
-                defaultValue = "20";
             };
         };
 

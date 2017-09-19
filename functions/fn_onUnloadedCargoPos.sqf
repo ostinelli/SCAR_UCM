@@ -23,11 +23,13 @@ params ["_store"];
 
     params ["_item", "_vehicle"];
 
+    private _store = _thisArgs;
+
     if ((typeOf _item) == (_store getVariable "SCAR_UCM_materialsClass")) then {
         // reposition vehicle
         _item setVehiclePosition [getPos _vehicle, [], 0, "NONE"];
     };
-}] call CBA_fnc_addEventHandler;
+}, _store] call CBA_fnc_addEventHandlerArgs;
 
 // return
 true

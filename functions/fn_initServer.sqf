@@ -23,7 +23,7 @@ params ["_store"];
 [_store] call SCAR_UCM_fnc_initForeman;
 
 // add listener
-[] call SCAR_UCM_fnc_onUnloadedCargoPos;
+[_store] call SCAR_UCM_fnc_onUnloadedCargoPos;
 
 // handle construction work
 [_store] call SCAR_UCM_fnc_loopConstructionProgress;

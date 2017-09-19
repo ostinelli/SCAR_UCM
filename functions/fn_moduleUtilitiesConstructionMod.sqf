@@ -19,20 +19,20 @@ if (_activated) then {
     diag_log format ["SCAR_UCG: Utilities Construction Mod got activated for store %1", _logic];
 
 	// get vars
-	private _side                   = _logic getVariable "Side";
-	private _workersCount           = _logic getVariable "WorkersCount";
-	private _pieceWorkingManSeconds = _logic getVariable "PieceWorkingManSeconds";
-	private _pieceNamePrefix        = _logic getVariable "PieceNamePrefix";
-	private _piecesFromMaterial     = _logic getVariable "PiecesFromMaterial";
-	private _workingDistance        = _logic getVariable "WorkingDistance";
-	private _pieceStartHeight       = _logic getVariable "PieceStartHeight";
-	private _materialEndHeight      = _logic getVariable "MaterialEndHeight";
-	private _foreman                = _logic getVariable "Foreman";
-	private _helicopterLandingZone  = _logic getVariable "HelicopterLandingZone";
-	private _helicopterOrigin       = _logic getVariable "HelicopterOrigin";
-	private _helicopterClass        = _logic getVariable "HelicopterClass";
-	private _materialsClass         = _logic getVariable "MaterialsClass";
-	private _materialsWeight        = _logic getVariable "MaterialsWeight";
+	private _side                   = _logic getVariable ["Side", "BLUFOR"];
+	private _workersCount           = _logic getVariable ["WorkersCount", 3];
+	private _pieceWorkingManSeconds = _logic getVariable ["PieceWorkingManSeconds", 1800];
+	private _pieceNamePrefix        = _logic getVariable ["PieceNamePrefix", "SCAR_UCM_"];
+	private _piecesFromMaterial     = _logic getVariable ["PiecesFromMaterial", 3];
+	private _workingDistance        = _logic getVariable ["WorkingDistance", 75];
+	private _pieceStartHeight       = _logic getVariable ["PieceStartHeight", -0.6];
+	private _materialEndHeight      = _logic getVariable ["MaterialEndHeight", 1.4];
+	private _foreman                = _logic getVariable ["Foreman", "SCAR_UCM_foreman"];
+	private _helicopterLandingZone  = _logic getVariable ["HelicopterLandingZone", "SCAR_UCM_helicopter_landing_zone"];
+	private _helicopterOrigin       = _logic getVariable ["HelicopterOrigin", "SCAR_UCM_helicopter_origin"];
+	private _helicopterClass        = _logic getVariable ["HelicopterClass", "B_Heli_Transport_03_unarmed_F"];
+	private _materialsClass         = _logic getVariable ["MaterialsClass", "Land_IronPipes_F"];
+	private _materialsWeight        = _logic getVariable ["MaterialsWeight", 15];
 
 	// init
 	if (isServer) then {

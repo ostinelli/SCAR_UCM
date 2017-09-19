@@ -88,7 +88,7 @@ class CfgVehicles
                 displayName  = "Pieces' name prefix";
                 description  = "The prefix to be used in piece variables";
                 typeName     = "STRING";
-                defaultValue = """UCM_""";
+                defaultValue = """SCAR_UCM_""";
             };
             class PiecesFromMaterial: Edit
             {
@@ -128,7 +128,7 @@ class CfgVehicles
                 displayName  = "The workers' boss";
                 description  = "The workers' boss (variable name)";
                 typeName     = "STRING";
-                defaultValue = """UCM_worker_boss""";
+                defaultValue = """SCAR_UCM_worker_boss""";
             };
             class HelicopterLandingZone: Edit
             {
@@ -136,7 +136,7 @@ class CfgVehicles
                 displayName  = "The landing zone";
                 description  = "The landing zone (area object variable name)";
                 typeName     = "STRING";
-                defaultValue = """UCM_helicopter_landing_zone""";
+                defaultValue = """SCAR_UCM_helicopter_landing_zone""";
             };
             class HelicopterOrigin: Edit
             {
@@ -144,7 +144,7 @@ class CfgVehicles
                 displayName  = "The helicopters' origin";
                 description  = "The helicopters' origin (area object variable name)";
                 typeName     = "STRING";
-                defaultValue = """UCM_helicopter_origin""";
+                defaultValue = """SCAR_UCM_helicopter_origin""";
             };
             class HelicopterClass: Edit
             {

@@ -34,7 +34,7 @@ private _uniform = selectRandom [
     "U_C_ConstructionCoverall_Vrana_F"
 ];
 
-private _vest     = [
+private _vest = selectRandom [
     "V_Safety_yellow_F",
     "V_Safety_orange_F",
     "V_Safety_blue_F"

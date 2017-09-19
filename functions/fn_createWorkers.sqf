@@ -54,7 +54,7 @@ for "_i" from 1 to _workersCount do {
         // worker is dead, remove from array
         _store setVariable ["SCAR_UCM_workers", ( (_store getVariable "SCAR_UCM_workers") - [_worker] ), true];
         // fire event
-        ["SCAR_UCM_WorkerKilled", [_store, _worker]] call CBA_fnc_serverEvent;
+        ["UCM_WorkerKilled", [_store, _worker]] call CBA_fnc_serverEvent;
     };
 
     // add kill event for everyone

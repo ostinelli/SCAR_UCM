@@ -66,7 +66,7 @@ private _destinationPos = getPos _heliPad;
 _destinationPos = [_destinationPos select 0, _destinationPos select 1, 0];
 
 // event
-["SCAR_UCM_RequestedWorkers", [_store]] call CBA_fnc_serverEvent;
+["UCM_RequestedWorkers", [_store]] call CBA_fnc_serverEvent;
 
 // radio
 [[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_RequestedWorkers")] remoteExec ["sideChat"];

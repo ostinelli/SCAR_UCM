@@ -56,7 +56,7 @@ private _group   = _result select 2;
 [_vehicle, _crew] call SCAR_UCM_fnc_safetyDeleteVehicleAndCrew;
 
 // event
-["SCAR_UCM_RequestedMaterials", [_store]] call CBA_fnc_serverEvent;
+["UCM_RequestedMaterials", [_store]] call CBA_fnc_serverEvent;
 
 // radio
 [[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_RequestedMaterials")] remoteExec ["sideChat"];

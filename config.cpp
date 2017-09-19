@@ -82,7 +82,7 @@ class CfgVehicles
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_displayName;
                 tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_tooltip;
                 typeName     = "STRING";
-                defaultValue = """SCAR_UCM_""";
+                defaultValue = """UCM_""";
             };
             class PieceWorkingManSeconds: Edit
             {
@@ -148,7 +148,7 @@ class CfgVehicles
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_Foreman_displayName;
                 tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_Foreman_tooltip;
                 typeName     = "STRING";
-                defaultValue = """SCAR_UCM_foreman""";
+                defaultValue = """UCM_foreman""";
             };
 
             class HelicopterClass: Edit
@@ -165,7 +165,7 @@ class CfgVehicles
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterLandingZone_displayName;
                 tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterLandingZone_tooltip;
                 typeName     = "STRING";
-                defaultValue = """SCAR_UCM_helicopter_landing_zone""";
+                defaultValue = """UCM_helicopter_landing_zone""";
             };
             class HelicopterOrigin: Edit
             {
@@ -173,7 +173,7 @@ class CfgVehicles
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_displayName;
                 tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_tooltip;
                 typeName     = "STRING";
-                defaultValue = """SCAR_UCM_helicopter_origin""";
+                defaultValue = """UCM_helicopter_origin""";
             };
         };
 

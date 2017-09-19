@@ -62,8 +62,8 @@ class CfgVehicles
             class Side: Edit
             {
                 property     = "SCAR_UCM_Side";
-                displayName  = "Side";
-                description  = "The side of the construction workers (can be 'blufor', 'opfor', 'independent', 'civilian')";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_Side_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_Side_description;
                 typeName     = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
                 defaultValue = """BLUFOR"""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             };
@@ -71,103 +71,103 @@ class CfgVehicles
             {
                 property     = "SCAR_UCM_WorkersCount";
                 displayName  = "Workers Count";
-                description  = "The number of construction workers";
-                typeName     = "NUMBER";
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersCount_displayName
+                typeName     = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersCount_description;
                 defaultValue = "3";
             };
             class PieceWorkingManSeconds: Edit
             {
                 property     = "SCAR_UCM_PieceWorkingManSeconds";
-                displayName  = "Man Seconds per piece";
-                description  = "The number of man seconds needed to complete a single piece";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_description;
                 typeName     = "NUMBER";
                 defaultValue = "300";
             };
             class PieceNamePrefix: Edit
             {
                 property     = "SCAR_UCM_PieceNamePrefix";
-                displayName  = "Pieces' name prefix";
-                description  = "The prefix to be used in piece variables";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_description;
                 typeName     = "STRING";
                 defaultValue = """SCAR_UCM_""";
             };
             class PiecesFromMaterial: Edit
             {
                 property     = "SCAR_UCM_piecesFromMaterial";
-                displayName  = "Pieces from material";
-                description  = "The total number of pieces that can be built with a single material";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_description;
                 typeName     = "NUMBER";
                 defaultValue = "3";
             };
             class WorkingDistance: Edit
             {
                 property     = "SCAR_UCM_WorkingDistance";
-                displayName  = "Working Distance (m)";
-                description  = "The distance of workers and materials from the current piece for the construction to be active";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_description;
                 typeName     = "NUMBER";
                 defaultValue = "75";
             };
-            class PieceStartNegativeHeight: Edit
+            class PieceStartHeight: Edit
             {
                 property     = "SCAR_UCM_pieceStartHeight";
-                displayName  = "Piece starting position (Z)";
-                description  = "The starting Z position of a piece in the ground, at the end it will raise to be Z = 0";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_description;
                 typeName     = "NUMBER";
                 defaultValue = "-0.6";
             };
-            class MaterialEndNegativeHeight: Edit
+            class MaterialEndHeight: Edit
             {
                 property     = "SCAR_UCM_materialEndHeight";
-                displayName  = "Material end position (Z)";
-                description  = "The ending Z position of a material on the ground, at the start it is Z = 0";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_description;
                 typeName     = "NUMBER";
                 defaultValue = "-1.4";
             };
             class WorkersBoss: Edit
             {
                 property     = "SCAR_UCM_WorkersBoss";
-                displayName  = "The workers' boss";
-                description  = "The workers' boss (variable name)";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersBoss_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersBoss_description;
                 typeName     = "STRING";
                 defaultValue = """SCAR_UCM_worker_boss""";
             };
             class HelicopterLandingZone: Edit
             {
                 property     = "SCAR_UCM_HelicopterLandingZone";
-                displayName  = "The landing zone";
-                description  = "The landing zone (area object variable name)";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterLandingZone_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterLandingZone_description;
                 typeName     = "STRING";
                 defaultValue = """SCAR_UCM_helicopter_landing_zone""";
             };
             class HelicopterOrigin: Edit
             {
                 property     = "SCAR_UCM_HelicopterOrigin";
-                displayName  = "The helicopters' origin";
-                description  = "The helicopters' origin (area object variable name)";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_description;
                 typeName     = "STRING";
                 defaultValue = """SCAR_UCM_helicopter_origin""";
             };
             class HelicopterClass: Edit
             {
                 property     = "SCAR_UCM_HelicopterClass";
-                displayName  = "The helicopters' class";
-                description  = "The helicopters' class name";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_description;
                 typeName     = "STRING";
                 defaultValue = """B_Heli_Transport_03_unarmed_F""";
             };
             class MaterialsClass: Edit
             {
                 property     = "SCAR_UCM_MaterialsClass";
-                displayName  = "The materials' class";
-                description  = "The materials' class name";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_description;
                 typeName     = "STRING";
                 defaultValue = """Land_IronPipes_F""";
             };
             class MaterialsWeight: Edit
             {
                 property     = "SCAR_UCM_MaterialsWeight";
-                displayName  = "The materials' weight";
-                description  = "The weight of a single material unit";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_displayName;
+                description  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_description;
                 typeName     = "NUMBER";
                 defaultValue = "20";
             };

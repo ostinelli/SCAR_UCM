@@ -54,7 +54,7 @@ if (_state == 1) then {
         // create tool next to worker, checking for collisions
         private _toolClass = selectRandom _workerObjects;
         private _tool      = _toolClass createVehicle _pos;
-        _tool setVehiclePosition [getPos _worker, [], 2, "NONE"];
+        _tool setVehiclePosition [ [getPos _worker select 0, getPos _worker select 1, 0], [], 2, "NONE"];
         _worker setVariable ["SCAR_UCM_tool", _tool];
     };
 

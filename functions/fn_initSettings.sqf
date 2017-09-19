@@ -67,7 +67,7 @@ params [
 	"_materialsWeight"
 ];
 
-diag_log format["SCAR_UCG: Initializing settings on store %1", _store];
+diag_log format["UCG: Initializing settings on store %1", _store];
 
 // ====================================================== \/ MODULE VARS ===================================================
 

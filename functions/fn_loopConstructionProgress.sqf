@@ -27,7 +27,7 @@ private _pieceStartHeight = _store getVariable "SCAR_UCM_pieceStartHeight";
 for "_i" from (_store getVariable "SCAR_UCM_pieceCurrentId") to (_piecesCount - 1) do {
     private _pieceName = format["%1%2", _pieceNamePrefix, _i];
 
-    diag_log format ["SCAR_UCG: hiding piece %1", _pieceName];
+    diag_log format ["UCG: hiding piece %1", _pieceName];
 
 	// get piece
 	private _piece = missionNamespace getVariable _pieceName;

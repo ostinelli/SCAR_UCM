@@ -25,7 +25,7 @@ private _prefixLength = count _pieceNamePrefix;
 // check for existance of piece 0
 // we need to do this because parseNumber returns 0 for invalid numbers <https://community.bistudio.com/wiki/parseNumber>
 if ((missionNameSpace getVariable [format["%1%2", _pieceNamePrefix, 0], objNull]) isEqualTo objNull) then {
-	throw "SCAR_UCG: the naming of the pieces does not follow a sequential [0 - n] logic";
+	throw "UCG: the naming of the pieces does not follow a sequential [0 - n] logic";
 };
 
 // loop all other pieces
@@ -53,7 +53,7 @@ for "_i" from 0 to (_total - 1) do {
 
 // check that expected array corresponds to wanted one
 if !( count(_expectedIds - _foundIds) == 0 ) then {
-    throw "SCAR_UCG: the naming of the pieces does not follow a sequential [0 - n] logic";
+    throw "UCG: the naming of the pieces does not follow a sequential [0 - n] logic";
 };
 
 // return

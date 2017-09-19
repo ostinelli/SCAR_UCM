@@ -16,7 +16,7 @@ private _activated = param [2, true, [true]];
 // activate
 if (_activated) then {
 
-    diag_log format ["SCAR_UCG: Utilities Construction Mod got activated for store %1", _logic];
+    diag_log format ["UCG: Utilities Construction Mod got activated for store %1", _logic];
 
 	// get vars
 	private _side                   = _logic getVariable ["Side", "BLUFOR"];

@@ -16,12 +16,10 @@
 	8:  NUMBER - The starting Z position of piece in the ground, end will be Z = 0.
 	9:  NUMBER - The end position of material consumed, start is Z = 0;
 	10: STRING - The variable name of the foreman.
-	11: STRING - The variable name of the helicopter landing zone object.
-	12: STRING - The variable name of the object that defines the helicopters' origin.
-	13: STRING - The helicopters' class.
-	14: STRING - The materials' class.
-	15: NUMBER - The materials' weight.
-	16: STRING - The worker classes, separated by single spaces.
+	11: STRING - The helicopters' class.
+	12: STRING - The materials' class.
+	13: NUMBER - The materials' weight.
+	14: STRING - The worker classes, separated by single spaces.
 
 	Return:
 	0: true
@@ -39,8 +37,6 @@
 		0.6,
 		1.4,
 		"SCAR_UCM_foreman",
-		"SCAR_UCM_heli_landing_zone",
-		"SCAR_UCM_helicopter_origin",
 		"B_Heli_Transport_03_unarmed_F",
 		"Land_IronPipes_F",
 		15,
@@ -63,38 +59,32 @@ params [
 	"_pieceStartHeight",
 	"_materialEndHeight",
 	"_foremanVarname",
-	"_helicopterLandingZoneVarname",
-	"_helicopterOriginVarname",
 	"_helicopterClass",
 	"_materialsClass",
 	"_materialsWeight"
 ];
 
-diag_log format["UCG: Initializing settings on store %1", _store];
-
 // ====================================================== \/ MODULE VARS ===================================================
 
 // interpret & checks
 
-// side
-private _sideKeys   = ["west", "blufor", "east", "opfor", "independent", "resistance", "civilian"];
-private _sideValues = [west, west, east, east, independent, independent, civilian];
+// sync'ed
+private _helicopterLandingZones = [_store, "SCAR_UCM_ModuleUtilitiesConstructionLandingZone"] call BIS_fnc_synchronizedObjects;
+if ((count _helicopterLandingZones) == 0) then { throw format ["UCM: no Landing Zone module has been synchronized to module '%1'", _store]; };
+_helicopterLandingZone = _helicopterLandingZones select 0;
 
-_side = toLower(_side);
-if !(_side in _sideKeys) then { throw format ["UCG: specified side '%1' is invalid", _side]; };
-_side = _sideValues select (_sideKeys find toLower(_side));
+private _helicopterOrigins = [_store, "SCAR_UCM_ModuleUtilitiesConstructionHelicopterOrigin"] call BIS_fnc_synchronizedObjects;
+if ((count _helicopterOrigins) == 0) then { throw format ["UCM: no Helicopter Origin module has been synchronized to module '%1'", _store]; };
+_helicopterOrigin = _helicopterOrigins select 0;
+
+// side
+private _sideKeys   = ["BLUFOR", "OPFOR", "INDEPENDENT", "CIVILIAN"];
+private _sideValues = [blufor, opfor, independent, civilian];
+_side = _sideValues select (_sideKeys find _side);
 
 // objects
 _foreman = missionNamespace getVariable _foremanVarname;
-if (isNil "_foreman") then { throw format ["UCG: can't find the foreman object with specified name '%1'", _foremanVarname]; };
-
-_helicopterLandingZone = missionNamespace getVariable _helicopterLandingZoneVarname;
-if (isNil "_helicopterLandingZone") then {
-    throw format ["UCG: can't find the helicopter Landing Zone object with specified name '%1'", _helicopterLandingZoneVarname];
-};
-
-_helicopterOrigin = missionNamespace getVariable _helicopterOriginVarname;
-if (isNil "_helicopterOrigin") then { throw format ["UCG: can't find the helicopter area origin object with specified name '%1'", _helicopterOriginVarname]; };
+if (isNil "_foreman") then { throw format ["UCM: can't find the foreman object with specified name '%1' for store %2", _foremanVarname, _store]; };
 
 // store params in object
 _store setVariable ["SCAR_UCM_side", _side, true];
@@ -169,3 +159,4 @@ _store setVariable ["SCAR_UCM_initialized", false, true];
 
 // ====================================================== /\ PROGRESS VARS =================================================
 
+diag_log format["UCM: Settings initialized for module %1", _store];

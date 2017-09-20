@@ -4,7 +4,10 @@ class CfgPatches
     {
         name = "Utilities Construction Mod";
         author = "_SCAR";
-        units[] = {"SCAR_ModuleUtilitiesConstructionMod"};
+        units[] = {
+            "SCAR_UCM_ModuleUtilitiesConstructionMod",
+            "SCAR_UCM_ModuleUtilitiesConstructionLandingZone"
+        };
         weapons[] = {};
         requiredVersion = 1.0;
         requiredAddons[] = {
@@ -17,6 +20,15 @@ class CfgPatches
     };
 };
 
+class CfgFactionClasses
+{
+	class NO_CATEGORY;
+	class SCAR_UCM_UtilitiesConstructionMod: NO_CATEGORY
+	{
+		displayName = "Utilities Construction Mod";
+	};
+};
+
 class CfgVehicles
 {
     class Logic;
@@ -25,21 +37,17 @@ class CfgVehicles
         class AttributesBase
         {
             class Edit;
-            class Units;
-        };
-        // Description base classes, for more information see below
-        class ModuleDescription	{
-            class AnyPlayer;
+            class Combo;
         };
     };
 
-    class SCAR_ModuleUtilitiesConstructionMod: Module_F
+    class SCAR_UCM_ModuleUtilitiesConstructionMod: Module_F
     {
         // Standard object definitions
         scope = 2;
-        displayName = "Utilities Construction Mod";
+        displayName = $STR_SCAR_UCM_ModuleUtilitiesConstructionMod;
         icon = "\scar_ucm\gfx\logo.paa";
-        category = "Sites";
+        category = "SCAR_UCM_UtilitiesConstructionMod";
 
         // Name of function triggered once conditions are met
         function = "SCAR_UCM_fnc_moduleUtilitiesConstructionMod";
@@ -55,17 +63,21 @@ class CfgVehicles
         // Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
         class Attributes: AttributesBase
         {
-            // Arguments shared by specific module type (have to be mentioned in order to be present)
-            class Units: Units {};
-
             // Module specific arguments
-            class Side: Edit
+            class Side: Combo
             {
                 property     = "SCAR_UCM_Side";
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_Side_displayName;
                 tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_Side_tooltip;
-                typeName     = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-                defaultValue = """BLUFOR"""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+                typeName     = "STRING";
+                defaultValue = "BLUFOR";
+
+                class Values {
+                    class Blufor      { name = "BLUFOR"; value = "BLUFOR"; };
+                    class Opfor       { name = "OPFOR"; value = "OPFOR"; };
+                    class Independent { name = "INDEPENDENT"; value = "INDEPENDENT"; };
+                    class Civilian    { name = "CIVILIAN"; value = "CIVILIAN"; };
+                };
             };
             class WorkersCount: Edit
             {
@@ -168,29 +180,35 @@ class CfgVehicles
                 typeName     = "STRING";
                 defaultValue = """B_Heli_Transport_03_unarmed_F""";
             };
-            class HelicopterLandingZone: Edit
-            {
-                property     = "SCAR_UCM_HelicopterLandingZone";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterLandingZone_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterLandingZone_tooltip;
-                typeName     = "STRING";
-                defaultValue = """UCM_helicopter_landing_zone""";
-            };
-            class HelicopterOrigin: Edit
-            {
-                property     = "SCAR_UCM_HelicopterOrigin";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_tooltip;
-                typeName     = "STRING";
-                defaultValue = """UCM_helicopter_origin""";
-            };
         };
+    };
 
-        class ModuleDescription: ModuleDescription
-        {
-            tooltip = "Utilities Construction Mod";
-            sync[] = {};
-        };
+    class SCAR_UCM_ModuleUtilitiesConstructionLandingZone: Module_F
+    {
+        // Standard object definitions
+        scope = 2;
+        displayName = $STR_SCAR_UCM_Module_SCAR_UCM_ModuleUtilitiesConstructionLandingZone;
+        icon = "\scar_ucm\gfx\logo.paa";
+        category = "SCAR_UCM_UtilitiesConstructionMod";
+
+        functionPriority   = 10;
+        isGlobal           = 1;
+        isTriggerActivated = 0;
+        isDisposable       = 0;
+    };
+
+    class SCAR_UCM_ModuleUtilitiesConstructionHelicopterOrigin: Module_F
+    {
+        // Standard object definitions
+        scope = 2;
+        displayName = $STR_SCAR_UCM_ModuleUtilitiesConstructionHelicopterOrigin;
+        icon = "\scar_ucm\gfx\logo.paa";
+        category = "SCAR_UCM_UtilitiesConstructionMod";
+
+        functionPriority   = 10;
+        isGlobal           = 1;
+        isTriggerActivated = 0;
+        isDisposable       = 0;
     };
 };
 

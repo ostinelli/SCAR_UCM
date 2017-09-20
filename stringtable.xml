@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="SCAR_UCM">
     <Package name="Module">
+        <Key ID="STR_SCAR_UCM_ModuleUtilitiesConstructionMod">
+            <English>UCM Required</English>
+            <Italian>UCM Richiesto</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_ModuleUtilitiesConstructionLandingZone">
+            <English>UCM Landing Zone</English>
+            <Italian>UCM Zona d'atterraggio</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_ModuleUtilitiesConstructionHelicopterOrigin">
+            <English>UCM Helicopter Origin</English>
+            <Italian>UCM Origine Elicotteri</Italian>
+        </Key>
         <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_Side_displayName">
             <English>Side</English>
             <Italian>Fazione</Italian>
@@ -80,22 +92,6 @@
         <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_Foreman_tooltip">
             <English>The foreman's variable name</English>
             <Italian>Il nome della variabile del capocantiere</Italian>
-        </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_HelicopterLandingZone_displayName">
-            <English>The landing zone</English>
-            <Italian>La zona d'atterraggio</Italian>
-        </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_HelicopterLandingZone_tooltip">
-            <English>The landing zone's variable name</English>
-            <Italian>Il nome della variabile della zona d'atterraggio</Italian>
-        </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_displayName">
-            <English>The helicopters' origin</English>
-            <Italian>L'origine degli elicotteri</Italian>
-        </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_HelicopterOrigin_tooltip">
-            <English>The helicopters' origin (area object variable name)</English>
-            <Italian>Il nome della variabile dell'oggetto area (riferimento della zona d'atterraggio)</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_displayName">
             <English>The helicopters' class</English>

@@ -43,7 +43,7 @@ You can subscribe to events in your scripts with [`CBA_fnc_addEventHandler`](htt
 ```sqf
 private _id = ["UCM_ConstructionAreaMoved", {
 
-	params ["_module", "_currentId", "_currentPiece"];
+	params ["_module", "_currentPiece"];
 
 	private _mapPosition = mapGridPosition getPos _currentPiece;
 	systemChat format ["Construction area is now at %1", _mapPosition];

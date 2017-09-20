@@ -27,11 +27,11 @@ The **Utilities Construction Mod** is a module for Arma 3. Quickly add construct
 
 | NAME | DESCRIPTION | PARAMS
 |------|------|------
-| `UCM_ConstructionAreaMoved` | Construction Area was moved. | `_module`, `_currentId`, `_currentPiece`
+| `UCM_ConstructionAreaMoved` | Construction Area was moved. | `_module`, `_currentPiece`
 | `UCM_ConstructionDone` | Construction is completed. | `_module`
-| `UCM_ConstructionNowInProgress` | Construction work is now ongoing. | `_module`, `_currentId`, `_currentPiece`
-| `UCM_NoWorkersInConstructionArea` | Construction works are stopped, there are no more workers on the site. | `_module`, `_currentId`, `_currentPiece`
-| `UCM_NoMaterialsInConstructionArea` | Construction works are stopped, there are no more materials on the site. | `_module`, `_currentId`, `_currentPiece`
+| `UCM_ConstructionNowInProgress` | Construction work is now ongoing. | `_module`, `_currentPiece`
+| `UCM_NoWorkersInConstructionArea` | Construction works are stopped, there are no more workers on the site. | `_module`, `_currentPiece`
+| `UCM_NoMaterialsInConstructionArea` | Construction works are stopped, there are no more materials on the site. | `_module`, `_currentPiece`
 | `UCM_WorkerKilled` | A worker has been killed. | `_module`, `_worker`
 | `UCM_RequestedMaterials` | New workers have been requested. | `_module`
 | `UCM_RequestedWorkers` | New materials have been requested. | `_module`

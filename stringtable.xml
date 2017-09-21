@@ -2,8 +2,8 @@
 <Project name="SCAR_UCM">
     <Package name="Module">
         <Key ID="STR_SCAR_UCM_ModuleUtilitiesConstructionMod">
-            <English>UCM Required</English>
-            <Italian>UCM Richiesto</Italian>
+            <English>UCM Logic</English>
+            <Italian>UCM Logica</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_ModuleUtilitiesConstructionLandingZone">
             <English>UCM Landing Zone</English>
@@ -216,7 +216,7 @@
             <Italian>Attenzione: i lavori sono fermi, non vi sono più lavoratori in cantiere.</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Radio_NoMaterialsInConstructionArea">
-            <English>Warning: construction works are stopped, there are no more workers on the site.</English>
+            <English>Warning: construction works are stopped, there are no more materials on the site.</English>
             <Italian>Attenzione: i lavori sono fermi, non c'è più materiale disponibile in cantiere.</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Radio_ConstructionNowInProgress">

@@ -6,7 +6,8 @@ class CfgPatches
         author = "_SCAR";
         units[] = {
             "SCAR_UCM_ModuleUtilitiesConstructionMod",
-            "SCAR_UCM_ModuleUtilitiesConstructionLandingZone"
+            "SCAR_UCM_ModuleUtilitiesConstructionLandingZone",
+            "SCAR_UCM_ModuleUtilitiesConstructionHelicopterOrigin"
         };
         weapons[] = {};
         requiredVersion = 1.0;

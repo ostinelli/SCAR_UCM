@@ -31,7 +31,7 @@ if (_activated) then {
 	private _foreman                      = _logic getVariable ["Foreman", "UCM_foreman"];
 	private _helicopterClass              = _logic getVariable ["HelicopterClass", "B_Heli_Transport_03_unarmed_F"];
 	private _materialsClass               = _logic getVariable ["MaterialsClass", "Land_IronPipes_F"];
-	private _materialsWeight              = _logic getVariable ["MaterialsWeight", 15];
+	private _materialsWeight              = _logic getVariable ["MaterialsWeight", 16];
 
 	// init
 	if (isServer) then {

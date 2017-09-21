@@ -88,15 +88,6 @@ class CfgVehicles
                 typeName     = "NUMBER";
                 defaultValue = "3";
             };
-
-            class PieceNamePrefix: Edit
-            {
-                property     = "SCAR_UCM_PieceNamePrefix";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_tooltip;
-                typeName     = "STRING";
-                defaultValue = """UCM_piece_""";
-            };
             class PieceWorkingManSeconds: Edit
             {
                 property     = "SCAR_UCM_PieceWorkingManSeconds";
@@ -112,6 +103,15 @@ class CfgVehicles
                 tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "3";
+            };
+
+            class PieceNamePrefix: Edit
+            {
+                property     = "SCAR_UCM_PieceNamePrefix";
+                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_tooltip;
+                typeName     = "STRING";
+                defaultValue = """UCM_piece_""";
             };
             class PieceStartHeight: Edit
             {
@@ -144,7 +144,7 @@ class CfgVehicles
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_displayName;
                 tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_tooltip;
                 typeName     = "NUMBER";
-                defaultValue = "20";
+                defaultValue = "16";
             };
 
             class WorkingDistance: Edit

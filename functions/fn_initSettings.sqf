@@ -141,7 +141,7 @@ if ( (_store getVariable ["SCAR_UCM_heliPad", objNull]) isEqualTo objNull ) then
     _store setVariable ["SCAR_UCM_heliPad", _heliPad, true];
 };
 
-// TODO: clients will wait for this before initializing
+// clients can wait for this before initializing
 _store setVariable ["SCAR_UCM_initialized", false, true];
 
 // ====================================================== /\ OTHER VARS ====================================================

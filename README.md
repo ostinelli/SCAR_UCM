@@ -23,6 +23,23 @@ The **Utilities Construction Mod** is a module for Arma 3. Quickly add construct
   - ACE3 ([Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057), [Github](https://github.com/acemod/ACE3/releases/latest))
   - CBA_A3 ([Steam](https://steamcommunity.com/workshop/filedetails/?id=450814997), [Github](https://github.com/CBATeam/CBA_A3/releases/latest))
 
+## Functions
+
+##### SCAR_UCM_fnc_isInitialized
+```
+Description:
+Returns if the UCM module is initialized.
+
+Parameter(s):
+0: OBJECT - The store.
+
+Return:
+0: BOOLEAN
+
+Example:
+[_module] call SCAR_UCM_fnc_isInitialized;
+```
+
 ## Events
 
 | NAME | DESCRIPTION | PARAMS

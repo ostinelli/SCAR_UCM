@@ -12,7 +12,7 @@
     0: true
 
     Example:
-    [_logicModule, _pos] call SCAR_UCM_fnc_setMarkerConstruction;
+    [_store, _pos] call SCAR_UCM_fnc_setMarkerConstruction;
 */
 
 if !(isServer) exitWith {};
@@ -20,7 +20,8 @@ if !(isServer) exitWith {};
 params ["_logicModule", "_pos"];
 
 // vars
-private _marker = _logicModule getVariable "SCAR_UCM_markerObj";
+private _marker = _logicModule getVariable ["SCAR_UCM_constructionAreaMarker", objNull];
+private _side   = _logicModule getVariable "SCAR_UCM_side";
 
 // delete previous marker, if any
 if !(_marker isEqualTo objNull) then {
@@ -28,14 +29,14 @@ if !(_marker isEqualTo objNull) then {
 };
 
 // create
-_marker = createMarker ["SCAR_UCM_markerConstruction", _pos];
+_marker = createMarker ["SCAR_UCM_constructionAreaMarker", _pos];
 _marker setMarkerShape "ICON";
 _marker setMarkerType "Select";
-_marker setMarkerColor "colorCivilian";
+_marker setMarkerColor format["color%1", _side];
 _marker setMarkerText (localize "STR_SCAR_UCM_Main_ConstructionArea");
 
-// logicModule
-_logicModule setVariable ["SCAR_UCM_markerObj", _marker, true];
+// store
+_logicModule setVariable ["SCAR_UCM_constructionAreaMarker", _marker, true];
 
 // return
 true

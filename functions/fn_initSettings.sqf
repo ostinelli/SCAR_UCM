@@ -149,7 +149,6 @@ _logicModule setVariable ["SCAR_UCM_initialized", false, true];
 [_logicModule, "SCAR_UCM_workersAreWorking", false] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
 [_logicModule, "SCAR_UCM_workersInArea", []] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
 [_logicModule, "SCAR_UCM_materialsInArea", []] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
-[_logicModule, "SCAR_UCM_markerObj", objNull] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
 
 // ====================================================== /\ PROGRESS VARS =================================================
 

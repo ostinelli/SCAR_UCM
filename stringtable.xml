@@ -136,6 +136,10 @@
             <English>Construction Area</English>
             <Italian>Cantiere</Italian>
         </Key>
+        <Key ID="STR_SCAR_UCM_Main_LandingZone">
+            <English>Landing Zone</English>
+            <Italian>Zona d'atterraggio</Italian>
+        </Key>
         <Key ID="STR_SCAR_UCM_Main_ConstructionStatus">
             <English>Construction Status</English>
             <Italian>Stato della costruzione</Italian>

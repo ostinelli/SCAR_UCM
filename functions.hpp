@@ -41,6 +41,7 @@ class CfgFunctions {
             class setAltitudeToGround {};
             class setWorkerAnimation {};
             class setMarkerConstruction {};
+            class setMarkerLandingZone {};
             class setMarkerWorker {};
             class setGlobalVariableIfUnset {};
             class setRandomWorkerLoadout {};

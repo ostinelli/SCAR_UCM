@@ -18,6 +18,9 @@ if !(isServer) exitWith {};
 
 params ["_worker"];
 
+// vars
+private _side = _logicModule getVariable "SCAR_UCM_side";
+
 // did we initialize markers on this worker yet?
 private _previousMarker = _worker getVariable ["SCAR_UCM_workerMarker", objNull];
 if (_previousMarker isEqualTo objNull) then {
@@ -36,7 +39,7 @@ if (_previousMarker isEqualTo objNull) then {
 private _marker = createMarker [format["SCAR_UCM_workerMarker:%1", _worker], getPos _worker];
 _marker setMarkerShape "ICON";
 _marker setMarkerType "mil_dot";
-_marker setMarkerColor "colorCivilian";
+_marker setMarkerColor format["color%1", _side];
 _marker setMarkerText (localize "STR_SCAR_UCM_Main_Worker");
 
 // save vars

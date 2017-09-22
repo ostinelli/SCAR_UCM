@@ -42,11 +42,8 @@ private _heliPad          = _store getVariable "SCAR_UCM_heliPad";
 // create helicopter with crew
 private _size = sizeOf _helicopterClass;
 private _helicopterOriginPos = getPos _helicopterOrigin;
-private _helicopterOriginMaterialPos = [
-    (_helicopterOriginPos select 0) + 2 * _size,
-    (_helicopterOriginPos select 1) + 2 * _size,
-    (_helicopterOriginPos select 2)
-];
+private _helicopterOriginMaterialPos = _helicopterOriginPos getPos [2 * _size, -45];
+
 private _result  = [_helicopterOriginMaterialPos, 0, _helicopterClass, _side] call BIS_fnc_spawnVehicle;
 private _vehicle = _result select 0;
 private _crew    = _result select 1;

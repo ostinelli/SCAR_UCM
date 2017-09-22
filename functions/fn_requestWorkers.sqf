@@ -41,11 +41,8 @@ if (_workersCount < 1) exitWith {};
 // create helicopter with crew
 private _size = sizeOf _helicopterClass;
 private _helicopterOriginPos = getPos _helicopterOrigin;
-private _helicopterOriginWorkersPos = [
-    (_helicopterOriginPos select 0) - 2 * _size,
-    (_helicopterOriginPos select 1) - 2 * _size,
-    (_helicopterOriginPos select 2)
-];
+private _helicopterOriginWorkersPos = _helicopterOriginPos getPos [2 * _size, 45];
+
 private _result  = [_helicopterOriginWorkersPos, 0, _helicopterClass, _side] call BIS_fnc_spawnVehicle;
 private _vehicle = _result select 0;
 private _crew    = _result select 1;
@@ -88,7 +85,7 @@ _wpLeave setWaypointType "MOVE";
 _wpLeave setWaypointStatements ["true", "deleteVehicle (vehicle this); { deleteVehicle _x } forEach thisList;"];
 
 // --> cargo: move
-_destinationPos = [(_destinationPos select 0) + random(15), (_destinationPos select 0) + random(15), 0];
+_destinationPos = _destinationPos getPos [15, random(360)];
 {
     _wp = (group _x) addWaypoint [_destinationPos, 10];
     _wp setWaypointType "MOVE";

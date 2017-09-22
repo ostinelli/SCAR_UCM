@@ -12,14 +12,12 @@
 	4:  STRING - The pieces' prefix.
 	5:  NUMBER - The total number of pieces that can be built with a single material.
 	6:  NUMBER - The distance of workers and materials from the current piece for the construction to be active.
-	7:  NUMBER - The minimum distance of every worker from the piece's center when working.
-	8:  NUMBER - The starting Z position of piece in the ground, end will be Z = 0.
-	9:  NUMBER - The end position of material consumed, start is Z = 0;
-	10: STRING - The variable name of the foreman.
-	11: STRING - The helicopters' class.
-	12: STRING - The materials' class.
-	13: NUMBER - The materials' weight.
-	14: STRING - The worker classes, separated by single spaces.
+	7:  NUMBER - The starting Z position of piece in the ground, end will be Z = 0.
+	8:  NUMBER - The end position of material consumed, start is Z = 0;
+	9: STRING - The variable name of the foreman.
+	10: STRING - The helicopters' class.
+	11: STRING - The materials' class.
+	12: NUMBER - The materials' weight.
 
 	Return:
 	0: true
@@ -27,20 +25,18 @@
 	Example:
 	[
 		_logicModule
-		"blufor",
+		"BLUFOR",
 		3,
 		300,
 		"scar_pipeline_",
 		3,
 		75,
-		"1 10",
-		0.6,
-		1.4,
+		-0.6,
+		-1.4,
 		"SCAR_UCM_foreman",
 		"B_Heli_Transport_03_unarmed_F",
 		"Land_IronPipes_F",
-		15,
-		"C_Man_ConstructionWorker_01_Black_F C_Man_ConstructionWorker_01_Blue_F C_Man_ConstructionWorker_01_Red_F C_Man_ConstructionWorker_01_Vrana_F"
+		16
 	] call SCAR_UCM_fnc_loadSettings;
 */
 
@@ -55,7 +51,6 @@ params [
 	"_pieceNamePrefix",
 	"_piecesFromMaterial",
 	"_workingDistance",
-	"_workersMinDistanceFromCenter",
 	"_pieceStartHeight",
 	"_materialEndHeight",
 	"_foremanVarname",
@@ -93,7 +88,6 @@ _logicModule setVariable ["SCAR_UCM_pieceWorkingManSeconds", _pieceWorkingManSec
 _logicModule setVariable ["SCAR_UCM_pieceNamePrefix", _pieceNamePrefix, true];
 _logicModule setVariable ["SCAR_UCM_piecesFromMaterial", _piecesFromMaterial, true];
 _logicModule setVariable ["SCAR_UCM_workingDistance", _workingDistance, true];
-_logicModule setVariable ["SCAR_UCM_workersMinDistanceFromCenter", _workersMinDistanceFromCenter, true];
 _logicModule setVariable ["SCAR_UCM_pieceStartHeight", _pieceStartHeight, true];
 _logicModule setVariable ["SCAR_UCM_materialEndHeight", _materialEndHeight, true];
 _logicModule setVariable ["SCAR_UCM_foreman", _foreman, true];

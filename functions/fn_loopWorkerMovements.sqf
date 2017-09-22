@@ -26,7 +26,6 @@ private _null = [_logicModule, _worker] spawn {
     // vars
     private _workingDistance              = _logicModule getVariable "SCAR_UCM_workingDistance";
     private _workerAnimations             = _logicModule getVariable "SCAR_UCM_workerAnimations";
-    private _workersMinDistanceFromCenter = _logicModule getVariable "SCAR_UCM_workersMinDistanceFromCenter";
 
     // init
     private _lastPiece = objNull;
@@ -76,8 +75,10 @@ private _null = [_logicModule, _worker] spawn {
                 private _maxLength = abs ((_p2 select 1) - (_p1 select 1));
 
                 // random position
+                private _workersMinDistanceFromCenter = 1;
                 private _sideX = selectRandom [1, -1];
                 private _sideY = selectRandom [1, -1];
+
                 private _relX = _sideX * (abs(random ((_maxWidth / 2) - _workersMinDistanceFromCenter)) + _workersMinDistanceFromCenter);
                 private _relY = _sideY * (abs(random ((_maxLength / 2) - _workersMinDistanceFromCenter)) + _workersMinDistanceFromCenter);
                 private _relativePos = [_relX, _relY, 0];

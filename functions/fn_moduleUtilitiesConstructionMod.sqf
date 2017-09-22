@@ -25,7 +25,6 @@ if (_activated) then {
 	private _pieceNamePrefix              = _logic getVariable ["PieceNamePrefix", "UCM_piece_"];
 	private _piecesFromMaterial           = _logic getVariable ["PiecesFromMaterial", 3];
 	private _workingDistance              = _logic getVariable ["WorkingDistance", 75];
-	private _workersMinDistanceFromCenter = _logic getVariable ["WorkersMinDistanceFromCenter", 1];
 	private _pieceStartHeight             = _logic getVariable ["PieceStartHeight", -0.6];
 	private _materialEndHeight            = _logic getVariable ["MaterialEndHeight", -1.4];
 	private _foreman                      = _logic getVariable ["Foreman", "UCM_foreman"];
@@ -44,7 +43,6 @@ if (_activated) then {
 			_pieceNamePrefix,
 			_piecesFromMaterial,
 			_workingDistance,
-			_workersMinDistanceFromCenter,
 			_pieceStartHeight,
 			_materialEndHeight,
 			_foreman,

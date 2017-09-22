@@ -31,27 +31,27 @@ Description:
 Returns if the UCM module is initialized.
 
 Parameter(s):
-0: OBJECT - The store.
+0: OBJECT - The logicModule.
 
 Return:
 0: BOOLEAN
 
 Example:
-[_module] call SCAR_UCM_fnc_isInitialized;
+[_logicModule] call SCAR_UCM_fnc_isInitialized;
 ```
 
 ## Events
 
 | NAME | DESCRIPTION | PARAMS
 |------|------|------
-| `UCM_ConstructionAreaMoved` | Construction Area was moved. | `_module`, `_currentPiece`
-| `UCM_ConstructionDone` | Construction is completed. | `_module`
-| `UCM_ConstructionNowInProgress` | Construction work is now ongoing. | `_module`, `_currentPiece`
-| `UCM_NoWorkersInConstructionArea` | Construction works are stopped, there are no more workers on the site. | `_module`, `_currentPiece`
-| `UCM_NoMaterialsInConstructionArea` | Construction works are stopped, there are no more materials on the site. | `_module`, `_currentPiece`
-| `UCM_WorkerKilled` | A worker has been killed. | `_module`, `_worker`
-| `UCM_RequestedMaterials` | New workers have been requested. | `_module`
-| `UCM_RequestedWorkers` | New materials have been requested. | `_module`
+| `UCM_ConstructionAreaMoved` | Construction Area was moved. | `_logicModule`, `_currentPiece`
+| `UCM_ConstructionDone` | Construction is completed. | `_logicModule`
+| `UCM_ConstructionNowInProgress` | Construction work is now ongoing. | `_logicModule`, `_currentPiece`
+| `UCM_NoWorkersInConstructionArea` | Construction works are stopped, there are no more workers on the site. | `_logicModule`, `_currentPiece`
+| `UCM_NoMaterialsInConstructionArea` | Construction works are stopped, there are no more materials on the site. | `_logicModule`, `_currentPiece`
+| `UCM_WorkerKilled` | A worker has been killed. | `_logicModule`, `_worker`
+| `UCM_RequestedMaterials` | New workers have been requested. | `_logicModule`
+| `UCM_RequestedWorkers` | New materials have been requested. | `_logicModule`
 
 All events will be called on the server only.
 
@@ -60,7 +60,7 @@ You can subscribe to events in your scripts with [`CBA_fnc_addEventHandler`](htt
 ```sqf
 private _id = ["UCM_ConstructionAreaMoved", {
 
-	params ["_module", "_currentPiece"];
+	params ["_logicModule", "_currentPiece"];
 
 	private _mapPosition = mapGridPosition getPos _currentPiece;
 	systemChat format ["Construction area is now at %1", _mapPosition];

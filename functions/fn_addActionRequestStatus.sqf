@@ -5,19 +5,19 @@
     Adds the status action to a unit.
 
     Parameter(s):
-    0: OBJECT - The store.
+    0: OBJECT - The logicModule.
     1: UNIT   - The unit to attach the action to.
 
     Return:
     0: true
 
     Example:
-    [_store, _unit] call SCAR_UCM_fnc_addActionRequestStatus;
+    [_logicModule, _unit] call SCAR_UCM_fnc_addActionRequestStatus;
 */
 
 if !(hasInterface) exitWith {};
 
-params ["_store", "_unit"];
+params ["_logicModule", "_unit"];
 
 private _action = [
     "SCAR_UCM_Status",
@@ -25,19 +25,19 @@ private _action = [
     "",
     // Statement <CODE>
     {
-        params ["_target", "_player", "_store"];
+        params ["_target", "_player", "_logicModule"];
 
         // vars
-        private _materials      = _store getVariable "SCAR_UCM_materials";
-        _workersAreWorking      = _store getVariable "SCAR_UCM_workersAreWorking";
-        _pieceCurrentId         = _store getVariable "SCAR_UCM_pieceCurrentId";
-        _piecesCount            = _store getVariable "SCAR_UCM_piecesCount";
-        _pieceCurrentPercentage = _store getVariable "SCAR_UCM_pieceCurrentPercentage";
-        _workers                = _store getVariable "SCAR_UCM_workers";
-        _workersCount           = _store getVariable "SCAR_UCM_workersCount";
-        _workersInArea          = _store getVariable "SCAR_UCM_workersInArea";
-        _materialsInArea        = _store getVariable "SCAR_UCM_materialsInArea";
-        _materialsInArea        = _store getVariable "SCAR_UCM_materialsInArea";
+        private _materials      = _logicModule getVariable "SCAR_UCM_materials";
+        _workersAreWorking      = _logicModule getVariable "SCAR_UCM_workersAreWorking";
+        _pieceCurrentId         = _logicModule getVariable "SCAR_UCM_pieceCurrentId";
+        _piecesCount            = _logicModule getVariable "SCAR_UCM_piecesCount";
+        _pieceCurrentPercentage = _logicModule getVariable "SCAR_UCM_pieceCurrentPercentage";
+        _workers                = _logicModule getVariable "SCAR_UCM_workers";
+        _workersCount           = _logicModule getVariable "SCAR_UCM_workersCount";
+        _workersInArea          = _logicModule getVariable "SCAR_UCM_workersInArea";
+        _materialsInArea        = _logicModule getVariable "SCAR_UCM_materialsInArea";
+        _materialsInArea        = _logicModule getVariable "SCAR_UCM_materialsInArea";
 
         // compute percentages
         _remainingPercentageTot = 0;
@@ -67,7 +67,7 @@ private _action = [
     // Condition <CODE>
     { true },
     {},
-    _store
+    _logicModule
 ] call ace_interact_menu_fnc_createAction;
 [_unit,	0, ["ACE_MainActions"],	_action] call ace_interact_menu_fnc_addActionToObject;
 

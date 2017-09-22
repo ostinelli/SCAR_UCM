@@ -5,27 +5,27 @@
     Request new workers. The missing workers up to maximum specified in settings will be created.
 
     Parameter(s):
-    0: OBJECT - The store.
+    0: OBJECT - The logicModule.
     1: UNIT - The unit calling this function.
 
     Return:
     0: BOOLEAN
 
     Example:
-    [_store, player] call SCAR_UCM_fnc_requestWorkers;
+    [_logicModule, player] call SCAR_UCM_fnc_requestWorkers;
 */
 
 if !(isServer) exitWith {};
 
-params ["_store", "_caller"];
+params ["_logicModule", "_caller"];
 
 // vars
-private _workers          = _store getVariable "SCAR_UCM_workers";
-private _workersCount     = _store getVariable "SCAR_UCM_workersCount";
-private _helicopterClass  = _store getVariable "SCAR_UCM_helicopterClass";
-private _helicopterOrigin = _store getVariable "SCAR_UCM_helicopterOrigin";
-private _heliPad          = _store getVariable "SCAR_UCM_heliPad";
-private _side             = _store getVariable "SCAR_UCM_side";
+private _workers          = _logicModule getVariable "SCAR_UCM_workers";
+private _workersCount     = _logicModule getVariable "SCAR_UCM_workersCount";
+private _helicopterClass  = _logicModule getVariable "SCAR_UCM_helicopterClass";
+private _helicopterOrigin = _logicModule getVariable "SCAR_UCM_helicopterOrigin";
+private _heliPad          = _logicModule getVariable "SCAR_UCM_heliPad";
+private _side             = _logicModule getVariable "SCAR_UCM_side";
 
 if ((count _workers) >= _workersCount) exitWith {
     // chat
@@ -55,14 +55,14 @@ private _group   = _result select 2;
 _group setBehaviour "CARELESS";
 
 // create workers
-private _newWorkers = [_store, _workersCount, _vehicle] call SCAR_UCM_fnc_createWorkers;
+private _newWorkers = [_logicModule, _workersCount, _vehicle] call SCAR_UCM_fnc_createWorkers;
 
 // destination
 private _destinationPos = getPos _heliPad;
 _destinationPos = [_destinationPos select 0, _destinationPos select 1, 0];
 
 // event
-["UCM_RequestedWorkers", [_store]] call CBA_fnc_serverEvent;
+["UCM_RequestedWorkers", [_logicModule]] call CBA_fnc_serverEvent;
 
 // radio
 [[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_RequestedWorkers")] remoteExec ["sideChat"];

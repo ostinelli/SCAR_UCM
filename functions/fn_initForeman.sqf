@@ -5,21 +5,21 @@
     Initializes the foreman.
 
     Parameter(s):
-    0: OBJECT - The store.
+    0: OBJECT - The logicModule.
 
     Return:
     0: true
 
     Example:
-    [_store] call SCAR_UCM_fnc_initForeman;
+    [_logicModule] call SCAR_UCM_fnc_initForeman;
 */
 
 if !(isServer) exitWith {};
 
-params ["_store"];
+params ["_logicModule"];
 
 // vars
-private _foreman = _store getVariable "SCAR_UCM_foreman";
+private _foreman = _logicModule getVariable "SCAR_UCM_foreman";
 
 // init foreman
 _foreman allowDamage false;

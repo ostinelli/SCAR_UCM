@@ -5,7 +5,7 @@
     Handles ACE bug of putting unloaded cargo item not properly. This function is called automatically on mission init.
 
     Parameter(s):
-    0: OBJET: The store.
+    0: OBJET: The logicModule.
 
     Return:
     0: true
@@ -16,20 +16,20 @@
 
 if !(isServer) exitWith {};
 
-params ["_store"];
+params ["_logicModule"];
 
 // handle cargo unloaded
 ["ace_cargoUnloaded", {
 
     params ["_item", "_vehicle"];
 
-    private _store = _thisArgs;
+    private _logicModule = _thisArgs;
 
-    if ((typeOf _item) == (_store getVariable "SCAR_UCM_materialsClass")) then {
+    if ((typeOf _item) == (_logicModule getVariable "SCAR_UCM_materialsClass")) then {
         // reposition vehicle
         _item setVehiclePosition [getPos _vehicle, [], 0, "NONE"];
     };
-}, _store] call CBA_fnc_addEventHandlerArgs;
+}, _logicModule] call CBA_fnc_addEventHandlerArgs;
 
 // return
 true

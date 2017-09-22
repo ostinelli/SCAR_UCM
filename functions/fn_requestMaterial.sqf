@@ -6,22 +6,22 @@
     This is an action callback.
 
     Parameter(s):
-    0: OBJECT - The store.
+    0: OBJECT - The logicModule.
     1: UNIT - The unit calling this function.
 
     Return:
     0: BOOLEAN
 
     Example:
-    [_store, player] call SCAR_UCM_fnc_requestMaterial;
+    [_logicModule, player] call SCAR_UCM_fnc_requestMaterial;
 */
 
 if !(isServer) exitWith {};
 
-params ["_store", "_caller"];
+params ["_logicModule", "_caller"];
 
-private _onGoing = _store getVariable ["SCAR_UCM_requestMaterialOngoing", false];
-private _side    = _store getVariable "SCAR_UCM_side";
+private _onGoing = _logicModule getVariable ["SCAR_UCM_requestMaterialOngoing", false];
+private _side    = _logicModule getVariable "SCAR_UCM_side";
 
 if (_onGoing) exitWith {
     // chat
@@ -31,13 +31,13 @@ if (_onGoing) exitWith {
 };
 
 // flag
-_store setVariable ["SCAR_UCM_requestMaterialOngoing", true, true];
+_logicModule setVariable ["SCAR_UCM_requestMaterialOngoing", true, true];
 
 // vars
-private _helicopterClass  = _store getVariable "SCAR_UCM_helicopterClass";
-private _helicopterOrigin = _store getVariable "SCAR_UCM_helicopterOrigin";
-private _foreman          = _store getVariable "SCAR_UCM_foreman";
-private _heliPad          = _store getVariable "SCAR_UCM_heliPad";
+private _helicopterClass  = _logicModule getVariable "SCAR_UCM_helicopterClass";
+private _helicopterOrigin = _logicModule getVariable "SCAR_UCM_helicopterOrigin";
+private _foreman          = _logicModule getVariable "SCAR_UCM_foreman";
+private _heliPad          = _logicModule getVariable "SCAR_UCM_heliPad";
 
 // create helicopter with crew
 private _size = sizeOf _helicopterClass;
@@ -53,7 +53,7 @@ private _group   = _result select 2;
 [_vehicle, _crew] call SCAR_UCM_fnc_safetyDeleteVehicleAndCrew;
 
 // event
-["UCM_RequestedMaterials", [_store]] call CBA_fnc_serverEvent;
+["UCM_RequestedMaterials", [_logicModule]] call CBA_fnc_serverEvent;
 
 // radio
 [[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_RequestedMaterials")] remoteExec ["sideChat"];
@@ -61,10 +61,10 @@ private _group   = _result select 2;
 // waypoints
 
 // --> heli: unload
-_vehicle setVariable ["_store", _store, true];
+_vehicle setVariable ["_logicModule", _logicModule, true];
 private _wpUnload = _group addWaypoint [getPos _heliPad, 0];
 _wpUnload setWaypointType "MOVE";
-_wpUnload setWaypointStatements ["true", "_vehicle = (vehicle this); _store = _vehicle getVariable '_store'; [_store, _vehicle] spawn SCAR_UCM_fnc_dropMaterialFromHelicopter;"];
+_wpUnload setWaypointStatements ["true", "_vehicle = (vehicle this); _logicModule = _vehicle getVariable '_logicModule'; [_logicModule, _vehicle] spawn SCAR_UCM_fnc_dropMaterialFromHelicopter;"];
 
 // --> heli: leave
 private _wpLeave = _group addWaypoint [_helicopterOriginMaterialPos, 0];
@@ -72,7 +72,7 @@ _wpLeave setWaypointType "MOVE";
 _wpLeave setWaypointStatements ["true", "deleteVehicle (vehicle this); { deleteVehicle _x } forEach thisList;"];
 
 // flag
-_store setVariable ["SCAR_UCM_requestMaterialOngoing", false, true];
+_logicModule setVariable ["SCAR_UCM_requestMaterialOngoing", false, true];
 
 // return
 true

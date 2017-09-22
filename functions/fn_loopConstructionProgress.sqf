@@ -5,26 +5,26 @@
 	Handles all construction work progress (consumption of materials, visibility).
 
 	Parameter(s):
-	0: OBJECT - The store.
+	0: OBJECT - The logicModule.
 
 	Return:
 	0: true
 
 	Example:
-	[_store] call SCAR_UCM_fnc_loopConstructionProgress;
+	[_logicModule] call SCAR_UCM_fnc_loopConstructionProgress;
 */
 
 if !(isServer) exitWith {};
 
-params ["_store"];
+params ["_logicModule"];
 
 // vars
-private _piecesCount      = _store getVariable "SCAR_UCM_piecesCount";
-private _pieceNamePrefix  = _store getVariable "SCAR_UCM_pieceNamePrefix";
-private _pieceStartHeight = _store getVariable "SCAR_UCM_pieceStartHeight";
+private _piecesCount      = _logicModule getVariable "SCAR_UCM_piecesCount";
+private _pieceNamePrefix  = _logicModule getVariable "SCAR_UCM_pieceNamePrefix";
+private _pieceStartHeight = _logicModule getVariable "SCAR_UCM_pieceStartHeight";
 
 // init construction position & visibility
-for "_i" from (_store getVariable "SCAR_UCM_pieceCurrentId") to (_piecesCount - 1) do {
+for "_i" from (_logicModule getVariable "SCAR_UCM_pieceCurrentId") to (_piecesCount - 1) do {
     private _pieceName = format["%1%2", _pieceNamePrefix, _i];
 
     diag_log format ["UCM: hiding piece %1", _pieceName];
@@ -38,26 +38,26 @@ for "_i" from (_store getVariable "SCAR_UCM_pieceCurrentId") to (_piecesCount - 
 };
 
 // show current piece
-private _currentPiece = [_store] call SCAR_UCM_fnc_getCurrentPiece;
+private _currentPiece = [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;
 _currentPiece hideObjectGlobal false;
-private _altitude = _pieceStartHeight + ( (_store getVariable "SCAR_UCM_pieceCurrentPercentage") * (-_pieceStartHeight));
+private _altitude = _pieceStartHeight + ( (_logicModule getVariable "SCAR_UCM_pieceCurrentPercentage") * (-_pieceStartHeight));
 [_currentPiece, _altitude] call SCAR_UCM_fnc_setAltitudeToGround;
 
 // show marker
-[_store, getPos _currentPiece] call SCAR_UCM_fnc_setMarkerConstruction;
+[_logicModule, getPos _currentPiece] call SCAR_UCM_fnc_setMarkerConstruction;
 
-private _null = [_store] spawn {
+private _null = [_logicModule] spawn {
 
-	params ["_store"];
+	params ["_logicModule"];
 
 	// vars
-	private _pieceStartHeight       = _store getVariable "SCAR_UCM_pieceStartHeight";
-	private _materialEndHeight      = _store getVariable "SCAR_UCM_materialEndHeight";
-	private _workingDistance        = _store getVariable "SCAR_UCM_workingDistance";
-	private _pieceWorkingManSeconds = _store getVariable "SCAR_UCM_pieceWorkingManSeconds";
-	private _piecesFromMaterial     = _store getVariable "SCAR_UCM_piecesFromMaterial";
-	private _piecesCount            = _store getVariable "SCAR_UCM_piecesCount";
-	private _side                   = _store getVariable "SCAR_UCM_side";
+	private _pieceStartHeight       = _logicModule getVariable "SCAR_UCM_pieceStartHeight";
+	private _materialEndHeight      = _logicModule getVariable "SCAR_UCM_materialEndHeight";
+	private _workingDistance        = _logicModule getVariable "SCAR_UCM_workingDistance";
+	private _pieceWorkingManSeconds = _logicModule getVariable "SCAR_UCM_pieceWorkingManSeconds";
+	private _piecesFromMaterial     = _logicModule getVariable "SCAR_UCM_piecesFromMaterial";
+	private _piecesCount            = _logicModule getVariable "SCAR_UCM_piecesCount";
+	private _side                   = _logicModule getVariable "SCAR_UCM_side";
 
 	// init
 	private _sleepTime = 10;
@@ -70,7 +70,7 @@ private _null = [_store] spawn {
 		sleep _sleepTime;
 
 		// get piece
-		private _currentPiece = [_store] call SCAR_UCM_fnc_getCurrentPiece;
+		private _currentPiece = [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;
 
 		// check presence of workers (on the ground, not flying nearby, not in vehicle)
 		private _workersInArea = [];
@@ -78,8 +78,8 @@ private _null = [_store] spawn {
 			if ( ((_x distance _currentPiece) < _workingDistance) && (vehicle _x == _x) ) then {
 				_workersInArea pushBack _x;
 			};
-		} forEach (_store getVariable "SCAR_UCM_workers");
-		_store setVariable ["SCAR_UCM_workersInArea", _workersInArea, true];
+		} forEach (_logicModule getVariable "SCAR_UCM_workers");
+		_logicModule setVariable ["SCAR_UCM_workersInArea", _workersInArea, true];
 
 		// check presence of material (on the ground, not flying nearby)
 		private _materialsInArea = [];
@@ -96,33 +96,33 @@ private _null = [_store] spawn {
 					_materialsInArea pushBack _x;
 				};
 			};
-		} forEach (_store getVariable "SCAR_UCM_materials");
-		_store setVariable ["SCAR_UCM_materialsInArea", _materialsInArea, true];
+		} forEach (_logicModule getVariable "SCAR_UCM_materials");
+		_logicModule setVariable ["SCAR_UCM_materialsInArea", _materialsInArea, true];
 
 		// advance work?
 		if ( (count _workersInArea) > 0 && (count _materialsInArea) > 0) then {
 		    // workers & materials are in area
 
 			// set flag
-			_store setVariable ["SCAR_UCM_workersAreWorking", true, true];
+			_logicModule setVariable ["SCAR_UCM_workersAreWorking", true, true];
 
 			// compute the work that has been done on the current piece
 			_totalSecondsWorked     = (count _workersInArea) * _sleepTime;
-			_pieceCurrentPercentage = (_store getVariable "SCAR_UCM_pieceCurrentPercentage") + (_totalSecondsWorked / _pieceWorkingManSeconds);
+			_pieceCurrentPercentage = (_logicModule getVariable "SCAR_UCM_pieceCurrentPercentage") + (_totalSecondsWorked / _pieceWorkingManSeconds);
 			if (_pieceCurrentPercentage > 1) then { _pieceCurrentPercentage = 1.0; }; // round for division errors
-			_store setVariable ["SCAR_UCM_pieceCurrentPercentage", _pieceCurrentPercentage, true];
+			_logicModule setVariable ["SCAR_UCM_pieceCurrentPercentage", _pieceCurrentPercentage, true];
 
 			// set piece height for current work
-			_altitude = _pieceStartHeight + ((_store getVariable "SCAR_UCM_pieceCurrentPercentage") * (-_pieceStartHeight));
+			_altitude = _pieceStartHeight + ((_logicModule getVariable "SCAR_UCM_pieceCurrentPercentage") * (-_pieceStartHeight));
 			[_currentPiece, _altitude] call SCAR_UCM_fnc_setAltitudeToGround;
 
             // piece status?
-			if ((_store getVariable "SCAR_UCM_pieceCurrentPercentage") == 1) then {
+			if ((_logicModule getVariable "SCAR_UCM_pieceCurrentPercentage") == 1) then {
 				// a piece has been finished
 
                 // compute consumption of first available material
 				_materialEntry = _materialsInArea select 0; // simplify and just get get first element
-				_materials     = (_store getVariable "SCAR_UCM_materials") - [_materialEntry]; // remove element, will be either updated here below or not added back
+				_materials     = (_logicModule getVariable "SCAR_UCM_materials") - [_materialEntry]; // remove element, will be either updated here below or not added back
 
 				_material              = _materialEntry select 0;
 				_remainingPercentage   = _materialEntry select 1;
@@ -139,58 +139,58 @@ private _null = [_store] spawn {
 					_altitude = _materialEndHeight + (_remainingPercentage * (-_materialEndHeight));
 					[_material, _altitude] call SCAR_UCM_fnc_setAltitudeToGround;
 				};
-				_store setVariable ["SCAR_UCM_materials", _materials, true];
+				_logicModule setVariable ["SCAR_UCM_materials", _materials, true];
 
 				// increase id to next piece
-				private _nextId = (_store getVariable "SCAR_UCM_pieceCurrentId") + 1;
-				_store setVariable ["SCAR_UCM_pieceCurrentId", _nextId, true];
+				private _nextId = (_logicModule getVariable "SCAR_UCM_pieceCurrentId") + 1;
+				_logicModule setVariable ["SCAR_UCM_pieceCurrentId", _nextId, true];
 
 				if (_nextId < _piecesCount) then {
 					// pieces are still available, reset current percentage
-					_store setVariable ["SCAR_UCM_pieceCurrentPercentage", 0.0, true];
+					_logicModule setVariable ["SCAR_UCM_pieceCurrentPercentage", 0.0, true];
 
 					// make next piece visible
-					private _newPiece = [_store] call SCAR_UCM_fnc_getCurrentPiece;
+					private _newPiece = [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;
 					_newPiece hideObjectGlobal false;
 
 					// move marker
-					[_store, getPos _newPiece] call SCAR_UCM_fnc_setMarkerConstruction;
+					[_logicModule, getPos _newPiece] call SCAR_UCM_fnc_setMarkerConstruction;
 
 					// fire event
-					["UCM_ConstructionAreaMoved", [_store, _newPiece]] call CBA_fnc_serverEvent;
+					["UCM_ConstructionAreaMoved", [_logicModule, _newPiece]] call CBA_fnc_serverEvent;
 				} else {
 					// construction work is done
 
 					// flags
-					_store setVariable ["SCAR_UCM_workersAreWorking", false, true];
+					_logicModule setVariable ["SCAR_UCM_workersAreWorking", false, true];
 					_continue = false;
 
 					// fire event
-					["UCM_ConstructionDone", [_store, _currentPiece]] call CBA_fnc_serverEvent;
+					["UCM_ConstructionDone", [_logicModule, _currentPiece]] call CBA_fnc_serverEvent;
 				};
 			};
 		} else {
-			_store setVariable ["SCAR_UCM_workersAreWorking", false, true];
+			_logicModule setVariable ["SCAR_UCM_workersAreWorking", false, true];
 		};
 
-		if !(_previous_workersAreWorking isEqualTo (_store getVariable "SCAR_UCM_workersAreWorking")) then {
-		    _currentPiece = [_store] call SCAR_UCM_fnc_getCurrentPiece;
+		if !(_previous_workersAreWorking isEqualTo (_logicModule getVariable "SCAR_UCM_workersAreWorking")) then {
+		    _currentPiece = [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;
 
-			if (_store getVariable "SCAR_UCM_workersAreWorking") then {
+			if (_logicModule getVariable "SCAR_UCM_workersAreWorking") then {
 			    // fire event
-			    ["UCM_ConstructionNowInProgress", [_store, _currentPiece]] call CBA_fnc_serverEvent;
+			    ["UCM_ConstructionNowInProgress", [_logicModule, _currentPiece]] call CBA_fnc_serverEvent;
 			    // radio
 				[[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_ConstructionNowInProgress")] remoteExec ["sideChat"];
 			} else {
 				if ( (count _workersInArea) == 0) then {
                     // fire event
-                    ["UCM_NoWorkersInConstructionArea", [_store, _currentPiece]] call CBA_fnc_serverEvent;
+                    ["UCM_NoWorkersInConstructionArea", [_logicModule, _currentPiece]] call CBA_fnc_serverEvent;
                     // radio
 					[[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_NoWorkersInConstructionArea")] remoteExec ["sideChat"];
 				};
 				if ( (count _materialsInArea) == 0) then {
                     // fire event
-                    ["UCM_NoMaterialsInConstructionArea", [_store, _currentPiece]] call CBA_fnc_serverEvent;
+                    ["UCM_NoMaterialsInConstructionArea", [_logicModule, _currentPiece]] call CBA_fnc_serverEvent;
                     // radio
 					[[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_NoMaterialsInConstructionArea")] remoteExec ["sideChat"];
 				};
@@ -198,7 +198,7 @@ private _null = [_store] spawn {
 		};
 
 		// flag
-		_previous_workersAreWorking = (_store getVariable "SCAR_UCM_workersAreWorking");
+		_previous_workersAreWorking = (_logicModule getVariable "SCAR_UCM_workersAreWorking");
 	};
 };
 

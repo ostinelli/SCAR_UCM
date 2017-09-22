@@ -5,19 +5,19 @@
     Adds the action to a worker to get in vehicles.
 
     Parameter(s):
-    0: OBJECT - The store.
+    0: OBJECT - The logicModule.
     1: OBJECT - The worker.
 
     Return:
     0: true
 
     Example:
-    [_store, _worker] call SCAR_UCM_fnc_addActionWorkerGetIn;
+    [_logicModule, _worker] call SCAR_UCM_fnc_addActionWorkerGetIn;
 */
 
 if !(hasInterface) exitWith {};
 
-params ["_store", "_worker"];
+params ["_logicModule", "_worker"];
 
 // add action
 _actionInfo = [
@@ -30,7 +30,7 @@ _actionInfo = [
     { true },
     // Children code <CODE> (Optional)
     {
-        params ["_target", "_player", "_store"];
+        params ["_target", "_player", "_logicModule"];
 
         // find cars
         _vehicles = nearestObjects [_target, ["Car", "Helicopter"], 100];
@@ -50,7 +50,7 @@ _actionInfo = [
                     // order to GETIN
 
                     // stop animation, if any
-                    [_store, _target, 0] call SCAR_UCM_fnc_setWorkerAnimation;
+                    [_logicModule, _target, 0] call SCAR_UCM_fnc_setWorkerAnimation;
 
                     // set stance
                     _target setUnitPos "AUTO";
@@ -68,7 +68,7 @@ _actionInfo = [
                     [_target] orderGetIn true;
 
                     // add action to GETOUT to all clients
-                    [_store, _target, _vehicle] remoteExec ["SCAR_UCM_fnc_addActionWorkerGetOut"];
+                    [_logicModule, _target, _vehicle] remoteExec ["SCAR_UCM_fnc_addActionWorkerGetOut"];
                 },
                 { true },
                 {},
@@ -82,7 +82,7 @@ _actionInfo = [
         // return
         _actions
     },
-    _store
+    _logicModule
 ];
  _action = _actionInfo call ace_interact_menu_fnc_createAction;
 [_worker, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;

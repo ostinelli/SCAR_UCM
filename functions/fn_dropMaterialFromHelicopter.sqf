@@ -5,23 +5,23 @@
     Drop materials from provided vehicle.
 
     Parameter(s):
-    0: OBJECT - The store.
+    0: OBJECT - The logicModule.
     1: UNIT - The vehicle dropping the materials.
 
     Return:
     0: BOOLEAN
 
     Example:
-    [_store, _vehicle] call SCAR_UCM_fnc_dropMaterialFromHelicopter;
+    [_logicModule, _vehicle] call SCAR_UCM_fnc_dropMaterialFromHelicopter;
 */
 
 if !(isServer) exitWith {};
 
-params ["_store", "_vehicle"];
+params ["_logicModule", "_vehicle"];
 
 // vars
-private _materialsClass  = _store getVariable "SCAR_UCM_materialsClass";
-private _materialsWeight = _store getVariable "SCAR_UCM_materialsWeight";
+private _materialsClass  = _logicModule getVariable "SCAR_UCM_materialsClass";
+private _materialsWeight = _logicModule getVariable "SCAR_UCM_materialsWeight";
 
 // create parachute & materials
 private _pos = getPos _vehicle;
@@ -45,9 +45,9 @@ private _newMaterial = _materialsClass createVehicle _pos;
 [_newMaterial, true, _materialsWeight] remoteExec ["ace_cargo_fnc_makeLoadable"];
 
 // add to available materials
-private _materials = _store getVariable "SCAR_UCM_materials";
+private _materials = _logicModule getVariable "SCAR_UCM_materials";
 _materials pushBack [_newMaterial, 1.0];
-_store setVariable ["SCAR_UCM_materials", _materials, true];
+_logicModule setVariable ["SCAR_UCM_materials", _materials, true];
 
 // destroy chute
 sleep 5;

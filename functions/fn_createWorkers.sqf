@@ -5,7 +5,7 @@
     Create the specified number of workers in the specified vehicle.
 
     Parameter(s):
-    0: OBJECT - The store.
+    0: OBJECT - The logicModule.
     1: NUMBER - The count of workers to create.
     2: OBJECT - The vehicle in which the worker needs to be assigned as cargo to.
 
@@ -13,17 +13,17 @@
     0: ARRAY: the workers.
 
     Example:
-    [_store, _workersCount, _vehicle] call SCAR_UCM_fnc_createWorkers;
+    [_logicModule, _workersCount, _vehicle] call SCAR_UCM_fnc_createWorkers;
 */
 
 if !(isServer) exitWith {};
 
-params ["_store", "_workersCount", "_vehicle"];
+params ["_logicModule", "_workersCount", "_vehicle"];
 
 // vars
-private _side        = _store getVariable "SCAR_UCM_side";
-private _workerClass = _store getVariable "SCAR_UCM_workerClass";
-private _workers     = _store getVariable "SCAR_UCM_workers";
+private _side        = _logicModule getVariable "SCAR_UCM_side";
+private _workerClass = _logicModule getVariable "SCAR_UCM_workerClass";
+private _workers     = _logicModule getVariable "SCAR_UCM_workers";
 
 // create workers
 private _newWorkers = [];
@@ -47,14 +47,14 @@ for "_i" from 1 to _workersCount do {
     _newWorkers pushBack _worker;
 
     // track worker to remove it from the workers array.
-    // Note: we cannot use addEventHandler since it does not allow to pass custom params and we need to pass the _store variable.
-    private _null = [_store, _worker] spawn {
-        params ["_store", "_worker"];
+    // Note: we cannot use addEventHandler since it does not allow to pass custom params and we need to pass the _logicModule variable.
+    private _null = [_logicModule, _worker] spawn {
+        params ["_logicModule", "_worker"];
         while { alive _worker} do { sleep 1; };
         // worker is dead, remove from array
-        _store setVariable ["SCAR_UCM_workers", ( (_store getVariable "SCAR_UCM_workers") - [_worker] ), true];
+        _logicModule setVariable ["SCAR_UCM_workers", ( (_logicModule getVariable "SCAR_UCM_workers") - [_worker] ), true];
         // fire event
-        ["UCM_WorkerKilled", [_store, _worker]] call CBA_fnc_serverEvent;
+        ["UCM_WorkerKilled", [_logicModule, _worker]] call CBA_fnc_serverEvent;
     };
 
     // add kill event for everyone
@@ -67,14 +67,14 @@ for "_i" from 1 to _workersCount do {
     }];
 
     // add action to order GETIN to everyone
-    [_store, _worker] remoteExec ["SCAR_UCM_fnc_addActionsToWorker"];
+    [_logicModule, _worker] remoteExec ["SCAR_UCM_fnc_addActionsToWorker"];
 
     // init worker animations
-    [_store, _worker] call SCAR_UCM_fnc_loopWorkerMovements;
+    [_logicModule, _worker] call SCAR_UCM_fnc_loopWorkerMovements;
 };
 
-// store
-_store setVariable ["SCAR_UCM_workers", ( (_store getVariable "SCAR_UCM_workers") + _newWorkers ), true];
+// logicModule
+_logicModule setVariable ["SCAR_UCM_workers", ( (_logicModule getVariable "SCAR_UCM_workers") + _newWorkers ), true];
 
 // return
 _newWorkers

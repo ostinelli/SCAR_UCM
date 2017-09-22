@@ -5,7 +5,7 @@
     Sets worker animations, sound and objects. Must be called on every machine, including server.
 
     Parameter(s):
-    0: OBJECT - The store.
+    0: OBJECT - The logicModule.
     1: UNIT   - The worker.
     2: NUMBER - 1 to start, 0 to stop.
     3: STRING - the animation name.
@@ -16,13 +16,13 @@
     0: true
 
     Example:
-    [_store, _worker, 1, _animation, _pos, _rotation] call SCAR_UCM_fnc_setWorkerAnimation;
+    [_logicModule, _worker, 1, _animation, _pos, _rotation] call SCAR_UCM_fnc_setWorkerAnimation;
 */
 
-params ["_store", "_worker", "_state", "_animation", "_pos", "_rotation"];
+params ["_logicModule", "_worker", "_state", "_animation", "_pos", "_rotation"];
 
 // vars
-private _workerObjects = _store getVariable "SCAR_UCM_workerObjects";
+private _workerObjects = _logicModule getVariable "SCAR_UCM_workerObjects";
 
 if (_state == 1) then {
     // set to ground and correct rotation

@@ -5,19 +5,19 @@
     Computes the total number of pieces.
 
     Parameter(s):
-    0: OBJECT - The store.
+    0: OBJECT - The logicModule.
 
     Return:
     0: NUMBER
 
     Example:
-    [_store] call SCAR_UCM_fnc_getPiecesCount;
+    [_logicModule] call SCAR_UCM_fnc_getPiecesCount;
 */
 
-params ["_store"];
+params ["_logicModule"];
 
 // vars
-private _pieceNamePrefix = _store getVariable "SCAR_UCM_pieceNamePrefix";
+private _pieceNamePrefix = _logicModule getVariable "SCAR_UCM_pieceNamePrefix";
 
 // init
 private _prefixLength = count _pieceNamePrefix;

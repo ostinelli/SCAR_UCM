@@ -5,16 +5,16 @@
     Returns if the UCM module is initialized.
 
     Parameter(s):
-    0: OBJECT - The store.
+    0: OBJECT - The logicModule.
 
     Return:
     0: BOOLEAN
 
     Example:
-    [_store] call SCAR_UCM_fnc_isInitialized;
+    [_logicModule] call SCAR_UCM_fnc_isInitialized;
 */
 
-params ["_store"];
+params ["_logicModule"];
 
 // return
-_store getVariable ["SCAR_UCM_initialized", false];
+_logicModule getVariable ["SCAR_UCM_initialized", false];

@@ -5,31 +5,31 @@
     Initializes the server.
 
     Paramster(s):
-    0:  OBJECT - The store.
+    0:  OBJECT - The logicModule.
 
     Return:
     0: true
 
     Example:
-    [_store] call SCAR_UCM_fnc_initServer;
+    [_logicModule] call SCAR_UCM_fnc_initServer;
 */
 
 if !(isServer) exitWith {};
 
 // params
-params ["_store"];
+params ["_logicModule"];
 
 // init foreman
-[_store] call SCAR_UCM_fnc_initForeman;
+[_logicModule] call SCAR_UCM_fnc_initForeman;
 
 // add listener
-[_store] call SCAR_UCM_fnc_onUnloadedCargoPos;
+[_logicModule] call SCAR_UCM_fnc_onUnloadedCargoPos;
 
 // handle construction work
-[_store] call SCAR_UCM_fnc_loopConstructionProgress;
+[_logicModule] call SCAR_UCM_fnc_loopConstructionProgress;
 
 // init finished, broadcast
-_store setVariable ["SCAR_UCM_initialized", true, true];
+_logicModule setVariable ["SCAR_UCM_initialized", true, true];
 
 // return
 true

@@ -28,6 +28,9 @@ params ["_logicModule"];
 // handle construction work
 [_logicModule] call SCAR_UCM_fnc_loopConstructionProgress;
 
+// add fixed markers
+[_logicModule] call SCAR_UCM_fnc_setMarkerLandingZone;
+
 // init finished, broadcast
 _logicModule setVariable ["SCAR_UCM_initialized", true, true];
 

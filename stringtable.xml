@@ -66,8 +66,8 @@
             <Italian>Posizione di partenza del pezzo (Z)</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_tooltip">
-            <English>The starting Z position of a piece on the ground (it will raise to be Z = 0 at the end)</English>
-            <Italian>La posizione Z di partenza di un pezzo per terra (salirà per diventare Z = 0 alla fine)</Italian>
+            <English>The starting Z position of a piece on the ground (it will raise to the original Z position at the end)</English>
+            <Italian>La posizione Z di partenza di un pezzo per terra (salirà fino alla posizione Z iniale)</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_displayName">
             <English>Material end position (Z)</English>

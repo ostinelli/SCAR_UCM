@@ -35,10 +35,10 @@ _action = [
         [_logicModule, _target, 0] call SCAR_UCM_fnc_setWorkerAnimation;
 
         // get piece
-        _currentPiece = [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;
+        private _currentPiece = [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;
 
         // delete all existing waypoints
-        _group = group _target;
+        private _group = group _target;
         while {(count (waypoints _group)) > 0} do
         {
             deleteWaypoint ((waypoints _group) select 0);
@@ -52,7 +52,7 @@ _action = [
         _target playAction "PlayerStand";
 
         // add waypoint
-        _wp = _group addWaypoint [_currentPiece, 10];
+        private _wp = _group addWaypoint [_currentPiece, 10];
         _wp setWaypointType "MOVE";
     },
     // Condition <CODE>
@@ -60,10 +60,10 @@ _action = [
         params ["_target", "_player", "_logicModule"];
 
         // vars
-        _workingDistance = _logicModule getVariable "SCAR_UCM_workingDistance";
+        private _workingDistance = _logicModule getVariable "SCAR_UCM_workingDistance";
 
         // get piece
-        _currentPiece = [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;
+        private _currentPiece = [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;
 
         // worker is outisde of working area
         (_target distance _currentPiece) > _workingDistance;

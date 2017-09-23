@@ -33,12 +33,12 @@ _actionInfo = [
         params ["_target", "_player", "_logicModule"];
 
         // find cars
-        _vehicles = nearestObjects [_target, ["Car", "Helicopter"], 100];
+        private _vehicles = nearestObjects [_target, ["Car", "Helicopter"], 100];
 
         private _actions = [];
         {
             // display name
-            _displayName = getText (configFile >>  "CfgVehicles" >> (typeOf _x) >> "displayName");
+            private _displayName = getText (configFile >>  "CfgVehicles" >> (typeOf _x) >> "displayName");
             _displayName = _displayName + format[" (a %1m)", round(_x distance _target)];
 
             // define action to order GETIN
@@ -60,7 +60,7 @@ _actionInfo = [
                     [_target, false] call ACE_captives_fnc_setHandcuffed;
 
                     // init
-                    _vehicle = (_this select 2);
+                    private _vehicle = (_this select 2);
                     // move worker in vehicle
                     unassignVehicle _target;
                     [_target] allowGetIn true;

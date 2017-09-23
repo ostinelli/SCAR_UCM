@@ -28,33 +28,33 @@ private _action = [
         params ["_target", "_player", "_logicModule"];
 
         // vars
-        private _materials      = _logicModule getVariable "SCAR_UCM_materials";
-        _workersAreWorking      = _logicModule getVariable "SCAR_UCM_workersAreWorking";
-        _pieceCurrentId         = _logicModule getVariable "SCAR_UCM_pieceCurrentId";
-        _piecesCount            = _logicModule getVariable "SCAR_UCM_piecesCount";
-        _pieceCurrentPercentage = _logicModule getVariable "SCAR_UCM_pieceCurrentPercentage";
-        _workers                = _logicModule getVariable "SCAR_UCM_workers";
-        _workersCount           = _logicModule getVariable "SCAR_UCM_workersCount";
-        _workersInArea          = _logicModule getVariable "SCAR_UCM_workersInArea";
-        _materialsInArea        = _logicModule getVariable "SCAR_UCM_materialsInArea";
-        _materialsInArea        = _logicModule getVariable "SCAR_UCM_materialsInArea";
+        private _materials              = _logicModule getVariable "SCAR_UCM_materials";
+        private _workersAreWorking      = _logicModule getVariable "SCAR_UCM_workersAreWorking";
+        private _pieceCurrentId         = _logicModule getVariable "SCAR_UCM_pieceCurrentId";
+        private _piecesCount            = _logicModule getVariable "SCAR_UCM_piecesCount";
+        private _pieceCurrentPercentage = _logicModule getVariable "SCAR_UCM_pieceCurrentPercentage";
+        private _workers                = _logicModule getVariable "SCAR_UCM_workers";
+        private _workersCount           = _logicModule getVariable "SCAR_UCM_workersCount";
+        private _workersInArea          = _logicModule getVariable "SCAR_UCM_workersInArea";
+        private _materialsInArea        = _logicModule getVariable "SCAR_UCM_materialsInArea";
+        private _materialsInArea        = _logicModule getVariable "SCAR_UCM_materialsInArea";
 
         // compute percentages
-        _remainingPercentageTot = 0;
+        private _remainingPercentageTot = 0;
         {
-            _remainingPercentage    = _x select 1;
+            private _remainingPercentage    = _x select 1;
             _remainingPercentageTot = _remainingPercentageTot + _remainingPercentage;
 
         } forEach _materials;
 
-        _active = "";
+        private _active = "";
         if (_workersAreWorking) then {
             _active = "<t color='#11b740'>" + toUpper(localize "STR_SCAR_UCM_Main_Yes") + "</t>";
         } else {
             _active = "<t color='#b71111'>" + toUpper(localize "STR_SCAR_UCM_Main_No") + "</t>";
         };
 
-        _str = "<t align='left'>";
+        private _str = "<t align='left'>";
         _str = _str + "<t color='#ffffc8'>" + toUpper(localize "STR_SCAR_UCM_Main_ConstructionStatus") + "</t><br /><br />";
         _str = _str + "<t color='#a8a8a8'>" + (localize "STR_SCAR_UCM_Main_ConstructionActive") + ":</t> " + _active + "<br />";
         _str = _str + format["<t color='#a8a8a8'>" + (localize "STR_SCAR_UCM_Main_ConstructionProgressTotal") + ":</t> %1%2<br />", round(_pieceCurrentId / _piecesCount * 100), "%"];

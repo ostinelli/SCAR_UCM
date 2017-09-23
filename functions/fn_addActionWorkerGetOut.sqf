@@ -40,7 +40,10 @@ _actionInfo = [
         [_vehicle, 0, ["ACE_MainActions", "ACE_Passengers", str _target, "SCAR_UCM_WorkerGetOutOfVehicle"]] remoteExec ["ace_interact_menu_fnc_removeActionFromObject"];
     },
     // Condition <CODE>
-    { true },
+    {
+        params ["_target", "_player", "_logicModule"];
+        [_target] call SCAR_UCM_fnc_canRespondToActions
+    },
     {},
     _vehicle
 ];

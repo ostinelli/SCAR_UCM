@@ -66,7 +66,13 @@ _action = [
         private _currentPiece = [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;
 
         // worker is outisde of working area
-        (_target distance _currentPiece) > _workingDistance;
+        private _isOutside = (_target distance _currentPiece) > _workingDistance;
+
+        // can?
+        private _canRespondToActions = [_target] call SCAR_UCM_fnc_canRespondToActions;
+
+        // sum
+        _isOutside && _canRespondToActions
     },
     {},
     _logicModule

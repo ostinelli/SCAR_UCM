@@ -47,6 +47,7 @@ class CfgFunctions {
 
             // other
             class safetyDeleteVehicleAndCrew {};
+            class canRespondToActions {};
 
             // helpers
             class isInitialized {};

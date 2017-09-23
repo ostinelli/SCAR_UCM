@@ -32,7 +32,10 @@ _action = [
         [_logicModule, player] remoteExec ["SCAR_UCM_fnc_requestWorkers", 2];
     },
     // Condition <CODE>
-    { true },
+    {
+        params ["_target", "_player", "_logicModule"];
+        [_target] call SCAR_UCM_fnc_canRespondToActions
+    },
     {},
     _logicModule
 ] call ace_interact_menu_fnc_createAction;
@@ -49,7 +52,10 @@ _action = [
         [_logicModule, player] remoteExec ["SCAR_UCM_fnc_requestMaterial", 2];
     },
     // Condition <CODE>
-    { true },
+    {
+        params ["_target", "_player", "_logicModule"];
+        [_target] call SCAR_UCM_fnc_canRespondToActions
+    },
     {},
     _logicModule
 ] call ace_interact_menu_fnc_createAction;

@@ -27,7 +27,10 @@ _actionInfo = [
     // Statement <CODE>
     {},
     // Condition <CODE>
-    { true },
+    {
+        params ["_target", "_player", "_logicModule"];
+        [_target] call SCAR_UCM_fnc_canRespondToActions
+    },
     // Children code <CODE> (Optional)
     {
         params ["_target", "_player", "_logicModule"];

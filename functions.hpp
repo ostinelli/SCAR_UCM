@@ -12,7 +12,6 @@ class CfgFunctions {
             // inits
             class initServer {};
             class initPlayer {};
-            class initForeman {};
             class initSettings {};
 
             // events

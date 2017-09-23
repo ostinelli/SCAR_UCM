@@ -19,9 +19,6 @@ if !(isServer) exitWith {};
 // params
 params ["_logicModule"];
 
-// init foreman
-[_logicModule] call SCAR_UCM_fnc_initForeman;
-
 // add listener
 [_logicModule] call SCAR_UCM_fnc_onUnloadedCargoPos;
 

@@ -23,6 +23,10 @@ The **Utilities Construction Mod** is a module for Arma 3. Quickly add construct
   - ACE3 ([Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057), [Github](https://github.com/acemod/ACE3/releases/latest))
   - CBA_A3 ([Steam](https://steamcommunity.com/workshop/filedetails/?id=450814997), [Github](https://github.com/CBATeam/CBA_A3/releases/latest))
 
+## Example mission
+
+You can download an example mission from [here](resources/ucm_demo.Altis.zip).
+
 ## Functions
 
 ##### SCAR_UCM_fnc_isInitialized

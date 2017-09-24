@@ -1,3 +1,5 @@
+![Utilities Construction Mod logo](https://cldup.com/jVkD9k4D9t.png)
+
 # Utilities Construction Mod
 
 The **Utilities Construction Mod** is a module for Arma 3. Quickly add construction areas in your missions such as pipelines, railways, electric lines, and such.

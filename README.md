@@ -2,7 +2,7 @@
 
 # Utilities Construction Mod
 
-The **Utilities Construction Mod** is a module for Arma 3. Quickly add construction areas in your missions such as pipelines, railways, electric lines, and such.
+The **Utilities Construction Mod** is a module for Arma 3. Quickly add construction areas in your missions for pipelines, railways, electric lines, and such.
 
 > This module is still in early beta. Some changes and bugs are to be expected.
 
@@ -30,6 +30,10 @@ The **Utilities Construction Mod** is a module for Arma 3. Quickly add construct
 ## Example mission
 
 You can download an example mission from [here](https://github.com/ostinelli/SCAR_UCM/raw/master/resources/ucm_demo.Altis.zip).
+
+## Download
+
+You can get the module from [Steam](http://steamcommunity.com/sharedfiles/filedetails/?id=1145478729).
 
 ## Functions
 

@@ -2,20 +2,22 @@
 
 The **Utilities Construction Mod** is a module for Arma 3. Quickly add construction areas in your missions such as pipelines, railways, electric lines, and such.
 
-> This module is still in pre-release.
+> This module is still in early beta. Some changes and bugs are to be expected.
 
 ## Core Features
 
   - Easy setup.
   - Customizable.
-  - Compatible with persistency (ALiVE, EXILE, ...).
+  - Compatible with persistency (ALiVE, ...).
 
-## Demo
+## Video Trailer
+
+[![Click to watch video](https://img.youtube.com/vi/ZIp2BfbvO1E/0.jpg)](https://www.youtube.com/watch?v=ZIp2BfbvO1E)
 
 
+## Video Tutorial
 
-## Getting Started
-
+[![Click to watch video](https://img.youtube.com/vi/sbx0QSRaUt4/0.jpg)](https://www.youtube.com/watch?v=sbx0QSRaUt4)
 
 
 ## Dependencies

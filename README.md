@@ -25,7 +25,7 @@ The **Utilities Construction Mod** is a module for Arma 3. Quickly add construct
 
 ## Example mission
 
-You can download an example mission from [here](resources/ucm_demo.Altis.zip).
+You can download an example mission from [here](https://github.com/ostinelli/SCAR_UCM/raw/master/resources/ucm_demo.Altis.zip).
 
 ## Functions
 

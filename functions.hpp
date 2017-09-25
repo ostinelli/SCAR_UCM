@@ -6,8 +6,9 @@ class CfgFunctions {
         class functions {
             file = "\scar_ucm\functions";
 
-            // module
+            // modules
             class moduleUtilitiesConstructionMod {};
+            class moduleUtilitiesConstructionAlive {};
 
             // inits
             class initServer {};
@@ -55,6 +56,10 @@ class CfgFunctions {
             // other
             class safetyDeleteVehicleAndCrew {};
             class canRespondToActions {};
+
+            // ALiVE
+            class aliveInit {};
+            class aliveOnConstructionAreaMoved {};
 
             // helpers
             class isInitialized {};

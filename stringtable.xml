@@ -13,6 +13,10 @@
             <English>UCM Helicopter Origin</English>
             <Italian>UCM Origine Elicotteri</Italian>
         </Key>
+        <Key ID="STR_SCAR_UCM_ModuleUtilitiesConstructionAlive">
+            <English>UCM ALiVE</English>
+            <Italian>UCM ALiVE</Italian>
+        </Key>
         <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_Side_displayName">
             <English>Side</English>
             <Italian>Fazione</Italian>

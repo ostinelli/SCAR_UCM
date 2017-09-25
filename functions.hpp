@@ -30,9 +30,9 @@ class CfgFunctions {
             class addActionRequestStatus {};
             class addActionRequestWorkers {};
             class addActionRequestMaterials {};
-            class addActionWorkerGetIn {};
-            class addActionWorkerGetOut {};
-            class removeActionWorkerGetOut {};
+            class addActionGetIn {};
+            class addActionGetOut {};
+            class removeActionGetOut {};
 
             // resources
             class requestWorkers {};

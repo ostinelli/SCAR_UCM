@@ -22,13 +22,13 @@ params ["_logicModule"];
 _foreman = _logicModule getVariable "SCAR_UCM_foreman";
 
 // status
-[_logicModule, _foreman] call SCAR_UCM_fnc_addActionRequestStatus;
+[_foreman] call SCAR_UCM_fnc_addActionRequestStatus;
 
 // workers
-[_logicModule, _foreman] call SCAR_UCM_fnc_addActionRequestWorkers;
+[_foreman] call SCAR_UCM_fnc_addActionRequestWorkers;
 
 // materials
-[_logicModule, _foreman] call SCAR_UCM_fnc_addActionRequestMaterials;
+[_foreman] call SCAR_UCM_fnc_addActionRequestMaterials;
 
 // return
 true

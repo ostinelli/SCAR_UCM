@@ -34,12 +34,12 @@ for "_i" from 1 to _workersCount do {
     _newGroup setBehaviour "CARELESS";
 
     // create worker
-    private _worker = _newGroup createUnit [_workerClass, getPos _vehicle, [], 0, "NONE"];
+    private _worker = _newGroup createUnit [_workerClass, (_vehicle getPos [20, random(360)]), [], 0, "NONE"];
 
     // style
     [_worker] call SCAR_UCM_fnc_setRandomWorkerLoadout;
 
-    // asign as cargo & move in
+    // assign as cargo & move in
     _worker assignAsCargo _vehicle;
     _worker moveInCargo _vehicle;
 
@@ -69,10 +69,10 @@ for "_i" from 1 to _workersCount do {
     }];
 
     // add actions to server and every client
-    [_logicModule, _worker] remoteExec ["SCAR_UCM_fnc_addActionsToWorker"];
+    [_worker] remoteExec ["SCAR_UCM_fnc_addActionsToWorker"];
 
     // init worker animations
-    [_logicModule, _worker] call SCAR_UCM_fnc_loopWorkerMovements;
+    [_worker] call SCAR_UCM_fnc_loopWorkerMovements;
 };
 
 // logicModule

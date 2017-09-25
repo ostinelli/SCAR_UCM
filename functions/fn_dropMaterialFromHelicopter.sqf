@@ -5,21 +5,21 @@
     Drop materials from provided vehicle.
 
     Parameter(s):
-    0: OBJECT - The logicModule.
-    1: UNIT - The vehicle dropping the materials.
+    0: UNIT - The vehicle dropping the materials.
 
     Return:
-    0: BOOLEAN
+    true
 
     Example:
-    [_logicModule, _vehicle] call SCAR_UCM_fnc_dropMaterialFromHelicopter;
+    [_vehicle] call SCAR_UCM_fnc_dropMaterialFromHelicopter;
 */
 
 if !(isServer) exitWith {};
 
-params ["_logicModule", "_vehicle"];
+params ["_vehicle"];
 
 // vars
+private _logicModule     = _vehicle getVariable "SCAR_UCM_logicModule";
 private _materialsClass  = _logicModule getVariable "SCAR_UCM_materialsClass";
 private _materialsWeight = _logicModule getVariable "SCAR_UCM_materialsWeight";
 

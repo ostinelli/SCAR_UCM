@@ -5,35 +5,35 @@
     Adds the action to a worker to get in vehicles.
 
     Parameter(s):
-    0: OBJECT - The logicModule.
-    1: OBJECT - The worker.
+    0: UNIT - The worker.
 
     Return:
-    0: true
+    true
 
     Example:
-    [_logicModule, _worker] call SCAR_UCM_fnc_addActionWorkerGetIn;
+    [_worker] call SCAR_UCM_fnc_addActionWorkerGetIn;
 */
 
 if !(hasInterface) exitWith {};
 
-params ["_logicModule", "_worker"];
+params ["_worker"];
 
 // add action
 _actionInfo = [
-    "SCAR_UCM_WorkerGetInVehicle",
+    "SCAR_UCM_GetInVehicle",
     (localize "STR_SCAR_UCM_Main_GoToVehicle"),
     "",
     // Statement <CODE>
     {},
     // Condition <CODE>
     {
-        params ["_target", "_player", "_logicModule"];
+        params ["_target"];
         [_target] call SCAR_UCM_fnc_canRespondToActions
     },
     // Children code <CODE> (Optional)
     {
-        params ["_target", "_player", "_logicModule"];
+        params ["_target"];
+        private _logicModule = _target getVariable "SCAR_UCM_logicModule";
 
         // find cars
         private _vehicles = nearestObjects [_target, ["Car", "Helicopter"], 100];
@@ -46,14 +46,14 @@ _actionInfo = [
 
             // define action to order GETIN
             private _action = [
-                format ["SCAR_UCM_WorkerGetInVehicle:%1", _x],
+                format ["SCAR_UCM_GetInVehicle:%1", _x],
                 _displayName,
                 "",
                 {
                     // order to GETIN
 
                     // stop animation, if any
-                    [_logicModule, _target, 0] call SCAR_UCM_fnc_setWorkerAnimation;
+                    [_target, 0] call SCAR_UCM_fnc_setWorkerAnimation;
 
                     // set stance
                     _target setUnitPos "AUTO";
@@ -81,8 +81,7 @@ _actionInfo = [
 
         // return
         _actions
-    },
-    _logicModule
+    }
 ];
  _action = _actionInfo call ace_interact_menu_fnc_createAction;
 [_worker, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;

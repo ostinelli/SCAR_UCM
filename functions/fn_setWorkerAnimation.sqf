@@ -5,23 +5,23 @@
     Sets worker animations, sound and objects. Must be called on every machine, including server.
 
     Parameter(s):
-    0: OBJECT - The logicModule.
-    1: UNIT   - The worker.
-    2: NUMBER - 1 to start, 0 to stop.
-    3: STRING - the animation name.
-    4: POS - the position.
-    5: NUMBER - the desired rotation.
+    0: UNIT   - The worker.
+    1: NUMBER - 1 to start, 0 to stop.
+    2: STRING - the animation name.
+    3: POS - the position.
+    4: NUMBER - the desired rotation.
 
     Return:
-    0: true
+    true
 
     Example:
-    [_logicModule, _worker, 1, _animation, _pos, _rotation] call SCAR_UCM_fnc_setWorkerAnimation;
+    [_worker, 1, _animation, _pos, _rotation] call SCAR_UCM_fnc_setWorkerAnimation;
 */
 
-params ["_logicModule", "_worker", "_state", "_animation", "_pos", "_rotation"];
+params ["_worker", "_state", "_animation", "_pos", "_rotation"];
 
 // vars
+private _logicModule   = _worker getVariable "SCAR_UCM_logicModule";
 private _workerObjects = _logicModule getVariable "SCAR_UCM_workerObjects";
 
 if (_state == 1) then {

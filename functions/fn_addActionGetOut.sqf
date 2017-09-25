@@ -2,32 +2,31 @@
     Author: _SCAR
 
     Description:
-    Adds the action to a vehicle to allow passengers to get out.
+    Adds the action to a vehicle to allow a worker or foreman to get out.
 
     Parameter(s):
-    0: OBJECT - The logicModule.
-    1: OBJECT - The worker.
-    2: UNIT - The vehicle.
+    0: UNIT - The worker.
+    2: OBJECT - The vehicle.
 
     Return:
     0: true
 
     Example:
-    [_logicModule, _worker, _vehicle] call SCAR_UCM_fnc_addActionWorkerGetOut;
+    [_worker, _vehicle] call SCAR_UCM_fnc_addActionWorkerGetOut;
 */
 
 if !(hasInterface) exitWith {};
 
-params ["_logicModule", "_worker", "_vehicle"];
+params ["_worker", "_vehicle"];
 
 // add action
 _actionInfo = [
-    "SCAR_UCM_WorkerGetOutOfVehicle",
+    "SCAR_UCM_GetOutOfVehicle",
     (localize "STR_SCAR_UCM_Main_ExitVehicle"),
     "",
     // Statement <CODE>
     {
-        params ["_target", "_player", "_vehicle"];
+        params ["_target"];
 
         // get out
         [_target] orderGetIn false;
@@ -35,7 +34,7 @@ _actionInfo = [
     },
     // Condition <CODE>
     {
-        params ["_target", "_player", "_logicModule"];
+        params ["_target"];
         [_target] call SCAR_UCM_fnc_canRespondToActions
     },
     {},

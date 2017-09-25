@@ -5,25 +5,25 @@
     Initializes a worker's animations.
 
     Parameter(s):
-    0: OBJECT - The logicModule.
-    1: UNIT - The worker.
+    0: UNIT - The worker.
 
     Return:
-    0: true
+    true
 
     Example:
-    [_logicModule, _worker] call SCAR_UCM_fnc_loopWorkerMovements;
+    [_worker] call SCAR_UCM_fnc_loopWorkerMovements;
 */
 
 if !(isServer) exitWith {};
 
-params ["_logicModule", "_worker"];
+params ["_worker"];
 
-private _null = [_logicModule, _worker] spawn {
+private _null = [_worker] spawn {
 
-    params ["_logicModule", "_worker"];
+    params ["_worker"];
 
     // vars
+    private _logicModule      = _worker getVariable "SCAR_UCM_logicModule";
     private _workingDistance  = _logicModule getVariable "SCAR_UCM_workingDistance";
     private _workerAnimations = _logicModule getVariable "SCAR_UCM_workerAnimations";
 
@@ -33,9 +33,8 @@ private _null = [_logicModule, _worker] spawn {
     // add kill event
     _worker addEventHandler ["Killed", {
         private _killed = _this select 0;
-        private _logicModule  = _killed getVariable "SCAR_UCM_logicModule";
         // stop animation & sound
-        [_logicModule, _killed, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
+        [_killed, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
     }];
 
     // set movements
@@ -47,7 +46,7 @@ private _null = [_logicModule, _worker] spawn {
         // has work ended?
         if (_currentPiece isEqualTo objNull) exitWith {
             // stop animation & sound
-            [_logicModule, _worker, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
+            [_worker, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
         };
 
         // set marker worker
@@ -64,7 +63,7 @@ private _null = [_logicModule, _worker] spawn {
             if !(_currentPiece isEqualTo _lastPiece) then {
 
                 // stop animation & sound
-                [_logicModule, _worker, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
+                [_worker, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
 
                 // get current piece size
                 private _box = boundingBoxReal _currentPiece;
@@ -103,11 +102,10 @@ private _null = [_logicModule, _worker] spawn {
                 private _wp = _group addWaypoint [_pieceToWorldPos, 0];
                 _wp setWaypointType "MOVE";
                 _wp setWaypointStatements ["true",
-                    "private _logicModule = this getVariable 'SCAR_UCM_logicModule';" +
                     "private _animation = this getVariable 'SCAR_UCM_animation';" +
                     "private _pieceToWorldPos = this getVariable 'SCAR_UCM_pieceToWorldPos';" +
                     "private _rotation = this getVariable 'SCAR_UCM_rotation';" +
-                    "[_logicModule, this, 1, _animation, _pieceToWorldPos, _rotation] remoteExec ['SCAR_UCM_fnc_setWorkerAnimation'];"
+                    "[this, 1, _animation, _pieceToWorldPos, _rotation] remoteExec ['SCAR_UCM_fnc_setWorkerAnimation'];"
                 ];
 
                 // flag
@@ -117,7 +115,7 @@ private _null = [_logicModule, _worker] spawn {
             // not working
 
             // stop animation & sound
-            [_logicModule, _worker, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
+            [_worker, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
 
             // reset
             _lastPiece = objNull;

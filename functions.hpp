@@ -24,6 +24,8 @@ class CfgFunctions {
             // actions
             class addActionsToForeman {};
             class addActionsToWorker {};
+
+            class addActionGoToConstructionArea {};
             class addActionRequestStatus {};
             class addActionWorkerGetIn {};
             class addActionWorkerGetOut {};

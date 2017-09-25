@@ -42,6 +42,7 @@ class CfgFunctions {
             // getters & setters
             class getCurrentPiece {};
             class getPiecesCount {};
+            class getStatusString {};
             class setAltitudeToGround {};
             class setWorkerAnimation {};
             class setMarkerConstruction {};

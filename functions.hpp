@@ -13,6 +13,7 @@ class CfgFunctions {
             class initServer {};
             class initPlayer {};
             class initSettings {};
+            class initForeman {};
 
             // events
             class onUnloadedCargoPos {};

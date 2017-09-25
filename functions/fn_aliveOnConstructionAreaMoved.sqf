@@ -13,7 +13,7 @@
 
 ["UCM_ConstructionAreaMoved", {
 
-	params ["_logicModule", "_currentPiece"];
+    params ["_logicModule", "_currentPiece"];
 
     // vars
     private _side            = _logicModule getVariable "SCAR_UCM_side";

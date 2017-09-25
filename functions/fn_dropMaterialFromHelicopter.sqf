@@ -42,7 +42,7 @@ deleteVehicle _material;
 private _newMaterial = _materialsClass createVehicle _pos;
 
 // make materials loadable
-[_newMaterial, true, _materialsWeight] remoteExec ["ace_cargo_fnc_makeLoadable"];
+[_newMaterial, _materialsWeight] remoteExec ["ace_cargo_fnc_setSize"];
 
 // add to available materials
 private _materials = _logicModule getVariable "SCAR_UCM_materials";

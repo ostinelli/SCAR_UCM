@@ -20,9 +20,6 @@ if !(hasInterface) exitWith {};
 
 params ["_logicModule", "_worker", "_vehicle"];
 
-// remove action  (covers the double action bug).
-[_vehicle, 0, ["ACE_MainActions", "ACE_Passengers", str _worker, "SCAR_UCM_WorkerGetOutOfVehicle"]] call ace_interact_menu_fnc_removeActionFromObject;
-
 // add action
 _actionInfo = [
     "SCAR_UCM_WorkerGetOutOfVehicle",
@@ -35,9 +32,6 @@ _actionInfo = [
         // get out
         [_target] orderGetIn false;
         unassignVehicle _target;
-
-        // remove action from everyone
-        [_vehicle, 0, ["ACE_MainActions", "ACE_Passengers", str _target, "SCAR_UCM_WorkerGetOutOfVehicle"]] remoteExec ["ace_interact_menu_fnc_removeActionFromObject"];
     },
     // Condition <CODE>
     {

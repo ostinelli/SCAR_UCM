@@ -69,9 +69,6 @@ _actionInfo = [
                     [_target] allowGetIn true;
                     _target assignAsCargo _vehicle;
                     [_target] orderGetIn true;
-
-                    // add action to GETOUT to all clients
-                    [_logicModule, _target, _vehicle] remoteExec ["SCAR_UCM_fnc_addActionWorkerGetOut"];
                 },
                 { true },
                 {},

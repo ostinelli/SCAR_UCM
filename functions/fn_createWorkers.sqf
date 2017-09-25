@@ -46,16 +46,18 @@ for "_i" from 1 to _workersCount do {
     // add to array
     _newWorkers pushBack _worker;
 
+    // add logicModule to worker
+    _worker setVariable ["_logicModule", _logicModule, true];
+
     // track worker to remove it from the workers array.
-    // Note: we cannot use addEventHandler since it does not allow to pass custom params and we need to pass the _logicModule variable.
-    private _null = [_logicModule, _worker] spawn {
-        params ["_logicModule", "_worker"];
-        while { alive _worker} do { sleep 1; };
+    _worker addEventHandler ["Killed", {
+        private _killed = _this select 0;
+        private _logicModule  = _killed getVariable "_logicModule";
         // worker is dead, remove from array
-        _logicModule setVariable ["SCAR_UCM_workers", ( (_logicModule getVariable "SCAR_UCM_workers") - [_worker] ), true];
+        _logicModule setVariable ["SCAR_UCM_workers", ( (_logicModule getVariable "SCAR_UCM_workers") - [_killed] ), true];
         // fire event
-        ["UCM_WorkerKilled", [_logicModule, _worker]] call CBA_fnc_serverEvent;
-    };
+        ["UCM_WorkerKilled", [_logicModule, _killed]] call CBA_fnc_serverEvent;
+    }];
 
     // add kill event for everyone
     _worker setVariable ["_side", _side, true];
@@ -66,7 +68,7 @@ for "_i" from 1 to _workersCount do {
         [_side, "HQ"] sideChat (localize "STR_SCAR_UCM_Radio_WorkerKilled");
     }];
 
-    // add action to order GETIN to everyone
+    // add actions to server and every client
     [_logicModule, _worker] remoteExec ["SCAR_UCM_fnc_addActionsToWorker"];
 
     // init worker animations

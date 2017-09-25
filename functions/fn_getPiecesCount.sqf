@@ -24,8 +24,9 @@ private _prefixLength = count _pieceNamePrefix;
 
 // check for existance of piece 0
 // we need to do this because parseNumber returns 0 for invalid numbers <https://community.bistudio.com/wiki/parseNumber>
-if ((missionNameSpace getVariable [format["%1%2", _pieceNamePrefix, 0], objNull]) isEqualTo objNull) then {
-	throw "UCM: the naming of the pieces does not follow a sequential [0 - n] logic";
+private _firstPieceName = format["%1%2", _pieceNamePrefix, 0];
+if ((missionNameSpace getVariable [_firstPieceName, objNull]) isEqualTo objNull) then {
+	throw format ["UCM: could not find the first piece with expected name '%1'", _firstPieceName];
 };
 
 // loop all other pieces

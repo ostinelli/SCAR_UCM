@@ -31,7 +31,6 @@ private _null = [_logicModule, _worker] spawn {
     private _lastPiece = objNull;
 
     // add kill event
-    _worker setVariable ["_logicModule", _logicModule, true];
     _worker addEventHandler ["Killed", {
         private _killed = _this select 0;
         private _logicModule  = _killed getVariable "_logicModule";

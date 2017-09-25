@@ -27,6 +27,8 @@ class CfgFunctions {
 
             class addActionGoToConstructionArea {};
             class addActionRequestStatus {};
+            class addActionRequestWorkers {};
+            class addActionRequestMaterials {};
             class addActionWorkerGetIn {};
             class addActionWorkerGetOut {};
             class removeActionWorkerGetOut {};

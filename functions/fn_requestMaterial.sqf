@@ -61,10 +61,10 @@ private _group   = _result select 2;
 // waypoints
 
 // --> heli: unload
-_vehicle setVariable ["_logicModule", _logicModule, true];
+_vehicle setVariable ["SCAR_UCM_logicModule", _logicModule, true];
 private _wpUnload = _group addWaypoint [getPos _heliPad, 0];
 _wpUnload setWaypointType "MOVE";
-_wpUnload setWaypointStatements ["true", "_vehicle = (vehicle this); _logicModule = _vehicle getVariable '_logicModule'; [_logicModule, _vehicle] spawn SCAR_UCM_fnc_dropMaterialFromHelicopter;"];
+_wpUnload setWaypointStatements ["true", "_vehicle = (vehicle this); _logicModule = _vehicle getVariable 'SCAR_UCM_logicModule'; [_logicModule, _vehicle] spawn SCAR_UCM_fnc_dropMaterialFromHelicopter;"];
 
 // --> heli: leave
 private _wpLeave = _group addWaypoint [_helicopterOriginMaterialPos, 0];

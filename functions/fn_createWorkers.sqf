@@ -47,12 +47,12 @@ for "_i" from 1 to _workersCount do {
     _newWorkers pushBack _worker;
 
     // add logicModule to worker
-    _worker setVariable ["_logicModule", _logicModule, true];
+    _worker setVariable ["SCAR_UCM_logicModule", _logicModule, true];
 
     // track worker to remove it from the workers array.
     _worker addEventHandler ["Killed", {
-        private _killed = _this select 0;
-        private _logicModule  = _killed getVariable "_logicModule";
+        private _killed       = _this select 0;
+        private _logicModule  = _killed getVariable "SCAR_UCM_logicModule";
         // worker is dead, remove from array
         _logicModule setVariable ["SCAR_UCM_workers", ( (_logicModule getVariable "SCAR_UCM_workers") - [_killed] ), true];
         // fire event
@@ -60,11 +60,11 @@ for "_i" from 1 to _workersCount do {
     }];
 
     // add kill event for everyone
-    _worker setVariable ["_side", _side, true];
+    _worker setVariable ["SCAR_UCM_side", _side, true];
     _worker addMPEventHandler ["MPKilled", {
         // radio
         private _killed = _this select 0;
-        private _side   = _killed getVariable "_side";
+        private _side   = _killed getVariable "SCAR_UCM_side";
         [_side, "HQ"] sideChat (localize "STR_SCAR_UCM_Radio_WorkerKilled");
     }];
 

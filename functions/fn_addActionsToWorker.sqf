@@ -34,7 +34,7 @@ if (isServer) then {
 
         params ["_worker", "_position", "_vehicle"];
 
-        private _logicModule = _worker getVariable "_logicModule";
+        private _logicModule = _worker getVariable "SCAR_UCM_logicModule";
 
         // add action to GETOUT to all clients
         [_logicModule, _worker, _vehicle] remoteExec ["SCAR_UCM_fnc_addActionWorkerGetOut"];
@@ -44,7 +44,7 @@ if (isServer) then {
 
         params ["_worker", "_position", "_vehicle"];
 
-        private _logicModule = _worker getVariable "_logicModule";
+        private _logicModule = _worker getVariable "SCAR_UCM_logicModule";
 
         // add action to GETOUT to all clients
         [_logicModule, _worker, _vehicle] remoteExec ["SCAR_UCM_fnc_removeActionWorkerGetOut"];

@@ -24,8 +24,8 @@ private _null = [_logicModule, _worker] spawn {
     params ["_logicModule", "_worker"];
 
     // vars
-    private _workingDistance              = _logicModule getVariable "SCAR_UCM_workingDistance";
-    private _workerAnimations             = _logicModule getVariable "SCAR_UCM_workerAnimations";
+    private _workingDistance  = _logicModule getVariable "SCAR_UCM_workingDistance";
+    private _workerAnimations = _logicModule getVariable "SCAR_UCM_workerAnimations";
 
     // init
     private _lastPiece = objNull;
@@ -33,7 +33,7 @@ private _null = [_logicModule, _worker] spawn {
     // add kill event
     _worker addEventHandler ["Killed", {
         private _killed = _this select 0;
-        private _logicModule  = _killed getVariable "_logicModule";
+        private _logicModule  = _killed getVariable "SCAR_UCM_logicModule";
         // stop animation & sound
         [_logicModule, _killed, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
     }];
@@ -95,19 +95,18 @@ private _null = [_logicModule, _worker] spawn {
                 private _animation       = selectRandom _workerAnimations;
                 private _pieceToWorldPos = _currentPiece modelToWorld _relativePos;
                 private _rotation        = ((getDir _currentPiece) - _sideX * 90);
-                _logicModule setVariable ["_logicModule", _logicModule, true];
-                _worker setVariable ["_animation", _animation, true];
-                _worker setVariable ["_pieceToWorldPos", _pieceToWorldPos, true];
-                _worker setVariable ["_rotation", _rotation, true];
+                _worker setVariable ["SCAR_UCM_animation", _animation, true];
+                _worker setVariable ["SCAR_UCM_pieceToWorldPos", _pieceToWorldPos, true];
+                _worker setVariable ["SCAR_UCM_rotation", _rotation, true];
 
                 // add waypoint
                 private _wp = _group addWaypoint [_pieceToWorldPos, 0];
                 _wp setWaypointType "MOVE";
                 _wp setWaypointStatements ["true",
-                    "private _logicModule = this getVariable '_logicModule';" +
-                    "private _animation = this getVariable '_animation';" +
-                    "private _pieceToWorldPos = this getVariable '_pieceToWorldPos';" +
-                    "private _rotation = this getVariable '_rotation';" +
+                    "private _logicModule = this getVariable 'SCAR_UCM_logicModule';" +
+                    "private _animation = this getVariable 'SCAR_UCM_animation';" +
+                    "private _pieceToWorldPos = this getVariable 'SCAR_UCM_pieceToWorldPos';" +
+                    "private _rotation = this getVariable 'SCAR_UCM_rotation';" +
                     "[_logicModule, this, 1, _animation, _pieceToWorldPos, _rotation] remoteExec ['SCAR_UCM_fnc_setWorkerAnimation'];"
                 ];
 

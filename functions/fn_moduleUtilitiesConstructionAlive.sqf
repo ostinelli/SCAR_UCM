@@ -18,8 +18,6 @@ if (_activated) then {
 
     diag_log "UCM: Utilities Construction Alive activated";
 
-    systemChat "ALIVE ACTIVATED!";
-
     // Raise error if ALiVE is not available
     if !(isClass(configFile >> "CfgPatches" >> "Alive_main")) then {
         throw "You have included the UCM ALiVE mod, but ALiVE is not active";

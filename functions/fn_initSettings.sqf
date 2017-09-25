@@ -72,10 +72,8 @@ private _helicopterOrigins = [_logicModule, "SCAR_UCM_ModuleUtilitiesConstructio
 if ((count _helicopterOrigins) == 0) then { throw format ["UCM: no Helicopter Origin module has been synchronized to module '%1'", _logicModule]; };
 _helicopterOrigin = _helicopterOrigins select 0;
 
-// side
-private _sideKeys   = ["BLUFOR", "OPFOR", "INDEPENDENT", "CIVILIAN"];
-private _sideValues = [blufor, opfor, independent, civilian];
-_side = _sideValues select (_sideKeys find _side);
+// convert to side
+_side = [_side] call SCAR_UCM_fnc_convertSideStrToSide;
 
 // objects
 _foreman = missionNamespace getVariable _foremanVarname;

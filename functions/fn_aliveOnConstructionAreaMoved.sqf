@@ -25,9 +25,12 @@
         [_x, "removeObjective", _objectiveId] call ALiVE_fnc_OPCOM;
 
         // add custom objective
-        _opcomSide = [_x, "side", ""] call ALiVE_fnc_HashGet;
-        if( _opcomSide == _side) then {
-            [_opcom, "addObjective", _objectiveParams] call ALiVE_fnc_OPCOM;
+        private _opcomSideStr = [_x, "side", ""] call ALiVE_fnc_HashGet;
+        private _opcomSide    = [_opcomSideStr] call SCAR_UCM_fnc_convertSideStrToSide;
+        private _isEnemy      = [_side, _opcomSide] call BIS_fnc_sideIsEnemy;
+
+        if (_isEnemy) then {
+            [_x, "addObjective", _objectiveParams] call ALiVE_fnc_OPCOM;
         };
 
     } forEach OPCOM_INSTANCES;

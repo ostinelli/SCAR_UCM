@@ -34,6 +34,10 @@ if (_activated) then {
 
 	// init
 	if (isServer) then {
+
+	    // init ALiVE
+	    [] call SCAR_UCM_fnc_aliveInit;
+
 		// init settings
 		[
 			_logic,

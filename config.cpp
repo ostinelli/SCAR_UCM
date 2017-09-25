@@ -7,8 +7,7 @@ class CfgPatches
         units[] = {
             "SCAR_UCM_ModuleUtilitiesConstructionMod",
             "SCAR_UCM_ModuleUtilitiesConstructionLandingZone",
-            "SCAR_UCM_ModuleUtilitiesConstructionHelicopterOrigin",
-            "SCAR_UCM_ModuleUtilitiesConstructionAlive"
+            "SCAR_UCM_ModuleUtilitiesConstructionHelicopterOrigin"
         };
         weapons[] = {};
         requiredVersion = 1.0;
@@ -199,22 +198,6 @@ class CfgVehicles
         displayName = $STR_SCAR_UCM_ModuleUtilitiesConstructionHelicopterOrigin;
         icon = "\scar_ucm\gfx\logo.paa";
         category = "SCAR_UCM_UtilitiesConstructionMod";
-
-        isGlobal           = 1;
-        isTriggerActivated = 0;
-        isDisposable       = 0;
-    };
-
-    class SCAR_UCM_ModuleUtilitiesConstructionAlive: Module_F
-    {
-        // Standard object definitions
-        scope = 2;
-        displayName = $STR_SCAR_UCM_ModuleUtilitiesConstructionAlive;
-        icon = "\scar_ucm\gfx\logo.paa";
-        category = "SCAR_UCM_UtilitiesConstructionMod";
-
-        function         = "SCAR_UCM_fnc_moduleUtilitiesConstructionAlive";
-        functionPriority = 10;
 
         isGlobal           = 1;
         isTriggerActivated = 0;

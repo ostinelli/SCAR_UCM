@@ -8,7 +8,6 @@ class CfgFunctions {
 
             // modules
             class moduleUtilitiesConstructionMod {};
-            class moduleUtilitiesConstructionAlive {};
 
             // inits
             class initServer {};
@@ -56,6 +55,7 @@ class CfgFunctions {
             // other
             class safetyDeleteVehicleAndCrew {};
             class canRespondToActions {};
+            class convertSideStrToSide {};
 
             // ALiVE
             class aliveInit {};

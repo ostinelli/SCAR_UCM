@@ -10,7 +10,6 @@ The **Utilities Construction Mod** is a module for Arma 3. Quickly add construct
 
   - Easy setup.
   - Customizable.
-  - Compatible with persistency (ALiVE, ...).
 
 ## Video Trailer
 
@@ -80,6 +79,10 @@ private _id = ["UCM_ConstructionAreaMoved", {
 }] call CBA_fnc_addEventHandler;
 ```
 
+## TODOs
+
+  - Compatibility with ALiVE (in progress, see [here](http://alivemod.com/forum/3162-alive-and-ucm).
+  - Compatibility with EXILE (probably need to remove ACE or have a separate menu & cargo implementation if ACE is not found in the system).
 
 ## Contribute
 

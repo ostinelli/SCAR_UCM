@@ -59,6 +59,8 @@ class CfgFunctions {
 
             // ALiVE
             class aliveInit {};
+            class aliveLoadData {};
+            class aliveSaveData {};
             class aliveOnConstructionAreaMoved {};
 
             // helpers

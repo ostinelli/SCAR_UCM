@@ -27,8 +27,6 @@ private _pieceStartHeight = _logicModule getVariable "SCAR_UCM_pieceStartHeight"
 for "_i" from (_logicModule getVariable "SCAR_UCM_pieceCurrentId") to (_piecesCount - 1) do {
     private _pieceName = format["%1%2", _pieceNamePrefix, _i];
 
-    diag_log format ["UCM: hiding piece %1", _pieceName];
-
 	// get piece
 	private _piece = missionNamespace getVariable _pieceName;
 	// hide
@@ -36,6 +34,7 @@ for "_i" from (_logicModule getVariable "SCAR_UCM_pieceCurrentId") to (_piecesCo
 	// lower to ground
 	[_piece, _pieceStartHeight] call SCAR_UCM_fnc_setAltitudeToGround;
 };
+diag_log "UCM: done hiding construction pieces.";
 
 // show current piece
 private _currentPiece = [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;

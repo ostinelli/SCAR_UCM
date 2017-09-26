@@ -37,7 +37,7 @@ if (_state == 1) then {
         _tool setVehiclePosition [ [getPos _worker select 0, getPos _worker select 1, 0], [], 2, "NONE"];
 
         // save var
-        _worker setVariable ["SCAR_UCM_tool", _tool];
+        _worker setVariable ["SCAR_UCM_tool", _tool, true];
     };
 
     if (hasInterface) then {
@@ -84,7 +84,7 @@ if (_state == 0) then {
             // delete tool
             deleteVehicle _tool;
             // reset var
-            _worker setVariable ["SCAR_UCM_tool", objNull];
+            _worker setVariable ["SCAR_UCM_tool", objNull, true];
         };
     };
 

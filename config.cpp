@@ -205,5 +205,5 @@ class CfgVehicles
     };
 };
 
-#include "functions.hpp"
+#include "functions/functions.hpp"
 #include "sounds.hpp"

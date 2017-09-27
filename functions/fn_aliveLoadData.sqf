@@ -36,7 +36,7 @@ if (_storeSource == "pns") then {
     [_logicModule, "Loaded data from ALiVE cloud."] call SCAR_UCM_fnc_log;
 };
 
-if ([_aliveHash] call CBA_fnc_isHash) then {
+if ( !(isNil "_aliveHash") && ([_aliveHash] call CBA_fnc_isHash) ) then {
     // simply load STRING, BOOL, NUMBER, ARRAY, CBA HASH values
     {
         // get

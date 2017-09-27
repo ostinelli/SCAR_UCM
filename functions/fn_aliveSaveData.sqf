@@ -30,7 +30,7 @@ private _pairs = [];
     private _value = _logicModule getVariable _x;
     _pairs pushBack [_x, _value];
     // log
-    [_logicModule, format["   ---> storing %1 as %2", _x, _value]] call SCAR_UCM_fnc_log;
+    [_logicModule, format["   ---> saving %1 as %2", _x, _value]] call SCAR_UCM_fnc_log;
 } forEach [
     "SCAR_UCM_pieceCurrentId",
     "SCAR_UCM_pieceCurrentPercentage"

@@ -47,6 +47,7 @@ UCM will use the settings of your ALiVE Data module.
   - If the _ALiVE Data module_ is not present, UCM will not store persistent data.
   - If the _ALiVE Data module_ is present, UCM will use the _Database Source_ setting to know where to store data.
 
+Saving happens when an `endMission` is triggered, which is the default result of saving a mission using ALiVE admin menu.
 
 ## Functions
 

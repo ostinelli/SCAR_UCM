@@ -56,6 +56,7 @@ class CfgFunctions {
             class safetyDeleteVehicleAndCrew {};
             class canRespondToActions {};
             class convertSideStrToSide {};
+            class log {};
 
             // ALiVE
             class aliveInit {};

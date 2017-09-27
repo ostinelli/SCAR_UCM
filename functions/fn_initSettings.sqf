@@ -19,7 +19,7 @@ if !(isServer) exitWith {};
 // params
 params ["_logicModule"];
 
-diag_log format ["UCM: initializing settings for logicModule %1", _logicModule];
+[_logicModule, "Initializing settings."] call SCAR_UCM_fnc_log;
 
 // ====================================================== \/ MODULE VARS ===================================================
 
@@ -71,7 +71,7 @@ _logicModule setVariable ["SCAR_UCM_helicopterClass", _helicopterClass, true];
 _logicModule setVariable ["SCAR_UCM_materialsClass", _materialsClass, true];
 _logicModule setVariable ["SCAR_UCM_materialsWeight", _materialsWeight, true];
 
-diag_log format ["UCM: option variables have been set for logicModule %1", _logicModule];
+[_logicModule, "  --> option variables have been set."] call SCAR_UCM_fnc_log;
 
 // ====================================================== /\ MODULE VARS ===================================================
 
@@ -111,7 +111,7 @@ if ( (_logicModule getVariable ["SCAR_UCM_heliPad", objNull]) isEqualTo objNull 
     _logicModule setVariable ["SCAR_UCM_heliPad", _heliPad, true];
 };
 
-diag_log format ["UCM: other variables have been set for logicModule %1", _logicModule];
+[_logicModule, "  --> other variables have been set."] call SCAR_UCM_fnc_log;
 
 // ====================================================== /\ OTHER VARS ====================================================
 
@@ -125,8 +125,8 @@ diag_log format ["UCM: other variables have been set for logicModule %1", _logic
 [_logicModule, "SCAR_UCM_workersInArea", []] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
 [_logicModule, "SCAR_UCM_materialsInArea", []] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
 
-diag_log format ["UCM: progress variables have been set for logicModule %1", _logicModule];
+[_logicModule, "  --> progress variables have been set."] call SCAR_UCM_fnc_log;
 
 // ====================================================== /\ PROGRESS VARS =================================================
 
-diag_log format["UCM: Settings initialized for module %1", _logicModule];
+[_logicModule, "Settings initialization completed."] call SCAR_UCM_fnc_log;

@@ -34,7 +34,7 @@ for "_i" from (_logicModule getVariable "SCAR_UCM_pieceCurrentId") to (_piecesCo
 	// lower to ground
 	[_piece, _pieceStartHeight] call SCAR_UCM_fnc_setAltitudeToGround;
 };
-diag_log "UCM: done hiding construction pieces.";
+[_logicModule, "Done hiding construction pieces."] call SCAR_UCM_fnc_log;
 
 // show current piece
 private _currentPiece = [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;

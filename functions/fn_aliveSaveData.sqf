@@ -42,11 +42,11 @@ private _aliveHash = [_pairs, objNull] call CBA_fnc_hashCreate;
 private _storeSource = toLower( _aliveStore getVariable ["source", "CouchDB"] );
 if (_storeSource == "pns") then {
     // LOCAL
-    diag_log "UCM: saving data to ALiVE local.";
+    [_logicModule, "Saving data to ALiVE local."] call SCAR_UCM_fnc_log;
     [_aliveKey, _aliveHash] call ALiVE_fnc_ProfileNameSpaceSave;
 } else {
     // CLOUD
-    diag_log "UCM: saving data to ALiVE cloud.";
+    [_logicModule, "Saving data to ALiVE cloud."] call SCAR_UCM_fnc_log;
     [_aliveKey, _aliveHash] call ALiVE_fnc_setData;
 };
 

@@ -20,17 +20,17 @@ params ["_logicModule"];
 
 // exit if ALiVE is present
 if (count (entities "ALiVE_require") == 0) exitWith {};
-diag_log "UCM: ALiVE found.";
+[_logicModule, "ALiVE found."] call SCAR_UCM_fnc_log;
 
 // wait for ALiVE initialization
 waitUntil { !(isNil "ALiVE_ProfileHandler") && { [ALiVE_ProfileSystem, "startupComplete", false] call ALIVE_fnc_hashGet } };
-diag_log "UCM: done waiting for ALiVE initialization.";
+[_logicModule, "Done waiting for ALiVE initialization."] call SCAR_UCM_fnc_log;
 
 // init persistent data, if any
 private _aliveStores = entities "ALiVE_sys_data";
 if ((count _aliveStores) > 0) then {
     // PERSISTENCY ENABLED
-    diag_log "UCM: ALiVE persistency module found.";
+    [_logicModule, "ALiVE persistency module found."] call SCAR_UCM_fnc_log;
 
     private _aliveStore = _aliveStores select 0;
     // set unique alive key
@@ -53,7 +53,7 @@ if ((count _aliveStores) > 0) then {
         };
     };
 } else {
-    diag_log "UCM: no ALiVE persistency module found, proceeding without load/save.";
+    [_logicModule, "No ALiVE persistency module found, proceeding without load/save."] call SCAR_UCM_fnc_log;
 };
 
 // init listener for custom objectives

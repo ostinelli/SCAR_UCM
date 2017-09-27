@@ -21,10 +21,10 @@ if !(isServer) exitWith {};
 params ["_logicModule", "_name", "_value"];
 
 if ( (_logicModule getVariable [_name, objNull]) isEqualTo objNull ) then {
-    diag_log format["UCM: setting missing variable %1 to value %2 for module %3", _name, _value, _logicModule];
+    [_logicModule, format["Setting missing variable %1 to value %2", _name, _value]] call SCAR_UCM_fnc_log;
     _logicModule setVariable [_name, _value, true];
 } else {
-    diag_log format["UCM: not etting variable %1 to value %2 for module %3 (already present)", _name, _value, _logicModule];
+    [_logicModule, format["NOT setting missing variable %1 (already set)", _name, _value]] call SCAR_UCM_fnc_log;
 };
 
 // return

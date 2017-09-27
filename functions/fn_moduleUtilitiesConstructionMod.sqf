@@ -16,12 +16,12 @@ private _activated = param [2, true, [true]];
 // activate
 if (_activated) then {
 
-    diag_log format ["UCM: Utilities Construction Mod activated for logicModule %1", _logicModule];
+    [_logicModule, "Module activated."] call SCAR_UCM_fnc_log;
 
 	// init
 	if (isServer) then {
 
-	    diag_log format ["UCM: Initializing server for module %1", _logicModule];
+        [_logicModule, "Initializing server."] call SCAR_UCM_fnc_log;
 
 	       // init ALiVE
 	    [_logicModule] call SCAR_UCM_fnc_aliveInit;
@@ -34,14 +34,11 @@ if (_activated) then {
 	};
 
 	if (hasInterface) then {
-
-	    diag_log format ["UCM: Initializing player for module %1", _logicModule];
-
 		// init player
 		[_logicModule] call SCAR_UCM_fnc_initPlayer;
 	};
 
-	diag_log format ["UCM: Utilities Construction Mod initialization completed for logicModule %1", _logicModule];
+    [_logicModule, "initialization completed."] call SCAR_UCM_fnc_log;
 };
 
 // return

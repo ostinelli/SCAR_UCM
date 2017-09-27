@@ -38,6 +38,7 @@ class CfgFunctions {
             class requestWorkers {};
             class requestMaterial {};
             class createWorkers {};
+            class createMaterial {};
             class dropMaterialFromHelicopter {};
 
             // getters & setters
@@ -60,6 +61,7 @@ class CfgFunctions {
 
             // ALiVE
             class aliveInit {};
+            class alivePersistency {};
             class aliveLoadData {};
             class aliveSaveData {};
             class aliveOnConstructionAreaMoved {};

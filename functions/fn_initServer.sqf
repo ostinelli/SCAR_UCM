@@ -24,7 +24,7 @@ params ["_logicModule"];
 [_logicModule] call SCAR_UCM_fnc_initForeman;
 
 // add listener
-[_logicModule, "Sdding cargo listener."] call SCAR_UCM_fnc_log;
+[_logicModule, "Adding cargo listener."] call SCAR_UCM_fnc_log;
 [_logicModule] call SCAR_UCM_fnc_onUnloadedCargoPos;
 
 // handle construction work
@@ -32,7 +32,7 @@ params ["_logicModule"];
 [_logicModule] call SCAR_UCM_fnc_loopConstructionProgress;
 
 // add fixed markers
-[_logicModule, "Sdding landing zone marker."] call SCAR_UCM_fnc_log;
+[_logicModule, "Adding landing zone marker."] call SCAR_UCM_fnc_log;
 [_logicModule] call SCAR_UCM_fnc_setMarkerLandingZone;
 
 // init finished, broadcast

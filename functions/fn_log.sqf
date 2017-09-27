@@ -20,7 +20,7 @@ if !(isServer) exitWith {};
 params ["_logicModule", "_message"];
 
 // dump
-diag_log text format["UCM [%1] %2", _logicModule, _message];
+diag_log text format["[UCM][mod: '%1'] %2", _logicModule, _message];
 
 // return
 true

@@ -21,7 +21,6 @@ params ["_vehicle"];
 // vars
 private _logicModule     = _vehicle getVariable "SCAR_UCM_logicModule";
 private _materialsClass  = _logicModule getVariable "SCAR_UCM_materialsClass";
-private _materialsWeight = _logicModule getVariable "SCAR_UCM_materialsWeight";
 
 // create parachute & materials
 private _pos = getPos _vehicle;
@@ -39,15 +38,7 @@ detach _material;
 // duplicate the material to solve the arma "hurting object" bug
 _pos = getPos _material;
 deleteVehicle _material;
-private _newMaterial = _materialsClass createVehicle _pos;
-
-// make materials loadable
-[_newMaterial, _materialsWeight] remoteExec ["ace_cargo_fnc_setSize"];
-
-// add to available materials
-private _materials = _logicModule getVariable "SCAR_UCM_materials";
-_materials pushBack [_newMaterial, 1.0];
-_logicModule setVariable ["SCAR_UCM_materials", _materials, true];
+[_logicModule, _pos, 1.0] call SCAR_UCM_fnc_createMaterial;
 
 // destroy chute
 sleep 5;

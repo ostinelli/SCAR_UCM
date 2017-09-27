@@ -23,10 +23,10 @@ if (_activated) then {
 
         [_logicModule, "Initializing server."] call SCAR_UCM_fnc_log;
 
-	       // init ALiVE
-	    [_logicModule] call SCAR_UCM_fnc_aliveInit;
 		// init settings
 		[_logicModule] call SCAR_UCM_fnc_initSettings;
+	    // init ALiVE
+	    [_logicModule] call SCAR_UCM_fnc_aliveInit;
 		// init server
 		[_logicModule] call SCAR_UCM_fnc_initServer;
 		// patch ACE

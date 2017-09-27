@@ -19,8 +19,13 @@ if !(hasInterface) exitWith {};
 
 params ["_worker", "_vehicle"];
 
-// remove
-[_vehicle, 0, ["ACE_MainActions", "ACE_Passengers", str _worker, "SCAR_UCM_GetOutOfVehicle"]] remoteExec ["ace_interact_menu_fnc_removeActionFromObject"];
+if (SCAR_UCM_ACE) then {
+    // ACE
+    [_vehicle, 0, ["ACE_MainActions", "ACE_Passengers", str _worker, "SCAR_UCM_GetOutOfVehicle"]] remoteExec ["ace_interact_menu_fnc_removeActionFromObject"];
+} else {
+    // VANILLA
+
+};
 
 // return
 true

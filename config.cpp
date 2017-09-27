@@ -14,10 +14,7 @@ class CfgPatches
         requiredAddons[] = {
             "A3_Modules_F",
             "CBA_common",
-            "CBA_events",
-            "ace_cargo",
-            "ace_interaction",
-            "ace_interact_menu"
+            "CBA_events"
         };
         fileName = "scar_ucm.pbo";
     };

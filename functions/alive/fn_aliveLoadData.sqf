@@ -20,12 +20,27 @@ if !(isServer) exitWith {};
 
 params ["_logicModule", "_aliveStore", "_aliveKey"];
 
+// get source type
+private _storeSource = toLower( _aliveStore getVariable ["source", "pns"] );
+
 // get data
-if (!isNil { [_aliveKey] call ALiVE_fnc_getData }) then {
+private _aliveHash = objNull;
+if (_storeSource == "pns") then {
+    // LOCAL
+    _aliveHash = _aliveKey call ALiVE_fnc_ProfileNameSpaceLoad;
+    [_logicModule, "Loaded data from ALiVE local."] call SCAR_UCM_fnc_log;
+} else {
+    // CLOUD
+    if (!isNil { [_aliveKey] call ALiVE_fnc_getData }) then {
+        _aliveHash = [_aliveKey] call ALiVE_fnc_getData;
+    };
+    [_logicModule, "Loaded data from ALiVE cloud."] call SCAR_UCM_fnc_log;
+};
+
+// get data
+if ( !(isNil "_aliveHash") && ([_aliveHash] call CBA_fnc_isHash) ) then {
 
     [_logicModule, "Persistent data found on ALiVE, about to load & set variables."] call SCAR_UCM_fnc_log;
-
-    private _aliveHash = [_aliveKey] call ALiVE_fnc_getData;
 
     // simply load STRING, BOOL, NUMBER, ARRAY, CBA HASH values
     {

@@ -68,9 +68,19 @@ _pairs pushBack ["SCAR_UCM_materialsInfo", _materialsInfo];
 // build CBA hash
 private _aliveHash = [_pairs, objNull] call CBA_fnc_hashCreate;
 
+// get source type
+private _storeSource = toLower( _aliveStore getVariable ["source", "CouchDB"] );
+
 // save
-[_aliveKey, _aliveHash] call ALiVE_fnc_setData;
-[_logicModule, "Saved data to ALiVE."] call SCAR_UCM_fnc_log;
+if (_storeSource == "pns") then {
+    // LOCAL
+    [_aliveKey, _aliveHash] call ALiVE_fnc_ProfileNameSpaceSave;
+    [_logicModule, "Saved data to ALiVE local."] call SCAR_UCM_fnc_log;
+} else {
+    // CLOUD
+    [_aliveKey, _aliveHash] call ALiVE_fnc_setData;
+    [_logicModule, "Saved data to ALiVE cloud."] call SCAR_UCM_fnc_log;
+};
 
 // return
 true

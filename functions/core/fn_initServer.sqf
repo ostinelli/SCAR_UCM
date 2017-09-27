@@ -20,7 +20,7 @@ if !(isServer) exitWith {};
 params ["_logicModule"];
 
 // init foreman
-[_logicModule, "Saving data to ALiVE local."] call SCAR_UCM_fnc_log;
+[_logicModule, "Initializing Foreman."] call SCAR_UCM_fnc_log;
 [_logicModule] call SCAR_UCM_fnc_initForeman;
 
 // add listener

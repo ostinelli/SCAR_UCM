@@ -24,6 +24,35 @@ params ["_worker", "_state", "_animation", "_pos", "_rotation"];
 private _logicModule   = _worker getVariable "SCAR_UCM_logicModule";
 private _workerObjects = _logicModule getVariable "SCAR_UCM_workerObjects";
 
+// delete all
+if (isServer) then {
+    private _tool = _worker getVariable ["SCAR_UCM_tool", objNull];
+
+    if !(_tool isEqualTo objNull) then {
+        // delete tool
+        deleteVehicle _tool;
+        // reset var
+        _worker setVariable ["SCAR_UCM_tool", objNull, true];
+    };
+};
+
+if (hasInterface) then {
+    private _soundSource = _worker getVariable ["SCAR_UCM_soundSource", objNull];
+    private _light       = _worker getVariable ["SCAR_UCM_light", objNull];
+
+    if !(_soundSource isEqualTo objNull) then {
+        // end animation
+        _worker call BIS_fnc_ambientAnim__terminate;
+        // delete source & light
+        detach _soundSource;
+        deleteVehicle _soundSource;
+        deleteVehicle _light;
+        // reset var
+        _worker setVariable ["SCAR_UCM_soundSource", objNull];
+        _worker setVariable ["SCAR_UCM_light", objNull];
+    };
+};
+
 if (_state == 1) then {
 
     if (isServer) then {
@@ -71,37 +100,6 @@ if (_state == 1) then {
                 _soundSource say3D _sound;
                 sleep _duration;
             };
-        };
-    };
-};
-
-if (_state == 0) then {
-
-    if (isServer) then {
-        private _tool = _worker getVariable ["SCAR_UCM_tool", objNull];
-
-        if !(_tool isEqualTo objNull) then {
-            // delete tool
-            deleteVehicle _tool;
-            // reset var
-            _worker setVariable ["SCAR_UCM_tool", objNull, true];
-        };
-    };
-
-    if (hasInterface) then {
-        private _soundSource = _worker getVariable ["SCAR_UCM_soundSource", objNull];
-        private _light       = _worker getVariable ["SCAR_UCM_light", objNull];
-
-        if !(_soundSource isEqualTo objNull) then {
-            // end animation
-            _worker call BIS_fnc_ambientAnim__terminate;
-            // delete source & light
-            detach _soundSource;
-            deleteVehicle _soundSource;
-            deleteVehicle _light;
-            // reset var
-            _worker setVariable ["SCAR_UCM_soundSource", objNull];
-            _worker setVariable ["SCAR_UCM_light", objNull];
         };
     };
 };

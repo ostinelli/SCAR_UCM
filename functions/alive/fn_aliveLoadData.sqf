@@ -20,23 +20,13 @@ if !(isServer) exitWith {};
 
 params ["_logicModule", "_aliveStore", "_aliveKey"];
 
-// get source type
-private _storeSource = toLower( _aliveStore getVariable ["source", "pns"] );
-[_logicModule, format ["ALiVE storage is of type %1.", _storeSource]] call SCAR_UCM_fnc_log;
-
 // get data
-private _aliveHash = objNull;
-if (_storeSource == "pns") then {
-    // LOCAL
-    _aliveHash = _aliveKey call ALiVE_fnc_ProfileNameSpaceLoad;
-    [_logicModule, "Loaded data from ALiVE local."] call SCAR_UCM_fnc_log;
-} else {
-    // CLOUD
-    _aliveHash = [_aliveKey] call ALiVE_fnc_getData;
-    [_logicModule, "Loaded data from ALiVE cloud."] call SCAR_UCM_fnc_log;
-};
+if (!isNil { [_aliveKey] call ALiVE_fnc_getData }) then {
 
-if ( !(isNil "_aliveHash") && ([_aliveHash] call CBA_fnc_isHash) ) then {
+    [_logicModule, "Persistent data found on ALiVE, about to load & set variables."] call SCAR_UCM_fnc_log;
+
+    private _aliveHash = [_aliveKey] call ALiVE_fnc_getData;
+
     // simply load STRING, BOOL, NUMBER, ARRAY, CBA HASH values
     {
         // get
@@ -88,7 +78,7 @@ if ( !(isNil "_aliveHash") && ([_aliveHash] call CBA_fnc_isHash) ) then {
         } forEach _materialsInfo;
     };
 } else {
-    [_logicModule, "No persistent data ALiVE found."] call SCAR_UCM_fnc_log;
+    [_logicModule, "No persistent data found on ALiVE."] call SCAR_UCM_fnc_log;
 };
 
 // return

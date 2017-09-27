@@ -24,20 +24,18 @@ private _aliveKey = format ["SCAR_UCM_ALiVE_Key:%1", _logicModule];
 // read & set
 [_logicModule, _aliveStore, _aliveKey] call SCAR_UCM_fnc_aliveLoadData;
 
-// set event to save on mission end
-private _eventHandle = addMissionEventHandler ["Ended", {
-    // get vars
-    private _vars = missionNameSpace getVariable format["SCAR_UCM_ALiVE_endMissionData_%1", _thisEventHandler];
+// loop save
+private _null = [_logicModule, _aliveStore, _aliveKey] spawn {
 
-    private _logicModule = _vars select 0;
-    private _aliveStore  = _vars select 1;
-    private _aliveKey    = _vars select 2;
+    params ["_logicModule", "_aliveStore", "_aliveKey"];
 
-    // save
-    [_logicModule, _aliveStore, _aliveKey] call SCAR_UCM_fnc_aliveSaveData;
-}];
-// save vars
-missionNameSpace setVariable [ format["SCAR_UCM_ALiVE_endMissionData_%1", _eventHandle], [_logicModule, _aliveStore, _aliveKey]];
+    while { true } do {
+        // sleep
+        sleep 10;
+        // save
+        [_logicModule, _aliveStore, _aliveKey] call SCAR_UCM_fnc_aliveSaveData;
+    };
+};
 
 // return
 true

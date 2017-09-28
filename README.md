@@ -24,9 +24,9 @@ The **Utilities Construction Mod** is a module for Arma 3. Quickly add construct
 
 #### Optional
 
-  - ACE3 ([Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057), [Github](https://github.com/acemod/ACE3/releases/latest))
+  - ACE3 ([Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057), [Github](https://github.com/acemod/ACE3/releases/latest)). UCM does not need ACE to run, but if enabled the Interaction and Cargo functionalities will the the ones of ACE, otherwise they will default to enhanced vanilla ones.
 
-UCM does not need ACE to run, but if enabled the Interaction and Cargo functionalities will the the ones of ACE.
+> The presence of ACE on the **server** will set the type of interactions on the clients.
 
 ## Example mission
 

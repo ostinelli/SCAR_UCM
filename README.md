@@ -31,11 +31,11 @@ You can get the module from [Steam](http://steamcommunity.com/sharedfiles/filede
 
 ## ALiVE integration
 
+> !!! ALiVE integration is currently disabled. See [here](https://github.com/ostinelli/SCAR_UCM/issues/2) for status.
+
 UCM supports ALiVE natively, with some caveats.
 
 #### ALiVE objectives
-
-> ALiVE integration is currently disabled. See [here](https://github.com/ostinelli/SCAR_UCM/issues/2) for status.
 
 The Construction Area is automatically added as a Custom Objective to the hostile OPCOMs. This objective is also moved when the construction moves.
 

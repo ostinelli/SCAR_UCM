@@ -39,5 +39,11 @@ params ["_logicModule"];
 [_logicModule, "Initialization finished, broadcasting variable 'SCAR_UCM_initialized'"] call SCAR_UCM_fnc_log;
 _logicModule setVariable ["SCAR_UCM_initialized", true, true];
 
+//create worker groups for every sife
+UCM_west = createGroup west;
+UCM_east = createGroup east;
+UCM_ind  = createGroup resistance;
+UCM_civ  = createGroup civilian;
+
 // return
 true

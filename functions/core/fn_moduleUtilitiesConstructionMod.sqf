@@ -25,8 +25,8 @@ if (_activated) then {
 
 		// init settings
 		[_logicModule] call SCAR_UCM_fnc_initSettings;
-	    // init ALiVE
-	    [_logicModule] call SCAR_UCM_fnc_aliveInit;
+	    // init ALiVE TODO: bring back ALiVE when persistence works.
+	    // [_logicModule] call SCAR_UCM_fnc_aliveInit;
 		// init server
 		[_logicModule] call SCAR_UCM_fnc_initServer;
 		// patch ACE

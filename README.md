@@ -35,6 +35,8 @@ UCM supports ALiVE natively, with some caveats.
 
 #### ALiVE objectives
 
+> ALiVE integration is currently disabled. See [here](https://github.com/ostinelli/SCAR_UCM/issues/2) for status.
+
 The Construction Area is automatically added as a Custom Objective to the hostile OPCOMs. This objective is also moved when the construction moves.
 
 #### ALiVE profiles
@@ -93,11 +95,6 @@ private _id = ["UCM_ConstructionAreaMoved", {
 
 }] call CBA_fnc_addEventHandler;
 ```
-
-## TODOs
-
-  - Compatibility with ALiVE (in progress, see [here](http://alivemod.com/forum/3162-alive-and-ucm).
-  - Compatibility with EXILE (probably need to remove ACE or have a separate menu & cargo implementation if ACE is not found in the system).
 
 ## Contribute
 

@@ -18,8 +18,15 @@ The **Utilities Construction Mod** is a module for Arma 3. Quickly add construct
 
 ## Dependencies
 
-  - ACE3 ([Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057), [Github](https://github.com/acemod/ACE3/releases/latest))
+#### Compulsory
+
   - CBA_A3 ([Steam](https://steamcommunity.com/workshop/filedetails/?id=450814997), [Github](https://github.com/CBATeam/CBA_A3/releases/latest))
+
+#### Optional
+
+  - ACE3 ([Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057), [Github](https://github.com/acemod/ACE3/releases/latest))
+
+UCM does not need ACE to run, but if enabled the Interaction and Cargo functionalities will the the ones of ACE.
 
 ## Example mission
 

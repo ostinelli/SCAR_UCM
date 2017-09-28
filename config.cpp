@@ -186,7 +186,6 @@ class CfgVehicles
         icon = "\scar_ucm\gfx\logo.paa";
         category = "SCAR_UCM_UtilitiesConstructionMod";
 
-        functionPriority   = 10;
         isGlobal           = 1;
         isTriggerActivated = 0;
         isDisposable       = 0;
@@ -200,12 +199,11 @@ class CfgVehicles
         icon = "\scar_ucm\gfx\logo.paa";
         category = "SCAR_UCM_UtilitiesConstructionMod";
 
-        functionPriority   = 10;
         isGlobal           = 1;
         isTriggerActivated = 0;
         isDisposable       = 0;
     };
 };
 
-#include "functions.hpp"
+#include "functions/functions.hpp"
 #include "sounds.hpp"

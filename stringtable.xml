@@ -120,6 +120,10 @@
             <English>No</English>
             <Italian>No</Italian>
         </Key>
+        <Key ID="STR_SCAR_UCM_Main_Finished">
+            <English>Construction done</English>
+            <Italian>Costruzione terminata</Italian>
+        </Key>
         <Key ID="STR_SCAR_UCM_Main_RequestStatus">
             <English>Request Status</English>
             <Italian>Richiedi Stato</Italian>

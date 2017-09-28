@@ -66,10 +66,10 @@ private _null = [_worker] spawn {
                 [_worker, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
 
                 // get current piece size
-                private _box = boundingBoxReal _currentPiece;
-                private _p1 = _box select 0;
-                private _p2 = _box select 1;
-                private _maxWidth = abs ((_p2 select 0) - (_p1 select 0));
+                private _box       = boundingBoxReal _currentPiece;
+                private _p1        = _box select 0;
+                private _p2        = _box select 1;
+                private _maxWidth  = abs ((_p2 select 0) - (_p1 select 0));
                 private _maxLength = abs ((_p2 select 1) - (_p1 select 1));
 
                 // random position
@@ -121,7 +121,7 @@ private _null = [_worker] spawn {
             _lastPiece = objNull;
         };
 
-        sleep 10;
+        sleep 1;
     };
 };
 

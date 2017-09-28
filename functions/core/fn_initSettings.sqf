@@ -5,61 +5,37 @@
 	Initializes / loads /saves the settings.
 
 	Paramster(s):
-	0:  OBJECT - The module where to logicModule the variables.
-	1:  STRING - The side of the workers.
-	2:  NUMBER - The total number of workers.
-	3:  NUMBER - The total number of working man seconds to finish a piece piece.
-	4:  STRING - The pieces' prefix.
-	5:  NUMBER - The total number of pieces that can be built with a single material.
-	6:  NUMBER - The distance of workers and materials from the current piece for the construction to be active.
-	7:  NUMBER - The starting Z position of piece in the ground, end will be Z = 0.
-	8:  NUMBER - The end position of material consumed, start is Z = 0;
-	9: STRING - The variable name of the foreman.
-	10: STRING - The helicopters' class.
-	11: STRING - The materials' class.
-	12: NUMBER - The materials' weight.
+	0:  OBJECT - The logicModule.
 
 	Return:
-	0: true
+	true
 
 	Example:
-	[
-		_logicModule
-		"BLUFOR",
-		3,
-		300,
-		"scar_pipeline_",
-		3,
-		75,
-		-0.6,
-		-1.4,
-		"SCAR_UCM_foreman",
-		"B_Heli_Transport_03_unarmed_F",
-		"Land_IronPipes_F",
-		16
-	] call SCAR_UCM_fnc_loadSettings;
+	[_logicModule] call SCAR_UCM_fnc_loadSettings;
 */
 
 if !(isServer) exitWith {};
 
 // params
-params [
-	"_logicModule",
-	"_side",
-	"_workersCount",
-	"_pieceWorkingManSeconds",
-	"_pieceNamePrefix",
-	"_piecesFromMaterial",
-	"_workingDistance",
-	"_pieceStartHeight",
-	"_materialEndHeight",
-	"_foremanVarname",
-	"_helicopterClass",
-	"_materialsClass",
-	"_materialsWeight"
-];
+params ["_logicModule"];
+
+[_logicModule, "Initializing settings."] call SCAR_UCM_fnc_log;
 
 // ====================================================== \/ MODULE VARS ===================================================
+
+// get vars
+private _side                   = _logicModule getVariable ["Side", "blufor"];
+private _workersCount           = _logicModule getVariable ["WorkersCount", 3];
+private _pieceWorkingManSeconds = _logicModule getVariable ["PieceWorkingManSeconds", 1800];
+private _pieceNamePrefix        = _logicModule getVariable ["PieceNamePrefix", "UCM_piece_"];
+private _piecesFromMaterial     = _logicModule getVariable ["PiecesFromMaterial", 3];
+private _workingDistance        = _logicModule getVariable ["WorkingDistance", 75];
+private _pieceStartHeight       = _logicModule getVariable ["PieceStartHeight", -0.6];
+private _materialEndHeight      = _logicModule getVariable ["MaterialEndHeight", -1.4];
+private _foremanVarname         = _logicModule getVariable ["Foreman", "UCM_foreman"];
+private _helicopterClass        = _logicModule getVariable ["HelicopterClass", "B_Heli_Transport_03_unarmed_F"];
+private _materialsClass         = _logicModule getVariable ["MaterialsClass", "Land_IronPipes_F"];
+private _materialsWeight        = _logicModule getVariable ["MaterialsWeight", 16];
 
 // interpret & checks
 
@@ -72,13 +48,11 @@ private _helicopterOrigins = [_logicModule, "SCAR_UCM_ModuleUtilitiesConstructio
 if ((count _helicopterOrigins) == 0) then { throw format ["UCM: no Helicopter Origin module has been synchronized to module '%1'", _logicModule]; };
 _helicopterOrigin = _helicopterOrigins select 0;
 
-// side
-private _sideKeys   = ["BLUFOR", "OPFOR", "INDEPENDENT", "CIVILIAN"];
-private _sideValues = [blufor, opfor, independent, civilian];
-_side = _sideValues select (_sideKeys find _side);
+// convert to side
+_side = [_side] call SCAR_UCM_fnc_convertSideStrToSide;
 
 // objects
-_foreman = missionNamespace getVariable _foremanVarname;
+private _foreman = missionNamespace getVariable _foremanVarname;
 if (isNil "_foreman") then { throw format ["UCM: can't find the foreman object with specified name '%1' for logicModule %2", _foremanVarname, _logicModule]; };
 
 // logicModule params in object
@@ -97,9 +71,11 @@ _logicModule setVariable ["SCAR_UCM_helicopterClass", _helicopterClass, true];
 _logicModule setVariable ["SCAR_UCM_materialsClass", _materialsClass, true];
 _logicModule setVariable ["SCAR_UCM_materialsWeight", _materialsWeight, true];
 
+[_logicModule, "   ---> OPTION variables have been set."] call SCAR_UCM_fnc_log;
+
 // ====================================================== /\ MODULE VARS ===================================================
 
-// ====================================================== \/ OTHER VARS ====================================================
+// ====================================================== \/ FIXED VARS ====================================================
 
 // init
 _logicModule setVariable ["SCAR_UCM_workerAnimations", [
@@ -135,8 +111,7 @@ if ( (_logicModule getVariable ["SCAR_UCM_heliPad", objNull]) isEqualTo objNull 
     _logicModule setVariable ["SCAR_UCM_heliPad", _heliPad, true];
 };
 
-// clients can wait for this before initializing
-_logicModule setVariable ["SCAR_UCM_initialized", false, true];
+[_logicModule, "   ---> FIXED variables have been set."] call SCAR_UCM_fnc_log;
 
 // ====================================================== /\ OTHER VARS ====================================================
 
@@ -150,6 +125,8 @@ _logicModule setVariable ["SCAR_UCM_initialized", false, true];
 [_logicModule, "SCAR_UCM_workersInArea", []] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
 [_logicModule, "SCAR_UCM_materialsInArea", []] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
 
+[_logicModule, "   ---> PROGRESS variables have been set."] call SCAR_UCM_fnc_log;
+
 // ====================================================== /\ PROGRESS VARS =================================================
 
-diag_log format["UCM: Settings initialized for module %1", _logicModule];
+[_logicModule, "Settings initialization completed."] call SCAR_UCM_fnc_log;

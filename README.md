@@ -29,6 +29,26 @@ You can download an example mission from [here](https://github.com/ostinelli/SCA
 
 You can get the module from [Steam](http://steamcommunity.com/sharedfiles/filedetails/?id=1145478729).
 
+## ALiVE integration
+
+UCM supports ALiVE natively, with some caveats.
+
+#### ALiVE objectives
+
+The Construction Area is automatically added as a Custom Objective to the hostile OPCOMs. This objective is also moved when the construction moves.
+
+#### ALiVE profiles
+
+The workers are not profiled by ALiVE [Virtual_AI_System](http://alivemod.com/wiki/index.php/Virtual_AI_System), and therefore they will not be attacked by profiled enemies when they are virtualized. This substantially means that at least one player needs to be next to the workers, which will cause ALiVE profiled enemies to be spawned on the map and hence attack the workers.
+
+#### ALiVE Persistence
+UCM will use the settings of your ALiVE Data module.
+
+  - If the _ALiVE Data module_ is not present, UCM will not store persistent data.
+  - If the _ALiVE Data module_ is present, UCM will use the _Database Source_ setting to know where to store data.
+
+Saving happens when an `endMission` is triggered, which is the default result of saving a mission using ALiVE admin menu.
+
 ## Functions
 
 ##### SCAR_UCM_fnc_isInitialized

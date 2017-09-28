@@ -26,7 +26,7 @@ private _null = [_vehicle, _crew, _deleteAfter] spawn {
 
     params ["_vehicle", "_crew", "_deleteAfter"];
 
-    sleep 1200; // 20 minutes
+    sleep _deleteAfter;
 
     if (alive _vehicle) then {
         deleteVehicle _vehicle;

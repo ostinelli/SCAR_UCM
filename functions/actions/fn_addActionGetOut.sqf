@@ -2,53 +2,84 @@
     Author: _SCAR
 
     Description:
-    Adds the action to a vehicle to allow a worker or foreman to get out.
+    Adds the action to a vehicle to allow all workers to get out.
 
     Parameter(s):
-    0: UNIT - The worker.
-    2: OBJECT - The vehicle.
+    0: OBJECT - The vehicle.
 
     Return:
-    0: true
+    true
 
     Example:
-    [_worker, _vehicle] call SCAR_UCM_fnc_addActionWorkerGetOut;
+    [_vehicle] call SCAR_UCM_fnc_addActionGetOut;
 */
 
 if !(hasInterface) exitWith {};
 
-params ["_worker", "_vehicle"];
+params ["_vehicle"];
+
+// check if action already added
+private _alreadyAdded = _vehicle getVariable ["SCAR_UCM_actionGetOutAlreadyAdded", false];
+if (_alreadyAdded) exitWith {};
+_vehicle setVariable ["SCAR_UCM_actionGetOutAlreadyAdded", true, true];
+
+// code
+private _statement = {
+    params ["_target"];
+
+    // loop all workers
+    {
+        private _isWorker = _x getVariable ["SCAR_UCM_isWorker", false];
+
+        if (_isWorker) then {
+            // get out
+            [_x] orderGetIn false;
+            unassignVehicle _x;
+        };
+    } forEach (crew _target);
+};
+
+private _condition = {
+    if (isNil "_target") then { private _target = _this select 0; }; // compatibility vanilla & ACE
+
+    // count
+    private _count = 0;
+    {
+        private _isWorker = _x getVariable ["SCAR_UCM_isWorker", false];
+        if (_isWorker) then { _count = _count + 1; };
+    } forEach (crew _target);
+
+    _count > 0
+};
 
 if (SCAR_UCM_ACE) then {
     // ACE
 
     _actionInfo = [
-        "SCAR_UCM_GetOutOfVehicle",
-        (localize "STR_SCAR_UCM_Main_ExitVehicle"),
+        "SCAR_UCM_AllWorkersGetOutOfVehicle",
+        (localize "STR_SCAR_UCM_Main_AllWorkersExitVehicle"),
         "",
-        // Statement <CODE>
-        {
-            params ["_target"];
-
-            // get out
-            [_target] orderGetIn false;
-            unassignVehicle _target;
-        },
-        // Condition <CODE>
-        {
-            params ["_target"];
-            [_target] call SCAR_UCM_fnc_canRespondToActions
-        },
-        {},
-        _vehicle
+        _statement,
+        _condition
     ];
 
     // add action to everyone
      _action = _actionInfo call ace_interact_menu_fnc_createAction;
-    [_vehicle, 0, ["ACE_MainActions", "ACE_Passengers", str _worker], _action] call ace_interact_menu_fnc_addActionToObject;
+    [_vehicle, 0, ["ACE_MainActions", "ACE_Passengers"], _action] call ace_interact_menu_fnc_addActionToObject;
 } else {
     // VANILLA
 
+    _vehicle addAction [
+        (localize "STR_SCAR_UCM_Main_AllWorkersExitVehicle"),
+        _statement,
+        nil,  // arguments
+        1.5,  // priority
+        true, // showWindow
+        true, // hideOnUse
+        "",   // shortcut
+        (_condition call SCAR_UCM_fnc_convertCodeToStr),
+        5     // radius
+    ];
 };
 
 // return

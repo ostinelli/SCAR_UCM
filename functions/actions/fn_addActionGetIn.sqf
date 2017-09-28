@@ -11,7 +11,7 @@
     true
 
     Example:
-    [_worker] call SCAR_UCM_fnc_addActionWorkerGetIn;
+    [_worker] call SCAR_UCM_fnc_addActionGetIn;
 */
 
 if !(hasInterface) exitWith {};
@@ -53,24 +53,8 @@ if (SCAR_UCM_ACE) then {
                     "",
                     {
                         // order to GETIN
-
-                        // stop animation, if any
-                        [_target, 0] call SCAR_UCM_fnc_setWorkerAnimation;
-
-                        // set stance
-                        _target setUnitPos "AUTO";
-                        _target playAction "PlayerStand";
-
-                        // remove handcuffs, if any
-                        [_target, false] call ACE_captives_fnc_setHandcuffed;
-
-                        // init
                         private _vehicle = (_this select 2);
-                        // move worker in vehicle
-                        unassignVehicle _target;
-                        [_target] allowGetIn true;
-                        _target assignAsCargo _vehicle;
-                        [_target] orderGetIn true;
+                        [_target, _vehicle] call SCAR_UCM_fnc_getInVehicle;
                     },
                     { true },
                     {},
@@ -91,6 +75,27 @@ if (SCAR_UCM_ACE) then {
 } else {
     // VANILLA
 
+    private _condition = {
+        // find cars
+        private _vehicles = nearestObjects [_target, ["Car", "Helicopter"], 100];
+        // any cars?
+        (count _vehicles) > 0
+    };
+
+    _worker addAction [
+        (localize "STR_SCAR_UCM_Main_GoToVehicle"),
+        {
+            params ["_target"];
+            [_target] call SCAR_UCM_fnc_guiOpenVehicleSelection;
+        },
+        nil,  // arguments
+        1.5,  // priority
+        true, // showWindow
+        true, // hideOnUse
+        "",   // shortcut
+        (_condition call SCAR_UCM_fnc_convertCodeToStr), // condition
+        5     // radius
+    ];
 };
 
 // return

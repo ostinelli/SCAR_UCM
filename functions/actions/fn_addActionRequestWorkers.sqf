@@ -18,6 +18,19 @@ if !(hasInterface) exitWith {};
 
 params ["_unit"];
 
+// code
+private _statement = {
+    params ["_target", "_caller"];
+    private _logicModule = _target getVariable "SCAR_UCM_logicModule";
+
+    [_logicModule, _caller] remoteExec ["SCAR_UCM_fnc_requestWorkers", 2];
+};
+
+private _condition = {
+    if (isNil "_target") then { private _target = _this select 0; }; // compatibility vanilla & ACE
+    [_target] call SCAR_UCM_fnc_canRespondToActions
+};
+
 if (SCAR_UCM_ACE) then {
     // ACE
 
@@ -25,14 +38,8 @@ if (SCAR_UCM_ACE) then {
         "SCAR_UCM_RequestWorkers",
         (localize "STR_SCAR_UCM_Main_RequestWorkers"),
         "",
-        // Statement <CODE>
-        {
-            params ["_target", "_caller"];
-            private _logicModule = _target getVariable "SCAR_UCM_logicModule";
-
-            [_logicModule, _caller] remoteExec ["SCAR_UCM_fnc_requestWorkers", 2];
-        },
-        // Condition <CODE>
+        _statement,
+        // condition
         {
             params ["_target"];
             [_target] call SCAR_UCM_fnc_canRespondToActions
@@ -43,6 +50,17 @@ if (SCAR_UCM_ACE) then {
 } else {
     // VANILLA
 
+    _unit addAction [
+        (localize "STR_SCAR_UCM_Main_RequestWorkers"),
+        _statement,
+        nil,  // arguments
+        1.5,  // priority
+        true, // showWindow
+        true, // hideOnUse
+        "",   // shortcut
+        "[_target] call SCAR_UCM_fnc_canRespondToActions", // condition
+        5     // radius
+    ];
 };
 
 // return

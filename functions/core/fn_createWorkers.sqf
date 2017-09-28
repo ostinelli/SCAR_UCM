@@ -66,6 +66,9 @@ for "_i" from 1 to _workersCount do {
     // add logicModule to worker
     _worker setVariable ["SCAR_UCM_logicModule", _logicModule, true];
 
+    // add qualifier variable to worker
+    _worker setVariable ["SCAR_UCM_isWorker", true, true];
+
     // track worker to remove it from the workers array.
     _worker addEventHandler ["Killed", {
         private _killed       = _this select 0;

@@ -28,21 +28,13 @@ if (hasInterface) then {
 };
 
 if (isServer) then {
-    // action to exit vehicle
+    // add get out actions from a vehicles a worker has been in
+    // condition on the action will be to check for alive workers in, so no need to remove action
     _worker addEventHandler ["GetInMan", {
 
         params ["_worker", "_position", "_vehicle"];
 
-        // add action to GETOUT to all clients
-        [ _worker, _vehicle] remoteExec ["SCAR_UCM_fnc_addActionGetOut"];
-    }];
-
-    _worker addEventHandler ["GetOutMan", {
-
-        params ["_worker", "_position", "_vehicle"];
-
-        // add action to GETOUT to all clients
-        [_worker, _vehicle] remoteExec ["SCAR_UCM_fnc_removeActionGetOut"];
+        [_vehicle] remoteExec ["SCAR_UCM_fnc_addActionGetOut"];
     }];
 };
 

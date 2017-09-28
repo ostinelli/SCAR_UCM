@@ -184,9 +184,13 @@
             <English>Go to vehicle</English>
             <Italian>Vai al veicolo</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Main_ExitVehicle">
-            <English>Exit vehicle</English>
-            <Italian>Esci veicolo</Italian>
+        <Key ID="STR_SCAR_UCM_Main_ChooseVehicle">
+            <English>Choose vehicle</English>
+            <Italian>Scegli il veicolo</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Main_AllWorkersExitVehicle">
+            <English>Order Workers to Exit vehicle</English>
+            <Italian>Ordina ai lavoratori di uscire dal veicolo</Italian>
         </Key>
     </Package>
 

@@ -8,7 +8,7 @@
     0:UNIT - The unit.
 
     Return:
-    0: BOOLEAN.
+    BOOLEAN.
 
     Example:
     [_unit] call SCAR_UCM_fnc_canRespondToActions;

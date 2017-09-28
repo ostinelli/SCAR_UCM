@@ -202,5 +202,6 @@ class CfgVehicles
     };
 };
 
+#include "gui/gui.hpp"
 #include "functions/functions.hpp"
 #include "sounds.hpp"

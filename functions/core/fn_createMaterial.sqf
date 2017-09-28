@@ -28,7 +28,7 @@ private _materialsWeight = _logicModule getVariable "SCAR_UCM_materialsWeight";
 private _material = _materialsClass createVehicle _position;
 
 // make materials loadable
-[_material, _materialsWeight] call ["SCAR_UCM_fnc_cargoMakeLoadable"];
+[_material, _materialsWeight] call "SCAR_UCM_fnc_cargoMakeLoadable";
 
 // add to available materials
 private _materials = _logicModule getVariable "SCAR_UCM_materials";

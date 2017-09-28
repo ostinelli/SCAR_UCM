@@ -16,40 +16,35 @@
 
 params ["_duration"];
 
-private _null = [_duration] spawn {
+// IDc
+private _id = 22950;
 
-    params ["_duration"];
+// init
+disableSerialization;
 
-    // IDc
-    private _id = 22950;
+// disable input
+disableUserInput true;
 
-    // init
-    disableSerialization;
+// create dialog
+createDialog "SCAR_UCM_ProgressBar";
 
-    // disable input
-    disableUserInput true;
+// get control
+private _display = uiNamespace getVariable "SCAR_UCM_ProgressBar_Display";
+private _bar     = _display displayCtrl 22950;
 
-    // create dialog
-    createDialog "SCAR_UCM_ProgressBar";
-
-    // get control
-    private _display = uiNamespace getVariable "SCAR_UCM_ProgressBar_Display";
-    private _bar     = _display displayCtrl 22950;
-
-    // progress
-    private _interval = 0.05;
-    private _counter = _duration / _interval;
-    for "_i" from 0 to _counter do {
-        _bar progressSetPosition (_i / _counter);
-        sleep 0.05;
-    };
-
-    // close dialog
-    closeDialog 1;
-
-    // enable input
-    disableUserInput false;
+// progress
+private _interval = 0.05;
+private _counter = _duration / _interval;
+for "_i" from 0 to _counter do {
+    _bar progressSetPosition (_i / _counter);
+    sleep 0.05;
 };
+
+// close dialog
+closeDialog 1;
+
+// enable input
+disableUserInput false;
 
 // return
 true

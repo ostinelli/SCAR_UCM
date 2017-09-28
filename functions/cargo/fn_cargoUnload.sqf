@@ -2,7 +2,7 @@
     Author: _SCAR
 
     Description:
-    Unload an object from a vehicle.
+    Unload an object from a vehicle. Function MUST be spawned because it contains a progress bar.
 
     Parameter(s):
     0: OBJECT - The cargo we are unloading from a vehicle.
@@ -12,7 +12,7 @@
     true
 
     Example:
-    [_cargo, _vehicle] call SCAR_UCM_fnc_cargoUnload;
+    [_cargo, _vehicle] spawn SCAR_UCM_fnc_cargoUnload;
 */
 
 params ["_cargo", "_vehicle"];

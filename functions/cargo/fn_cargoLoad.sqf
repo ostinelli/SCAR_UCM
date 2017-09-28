@@ -2,7 +2,7 @@
     Author: _SCAR
 
     Description:
-    Load an object in a vehicle.
+    Load an object in a vehicle. Function MUST be spawned because it contains a progress bar.
 
     Parameter(s):
     0: OBJECT - The object we selected a vehicle for.
@@ -27,7 +27,6 @@ private _cargoWeight = _cargo getVariable "SCAR_UCM_cargoWeight";
 private _acceptableRatio = 0.65;
 
 if ( (_cargoWeight / _vehicleSize) <= _acceptableRatio) then {
-    // ok can be loaded
 
     // animation
     [(_cargoWeight * 5)] call SCAR_UCM_fnc_guiShowProgressBar; // add time to be compatible with ACE

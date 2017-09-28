@@ -18,7 +18,7 @@
 params ["_cargo", "_vehicle"];
 
 // load
-[_cargo, _vehicle] call SCAR_UCM_fnc_cargoLoad;
+[_cargo, _vehicle] spawn SCAR_UCM_fnc_cargoLoad;
 
 // close dialog
 closeDialog 1;

@@ -34,7 +34,7 @@ if (SCAR_UCM_ACE) then {
         (localize "STR_SCAR_UCM_Cargo_LoadInVehicle"),
         {
             params ["_target"];
-            [_target, "SCAR_UCM_fnc_guiVehicleSelectionDoneForCargo", 15] call SCAR_UCM_fnc_guiOpenVehicleSelection;
+            [_target, "SCAR_UCM_fnc_guiVehicleSelectionDoneForCargo", 10] call SCAR_UCM_fnc_guiOpenVehicleSelection;
         },
         nil,  // arguments
         1.5,  // priority

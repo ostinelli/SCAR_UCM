@@ -86,11 +86,11 @@ if (SCAR_UCM_ACE) then {
         (localize "STR_SCAR_UCM_Main_GoToVehicle"),
         {
             params ["_target"];
-            [_target] call SCAR_UCM_fnc_guiOpenVehicleSelection;
+            [_target, "SCAR_UCM_fnc_guiVehicleSelectionDoneForWorker", 100] call SCAR_UCM_fnc_guiOpenVehicleSelection;
         },
         nil,  // arguments
         1.5,  // priority
-        true, // showWindow
+        false,// showWindow
         true, // hideOnUse
         "",   // shortcut
         (_condition call SCAR_UCM_fnc_convertCodeToStr), // condition

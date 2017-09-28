@@ -86,7 +86,7 @@ if (SCAR_UCM_ACE) then {
         _statement,
         nil,  // arguments
         1.5,  // priority
-        true, // showWindow
+        false,// showWindow
         true, // hideOnUse
         "",   // shortcut
         (_condition call SCAR_UCM_fnc_convertCodeToStr),

@@ -18,11 +18,8 @@ if !(hasInterface) exitWith {};
 
 params ["_logicModule"];
 
-// check for ACE
-SCAR_UCM_ACE = [] call SCAR_UCM_fnc_isAceAvailable;
-
 // wait until initialization is done
-// waitUntil { SCAR_UCM_initialized }; TODO REMOVE
+/////////////////////////////////////////////////waitUntil { SCAR_UCM_initialized };
 
 // init actions
 [_logicModule] call SCAR_UCM_fnc_addActionsToForeman;

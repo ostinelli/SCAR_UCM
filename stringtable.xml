@@ -184,9 +184,9 @@
             <English>Go to vehicle</English>
             <Italian>Vai al veicolo</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Main_ChooseVehicle">
-            <English>Choose vehicle</English>
-            <Italian>Scegli il veicolo</Italian>
+        <Key ID="STR_SCAR_UCM_Main_Choose">
+            <English>Choose:</English>
+            <Italian>Scegli:</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Main_AllWorkersExitVehicle">
             <English>Order Workers to Exit vehicle</English>
@@ -226,6 +226,29 @@
         <Key ID="STR_SCAR_UCM_Radio_ConstructionNowInProgress">
             <English>Construction work is now ongoing.</English>
             <Italian>I lavori in cantiere sono ora in corso.</Italian>
+        </Key>
+    </Package>
+
+    <Package name="Cargo">
+        <Key ID="STR_SCAR_UCM_Cargo_LoadInVehicle">
+            <English>Load in vehicle</English>
+            <Italian>Carica su veicolo</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Cargo_UnloadFromVehicle">
+            <English>Unload items from vehicle</English>
+            <Italian>Scarica articoli dal veicolo</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Cargo_Loaded">
+            <English>The object has been loaded on the selected vehicle</English>
+            <Italian>L'oggetto è stato caricato sul veicolo selezionato</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Cargo_Unloaded">
+            <English>The object has been unloaded from the vehicle</English>
+            <Italian>L'oggetto è stato scaricato dal veicolo</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Cargo_TooHeavy">
+            <English>The object is too heavy for the selected vehicle</English>
+            <Italian>L'oggetto è troppo pesante per il veicolo selezionato</Italian>
         </Key>
     </Package>
 </Project>

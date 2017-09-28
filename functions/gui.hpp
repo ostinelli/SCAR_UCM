@@ -4,7 +4,11 @@ class SCAR_UCM_gui {
     class functions {
         file = "\scar_ucm\functions\gui";
 
+        class guiCargoSelectionDoneFromVehicle {};
+        class guiOpenCargoSelection {};
         class guiOpenVehicleSelection {};
-        class guiVehicleSelect {};
+        class guiSelectionDone {};
+        class guiVehicleSelectionDoneForCargo {};
+        class guiVehicleSelectionDoneForWorker {};
     };
 };

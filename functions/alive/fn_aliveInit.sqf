@@ -23,7 +23,7 @@ if (count (entities "ALiVE_require") == 0) exitWith {};
 [_logicModule, "ALiVE found."] call SCAR_UCM_fnc_log;
 
 // wait for ALiVE initialization
-waitUntil { !(isNil "ALiVE_ProfileHandler") && { [ALiVE_ProfileSystem, "startupComplete", false] call ALIVE_fnc_hashGet } };
+waitUntil { ["ALIVE_main", "ALiVE_sys_data", "ALiVE_sys_data_couchdb", "ALiVE_sys_data_pns"] call ALiVE_fnc_isModuleInitialised };
 [_logicModule, "Done waiting for ALiVE initialization."] call SCAR_UCM_fnc_log;
 
 // init persistent data, if any

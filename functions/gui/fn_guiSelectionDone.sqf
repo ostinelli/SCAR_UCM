@@ -8,7 +8,7 @@
     true
 
     Example:
-    [] spawn SCAR_UCM_fnc_guiSelectionDone;
+    [] call SCAR_UCM_fnc_guiSelectionDone;
 */
 
 // IDc

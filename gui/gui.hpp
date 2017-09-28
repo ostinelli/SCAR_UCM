@@ -67,3 +67,27 @@ class SCAR_UCM_SelectDialog {
         };
     };
 };
+
+
+class SCAR_UCM_ProgressBar
+{
+    show = 0;
+    movingEnable = true;
+    idd = -1;
+    // save displayreference
+	onLoad = "uiNamespace setVariable [""SCAR_UCM_ProgressBar_Display"", (_this select 0)];";
+	onUnload = "uiNamespace setVariable [""SCAR_UCM_ProgressBar_Display"", nil];";
+
+    class Controls
+    {
+        class SCAR_UCM_ProgressBar_Bar: RscProgress
+        {
+            idc = 22950;
+            text = "#(argb,8,8,3)color(0,0,0,0.8)";
+            x = 0.2 * safezoneW + safezoneX;
+            y = 0.302 * safezoneH + safezoneY;
+            w = 0.6 * safezoneW;
+            h = 0.04 * safezoneH;
+        };
+    };
+};

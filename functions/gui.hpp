@@ -8,6 +8,7 @@ class SCAR_UCM_gui {
         class guiOpenCargoSelection {};
         class guiOpenVehicleSelection {};
         class guiSelectionDone {};
+        class guishowProgressBar {};
         class guiVehicleSelectionDoneForCargo {};
         class guiVehicleSelectionDoneForWorker {};
     };

@@ -29,6 +29,9 @@ private _acceptableRatio = 0.65;
 if ( (_cargoWeight / _vehicleSize) <= _acceptableRatio) then {
     // ok can be loaded
 
+    // animation
+    [(_cargoWeight * 5)] call SCAR_UCM_fnc_guiShowProgressBar; // add time to be compatible with ACE
+
     // attach
     _cargo attachTo [_vehicle, [0, 0, -100]];
 

@@ -12,7 +12,7 @@
     true
 
     Example:
-    [_worker, _vehicle] spawn SCAR_UCM_fnc_guiVehicleSelectionDoneForWorker;
+    [_worker, _vehicle] call SCAR_UCM_fnc_guiVehicleSelectionDoneForWorker;
 */
 
 params ["_worker", "_vehicle"];

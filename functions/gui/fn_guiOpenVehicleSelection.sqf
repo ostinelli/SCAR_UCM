@@ -13,16 +13,13 @@
     true
 
     Example:
-    [_object, "SCAR_UCM_fnc_guiVehicleSelectionDoneForWorker", 100] spawn SCAR_UCM_fnc_guiOpenVehicleSelection;
+    [_object, "SCAR_UCM_fnc_guiVehicleSelectionDoneForWorker", 100] call SCAR_UCM_fnc_guiOpenVehicleSelection;
 */
 
 params ["_object", "_callbackFunctionName", "_distance"];
 
 // IDc
 private _listBox = 21950;
-
-// init
-disableSerialization;
 
 // create dialog
 createDialog "SCAR_UCM_SelectDialog";

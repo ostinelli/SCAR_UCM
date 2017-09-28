@@ -18,24 +18,46 @@ if !(hasInterface) exitWith {};
 
 params ["_unit"];
 
-private _action = [
-    "SCAR_UCM_Status",
-    (localize "STR_SCAR_UCM_Main_RequestStatus"),
-    "",
-    // Statement <CODE>
-    {
-        params ["_target"];
-        private _logicModule = _target getVariable "SCAR_UCM_logicModule";
+// code
+private _statement = {
+    params ["_target"];
+    private _logicModule = _target getVariable "SCAR_UCM_logicModule";
 
-        hint ([_logicModule] call SCAR_UCM_fnc_getStatusString);
-    },
-    // Condition <CODE>
-    {
-        params ["_target"];
-        [_target] call SCAR_UCM_fnc_canRespondToActions
-    }
-] call ace_interact_menu_fnc_createAction;
-[_unit,	0, ["ACE_MainActions"],	_action] call ace_interact_menu_fnc_addActionToObject;
+    hint ([_logicModule] call SCAR_UCM_fnc_getStatusString);
+};
+
+private _condition = {
+    if (isNil "_target") then { private _target = _this select 0; }; // compatibility vanilla & ACE
+    [_target] call SCAR_UCM_fnc_canRespondToActions
+};
+
+if (SCAR_UCM_ACE) then {
+    // ACE
+
+    private _action = [
+        "SCAR_UCM_Status",
+        (localize "STR_SCAR_UCM_Main_RequestStatus"),
+        "",
+        _statement,
+        _condition
+    ] call ace_interact_menu_fnc_createAction;
+    [_unit,	0, ["ACE_MainActions"],	_action] call ace_interact_menu_fnc_addActionToObject;
+
+} else {
+    // VANILLA
+
+    _unit addAction [
+        (localize "STR_SCAR_UCM_Main_RequestStatus"),
+        _statement,
+        nil,  // arguments
+        1.5,  // priority
+        true, // showWindow
+        true, // hideOnUse
+        "",   // shortcut
+        (_condition call SCAR_UCM_fnc_convertCodeToStr),
+        5     // radius
+    ];
+};
 
 // return
 true

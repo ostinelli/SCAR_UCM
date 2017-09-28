@@ -4,7 +4,9 @@ class SCAR_UCM_utilities {
     class functions {
         file = "\scar_ucm\functions\utilities";
 
+        class convertCodeToStr {};
         class convertSideStrToSide {};
+        class isAceAvailable {};
         class log {};
         class onUnloadedCargoPos {};
         class safetyDeleteVehicleAndCrew {};

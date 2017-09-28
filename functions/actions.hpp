@@ -13,6 +13,6 @@ class SCAR_UCM_actions {
         class addActionsToForeman {};
         class addActionsToWorker {};
         class canRespondToActions {};
-        class removeActionGetOut {};
+        class getInVehicle {};
     };
 };

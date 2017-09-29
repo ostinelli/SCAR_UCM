@@ -12,30 +12,30 @@
     BOOLEAN
 
     Example:
-    [_cargo, _vehicle] spawn SCAR_UCM_fnc_cargoLoad;
+    [_item, _vehicle] spawn SCAR_UCM_fnc_cargoItemLoad;
 */
 
 if !(hasInterface) exitWith {};
 
-params ["_cargo", "_vehicle"];
+params ["_item", "_vehicle"];
 
 // can vehicle transport it?
 private _vehicleSize = sizeOf (typeOf _vehicle); // size of vehicle, such as 10.15198
-private _cargoWeight = _cargo getVariable "SCAR_UCM_cargoWeight";
+private _itemWeight = _item getVariable "SCAR_UCM_cargoItemWeight";
 
 // acceptable ration
 private _acceptableRatio = 0.65;
 
-if ( (_cargoWeight / _vehicleSize) <= _acceptableRatio) then {
+if ( (_itemWeight / _vehicleSize) <= _acceptableRatio) then {
 
     // animation
-    [(_cargoWeight * 5)] call SCAR_UCM_fnc_guiShowProgressBar; // add time to be compatible with ACE
+    [(_itemWeight * 5)] call SCAR_UCM_fnc_guiShowProgressBar; // add time to be compatible with ACE
 
     // attach
-    _cargo attachTo [_vehicle, [0, 0, -100]];
+    _item attachTo [_vehicle, [0, 0, -100]];
 
     // hide
-    _cargo hideObjectGlobal true;
+    _item hideObjectGlobal true;
 
     // check if unload action already added to vehicle
     private _alreadyAdded = _vehicle getVariable ["SCAR_UCM_actionUnloadAlreadyAdded", false];
@@ -48,7 +48,7 @@ if ( (_cargoWeight / _vehicleSize) <= _acceptableRatio) then {
             // count cargo objects
             private _count = 0;
             {
-                private _isCargo = ((_x getVariable ["SCAR_UCM_cargoWeight", -100]) >= 0);
+                private _isCargo = (_x getVariable ["SCAR_UCM_isCargo", false]);
                 if (_isCargo) then { _count = _count + 1; };
             } forEach (attachedObjects _target);
 

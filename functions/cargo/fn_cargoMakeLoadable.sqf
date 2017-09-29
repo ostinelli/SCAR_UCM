@@ -12,22 +12,25 @@
     true
 
     Example:
-    [_cargo, 16] call SCAR_UCM_fnc_cargoMakeLoadable;
+    [_item, 16] call SCAR_UCM_fnc_cargoMakeLoadable;
 */
 
 if !(isServer) exitWith {};
 
-params ["_cargo", "_weight"];
+params ["_item", "_weight"];
 
 if (SCAR_UCM_ACE) then {
     // ACE
-    [_cargo, _weight] remoteExec ["ace_cargo_fnc_setSize"];
+    [_item, _weight] remoteExec ["ace_cargo_fnc_setSize"];
 
 } else {
     // VANILLA
 
+    // flag
+    _item setVariable ["SCAR_UCM_isCargo", true, true];
+
     // set weight
-    _cargo setVariable ["SCAR_UCM_cargoWeight", (_weight / 2), true]; // approximate to make compatible with ACE
+    _item setVariable ["SCAR_UCM_cargoItemWeight", (_weight / 2), true]; // approximate to make compatible with ACE
 
     // add action
     private _action = [
@@ -44,7 +47,7 @@ if (SCAR_UCM_ACE) then {
         "",   // condition
         5     // radius
     ];
-    [_cargo, _action] remoteExec ["addAction", 0, _cargo];
+    [_item, _action] remoteExec ["addAction", 0, _item];
 };
 
 // return

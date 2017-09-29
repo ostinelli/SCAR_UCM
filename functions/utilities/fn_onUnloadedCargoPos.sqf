@@ -19,7 +19,7 @@ if !(isServer) exitWith {};
 params ["_logicModule"];
 
 // handle cargo unloaded
-["ace_cargoUnloaded", {
+["ace_cargoItemUnoaded", {
 
     params ["_item", "_vehicle"];
 

@@ -4,8 +4,8 @@ class SCAR_UCM_cargo {
     class functions {
         file = "\scar_ucm\functions\cargo";
 
-        class cargoLoad {};
+        class cargoItemLoad {};
         class cargoMakeLoadable {};
-        class cargoUnload {};
+        class cargoItemUnoad {};
     };
 };

@@ -12,25 +12,25 @@
     true
 
     Example:
-    [_cargo, _vehicle] spawn SCAR_UCM_fnc_cargoUnload;
+    [_item, _vehicle] spawn SCAR_UCM_fnc_cargoItemUnoad;
 */
 
-params ["_cargo", "_vehicle"];
+params ["_item", "_vehicle"];
 
 // vars
-private _cargoWeight = _cargo getVariable "SCAR_UCM_cargoWeight";
+private _itemWeight = _item getVariable "SCAR_UCM_cargoItemWeight";
 
 // animation
-[(_cargoWeight * 5)] call SCAR_UCM_fnc_guiShowProgressBar; // add time to be compatible with ACE
+[(_itemWeight * 5)] call SCAR_UCM_fnc_guiShowProgressBar; // add time to be compatible with ACE
 
 // detach
-detach _cargo;
+detach _item;
 
 // position
-_cargo setVehiclePosition [getPos _vehicle, [], 0, "NONE"];
+_item setVehiclePosition [getPos _vehicle, [], 0, "NONE"];
 
 // unhide
-_cargo hideObjectGlobal false;
+_item hideObjectGlobal false;
 
 hint localize "STR_SCAR_UCM_Cargo_Unloaded";
 

@@ -15,10 +15,10 @@
     [_cargo, _vehicle] spawn SCAR_UCM_fnc_guiCargoSelectionDoneFromVehicle;
 */
 
-params ["_vehicle", "_cargo"];
+params ["_vehicle", "_item"];
 
 // load
-[_cargo, _vehicle] spawn SCAR_UCM_fnc_cargoUnload;
+[_item, _vehicle] spawn SCAR_UCM_fnc_cargoItemUnoad;
 
 // close dialog
 closeDialog 1;

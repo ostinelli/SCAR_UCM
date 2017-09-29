@@ -26,7 +26,7 @@ createDialog "SCAR_UCM_SelectDialog";
 // find cargo
 private _cargoObjects = [];
 {
-    private _isCargo = ((_x getVariable ["SCAR_UCM_cargoWeight", -100]) >= 0);
+    private _isCargo = ((_x getVariable ["SCAR_UCM_cargoItemWeight", -100]) >= 0);
     if (_isCargo) then { _cargoObjects pushBack _x; };
 } forEach (attachedObjects _vehicle);
 

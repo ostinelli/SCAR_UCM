@@ -12,13 +12,13 @@
     true
 
     Example:
-    [_cargo, _vehicle] call SCAR_UCM_fnc_guiVehicleSelectionDoneForCargo;
+    [_item, _vehicle] call SCAR_UCM_fnc_guiVehicleSelectionDoneForCargo;
 */
 
-params ["_cargo", "_vehicle"];
+params ["_item", "_vehicle"];
 
 // load
-[_cargo, _vehicle] spawn SCAR_UCM_fnc_cargoLoad;
+[_item, _vehicle] spawn SCAR_UCM_fnc_cargoItemLoad;
 
 // close dialog
 closeDialog 1;

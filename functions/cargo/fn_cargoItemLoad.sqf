@@ -32,7 +32,7 @@ if ( (_itemWeight / _vehicleSize) <= _acceptableRatio) then {
     [(_itemWeight * 4), localize ("STR_SCAR_UCM_Cargo_Loading")] call SCAR_UCM_fnc_guiShowProgressBar; // add time to be compatible with ACE
 
     // attach
-    _item attachTo [_vehicle, [0, 0, 0]];
+    _item attachTo [_vehicle, [0, 0, -100]];
     // hide
     _item hideObjectGlobal true;
     // action

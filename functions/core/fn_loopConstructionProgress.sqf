@@ -179,19 +179,19 @@ private _null = [_logicModule] spawn {
 			    // fire event
 			    ["UCM_ConstructionNowInProgress", [_logicModule, _currentPiece]] call CBA_fnc_serverEvent;
 			    // radio
-				[[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_ConstructionNowInProgress")] remoteExec ["sideChat"];
+				[[_side, "HQ"], { localize "STR_SCAR_UCM_Radio_ConstructionNowInProgress" }] remoteExec ["sideChat"];
 			} else {
 				if ( (count _workersInArea) == 0) then {
                     // fire event
                     ["UCM_NoWorkersInConstructionArea", [_logicModule, _currentPiece]] call CBA_fnc_serverEvent;
                     // radio
-					[[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_NoWorkersInConstructionArea")] remoteExec ["sideChat"];
+					[[_side, "HQ"], { localize "STR_SCAR_UCM_Radio_NoWorkersInConstructionArea" }] remoteExec ["sideChat"];
 				};
 				if ( (count _materialsInArea) == 0) then {
                     // fire event
                     ["UCM_NoMaterialsInConstructionArea", [_logicModule, _currentPiece]] call CBA_fnc_serverEvent;
                     // radio
-					[[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_NoMaterialsInConstructionArea")] remoteExec ["sideChat"];
+					[[_side, "HQ"], { localize "STR_SCAR_UCM_Radio_NoMaterialsInConstructionArea" }] remoteExec ["sideChat"];
 				};
 			};
 		};

@@ -12,7 +12,7 @@
     0: true
 
     Example:
-    [_store, _pos] call SCAR_UCM_fnc_setMarkerConstruction;
+    [_logicModule, _pos] call SCAR_UCM_fnc_setMarkerConstruction;
 */
 
 if !(isServer) exitWith {};
@@ -33,7 +33,9 @@ _marker = createMarker ["SCAR_UCM_constructionAreaMarker", _pos];
 _marker setMarkerShape "ICON";
 _marker setMarkerType "Select";
 _marker setMarkerColor format["color%1", _side];
-_marker setMarkerText (localize "STR_SCAR_UCM_Main_ConstructionArea");
+
+// set marker text localized
+[_marker, { localize "STR_SCAR_UCM_Main_ConstructionArea" }] remoteExec ["setMarkerTextLocal", -2, _marker];
 
 // store
 _logicModule setVariable ["SCAR_UCM_constructionAreaMarker", _marker, true];

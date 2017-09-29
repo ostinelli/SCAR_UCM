@@ -33,7 +33,9 @@ _marker = createMarker ["SCAR_UCM_helicopterLandingZoneMarker", getPos _landingZ
 _marker setMarkerShape "ICON";
 _marker setMarkerType "Select";
 _marker setMarkerColor format["color%1", _side];
-_marker setMarkerText (localize "STR_SCAR_UCM_Main_LandingZone");
+
+// set marker text localized
+[_marker, { localize "STR_SCAR_UCM_Main_LandingZone" }] remoteExec ["setMarkerTextLocal", -2, _marker];
 
 // store
 _logicModule setVariable ["SCAR_UCM_helicopterLandingZoneMarker", _marker, true];

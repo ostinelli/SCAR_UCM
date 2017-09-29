@@ -24,8 +24,8 @@ private _onGoing = _logicModule getVariable ["SCAR_UCM_requestMaterialOngoing", 
 private _side    = _logicModule getVariable "SCAR_UCM_side";
 
 if (_onGoing) exitWith {
-    // chat
-    [_side, "HQ"] sideChat (localize "STR_SCAR_UCM_Radio_ErrorRequestMaterialsAlreadyInProgress");
+    // chat only to caller
+    [[_side, "HQ"], { localize "STR_SCAR_UCM_Radio_RequestedMaterials" }] remoteExec ["sideChat", _caller];
     // return
     false
 };
@@ -59,7 +59,7 @@ _vehicle setVariable ["SCAR_UCM_logicModule", _logicModule, true];
 ["UCM_RequestedMaterials", [_logicModule]] call CBA_fnc_serverEvent;
 
 // radio
-[[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_RequestedMaterials")] remoteExec ["sideChat"];
+[[_side, "HQ"], { localize "STR_SCAR_UCM_Radio_RequestedMaterials" }] remoteExec ["sideChat"];
 
 // waypoints
 

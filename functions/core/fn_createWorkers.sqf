@@ -70,22 +70,17 @@ for "_i" from 1 to _workersCount do {
     _worker setVariable ["SCAR_UCM_isWorker", true, true];
 
     // track worker to remove it from the workers array.
+    _worker setVariable ["SCAR_UCM_side", _side, true];
     _worker addEventHandler ["Killed", {
         private _killed       = _this select 0;
         private _logicModule  = _killed getVariable "SCAR_UCM_logicModule";
         // worker is dead, remove from array
         _logicModule setVariable ["SCAR_UCM_workers", ( (_logicModule getVariable "SCAR_UCM_workers") - [_killed] ), true];
+        // message
+        private _side = _killed getVariable "SCAR_UCM_side";
+        [[_side, "HQ"], { localize "STR_SCAR_UCM_Radio_WorkerKilled" }] remoteExec ["sideChat", 0];
         // fire event
         ["UCM_WorkerKilled", [_logicModule, _killed]] call CBA_fnc_serverEvent;
-    }];
-
-    // add kill event for everyone
-    _worker setVariable ["SCAR_UCM_side", _side, true];
-    _worker addMPEventHandler ["MPKilled", {
-        // radio
-        private _killed = _this select 0;
-        private _side   = _killed getVariable "SCAR_UCM_side";
-        [_side, "HQ"] sideChat (localize "STR_SCAR_UCM_Radio_WorkerKilled");
     }];
 
     // add actions

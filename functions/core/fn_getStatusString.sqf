@@ -14,6 +14,8 @@
     [_logicModule] call SCAR_UCM_fnc_getStatusString;
 */
 
+if !(hasInterface) exitWith {};
+
 params ["_logicModule"];
 
 // vars

@@ -28,8 +28,8 @@ private _heliPad          = _logicModule getVariable "SCAR_UCM_heliPad";
 private _side             = _logicModule getVariable "SCAR_UCM_side";
 
 if ((count _workers) >= _workersCount) exitWith {
-    // chat
-    [_side, "HQ"] sideChat format[(localize "STR_SCAR_UCM_Radio_ErrorRequestWorkersAlreadyMaxed"), _workersCount];
+    // chat only to caller
+    [[_side, "HQ"], { localize "STR_SCAR_UCM_Radio_ErrorRequestWorkersAlreadyMaxed" }] remoteExec ["sideChat", _caller];
     // return
     false
 };
@@ -65,7 +65,7 @@ _destinationPos = [_destinationPos select 0, _destinationPos select 1, 0];
 ["UCM_RequestedWorkers", [_logicModule]] call CBA_fnc_serverEvent;
 
 // radio
-[[_side, "HQ"], (localize "STR_SCAR_UCM_Radio_RequestedWorkers")] remoteExec ["sideChat"];
+[[_side, "HQ"], { localize "STR_SCAR_UCM_Radio_RequestedWorkers" }] remoteExec ["sideChat"];
 
 // waypoints
 

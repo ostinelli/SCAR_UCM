@@ -22,4 +22,8 @@ params ["_logicModule"];
 private _strikeMods = [_logicModule, "SCAR_UCM_ModuleUtilitiesConstructionSurgicalStrike"] call BIS_fnc_synchronizedObjects;
 if ((count _strikeMods) == 0) exitWith {};
 
-// mod exists
+// loop attack
+[_logicModule] call SCAR_UCM_fnc_strikeLoop;
+
+// return
+true

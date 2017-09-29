@@ -18,11 +18,6 @@ if !(hasInterface) exitWith {};
 
 params ["_vehicle"];
 
-// check if action already added
-private _alreadyAdded = _vehicle getVariable ["SCAR_UCM_actionGetOutAlreadyAdded", false];
-if (_alreadyAdded) exitWith {};
-_vehicle setVariable ["SCAR_UCM_actionGetOutAlreadyAdded", true, true];
-
 // code
 private _statement = {
     params ["_target"];

@@ -22,5 +22,8 @@ private _foreman = _logicModule getVariable "SCAR_UCM_foreman";
 // save module to foreman
 _foreman setVariable ["SCAR_UCM_logicModule", _logicModule, true];
 
+// init actions
+[_logicModule] call SCAR_UCM_fnc_addActionsToForeman;
+
 // return
 true

@@ -21,8 +21,5 @@ params ["_logicModule"];
 // wait until initialization is done
 waitUntil { SCAR_UCM_initialized };
 
-// init actions
-[_logicModule] call SCAR_UCM_fnc_addActionsToForeman;
-
 // return
 true

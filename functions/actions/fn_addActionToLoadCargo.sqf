@@ -14,12 +14,12 @@
     [_item] call SCAR_UCM_fnc_addActionToLoadCargo;
 */
 
-if !(isServer) exitWith {};
+if !(hasInterface) exitWith {};
 
 params ["_item"];
 
 // add action
-private _action = [
+_item addAction [
     (localize "STR_SCAR_UCM_Cargo_LoadInVehicle"),
     {
         params ["_target"];
@@ -33,7 +33,6 @@ private _action = [
     "",   // condition
     5     // radius
 ];
-[_item, _action] remoteExec ["addAction", -2, _item];
 
 // return
 true

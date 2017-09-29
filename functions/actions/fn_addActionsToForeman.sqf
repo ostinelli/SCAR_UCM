@@ -14,7 +14,7 @@
     [_logicModule] call SCAR_UCM_fnc_addActionsToForeman;
 */
 
-if !(hasInterface) exitWith {};
+if !(isServer) exitWith {};
 
 params ["_logicModule"];
 
@@ -22,13 +22,13 @@ params ["_logicModule"];
 _foreman = _logicModule getVariable "SCAR_UCM_foreman";
 
 // status
-[_foreman] call SCAR_UCM_fnc_addActionRequestStatus;
+[_foreman] remoteExec ["SCAR_UCM_fnc_addActionRequestStatus", -2, _foreman]; // JIP
 
 // workers
-[_foreman] call SCAR_UCM_fnc_addActionRequestWorkers;
+[_foreman] remoteExec ["SCAR_UCM_fnc_addActionRequestWorkers", -2, _foreman]; // JIP
 
 // materials
-[_foreman] call SCAR_UCM_fnc_addActionRequestMaterials;
+[_foreman] remoteExec ["SCAR_UCM_fnc_addActionRequestMaterials", -2, _foreman]; // JIP
 
 // return
 true

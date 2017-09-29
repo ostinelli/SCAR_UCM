@@ -16,27 +16,32 @@
 
 params ["_worker"];
 
-if (hasInterface) then {
-    // action to request status
-    [_worker] call SCAR_UCM_fnc_addActionRequestStatus;
+if !(isServer) exitWith {};
 
-    // action to GET IN
-    [_worker] call SCAR_UCM_fnc_addActionGetIn;
+// action to request status
+[_worker] remoteExec ["SCAR_UCM_fnc_addActionRequestStatus", -2, _worker]; // JIP
 
-    // action go to construction area
-    [_worker] call SCAR_UCM_fnc_addActionGoToConstructionArea;
-};
+// action to GET IN
+[_worker] remoteExec ["SCAR_UCM_fnc_addActionGetIn", -2, _worker]; // JIP
 
-if (isServer) then {
-    // add get out actions from a vehicles a worker has been in
-    // condition on the action will be to check for alive workers in, so no need to remove action
-    _worker addEventHandler ["GetInMan", {
+// action go to construction area
+[_worker] remoteExec ["SCAR_UCM_fnc_addActionGoToConstructionArea", -2, _worker]; // JIP
 
-        params ["_worker", "_position", "_vehicle"];
+// add get out actions to a vehicles a worker has been in
+// condition on the action will be to check for alive workers in, so no need to remove action
+_worker addEventHandler ["GetInMan", {
 
-        [_vehicle] remoteExec ["SCAR_UCM_fnc_addActionGetOut"];
-    }];
-};
+    params ["_worker", "_position", "_vehicle"];
+
+    // check if action already added
+    private _alreadyAdded = _vehicle getVariable ["SCAR_UCM_actionGetOutAlreadyAdded", false];
+    if !(_alreadyAdded) then {
+        // flag
+        _vehicle setVariable ["SCAR_UCM_actionGetOutAlreadyAdded", true, true];
+        // action
+        [_vehicle] remoteExec ["SCAR_UCM_fnc_addActionGetOut", -2, _vehicle]; // JIP
+    };
+}];
 
 // return
 true

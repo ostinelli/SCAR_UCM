@@ -88,8 +88,8 @@ for "_i" from 1 to _workersCount do {
         [_side, "HQ"] sideChat (localize "STR_SCAR_UCM_Radio_WorkerKilled");
     }];
 
-    // add actions to server and every client
-    [_worker] remoteExec ["SCAR_UCM_fnc_addActionsToWorker"];
+    // add actions
+    [_worker] call SCAR_UCM_fnc_addActionsToWorker;
 
     // init worker animations
     [_worker] call SCAR_UCM_fnc_loopWorkerMovements;

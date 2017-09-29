@@ -239,24 +239,24 @@
             <Italian>Scarica articoli dal veicolo</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Cargo_Loaded">
-            <English>The object has been loaded on the selected vehicle</English>
-            <Italian>L'oggetto è stato caricato sul veicolo selezionato</Italian>
+            <English>The item has been loaded on the selected vehicle</English>
+            <Italian>L'articolo è stato caricato sul veicolo selezionato</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Cargo_Loading">
             <English>Loading</English>
             <Italian>Caricamento</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Cargo_Unloaded">
-            <English>The object has been unloaded from the vehicle</English>
-            <Italian>L'oggetto è stato scaricato dal veicolo</Italian>
+            <English>The item has been unloaded from the vehicle</English>
+            <Italian>L'articolo è stato scaricato dal veicolo</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Cargo_Unloading">
             <English>Unloading</English>
             <Italian>Scaricamento</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Cargo_TooHeavy">
-            <English>The object is too heavy for the selected vehicle</English>
-            <Italian>L'oggetto è troppo pesante per il veicolo selezionato</Italian>
+            <English>The item is too heavy for the selected vehicle</English>
+            <Italian>L'articolo è troppo pesante per il veicolo selezionato</Italian>
         </Key>
     </Package>
 </Project>

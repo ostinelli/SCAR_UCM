@@ -37,7 +37,7 @@ missionNamespace setVariable ["SCAR_UCM_SelectionFunction", _callbackFunctionNam
     if (alive _x) then {
         // display name
         private _displayName = getText (configFile >>  "CfgVehicles" >> (typeOf _x) >> "displayName");
-        _displayName = _displayName + format[" (a %1m)", round(_x distance _object)];
+        _displayName = _displayName + format[" (%1m)", round(_x distance _object)];
         // add item
         lbAdd [_listBox, _displayName];
     };

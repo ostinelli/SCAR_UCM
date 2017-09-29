@@ -200,6 +200,19 @@ class CfgVehicles
         isTriggerActivated = 0;
         isDisposable       = 0;
     };
+
+    class SCAR_UCM_ModuleUtilitiesConstructionSurgicalStrike: Module_F
+    {
+        // Standard object definitions
+        scope = 2;
+        displayName = $STR_SCAR_UCM_ModuleUtilitiesConstructionSurgicalStrike;
+        icon = "\scar_ucm\gfx\logo.paa";
+        category = "SCAR_UCM_UtilitiesConstructionMod";
+
+        isGlobal           = 1;
+        isTriggerActivated = 0;
+        isDisposable       = 0;
+    };
 };
 
 #include "gui/gui.hpp"

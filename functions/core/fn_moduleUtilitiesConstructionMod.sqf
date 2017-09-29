@@ -25,10 +25,12 @@ if (_activated) then {
 
 		// init settings
 		[_logicModule] call SCAR_UCM_fnc_initSettings;
-		// init server
-		[_logicModule] call SCAR_UCM_fnc_initServer;
 		// patch ACE
 		[_logicModule] call SCAR_UCM_fnc_onUnloadedCargoPos;
+		// init server
+		[_logicModule] call SCAR_UCM_fnc_strikeInit;
+		// init server
+		[_logicModule] call SCAR_UCM_fnc_initServer;
 	};
 
 	if (hasInterface) then {

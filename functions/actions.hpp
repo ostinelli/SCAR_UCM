@@ -15,6 +15,5 @@ class SCAR_UCM_actions {
         class addActionToLoadCargo {};
         class addActionToUnloadCargo {};
         class canRespondToActions {};
-        class getInVehicle {};
     };
 };

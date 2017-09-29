@@ -8,6 +8,7 @@ class SCAR_UCM_core {
         class createWorkers {};
         class dropMaterialFromHelicopter {};
         class getCurrentPiece {};
+        class getInVehicle {};
         class getPiecesCount {};
         class getStatusString {};
         class initForeman {};

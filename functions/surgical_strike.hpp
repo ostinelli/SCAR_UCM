@@ -4,6 +4,8 @@ class SCAR_UCM_surgical_strike {
     class functions {
         file = "\scar_ucm\functions\surgical_strike";
 
-        class strikeInit {};
+        class surgicalStrikeAttack {};
+        class surgicalStrikeInit {};
+        class surgicalStrikeLoop {};
     };
 };

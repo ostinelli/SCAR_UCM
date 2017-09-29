@@ -28,7 +28,7 @@ if (_activated) then {
 		// patch ACE
 		[_logicModule] call SCAR_UCM_fnc_onUnloadedCargoPos;
 		// init server
-		[_logicModule] call SCAR_UCM_fnc_strikeInit;
+		[_logicModule] call SCAR_UCM_fnc_surgicalStrikeInit;
 		// init server
 		[_logicModule] call SCAR_UCM_fnc_initServer;
 	};

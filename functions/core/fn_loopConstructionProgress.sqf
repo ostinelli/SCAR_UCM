@@ -59,7 +59,7 @@ private _null = [_logicModule] spawn {
 	private _side                   = _logicModule getVariable "SCAR_UCM_side";
 
 	// init
-	private _sleepTime = 1;
+	private _sleepTime = 5;
 	private _continue  = true;
 	private _previous_workersAreWorking = false;
 

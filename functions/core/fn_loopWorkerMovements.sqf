@@ -121,7 +121,7 @@ private _null = [_worker] spawn {
             _lastPiece = objNull;
         };
 
-        sleep 1;
+        sleep 5;
     };
 };
 

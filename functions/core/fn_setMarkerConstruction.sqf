@@ -35,7 +35,7 @@ _marker setMarkerType "Select";
 _marker setMarkerColor format["color%1", _side];
 
 // set marker text localized
-[_marker, { localize "STR_SCAR_UCM_Main_ConstructionArea" }] remoteExec ["setMarkerTextLocal", -2, _marker];
+[_marker, "STR_SCAR_UCM_Main_ConstructionArea"] remoteExec ["SCAR_UCM_fnc_setMarkerTextLocalLocalized", 0, _marker];
 
 // store
 _logicModule setVariable ["SCAR_UCM_constructionAreaMarker", _marker, true];

@@ -19,13 +19,13 @@ params ["_worker"];
 if !(isServer) exitWith {};
 
 // action to request status
-[_worker] remoteExec ["SCAR_UCM_fnc_addActionRequestStatus", -2, _worker]; // JIP
+[_worker] remoteExec ["SCAR_UCM_fnc_addActionRequestStatus", 0, _worker]; // JIP
 
 // action to GET IN
-[_worker] remoteExec ["SCAR_UCM_fnc_addActionGetIn", -2, _worker]; // JIP
+[_worker] remoteExec ["SCAR_UCM_fnc_addActionGetIn", 0, _worker]; // JIP
 
 // action go to construction area
-[_worker] remoteExec ["SCAR_UCM_fnc_addActionGoToConstructionArea", -2, _worker]; // JIP
+[_worker] remoteExec ["SCAR_UCM_fnc_addActionGoToConstructionArea", 0, _worker]; // JIP
 
 // add get out actions to a vehicles a worker has been in
 // condition on the action will be to check for alive workers in, so no need to remove action
@@ -39,7 +39,7 @@ _worker addEventHandler ["GetInMan", {
         // flag
         _vehicle setVariable ["SCAR_UCM_actionGetOutAlreadyAdded", true, true];
         // action
-        [_vehicle] remoteExec ["SCAR_UCM_fnc_addActionGetOut", -2, _vehicle]; // JIP
+        [_vehicle] remoteExec ["SCAR_UCM_fnc_addActionGetOut", 0, _vehicle]; // JIP
     };
 }];
 

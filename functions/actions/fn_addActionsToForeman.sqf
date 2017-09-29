@@ -22,13 +22,13 @@ params ["_logicModule"];
 _foreman = _logicModule getVariable "SCAR_UCM_foreman";
 
 // status
-[_foreman] remoteExec ["SCAR_UCM_fnc_addActionRequestStatus", -2, _foreman]; // JIP
+[_foreman] remoteExec ["SCAR_UCM_fnc_addActionRequestStatus", 0, _foreman]; // JIP
 
 // workers
-[_foreman] remoteExec ["SCAR_UCM_fnc_addActionRequestWorkers", -2, _foreman]; // JIP
+[_foreman] remoteExec ["SCAR_UCM_fnc_addActionRequestWorkers", 0, _foreman]; // JIP
 
 // materials
-[_foreman] remoteExec ["SCAR_UCM_fnc_addActionRequestMaterials", -2, _foreman]; // JIP
+[_foreman] remoteExec ["SCAR_UCM_fnc_addActionRequestMaterials", 0, _foreman]; // JIP
 
 // return
 true

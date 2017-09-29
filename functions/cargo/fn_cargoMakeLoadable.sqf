@@ -31,7 +31,7 @@ if (SCAR_UCM_ACE) then {
     // set weight
     _item setVariable ["SCAR_UCM_cargoItemWeight", (_weight / 2), true]; // approximate to make compatible with ACE
     // add action
-    [_item] remoteExec ["SCAR_UCM_fnc_addActionToLoadCargo", -2, _item]; // JIP
+    [_item] remoteExec ["SCAR_UCM_fnc_addActionToLoadCargo", 0, _item]; // JIP
 };
 
 // return

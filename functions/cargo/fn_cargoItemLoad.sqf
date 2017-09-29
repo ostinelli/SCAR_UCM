@@ -41,7 +41,7 @@ if ( (_itemWeight / _vehicleSize) <= _acceptableRatio) then {
         // flag
         _vehicle setVariable ["SCAR_UCM_actionUnloadAlreadyAdded", true, true];
         // action
-        [_vehicle] remoteExec ["SCAR_UCM_fnc_addActionToUnloadCargo", -2, _vehicle]; // JIP
+        [_vehicle] remoteExec ["SCAR_UCM_fnc_addActionToUnloadCargo", 0, _vehicle]; // JIP
     };
     // message
     hint localize "STR_SCAR_UCM_Cargo_Loaded";

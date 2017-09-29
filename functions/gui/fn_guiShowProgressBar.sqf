@@ -17,7 +17,8 @@
 params ["_duration", "_text"];
 
 // IDc
-private _id = 22950;
+private _textId = 22950;
+private _barId  = 22951;
 
 // init
 disableSerialization;
@@ -30,10 +31,11 @@ createDialog "SCAR_UCM_ProgressBar";
 
 // get control
 private _display = uiNamespace getVariable "SCAR_UCM_ProgressBar_Display";
-private _bar     = _display displayCtrl 22950;
+private _bar     = _display displayCtrl _barId;
+private _barText = _display displayCtrl _textId;
 
 // set text
-_bar ctrlSetText _text;
+_barText ctrlSetText _text;
 
 // progress
 private _interval = 0.05;

@@ -39,7 +39,7 @@ _marker setMarkerType "mil_dot";
 _marker setMarkerColor format["color%1", (side _worker)];
 
 // set marker text localized
-[_marker, { localize "STR_SCAR_UCM_Main_Worker" }] remoteExec ["setMarkerTextLocal", -2, _marker];
+[_marker, "STR_SCAR_UCM_Main_Worker"] remoteExec ["SCAR_UCM_fnc_setMarkerTextLocalLocalized", 0, _marker];
 
 // save vars
 _worker setVariable ["SCAR_UCM_workerMarker", _marker];

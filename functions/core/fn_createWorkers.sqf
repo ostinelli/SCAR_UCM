@@ -78,7 +78,7 @@ for "_i" from 1 to _workersCount do {
         _logicModule setVariable ["SCAR_UCM_workers", ( (_logicModule getVariable "SCAR_UCM_workers") - [_killed] ), true];
         // message
         private _side = _killed getVariable "SCAR_UCM_side";
-        [[_side, "HQ"], { localize "STR_SCAR_UCM_Radio_WorkerKilled" }] remoteExec ["sideChat", 0];
+        [_side, "STR_SCAR_UCM_Radio_WorkerKilled"] remoteExec ["SCAR_UCM_fnc_sideChatLocalized", 0];
         // fire event
         ["UCM_WorkerKilled", [_logicModule, _killed]] call CBA_fnc_serverEvent;
     }];

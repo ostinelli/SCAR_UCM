@@ -18,7 +18,7 @@
 params ["_vehicle", "_item"];
 
 // load
-[_item, _vehicle] spawn SCAR_UCM_fnc_cargoItemUnoad;
+[_item, _vehicle] spawn SCAR_UCM_fnc_cargoItemUnload;
 
 // close dialog
 closeDialog 1;

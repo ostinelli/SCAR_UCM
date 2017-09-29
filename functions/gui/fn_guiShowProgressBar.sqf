@@ -14,7 +14,7 @@
     [15] call SCAR_UCM_fnc_guiShowProgressBar;
 */
 
-params ["_duration"];
+params ["_duration", "_text"];
 
 // IDc
 private _id = 22950;
@@ -31,6 +31,9 @@ createDialog "SCAR_UCM_ProgressBar";
 // get control
 private _display = uiNamespace getVariable "SCAR_UCM_ProgressBar_Display";
 private _bar     = _display displayCtrl 22950;
+
+// set text
+_bar ctrlSetText _text;
 
 // progress
 private _interval = 0.05;

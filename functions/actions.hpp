@@ -12,6 +12,8 @@ class SCAR_UCM_actions {
         class addActionRequestWorkers {};
         class addActionsToForeman {};
         class addActionsToWorker {};
+        class addActionToLoadCargo {};
+        class addActionToUnloadCargo {};
         class canRespondToActions {};
         class getInVehicle {};
     };

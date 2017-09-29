@@ -21,7 +21,7 @@ params ["_item", "_vehicle"];
 private _itemWeight = _item getVariable "SCAR_UCM_cargoItemWeight";
 
 // animation
-[(_itemWeight * 5)] call SCAR_UCM_fnc_guiShowProgressBar; // add time to be compatible with ACE
+[(_itemWeight * 4)] call SCAR_UCM_fnc_guiShowProgressBar; // add time to be compatible with ACE
 
 // detach
 detach _item;

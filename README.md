@@ -36,9 +36,32 @@ You can download an example mission from [here](https://github.com/ostinelli/SCA
 
 You can get the module from [Steam](http://steamcommunity.com/sharedfiles/filedetails/?id=1145478729).
 
+## Persistence
+
+UCM has its own Persistence Module. It works by saving data to the `profileNamespace` on the server.
+
+A few important things to note:
+
+  - The Persistence Module saves _only_ UCM data, the rest is left to Arma or other modules you may be using.
+  - If you add / rename the variable names of the UCM Logic modules, your persistence will be lost.
+
 ## ALiVE integration
 
-ALiVE integration is currently disabled. See [here](https://github.com/ostinelli/SCAR_UCM/issues/2) for status.
+UCM supports ALiVE natively, with some caveats.
+
+#### ALiVE objectives
+
+The Construction Area is automatically added as a Custom Objective to the hostile OPCOMs. This objective is also moved when the construction moves.
+
+#### ALiVE profiles
+
+The workers are not profiled by ALiVE [Virtual_AI_System](http://alivemod.com/wiki/index.php/Virtual_AI_System), and therefore they will not be attacked by profiled enemies when they are virtualized. This substantially means that at least one player needs to be next to the workers, which will cause ALiVE profiled enemies to be spawned on the map and hence attack the workers.
+
+#### ALiVE Persistence
+
+Whan ALiVE saves its data, it will trigger an `endMission`. UCM listens for that event and automatically uses its Persistent Module to save its data. Therefore, if you want UCM data to be also saved when you save ALiVE, the only thing you have to do is to drop the Persistent Module in your mission.
+
+Note that UCM data will be saved locally, regardless of the ALiVE Data setting. More [here](http://alivemod.com/forum/3168-get-save-data-from-cloud).
 
 ## Functions
 

@@ -55,7 +55,7 @@ if (SCAR_UCM_ACE) then {
         _statement,
         nil,  // arguments
         1.5,  // priority
-        false,// showWindow
+        true, // showWindow
         true, // hideOnUse
         "",   // shortcut
         "[_target] call SCAR_UCM_fnc_canRespondToActions", // condition

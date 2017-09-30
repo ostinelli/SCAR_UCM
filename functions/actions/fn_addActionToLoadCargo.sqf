@@ -27,7 +27,7 @@ _item addAction [
     },
     nil,  // arguments
     1.5,  // priority
-    false,// showWindow
+    true, // showWindow
     true, // hideOnUse
     "",   // shortcut
     "",   // condition

@@ -38,7 +38,7 @@ _vehicle addAction [
    },
    nil,  // arguments
    1.5,  // priority
-   false,// showWindow
+   true, // showWindow
    true, // hideOnUse
    "",   // shortcut
    (_condition call SCAR_UCM_fnc_convertCodeToStr), // condition

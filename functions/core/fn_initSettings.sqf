@@ -71,7 +71,7 @@ _logicModule setVariable ["SCAR_UCM_helicopterClass", _helicopterClass, true];
 _logicModule setVariable ["SCAR_UCM_materialsClass", _materialsClass, true];
 _logicModule setVariable ["SCAR_UCM_materialsWeight", _materialsWeight, true];
 
-[_logicModule, "   ---> OPTION variables have been set."] call SCAR_UCM_fnc_log;
+[_logicModule, "  --> OPTION variables have been set."] call SCAR_UCM_fnc_log;
 
 // ====================================================== /\ MODULE VARS ===================================================
 
@@ -111,7 +111,7 @@ if ( (_logicModule getVariable ["SCAR_UCM_heliPad", objNull]) isEqualTo objNull 
     _logicModule setVariable ["SCAR_UCM_heliPad", _heliPad, true];
 };
 
-[_logicModule, "   ---> FIXED variables have been set."] call SCAR_UCM_fnc_log;
+[_logicModule, "  --> FIXED variables have been set."] call SCAR_UCM_fnc_log;
 
 // ====================================================== /\ OTHER VARS ====================================================
 
@@ -125,7 +125,7 @@ if ( (_logicModule getVariable ["SCAR_UCM_heliPad", objNull]) isEqualTo objNull 
 [_logicModule, "SCAR_UCM_workersInArea", []] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
 [_logicModule, "SCAR_UCM_materialsInArea", []] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
 
-[_logicModule, "   ---> PROGRESS variables have been set."] call SCAR_UCM_fnc_log;
+[_logicModule, "  --> PROGRESS variables have been set."] call SCAR_UCM_fnc_log;
 
 // ====================================================== /\ PROGRESS VARS =================================================
 

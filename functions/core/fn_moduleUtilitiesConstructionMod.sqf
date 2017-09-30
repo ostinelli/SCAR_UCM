@@ -25,6 +25,10 @@ if (_activated) then {
 
 		// init settings
 		[_logicModule] call SCAR_UCM_fnc_initSettings;
+		// init persistence
+        [_logicModule] call SCAR_UCM_fnc_initPersistence;
+		// init integrations
+        [_logicModule] call SCAR_UCM_fnc_initIntegrations;
 		// init server
 		[_logicModule] call SCAR_UCM_fnc_initServer;
 		// patch ACE

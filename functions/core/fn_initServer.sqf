@@ -40,7 +40,7 @@ publicVariable "SCAR_UCM_ACE";
 [_logicModule] call SCAR_UCM_fnc_setMarkerLandingZone;
 
 // init finished, broadcast
-[_logicModule, "Initialization finished, broadcasting variable 'SCAR_UCM_initialized'"] call SCAR_UCM_fnc_log;
+[_logicModule, "Broadcasting variable 'SCAR_UCM_initialized'"] call SCAR_UCM_fnc_log;
 SCAR_UCM_initialized = true;
 publicVariable "SCAR_UCM_initialized";  // TODO: broadcast ONLY when all of the logic modules have been initialized
 

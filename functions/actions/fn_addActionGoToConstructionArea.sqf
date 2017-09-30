@@ -36,8 +36,10 @@ private _statement = {
         deleteWaypoint ((waypoints _group) select 0);
     };
 
-    // remove handcuffs
-    [_target, false] call ACE_captives_fnc_setHandcuffed;
+    // remove handcuffs if ACE is enabled
+    if (SCAR_UCM_ACE) then {
+        [_target, false] call ACE_captives_fnc_setHandcuffed;
+    };
 
     // set stance
     _target setUnitPos "AUTO";

@@ -31,5 +31,8 @@ if (["ALiVE_mil_opcom"] call ALIVE_fnc_isModuleAvailable) then {
     [] call SCAR_UCM_fnc_aliveOnConstructionAreaMoved;
 };
 
+// add event to save on mission end
+[] call SCAR_UCM_fnc_aliveOnMissionEnd;
+
 // return
 true

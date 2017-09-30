@@ -25,7 +25,7 @@ private _materialsClass  = _logicModule getVariable "SCAR_UCM_materialsClass";
 // create parachute & materials
 private _pos = getPos _vehicle;
 private _chute = createVehicle ["B_Parachute_02_F", [100, 100, 200], [], 0, 'FLY'];
-_chute setPos [_pos select 0, _pos select 1, (_pos select 2) - 10];
+_chute setPos [_pos select 0, _pos select 1, (_pos select 2) - 20];
 private _material = createVehicle [_materialsClass, getPos _chute, [], 0, 'NONE'];
 _material attachTo [_chute, [0, 0, -1.3]];
 

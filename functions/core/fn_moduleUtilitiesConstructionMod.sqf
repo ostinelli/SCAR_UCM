@@ -25,8 +25,6 @@ if (_activated) then {
 
 		// init settings
 		[_logicModule] call SCAR_UCM_fnc_initSettings;
-		// init persistence
-        [_logicModule] call SCAR_UCM_fnc_initPersistence;
 		// init integrations
         [_logicModule] call SCAR_UCM_fnc_initIntegrations;
 		// init server
@@ -40,7 +38,7 @@ if (_activated) then {
 		[_logicModule] call SCAR_UCM_fnc_initPlayer;
 	};
 
-    [_logicModule, "initialization completed."] call SCAR_UCM_fnc_log;
+    [_logicModule, "Initialization completed."] call SCAR_UCM_fnc_log;
 };
 
 // return

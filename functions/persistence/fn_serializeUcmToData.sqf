@@ -43,11 +43,12 @@ private _pairs = [];
 private _workersInfo = [];
 {
     // get info
-    private _pos     = getPos _x;
-    private _dir     = getDir _x;
-    private _loadout = getUnitLoadout _x;
-    // format info (format is [position, direction, loadout])
-    private _workerInfo = [_pos, _dir, _loadout];
+    private _pos       = getPos _x;
+    private _dir       = getDir _x;
+    private _loadout   = getUnitLoadout _x;
+    private _inVehicle = (vehicle _x != _x);
+    // format info (format is [position, direction, loadout, inVehicle])
+    private _workerInfo = [_pos, _dir, _loadout, _inVehicle];
     // add
     _workersInfo pushBack _workerInfo;
     // log

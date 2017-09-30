@@ -263,4 +263,11 @@
             <Italian>L'articolo è troppo pesante per il veicolo selezionato</Italian>
         </Key>
     </Package>
+
+    <Package name="Menu">
+        <Key ID="STR_SCAR_UCM_Menu_WithUCM">
+            <English>with UCM</English>
+            <Italian>con UCM</Italian>
+        </Key>
+    </Package>
 </Project>

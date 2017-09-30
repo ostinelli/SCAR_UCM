@@ -209,6 +209,9 @@ class CfgVehicles
         icon = "\scar_ucm\gfx\logo.paa";
         category = "SCAR_UCM_UtilitiesConstructionMod";
 
+        function = "SCAR_UCM_fnc_moduleUtilitiesConstructionPersistence";
+        functionPriority   = 1;
+
         isGlobal           = 1;
         isTriggerActivated = 0;
         isDisposable       = 0;

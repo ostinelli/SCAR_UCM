@@ -2,7 +2,7 @@
 	Author: _SCAR
 
 	Description:
-	Deerializes UTM relevant data to logicModule and spawns the related objects on map.
+	Deserializes UTM relevant data to logicModule and spawns the related objects on map.
 
 	Parameter(s):
 	0: OBJECT - The logicModule.
@@ -12,7 +12,7 @@
 	true
 
 	Example:
-	[_logicModule, _persistentHash] call SCAR_UCM_fnc_serializeUcmToData;
+	[_logicModule, _persistentHash] call SCAR_UCM_fnc_deserializeDataFromUcm;
 */
 
 if !(isServer) exitWith {};
@@ -42,14 +42,25 @@ private _workersInfo = [_persistentHash, "SCAR_UCM_workersInfo"] call CBA_fnc_ha
 if !(isNil "_workersInfo") then {
     {
         // init (format is [position, direction, loadout])
-        private _pos     = _x select 0;
-        private _dir     = _x select 1;
-        private _loadout = _x select 2;
+        private _pos       = _x select 0;
+        private _dir       = _x select 1;
+        private _loadout   = _x select 2;
+        private _inVehicle = _x select 3;
         // spawn
         private _worker = ([_logicModule, 1, _pos] call SCAR_UCM_fnc_createWorkers) select 0;
         // set
         _worker setDir _dir;
         _worker setUnitLoadout _loadout;
+        // in vehicle?
+        if (_inVehicle) then {
+            private _closeVehicles = nearestObjects [_pos, ["LandVehicle", "Air", "Ship"], 30];
+            if ((count _closeVehicles) > 0) then {
+                // assign as cargo & move in
+                private _vehicle = _closeVehicles select 0;
+                _worker assignAsCargo _vehicle;
+                _worker moveInCargo _vehicle;
+            };
+        };
         // log
         [_logicModule, format["    --> %1 at position %2 with direction %3", _x, _pos, _dir]] call SCAR_UCM_fnc_log;
 
@@ -62,11 +73,11 @@ private _materialsInfo = [_persistentHash, "SCAR_UCM_materialsInfo"] call CBA_fn
 if !(isNil "_materialsInfo") then {
     {
         // init
-        private _position            = _x select 0;
+        private _pos                 = _x select 0;
         private _dir                 = _x select 1;
         private _remainingPercentage = _x select 2;
         // spawn
-        private _material = [_logicModule, _position, _remainingPercentage] call SCAR_UCM_fnc_createMaterial;
+        private _material = [_logicModule, _pos, _remainingPercentage] call SCAR_UCM_fnc_createMaterial;
         _material setDir _dir;
         // log
         [_logicModule, format["    --> %1 at position %2 with direction %3", _material, _pos, _dir]] call SCAR_UCM_fnc_log;

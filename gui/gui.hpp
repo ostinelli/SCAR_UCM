@@ -1,4 +1,10 @@
-#include "base_classes.hpp"
+class RscPicture;
+class RscFrame;
+class RscText;
+class RscListbox;
+class RscButtonMenuCancel;
+class RscButtonMenuOK;
+class RscProgress;
 
 class SCAR_UCM_SelectDialog {
 

@@ -84,12 +84,14 @@ private _wpLeave = _group addWaypoint [_helicopterOriginWorkersPos, 0];
 _wpLeave setWaypointType "MOVE";
 _wpLeave setWaypointStatements ["true", "deleteVehicle (vehicle this); { deleteVehicle _x } forEach thisList;"];
 
+/*
 // --> cargo: move
 _destinationPos = _destinationPos getPos [15, random(360)];
 {
     _wp = (group _x) addWaypoint [_destinationPos, 10];
     _wp setWaypointType "MOVE";
 } forEach _newWorkers;
+*/
 
 // return
 true

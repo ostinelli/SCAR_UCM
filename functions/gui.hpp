@@ -4,6 +4,7 @@ class SCAR_UCM_gui {
     class functions {
         file = "\scar_ucm\functions\gui";
 
+        class guiAddSaveMenu {};
         class guiCargoSelectionDoneFromVehicle {};
         class guiOpenCargoSelection {};
         class guiOpenVehicleSelection {};

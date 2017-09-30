@@ -26,7 +26,7 @@ if !(isNil "_persistentHash") then {
     // log
     [_logicModule, "Data loaded from profileNameSpace, deserializing it in UTM and spawning entities."] call SCAR_UCM_fnc_log;
     // deserialize
-    [_logicModule, _persistentHash] call SCAR_UCM_fnc_serializeUcmToData;
+    [_logicModule, _persistentHash] call SCAR_UCM_fnc_deserializeDataFromUcm;
 } else {
     // log
     [_logicModule, "No previous data found from profileNameSpace."] call SCAR_UCM_fnc_log;

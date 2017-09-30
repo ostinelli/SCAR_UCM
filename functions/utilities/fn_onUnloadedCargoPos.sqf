@@ -8,7 +8,7 @@
     0: OBJET: The logicModule.
 
     Return:
-    0: true
+    true
 
     Example:
     [] call SCAR_UCM_fnc_onUnloadedCargoPos;

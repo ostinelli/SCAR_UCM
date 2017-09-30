@@ -8,7 +8,7 @@
     0: UNIT - The worker.
 
     Return:
-    0: true
+    true
 
     Example:
     [_worker] call SCAR_UCM_fnc_setMarkerWorker;

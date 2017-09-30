@@ -9,7 +9,7 @@
     0: ARRAY - units in the crew.
 
     Return:
-    0: true
+    true
 
     Example:
     [_vehicle, _crew] call SCAR_UCM_fnc_safetyDeleteVehicleAndCrew;

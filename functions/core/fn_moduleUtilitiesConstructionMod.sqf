@@ -5,7 +5,7 @@
 	Module function callback.
 
 	Return:
-	0: true
+	true
 */
 
 // get args

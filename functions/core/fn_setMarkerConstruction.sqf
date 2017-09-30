@@ -9,7 +9,7 @@
     1: POSITION - The position of the marker.
 
     Return:
-    0: true
+    true
 
     Example:
     [_logicModule, _pos] call SCAR_UCM_fnc_setMarkerConstruction;

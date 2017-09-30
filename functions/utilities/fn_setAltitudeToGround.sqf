@@ -9,7 +9,7 @@
     0: NUMBER - The relative altitude from terrain.
 
     Return:
-    0: true
+    true
 
     Example:
     [_piece, 0.9] call SCAR_UCM_fnc_setAltitudeToGround;

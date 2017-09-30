@@ -10,7 +10,7 @@
     2: ANY    - The value.
 
     Return:
-    0: true
+    true
 
     Example:
     [_namespace, _name, _value] call SCAR_UCM_fnc_setGlobalVariableIfUnset;

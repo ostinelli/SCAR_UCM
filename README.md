@@ -59,7 +59,7 @@ The workers are not profiled by ALiVE [Virtual_AI_System](http://alivemod.com/wi
 
 #### ALiVE Persistence
 
-Whan ALiVE saves its data, it will trigger an `endMission`. UCM listens for that event and automatically uses its Persistent Module to save its data. Therefore, if you want UCM data to be also saved when you save ALiVE, the only thing you have to do is to drop the Persistent Module in your mission.
+Whan ALiVE saves its data, it will trigger an `endMission`. UCM listens for that event and automatically uses its Persistent Module to save its data. Therefore, if you want UCM data to be also saved when you save ALiVE, the only thing you have to do is to drop the UCM Persistent Module in your mission in addition to the ALiVE Data module.
 
 Note that UCM data will be saved locally, regardless of the ALiVE Data setting. More [here](http://alivemod.com/forum/3168-get-save-data-from-cloud).
 

@@ -17,14 +17,14 @@ waitUntil { !((findDisplay 46) isEqualTo displayNull) };
 
 (findDisplay 46) displayAddEventHandler ["KeyDown", {
 
-	params ["_ctrl", "_dikCode", "_shift", "_ctrlKey", "_alt"];
+    params ["_ctrl", "_dikCode", "_shift", "_ctrlKey", "_alt"];
 
-	if (_dikCode == 0x01) then { // escape
+    if (_dikCode == 0x01) then { // escape
 
         private _isAdmin = ((call BIS_fnc_admin) > 0) || !isMultiplayer;
 
-	    if (_isAdmin) then {
-	        // client is admin
+        if (_isAdmin) then {
+            // client is admin
             private _null = [] spawn {
 
                 // get menu display
@@ -45,8 +45,8 @@ waitUntil { !((findDisplay 46) isEqualTo displayNull) };
                     [] remoteExec ["SCAR_UCM_fnc_saveAll", 2];
                 }];
             };
-	    };
-	};
+        };
+    };
 }];
 
 // return

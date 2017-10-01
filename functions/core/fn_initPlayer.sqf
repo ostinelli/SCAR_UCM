@@ -17,10 +17,11 @@
 if !(hasInterface) exitWith {};
 
 // wait until initialization is done
+/*
 if (isNil "SCAR_UCM_initialized") then {
     SCAR_UCM_initialized = false;
     waitUntil { SCAR_UCM_initialized };
 };
-
+*/
 // return
 true

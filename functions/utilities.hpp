@@ -7,7 +7,7 @@ class SCAR_UCM_utilities {
         class convertCodeToStr {};
         class convertSideStrToSide {};
         class isAceAvailable {};
-        class idAdmin {};
+        class isAdmin {};
         class log {};
         class safetyDeleteVehicleAndCrew {};
         class setAltitudeToGround {};

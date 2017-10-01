@@ -92,21 +92,26 @@ private _null = [_worker] spawn {
 
                 // set vars
                 private _animation       = selectRandom _workerAnimations;
+                private _pieceToWorldPos = _currentPiece modelToWorld _relativePos;
                 private _rotation        = ((getDir _currentPiece) - _sideX * 90);
                 _worker setVariable ["SCAR_UCM_animation", _animation, true];
+                _worker setVariable ["SCAR_UCM_pieceToWorldPos", _pieceToWorldPos, true];
                 _worker setVariable ["SCAR_UCM_rotation", _rotation, true];
 
-                // add waypoint
-                private _wp = _group addWaypoint [_pieceToWorldPos, 0];
-                _wp setWaypointType "MOVE";
-                _wp setWaypointStatements ["true",
-                    "private _animation = this getVariable 'SCAR_UCM_animation';" +
-                    "private _rotation = this getVariable 'SCAR_UCM_rotation';" +
-                    "[this, 1, _animation, _rotation] remoteExec ['SCAR_UCM_fnc_setWorkerAnimation'];"
-                ];
+                if ((_worker distance _pieceToWorldPos) > _workingDistance) then {
+                    // add waypoint
+                    private _wp = _group addWaypoint [_pieceToWorldPos, 0];
+                    _wp setWaypointType "MOVE";
+                    _wp setWaypointStatements ["true",
+                        "private _animation = this getVariable 'SCAR_UCM_animation';" +
+                        "private _pieceToWorldPos = this getVariable 'SCAR_UCM_pieceToWorldPos';" +
+                        "private _rotation = this getVariable 'SCAR_UCM_rotation';" +
+                        "[this, 1, _animation, _pieceToWorldPos, _rotation] remoteExec ['SCAR_UCM_fnc_setWorkerAnimation'];"
+                    ];
 
-                // flag
-                _lastPiece = _currentPiece;
+                    // flag
+                    _lastPiece = _currentPiece;
+                };
             };
         } else {
             // not working

@@ -31,8 +31,8 @@ if (["ALiVE_mil_opcom"] call ALIVE_fnc_isModuleAvailable) then {
     [] call SCAR_UCM_fnc_aliveOnConstructionAreaMoved;
 };
 
-// add event to save on mission end
-[] call SCAR_UCM_fnc_aliveOnMissionEnd;
+// add event to save when ALiVE is saved to all players
+[] remoteExec ["SCAR_UCM_fnc_aliveSaveOnQuit", 0, true];
 
 // return
 true

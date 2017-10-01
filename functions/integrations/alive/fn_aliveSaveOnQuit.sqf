@@ -2,17 +2,21 @@
     Author: _SCAR
 
     Description:
-    Adds custom save with UCM to menu.
+    Listen to the endMission event and save.
 
     Return:
     true
 
     Example:
-    [] call SCAR_UCM_fnc_guiAddSaveMenu;
+    [] call SCAR_UCM_fnc_aliveSaveOnQuit;
 */
 
 if !(hasInterface) exitWith {};
 
+// check UCM persistence module is present
+if ((count (entities "SCAR_UCM_ModuleUtilitiesConstructionPersistence")) == 0) exitWith {};
+
+// set event to save on mission end
 private _null = [] spawn {
 
     // init
@@ -27,13 +31,14 @@ private _null = [] spawn {
         private _displayPause = uiNamespace getVariable _displayType;
 
         // get control
-        private _saveControl = _displayPause displayCtrl 103;
+        private _titleControl = _displayPause displayCtrl 599;
+        private _saveControl  = _displayPause displayCtrl 195;
 
-        // set text
-        private _originalText = ctrlText _saveControl;
-        _saveControl ctrlSetText format ["%1 (%2)", _originalText, localize ("STR_SCAR_UCM_Menu_WithUCM")];
+        // set text on title
+        private _originalText = ctrlText _titleControl;
+        _titleControl ctrlSetText format ["%1 (%2)", _originalText, localize ("STR_SCAR_UCM_Menu_WithUCM")];
 
-        // add event
+        // add event on save
         _saveControl ctrlAddEventHandler ["buttonClick", {
             // save on server
             [] remoteExec ["SCAR_UCM_fnc_saveAll", 2];

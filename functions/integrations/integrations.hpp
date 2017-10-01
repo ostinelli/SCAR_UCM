@@ -28,7 +28,7 @@ class SCAR_UCM_integrations_alive {
         file = "\scar_ucm\functions\integrations\alive";
 
         class aliveOnConstructionAreaMoved {};
-        class aliveOnMissionEnd {};
+        class aliveSaveOnQuit {};
         class initAlive {};
     };
 };

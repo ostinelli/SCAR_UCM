@@ -76,8 +76,8 @@ if !(isNil "_materialsInfo") then {
         private _pos                 = _x select 0;
         private _dir                 = _x select 1;
         private _remainingPercentage = _x select 2;
-        // spawn
-        private _material = [_logicModule, _pos, _remainingPercentage] call SCAR_UCM_fnc_createMaterial;
+        // spawn (ensure they are on the ground, in case that they were loaded on the cargo)
+        private _material = [_logicModule, [_pos select 0, _pos select 1, 0], _remainingPercentage] call SCAR_UCM_fnc_createMaterial;
         _material setDir _dir;
         // log
         [_logicModule, format["    --> %1 at position %2 with direction %3", _material, _pos, _dir]] call SCAR_UCM_fnc_log;

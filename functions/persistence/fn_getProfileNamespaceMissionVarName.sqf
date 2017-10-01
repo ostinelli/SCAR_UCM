@@ -8,7 +8,7 @@
 	STRING
 
 	Example:
-	[] call SCAR_UCM_fnc_getProfileNameSpaceVarName;
+	[] call SCAR_UCM_fnc_getProfileNamespaceMissionVarName;
 */
 
 // unique profileNameSpace name for mission

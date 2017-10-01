@@ -2,47 +2,71 @@
     Author: _SCAR
 
     Description:
-    Initializes the server.
-
-    Paramster(s):
-    0:  OBJECT - The logicModule.
+    Initializes the server. This function is called automatically on mission init.
 
     Return:
     true
 
     Example:
-    [_logicModule] call SCAR_UCM_fnc_initServer;
+    [] call SCAR_UCM_fnc_initServer;
 */
 
 if !(isServer) exitWith {};
 
-// params
-params ["_logicModule"];
+// log
+"Initializing server." call SCAR_UCM_fnc_log;
 
 // check for ACE & broadcast
 SCAR_UCM_ACE = [] call SCAR_UCM_fnc_isAceAvailable;
 publicVariable "SCAR_UCM_ACE";
 
-// init foreman
-[_logicModule, "Initializing Foreman."] call SCAR_UCM_fnc_log;
-[_logicModule] call SCAR_UCM_fnc_initForeman;
+// get logic modules
+// (we have to do it like this because of the name bug when using 'function' in the Module Framework)
+private _allLogicModules = entities "SCAR_UCM_ModuleUtilitiesConstructionMod";
 
-// add listener
-[_logicModule, "Adding cargo listener."] call SCAR_UCM_fnc_log;
-[_logicModule] call SCAR_UCM_fnc_onUnloadedCargoPos;
+// init logic modules
+{
+    // init
 
-// handle construction work
-[_logicModule, "Starting construction loop."] call SCAR_UCM_fnc_log;
-[_logicModule] call SCAR_UCM_fnc_loopConstructionProgress;
+    private _logicModule = _x;
 
-// add fixed markers
-[_logicModule, "Adding landing zone marker."] call SCAR_UCM_fnc_log;
-[_logicModule] call SCAR_UCM_fnc_setMarkerLandingZone;
+    // init settings
+    [_logicModule] call SCAR_UCM_fnc_initSettings;
 
-// init finished, broadcast
-[_logicModule, "Broadcasting variable 'SCAR_UCM_initialized'"] call SCAR_UCM_fnc_log;
+    // init integrations
+    [_logicModule] call SCAR_UCM_fnc_initIntegrations;
+
+    // patch ACE
+    [_logicModule] call SCAR_UCM_fnc_onUnloadedCargoPos;
+
+    // init foreman
+    [_logicModule, "Initializing Foreman."] call SCAR_UCM_fnc_log;
+    [_logicModule] call SCAR_UCM_fnc_initForeman;
+
+    // add listener
+    [_logicModule, "Adding cargo listener."] call SCAR_UCM_fnc_log;
+    [_logicModule] call SCAR_UCM_fnc_onUnloadedCargoPos;
+
+    // handle construction work
+    [_logicModule, "Starting construction loop."] call SCAR_UCM_fnc_log;
+    [_logicModule] call SCAR_UCM_fnc_loopConstructionProgress;
+
+    // add fixed markers
+    [_logicModule, "Adding landing zone marker."] call SCAR_UCM_fnc_log;
+    [_logicModule] call SCAR_UCM_fnc_setMarkerLandingZone;
+
+} forEach _allLogicModules;
+
+// init persistence
+[] call SCAR_UCM_fnc_initPersistence;
+
+// init finished
+"Server init done." call SCAR_UCM_fnc_log;
+
+// broadcast
+"Broadcasting variable 'SCAR_UCM_initialized'." call SCAR_UCM_fnc_log;
 SCAR_UCM_initialized = true;
-publicVariable "SCAR_UCM_initialized";  // TODO: broadcast ONLY when all of the logic modules have been initialized
+publicVariable "SCAR_UCM_initialized";
 
 // return
 true

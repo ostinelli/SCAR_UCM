@@ -39,6 +39,9 @@ if ((typeName _position_or_vehicle) == "OBJECT") then {
     _position = (getPos _vehicle) getPos [30, random(360)];
 };
 
+[_logicModule, format ["Creating %1 worker(s) at %2", _workersCount, _position]] call SCAR_UCM_fnc_log;
+[_logicModule, format ["side %1 _position_or_vehicle %2", _side, _position_or_vehicle]] call SCAR_UCM_fnc_log;
+
 // create workers
 private _newWorkers = [];
 for "_i" from 1 to _workersCount do {

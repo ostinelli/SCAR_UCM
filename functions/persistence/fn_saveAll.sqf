@@ -2,7 +2,7 @@
 	Author: _SCAR
 
 	Description:
-	Saves all data of all modules to local profileNameSpace. Callback from save menu.
+	Saves all data of all modules to local profileNamespace. Callback from save menu.
 
 	Return:
 	true
@@ -21,14 +21,11 @@ private _allLogicModules = entities "SCAR_UCM_ModuleUtilitiesConstructionMod";
     // init
     private _logicModule = _x;
 
-    // define unique hash key name
-    private _moduleHashKey = format ["SCAR_UCM_moduleHash:%1", _logicModule];
-
     // log
     [_logicModule, "Save state to persistence backend."] call SCAR_UCM_fnc_log;
 
     // save
-    [_logicModule, _moduleHashKey] call SCAR_UCM_fnc_save;
+    [_logicModule] call SCAR_UCM_fnc_saveModule;
 
 } forEach _allLogicModules;
 

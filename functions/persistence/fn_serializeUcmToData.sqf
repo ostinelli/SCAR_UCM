@@ -77,7 +77,7 @@ private _materialsInfo = [];
 _pairs pushBack ["SCAR_UCM_materialsInfo", _materialsInfo];
 
 // build CBA hash
-private _persistentHash = [_pairs] call CBA_fnc_hashCreate;
+private _moduleHash = [_pairs] call CBA_fnc_hashCreate;
 
 // return
-_persistentHash
+_moduleHash

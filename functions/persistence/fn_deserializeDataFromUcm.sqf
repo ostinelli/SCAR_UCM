@@ -12,19 +12,19 @@
 	true
 
 	Example:
-	[_logicModule, _persistentHash] call SCAR_UCM_fnc_deserializeDataFromUcm;
+	[_logicModule, _moduleHash] call SCAR_UCM_fnc_deserializeDataFromUcm;
 */
 
 if !(isServer) exitWith {};
 
-params ["_logicModule", "_persistentHash"];
+params ["_logicModule", "_moduleHash"];
 
 [_logicModule, "deserializing data to UTM and spawning objects."] call SCAR_UCM_fnc_log;
 
 // retrieve simple values
 [_logicModule, "  --> values"] call SCAR_UCM_fnc_log;
 {
-    private _value = [_persistentHash, _x] call CBA_fnc_hashGet;
+    private _value = [_moduleHash, _x] call CBA_fnc_hashGet;
     if !(isNil "_value") then {
         // set
         _logicModule setVariable [_x, _value, true];
@@ -38,7 +38,7 @@ params ["_logicModule", "_persistentHash"];
 
 // retrieve & spawn Workers
 [_logicModule, "  --> workers"] call SCAR_UCM_fnc_log;
-private _workersInfo = [_persistentHash, "SCAR_UCM_workersInfo"] call CBA_fnc_hashGet;
+private _workersInfo = [_moduleHash, "SCAR_UCM_workersInfo"] call CBA_fnc_hashGet;
 if !(isNil "_workersInfo") then {
     {
         // init (format is [position, direction, loadout])
@@ -69,7 +69,7 @@ if !(isNil "_workersInfo") then {
 
 // retrieve & spawn Materials
 [_logicModule, "  --> materials"] call SCAR_UCM_fnc_log;
-private _materialsInfo = [_persistentHash, "SCAR_UCM_materialsInfo"] call CBA_fnc_hashGet;
+private _materialsInfo = [_moduleHash, "SCAR_UCM_materialsInfo"] call CBA_fnc_hashGet;
 if !(isNil "_materialsInfo") then {
     {
         // init

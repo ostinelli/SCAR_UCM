@@ -49,10 +49,6 @@ class CfgVehicles
         icon = "\scar_ucm\gfx\logo.paa";
         category = "SCAR_UCM_UtilitiesConstructionMod";
 
-        // Name of function triggered once conditions are met
-        function = "SCAR_UCM_fnc_moduleUtilitiesConstructionMod";
-        // Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
-        functionPriority = 1;
         // 0 for server only execution, 1 for global execution, 2 for persistent global execution
         isGlobal = 1;
         // 1 for module waiting until all synced triggers are activated
@@ -208,9 +204,6 @@ class CfgVehicles
         displayName = $STR_SCAR_UCM_ModuleUtilitiesConstructionPersistence;
         icon = "\scar_ucm\gfx\logo.paa";
         category = "SCAR_UCM_UtilitiesConstructionMod";
-
-        function = "SCAR_UCM_fnc_moduleUtilitiesConstructionPersistence";
-        functionPriority   = 1;
 
         isGlobal           = 1;
         isTriggerActivated = 0;

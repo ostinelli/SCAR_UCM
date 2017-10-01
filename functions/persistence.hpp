@@ -5,16 +5,14 @@ class SCAR_UCM_persistence {
         file = "\scar_ucm\functions\persistence";
 
         class deserializeDataFromUcm {};
-        class getProfileNameSpaceVarName {};
+        class getModuleHashVarName {};
+        class getProfileNamespaceMissionVarName {};
         class initPersistence {};
-        class load {};
         class loadAll {};
-        class moduleUtilitiesConstructionPersistence {};
-        class profileNameSpaceClear {};
-        class profileNameSpaceGet {};
-        class profileNameSpaceSet {};
-        class save {};
+        class loadModule {};
+        class profileNamespaceClear {};
         class saveAll {};
+        class saveModule {};
         class serializeUcmToData {};
     };
 };

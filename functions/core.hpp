@@ -12,12 +12,11 @@ class SCAR_UCM_core {
         class getPiecesCount {};
         class getStatusString {};
         class initForeman {};
-        class initPlayer {};
-        class initServer {};
+        class initPlayer { postInit = true; };
+        class initServer { postInit = true; };
         class initSettings {};
         class loopWorkerMovements {};
         class loopConstructionProgress {};
-        class moduleUtilitiesConstructionMod {};
         class requestMaterial {};
         class requestWorkers {};
         class setMarkerConstruction {};

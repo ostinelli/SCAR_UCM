@@ -29,60 +29,63 @@ private _null = [] spawn {
 
         waitUntil { !((uiNamespace getVariable _displayType) isEqualTo displayNull) };
 
-        // get display
-        private _displayPause = uiNamespace getVariable _displayType;
+        if (([] call SCAR_UCM_fnc_isAdmin)) then {
 
-        // get save control & text
-        private _saveCtrl     = _displayPause displayCtrl 103;
-        private _originalText = ctrlText _saveCtrl;
+            // get display
+            private _displayPause = uiNamespace getVariable _displayType;
 
-        if (ctrlEnabled _saveCtrl) then {
-            // hook into original save control to also save UCM
+            // get save control & text
+            private _saveCtrl     = _displayPause displayCtrl 103;
+            private _originalText = ctrlText _saveCtrl;
 
-            // set text
-            _saveCtrl ctrlSetText format ["%1 (%2)", _originalText, localize ("STR_SCAR_UCM_Menu_WithUCM")];
+            if (ctrlEnabled _saveCtrl) then {
+                // hook into original save control to also save UCM
 
-            // add event
-            _saveCtrl ctrlAddEventHandler ["buttonClick", {
-                // save on server
-                [] remoteExec ["SCAR_UCM_fnc_saveAll", 2];
-            }];
+                // set text
+                _saveCtrl ctrlSetText format ["%1 (%2)", _originalText, localize ("STR_SCAR_UCM_Menu_WithUCM")];
 
-        } else {
-            // save control disabled, add button to save only UCM
+                // add event
+                _saveCtrl ctrlAddEventHandler ["buttonClick", {
+                    // save on server
+                    [] remoteExec ["SCAR_UCM_fnc_saveAll", 2];
+                }];
 
-            // save position
-            _savePosition = ctrlPosition _saveCtrl;
+            } else {
+                // save control disabled, add button to save only UCM
 
-            // spacing
-            _spacing = 0.003;
+                // save position
+                _savePosition = ctrlPosition _saveCtrl;
 
-            // move all buttons including save UP
-            {
-                _control  = _displayPause displayCtrl _x;
-                _position = ctrlPosition _control;
-                _control ctrlSetPosition [_position select 0, (_position select 1) - GUI_GRID_H - _spacing];
-                _control ctrlCommit 0;
-            } forEach [1050, 523, 109, 2, 103]; // title background, title, player name, continue, save
+                // spacing
+                _spacing = 0.003;
 
-            // create UCM button
-            private _saveText = ctrlText _saveCtrl;
-            _ucmSaveCtrl = _displayPause ctrlCreate ["RscButtonMenu", -1];
-            _ucmSaveCtrl ctrlSetText format ["%1 (%2)", _saveText, localize ("STR_SCAR_UCM_Menu_UCM_Only")];
-            _ucmSaveCtrl ctrlSetPosition _savePosition;
-            _ucmSaveCtrl ctrlCommit 0;
+                // move all buttons including save UP
+                {
+                    _control  = _displayPause displayCtrl _x;
+                    _position = ctrlPosition _control;
+                    _control ctrlSetPosition [_position select 0, (_position select 1) - GUI_GRID_H - _spacing];
+                    _control ctrlCommit 0;
+                } forEach [1050, 523, 109, 2, 103]; // title background, title, player name, continue, save
 
-            // add event
-            _ucmSaveCtrl ctrlAddEventHandler ["buttonClick", {
-                // save on server
-                [] remoteExec ["SCAR_UCM_fnc_saveAll", 2];
-                // close interface
-                private _displayType = if (isMultiplayer) then { "RscDisplayMPInterrupt" } else { "RscDisplayInterrupt" };
-                private _displayPause = uiNamespace getVariable _displayType;
-                _displayPause closeDisplay 1;
-                // message
-                hint localize "STR_SCAR_UCM_Menu_UCM_SavedOK";
-            }];
+                // create UCM button
+                private _saveText = ctrlText _saveCtrl;
+                _ucmSaveCtrl = _displayPause ctrlCreate ["RscButtonMenu", -1];
+                _ucmSaveCtrl ctrlSetText format ["%1 (%2)", _saveText, localize ("STR_SCAR_UCM_Menu_UCM_Only")];
+                _ucmSaveCtrl ctrlSetPosition _savePosition;
+                _ucmSaveCtrl ctrlCommit 0;
+
+                // add event
+                _ucmSaveCtrl ctrlAddEventHandler ["buttonClick", {
+                    // save on server
+                    [] remoteExec ["SCAR_UCM_fnc_saveAll", 2];
+                    // close interface
+                    private _displayType = if (isMultiplayer) then { "RscDisplayMPInterrupt" } else { "RscDisplayInterrupt" };
+                    private _displayPause = uiNamespace getVariable _displayType;
+                    _displayPause closeDisplay 1;
+                    // message
+                    hint localize "STR_SCAR_UCM_Menu_UCM_SavedOK";
+                }];
+            };
         };
 
         waitUntil { ((uiNamespace getVariable _displayType) isEqualTo displayNull) }; // wait until closed

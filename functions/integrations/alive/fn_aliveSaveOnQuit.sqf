@@ -27,22 +27,25 @@ private _null = [] spawn {
 
         waitUntil { !((uiNamespace getVariable _displayType) isEqualTo displayNull) };
 
-        // get display
-        private _displayPause = uiNamespace getVariable _displayType;
+        if (([] call SCAR_UCM_fnc_isAdmin)) then {
+            // get display
+            private _displayPause = uiNamespace getVariable _displayType;
 
-        // get control
-        private _titleControl = _displayPause displayCtrl 599;
-        private _saveControl  = _displayPause displayCtrl 195;
+            // get control
+            private _titleControl = _displayPause displayCtrl 599;
+            private _saveControl  = _displayPause displayCtrl 195;
 
-        // set text on title
-        private _originalText = ctrlText _titleControl;
-        _titleControl ctrlSetText format ["%1 (%2)", _originalText, localize ("STR_SCAR_UCM_Menu_WithUCM")];
+            // set text on title
+            private _originalText = ctrlText _titleControl;
+            _titleControl ctrlSetText format ["%1 (%2)", _originalText, localize ("STR_SCAR_UCM_Menu_WithUCM")];
 
-        // add event on save
-        _saveControl ctrlAddEventHandler ["buttonClick", {
-            // save on server
-            [] remoteExec ["SCAR_UCM_fnc_saveAll", 2];
-        }];
+            // add event on save
+            _saveControl ctrlAddEventHandler ["buttonClick", {
+                // save on server
+                [] remoteExec ["SCAR_UCM_fnc_saveAll", 2];
+            }];
+
+        };
 
         waitUntil { ((uiNamespace getVariable _displayType) isEqualTo displayNull) }; // wait until closed
     };

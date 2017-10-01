@@ -92,10 +92,8 @@ private _null = [_worker] spawn {
 
                 // set vars
                 private _animation       = selectRandom _workerAnimations;
-                private _pieceToWorldPos = _currentPiece modelToWorld _relativePos;
                 private _rotation        = ((getDir _currentPiece) - _sideX * 90);
                 _worker setVariable ["SCAR_UCM_animation", _animation, true];
-                _worker setVariable ["SCAR_UCM_pieceToWorldPos", _pieceToWorldPos, true];
                 _worker setVariable ["SCAR_UCM_rotation", _rotation, true];
 
                 // add waypoint
@@ -103,9 +101,8 @@ private _null = [_worker] spawn {
                 _wp setWaypointType "MOVE";
                 _wp setWaypointStatements ["true",
                     "private _animation = this getVariable 'SCAR_UCM_animation';" +
-                    "private _pieceToWorldPos = this getVariable 'SCAR_UCM_pieceToWorldPos';" +
                     "private _rotation = this getVariable 'SCAR_UCM_rotation';" +
-                    "[this, 1, _animation, _pieceToWorldPos, _rotation] remoteExec ['SCAR_UCM_fnc_setWorkerAnimation'];"
+                    "[this, 1, _animation, _rotation] remoteExec ['SCAR_UCM_fnc_setWorkerAnimation'];"
                 ];
 
                 // flag

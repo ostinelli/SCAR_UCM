@@ -8,17 +8,16 @@
     0: UNIT   - The worker.
     1: NUMBER - 1 to start, 0 to stop.
     2: STRING - the animation name.
-    3: POS - the position.
-    4: NUMBER - the desired rotation.
+    3: NUMBER - the desired rotation.
 
     Return:
     true
 
     Example:
-    [_worker, 1, _animation, _pos, _rotation] call SCAR_UCM_fnc_setWorkerAnimation;
+    [_worker, 1, _animation, _rotation] call SCAR_UCM_fnc_setWorkerAnimation;
 */
 
-params ["_worker", "_state", "_animation", "_pos", "_rotation"];
+params ["_worker", "_state", "_animation", "_rotation"];
 
 // vars
 private _logicModule   = _worker getVariable "SCAR_UCM_logicModule";
@@ -57,12 +56,11 @@ if (_state == 1) then {
 
     if (isServer) then {
         // set to ground and correct rotation
-        _worker setPos [_pos select 0, _pos select 1, 0];
         _worker setDir _rotation;
 
         // create tool next to worker, checking for collisions
         private _toolClass = selectRandom _workerObjects;
-        private _tool      = _toolClass createVehicle _pos;
+        private _tool      = _toolClass createVehicle (getPos _worker);
         _tool setVehiclePosition [ [getPos _worker select 0, getPos _worker select 1, 0], [], 2, "NONE"];
 
         // save var

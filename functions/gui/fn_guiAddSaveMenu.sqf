@@ -16,6 +16,9 @@
 
 if !(hasInterface) exitWith {};
 
+// check UCM persistence module is present
+if !([] call SCAR_UCM_fnc_isPersistenceEnabled) exitWith {};
+
 private _null = [] spawn {
 
     // init

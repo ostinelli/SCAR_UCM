@@ -8,6 +8,7 @@ class SCAR_UCM_persistence {
         class getModuleHashVarName {};
         class getProfileNamespaceMissionVarName {};
         class initPersistence {};
+        class isPersistenceEnabled {};
         class loadAll {};
         class loadModule {};
         class profileNamespaceClear {};

@@ -18,6 +18,9 @@ if !(hasInterface) exitWith {};
 
 params ["_worker"];
 
+// check side
+if !((side player) == (side _worker)) exitWith {};
+
 // code
 private _statement = {
     params ["_target"];

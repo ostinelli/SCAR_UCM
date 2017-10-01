@@ -18,6 +18,9 @@ if !(hasInterface) exitWith {};
 
 params ["_unit"];
 
+// check side
+if !((side player) == (side _unit)) exitWith {};
+
 // code
 private _statement = {
     params ["_target", "_caller"];

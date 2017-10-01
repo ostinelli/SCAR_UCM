@@ -18,6 +18,9 @@ if !(hasInterface) exitWith {};
 
 params ["_worker"];
 
+// check side
+if !((side player) == (side _worker)) exitWith {};
+
 if (SCAR_UCM_ACE) then {
     // ACE
 

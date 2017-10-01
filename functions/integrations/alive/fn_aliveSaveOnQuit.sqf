@@ -16,7 +16,7 @@ if !(hasInterface) exitWith {};
 // check UCM persistence module is present
 if !([] call SCAR_UCM_fnc_isPersistenceEnabled) exitWith {};
 
-// set event to save on mission end
+// set event to save on save button click
 private _null = [] spawn {
 
     // init

@@ -45,27 +45,30 @@ if (SCAR_UCM_ACE) then {
 
             private _actions = [];
             {
-                // display name
-                private _displayName = getText (configFile >>  "CfgVehicles" >> (typeOf _x) >> "displayName");
-                _displayName = _displayName + format[" (a %1m)", round(_x distance _target)];
+                if (alive _x) then {
 
-                // define action to order GETIN
-                private _action = [
-                    format ["SCAR_UCM_GetInVehicle:%1", _x],
-                    _displayName,
-                    "",
-                    {
-                        // order to GETIN
-                        private _vehicle = (_this select 2);
-                        [_target, _vehicle] call SCAR_UCM_fnc_getInVehicle;
-                    },
-                    { true },
-                    {},
-                    _x
-                ] call ace_interact_menu_fnc_createAction;
+                    // display name
+                    private _displayName = getText (configFile >>  "CfgVehicles" >> (typeOf _x) >> "displayName");
+                    _displayName = _displayName + format[" (a %1m)", round(_x distance _target)];
 
-                // add to actions
-                _actions pushBack [_action, [], _target];
+                    // define action to order GETIN
+                    private _action = [
+                        format ["SCAR_UCM_GetInVehicle:%1", _x],
+                        _displayName,
+                        "",
+                        {
+                            // order to GETIN
+                            private _vehicle = (_this select 2);
+                            [_target, _vehicle] call SCAR_UCM_fnc_getInVehicle;
+                        },
+                        { true },
+                        {},
+                        _x
+                    ] call ace_interact_menu_fnc_createAction;
+
+                    // add to actions
+                    _actions pushBack [_action, [], _target];
+                };
             } forEach _vehicles;
 
             // return
@@ -81,8 +84,8 @@ if (SCAR_UCM_ACE) then {
     private _condition = {
         // find cars
         private _vehicles = nearestObjects [_target, ["Car", "Helicopter"], 100];
-        // any cars?
-        (count _vehicles) > 0
+        // any alive vehicles?
+        ({(alive _x)} count _vehicles) > 0
     };
 
     _worker addAction [

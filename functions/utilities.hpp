@@ -6,7 +6,6 @@ class SCAR_UCM_utilities {
 
         class convertCodeToStr {};
         class convertSideStrToSide {};
-        class isAceAvailable {};
         class isAdmin {};
         class log {};
         class safetyDeleteVehicleAndCrew {};

@@ -16,6 +16,7 @@ class SCAR_UCM_integrations_ace {
     class functions {
         file = "\scar_ucm\functions\integrations\ace";
 
+        class isAceAvailable {};
         class onUnloadedCargoPos {};
     };
 };

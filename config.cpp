@@ -148,7 +148,7 @@ class CfgVehicles
                 displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_displayName;
                 tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_tooltip;
                 typeName     = "NUMBER";
-                defaultValue = "75";
+                defaultValue = "100";
             };
 
             class Foreman: Edit

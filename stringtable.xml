@@ -269,5 +269,13 @@
             <English>with UCM</English>
             <Italian>con UCM</Italian>
         </Key>
+        <Key ID="STR_SCAR_UCM_Menu_UCM_Only">
+            <English>UCM only</English>
+            <Italian>Solo UCM</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Menu_UCM_SavedOK">
+            <English>UCM Data has been saved</English>
+            <Italian>I dati di UCM sono stati salvati</Italian>
+        </Key>
     </Package>
 </Project>

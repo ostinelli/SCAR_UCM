@@ -55,8 +55,7 @@ private _face = selectRandom [
 ];
 
 private _goggles = selectRandom [
-    "G_Respirator_yellow_F",
-    "WhiteG_Shades_Red"
+    "G_Respirator_yellow_F"
 ];
 
 // set

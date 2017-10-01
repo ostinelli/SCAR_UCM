@@ -31,7 +31,9 @@ private _uniform = selectRandom [
     "U_C_ConstructionCoverall_Black_F",
     "U_C_ConstructionCoverall_Blue_F",
     "U_C_ConstructionCoverall_Red_F",
-    "U_C_ConstructionCoverall_Vrana_F"
+    "U_C_ConstructionCoverall_Vrana_F",
+    "U_C_IDAP_Man_Cargo_F",
+    "U_C_IDAP_Man_Jeans_F"
 ];
 
 private _vest = selectRandom [
@@ -41,21 +43,54 @@ private _vest = selectRandom [
 ];
 
 private _headgear = selectRandom [
+    "H_Construction_earprot_orange_F",
     "H_Construction_earprot_red_F",
-    "H_Construction_earprot_yellow_F",
     "H_Construction_earprot_white_F",
-    "H_Construction_earprot_vrana_F"
+    "H_Construction_earprot_vrana_F",
+    "H_Construction_earprot_yellow_F"
 ];
 
 private _face = selectRandom [
+    "AfricanHead_01",
+    "AfricanHead_02",
+    "AfricanHead_03",
+    "AsianHead_A3_01",
+    "AsianHead_A3_02",
+    "AsianHead_A3_03",
+    "GreekHead_A3_01",
+    "GreekHead_A3_02",
+    "GreekHead_A3_03",
+    "GreekHead_A3_04",
+    "GreekHead_A3_05",
+    "GreekHead_A3_06",
+    "GreekHead_A3_07",
+    "GreekHead_A3_08",
+    "GreekHead_A3_09",
+    "PersianHead_A3_01",
+    "PersianHead_A3_02",
+    "PersianHead_A3_03",
+    "NATOHead_01",
+    "WhiteHead_02",
+    "WhiteHead_03 ",
+    "WhiteHead_04",
     "WhiteHead_05",
     "WhiteHead_06",
-    "WhiteHead_15",
-    "WhiteHead_17"
+    "WhiteHead_07",
+    "WhiteHead_08",
+    "WhiteHead_09",
+    "WhiteHead_10",
+    "WhiteHead_11",
+    "WhiteHead_12",
+    "WhiteHead_13",
+    "WhiteHead_14",
+    "WhiteHead_15"
 ];
 
 private _goggles = selectRandom [
-    "G_Respirator_yellow_F"
+    "G_Respirator_blue_F",
+    "G_Respirator_white_F",
+    "G_Respirator_yellow_F",
+    "G_EyeProtectors_F"
 ];
 
 // set

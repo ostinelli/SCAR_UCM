@@ -110,8 +110,8 @@
             <Italian>Il peso dei materiali</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_tooltip">
-            <English>The materials' weight (as defined by ACE cargo)</English>
-            <Italian>Il peso dei materiali (come definito da ACE cargo)</Italian>
+            <English>The materials' weight (if ACE is enabled, this is as defined by ACE cargo, otherwise it's a vanilla approximation)</English>
+            <Italian>Il peso dei materiali (se ACE abilitato, come definito da ACE cargo, altrimenti è una approssimazione sul motore nativo)</Italian>
         </Key>
     </Package>
 

@@ -15,7 +15,7 @@
     [_logicModule, _pos] call SCAR_UCM_fnc_setMarkerConstruction;
 */
 
-if !(isServer) exitWith {};
+if !(hasInterface) exitWith {};
 
 params ["_logicModule", "_pos"];
 
@@ -23,22 +23,23 @@ params ["_logicModule", "_pos"];
 private _marker = _logicModule getVariable ["SCAR_UCM_constructionAreaMarker", objNull];
 private _side   = _logicModule getVariable "SCAR_UCM_side";
 
+// check side
+if !((side player) == _side) exitWith {};
+
 // delete previous marker, if any
 if !(_marker isEqualTo objNull) then {
     deleteMarker _marker;
 };
 
 // create
-_marker = createMarker ["SCAR_UCM_constructionAreaMarker", _pos];
-_marker setMarkerShape "ICON";
-_marker setMarkerType "Select";
-_marker setMarkerColor format["color%1", _side];
-
-// set marker text localized
-[_marker, "STR_SCAR_UCM_Main_ConstructionArea"] remoteExec ["SCAR_UCM_fnc_setMarkerTextLocalLocalized", 0, _marker];
+_marker = createMarkerLocal ["SCAR_UCM_constructionAreaMarker", _pos];
+_marker setMarkerShapeLocal "ICON";
+_marker setMarkerTypeLocal "Select";
+_marker setMarkerColorLocal format["color%1", _side];
+_marker setMarkerTextLocal localize "STR_SCAR_UCM_Main_ConstructionArea";
 
 // store
-_logicModule setVariable ["SCAR_UCM_constructionAreaMarker", _marker, true];
+_logicModule setVariable ["SCAR_UCM_constructionAreaMarker", _marker];
 
 // return
 true

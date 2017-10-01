@@ -50,7 +50,7 @@ private _null = [_worker] spawn {
         };
 
         // set marker worker
-        [_worker] call SCAR_UCM_fnc_setMarkerWorker;
+        [_worker] remoteExec ["SCAR_UCM_fnc_setMarkerWorker", 0, _worker];
 
         // check presence of worker (on the ground, not flying nearby, not in vehicle)
         if (

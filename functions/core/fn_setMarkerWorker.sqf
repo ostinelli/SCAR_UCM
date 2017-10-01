@@ -14,9 +14,12 @@
     [_worker] call SCAR_UCM_fnc_setMarkerWorker;
 */
 
-if !(isServer) exitWith {};
+if !(hasInterface) exitWith {};
 
 params ["_worker"];
+
+// check side
+if !((side player) == (side _worker)) exitWith {};
 
 // did we initialize markers on this worker yet?
 private _previousMarker = _worker getVariable ["SCAR_UCM_workerMarker", objNull];
@@ -26,20 +29,18 @@ if (_previousMarker isEqualTo objNull) then {
         _killed = _this select 0;
         // delete marker
         _marker = _killed getVariable "SCAR_UCM_workerMarker";
-        deleteMarker _marker;
+        deleteMarkerLocal _marker;
     }];
 } else {
-    deleteMarker _previousMarker;
+    deleteMarkerLocal _previousMarker;
 };
 
 // create
-private _marker = createMarker [format["SCAR_UCM_workerMarker:%1", _worker], getPos _worker];
-_marker setMarkerShape "ICON";
-_marker setMarkerType "mil_dot";
-_marker setMarkerColor format["color%1", (side _worker)];
-
-// set marker text localized
-[_marker, "STR_SCAR_UCM_Main_Worker"] remoteExec ["SCAR_UCM_fnc_setMarkerTextLocalLocalized", 0, _marker];
+private _marker = createMarkerLocal [format["SCAR_UCM_workerMarker:%1", _worker], getPos _worker];
+_marker setMarkerShapeLocal "ICON";
+_marker setMarkerTypeLocal "mil_dot";
+_marker setMarkerColorLocal format["color%1", (side _worker)];
+_marker setMarkerTextLocal localize "STR_SCAR_UCM_Main_Worker";
 
 // save vars
 _worker setVariable ["SCAR_UCM_workerMarker", _marker];

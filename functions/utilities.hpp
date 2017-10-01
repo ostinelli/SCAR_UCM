@@ -11,7 +11,6 @@ class SCAR_UCM_utilities {
         class safetyDeleteVehicleAndCrew {};
         class setAltitudeToGround {};
         class setGlobalVariableIfUnset {};
-        class setMarkerTextLocalLocalized {};
         class sideChatLocalized {};
     };
 };

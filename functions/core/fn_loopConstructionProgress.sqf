@@ -43,7 +43,7 @@ private _altitude = _pieceStartHeight + ( (_logicModule getVariable "SCAR_UCM_pi
 [_currentPiece, _altitude] call SCAR_UCM_fnc_setAltitudeToGround;
 
 // show marker
-[_logicModule, getPos _currentPiece] call SCAR_UCM_fnc_setMarkerConstruction;
+[_logicModule, getPos _currentPiece] remoteExec ["SCAR_UCM_fnc_setMarkerConstruction", 0, _currentPiece];
 
 private _null = [_logicModule] spawn {
 
@@ -153,7 +153,7 @@ private _null = [_logicModule] spawn {
 					_newPiece hideObjectGlobal false;
 
 					// move marker
-					[_logicModule, getPos _newPiece] call SCAR_UCM_fnc_setMarkerConstruction;
+					[_logicModule, getPos _newPiece] remoteExec ["SCAR_UCM_fnc_setMarkerConstruction", 0, _newPiece];
 
 					// fire event
 					["UCM_ConstructionAreaMoved", [_logicModule, _newPiece]] call CBA_fnc_serverEvent;

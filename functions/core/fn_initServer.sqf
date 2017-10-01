@@ -53,7 +53,7 @@ private _allLogicModules = entities "SCAR_UCM_ModuleUtilitiesConstructionMod";
 
     // add fixed markers
     [_logicModule, "Adding landing zone marker."] call SCAR_UCM_fnc_log;
-    [_logicModule] call SCAR_UCM_fnc_setMarkerLandingZone;
+    [_logicModule] remoteExec ["SCAR_UCM_fnc_setMarkerLandingZone", 0 , true];
 
 } forEach _allLogicModules;
 

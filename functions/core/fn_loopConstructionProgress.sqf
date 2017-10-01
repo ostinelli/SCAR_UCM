@@ -74,11 +74,22 @@ private _null = [_logicModule] spawn {
 		// check presence of workers (on the ground, not flying nearby, not in vehicle)
 		private _workersInArea = [];
 		{
-			if ( ((_x distance _currentPiece) < _workingDistance) && (vehicle _x == _x) ) then {
+			if (
+			    ((_x distance _currentPiece) < _workingDistance)  // in area
+			    && (vehicle _x == _x)                             // not in vehicle
+			) then {
 				_workersInArea pushBack _x;
 			};
 		} forEach (_logicModule getVariable "SCAR_UCM_workers");
 		_logicModule setVariable ["SCAR_UCM_workersInArea", _workersInArea, true];
+
+        // check workers that are actually working
+		private _workersWorking = [];
+		{
+			if ((speed _x) < 5) then {  // not moving
+			    _workersWorking pushBack _x;
+			};
+		} forEach _workersInArea;
 
 		// check presence of material (on the ground, not flying nearby)
 		private _materialsInArea = [];
@@ -89,7 +100,10 @@ private _null = [_logicModule] spawn {
 
 			// altitude
 			private _materialZ = getPos _material select 2;
-			if (_materialZ < 2 && _materialZ > -50) then {  // loaded ACE items have a -100 height, see <https://github.com/acemod/ACE3/blob/master/addons/cargo/functions/fnc_loadItem.sqf#L37>
+			if (
+			    _materialZ < 2      // material on ground
+			    && _materialZ > -50 // not loaded
+			) then {
 				// count
 				if ( (_material distance _currentPiece) < _workingDistance) then {
 					_materialsInArea pushBack _x;
@@ -106,7 +120,7 @@ private _null = [_logicModule] spawn {
 			_logicModule setVariable ["SCAR_UCM_workersAreWorking", true, true];
 
 			// compute the work that has been done on the current piece
-			_totalSecondsWorked     = (count _workersInArea) * _sleepTime;
+			_totalSecondsWorked     = (count _workersWorking) * _sleepTime;
 			_pieceCurrentPercentage = (_logicModule getVariable "SCAR_UCM_pieceCurrentPercentage") + (_totalSecondsWorked / _pieceWorkingManSeconds);
 			if (_pieceCurrentPercentage > 1) then { _pieceCurrentPercentage = 1.0; }; // round for division errors
 			_logicModule setVariable ["SCAR_UCM_pieceCurrentPercentage", _pieceCurrentPercentage, true];

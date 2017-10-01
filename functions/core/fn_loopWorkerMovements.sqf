@@ -90,15 +90,18 @@ private _null = [_worker] spawn {
                     deleteWaypoint ((waypoints _group) select 0);
                 };
 
-                // set vars
-                private _animation       = selectRandom _workerAnimations;
+                // check distance
                 private _pieceToWorldPos = _currentPiece modelToWorld _relativePos;
-                private _rotation        = ((getDir _currentPiece) - _sideX * 90);
-                _worker setVariable ["SCAR_UCM_animation", _animation, true];
-                _worker setVariable ["SCAR_UCM_pieceToWorldPos", _pieceToWorldPos, true];
-                _worker setVariable ["SCAR_UCM_rotation", _rotation, true];
+                if ((_worker distance _pieceToWorldPos) <= _workingDistance) then {
 
-                if ((_worker distance _pieceToWorldPos) > _workingDistance) then {
+                    // vars
+                    private _animation       = selectRandom _workerAnimations;
+                    private _rotation        = ((getDir _currentPiece) - _sideX * 90);
+                    _worker setVariable ["SCAR_UCM_animation", _animation, true];
+                    _worker setVariable ["SCAR_UCM_pieceToWorldPos", _pieceToWorldPos, true];
+                    _worker setVariable ["SCAR_UCM_rotation", _rotation, true];
+
+
                     // add waypoint
                     private _wp = _group addWaypoint [_pieceToWorldPos, 0];
                     _wp setWaypointType "MOVE";

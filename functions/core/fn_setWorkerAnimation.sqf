@@ -18,7 +18,7 @@
     [_worker, 1, _animation, _pos, _rotation] call SCAR_UCM_fnc_setWorkerAnimation;
 */
 
-params ["_worker", "_state", "_animation", "_rotation"];
+params ["_worker", "_state", "_animation", "_pos", "_rotation"];
 
 // vars
 private _logicModule   = _worker getVariable "SCAR_UCM_logicModule";

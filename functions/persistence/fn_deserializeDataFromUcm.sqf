@@ -62,7 +62,7 @@ if !(isNil "_workersInfo") then {
             };
         };
         // log
-        [_logicModule, format["    --> %1 at position %2 with direction %3", _x, _pos, _dir]] call SCAR_UCM_fnc_log;
+        [_logicModule, format["    --> %1 at position %2 with direction %3", _worker, _pos, _dir]] call SCAR_UCM_fnc_log;
 
     } forEach _workersInfo;
 };

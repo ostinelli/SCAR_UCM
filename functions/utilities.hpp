@@ -8,7 +8,6 @@ class SCAR_UCM_utilities {
         class convertSideStrToSide {};
         class isAceAvailable {};
         class log {};
-        class onUnloadedCargoPos {};
         class safetyDeleteVehicleAndCrew {};
         class setAltitudeToGround {};
         class setGlobalVariableIfUnset {};

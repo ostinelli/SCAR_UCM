@@ -2,7 +2,7 @@
     Author: _SCAR
 
     Description:
-    Listen to the endMission event and save.
+    Attach to the save button click event in ALiVE to save UCM data too.
 
     Return:
     true

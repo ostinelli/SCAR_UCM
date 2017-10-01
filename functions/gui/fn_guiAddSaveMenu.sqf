@@ -2,7 +2,8 @@
     Author: _SCAR
 
     Description:
-    Adds custom save with UCM to menu.
+    Attach to the save button click event in Arma to save UCM data too.
+    If the button is disabled, adds custom button to save UCM data only.
 
     Return:
     true

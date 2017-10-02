@@ -16,6 +16,7 @@ private _listBox = 21950;
 
 // get index
 private _index = lbCurSel _listBox;
+if (_index == -1) exitWith {};
 
 // get data & function
 private _options  = missionNamespace getVariable "SCAR_UCM_SelectionOptions";

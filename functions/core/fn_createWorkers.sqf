@@ -54,6 +54,9 @@ for "_i" from 1 to _workersCount do {
     _newGroup allowFleeing 0;
     _worker disableAI "FSM";
     _worker disableAI "COVER";
+    _worker setSkill ["courage", 1];
+    _worker setSkill ["spotDistance", 0];
+    _worker setSkill ["spotTime", 0];
 
     // style
     [_worker] call SCAR_UCM_fnc_setRandomWorkerLoadout;

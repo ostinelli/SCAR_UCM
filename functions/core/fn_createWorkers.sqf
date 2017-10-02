@@ -44,13 +44,16 @@ if ((typeName _position_or_vehicle) == "OBJECT") then {
 // create workers
 private _newWorkers = [];
 for "_i" from 1 to _workersCount do {
-    // create group
+    // create group & worker
     private _newGroup = createGroup _side;
+    private _worker = _newGroup createUnit [_workerClass, _position, [], 0, "NONE"];
+
+    // behaviour to avoid worker fleeing
     _newGroup setSpeedMode "LIMITED";
     _newGroup setBehaviour "CARELESS";
-
-    // create worker
-    private _worker = _newGroup createUnit [_workerClass, _position, [], 0, "NONE"];
+    _newGroup allowFleeing 0;
+    _worker disableAI "FSM";
+    _worker disableAI "COVER";
 
     // style
     [_worker] call SCAR_UCM_fnc_setRandomWorkerLoadout;

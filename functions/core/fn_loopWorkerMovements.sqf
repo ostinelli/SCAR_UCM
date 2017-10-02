@@ -27,6 +27,8 @@ private _null = [_worker] spawn {
     private _workingDistance  = _logicModule getVariable "SCAR_UCM_workingDistance";
     private _workerAnimations = _logicModule getVariable "SCAR_UCM_workerAnimations";
 
+    [_logicModule, format ["Starting worker %1 movement loop", _worker]] call SCAR_UCM_fnc_log;
+
     // init
     private _lastPiece = objNull;
 
@@ -54,9 +56,9 @@ private _null = [_worker] spawn {
 
         // check presence of worker (on the ground, not flying nearby, not in vehicle)
         if (
-            ((_worker distance _currentPiece) < _workingDistance) &&
-            (vehicle _worker == _worker)  &&
-            (_logicModule getVariable "SCAR_UCM_workersAreWorking")
+            ((_worker distance _currentPiece) < _workingDistance) && // in range
+            (vehicle _worker == _worker)  &&                         // not in vehicle
+            (_logicModule getVariable "SCAR_UCM_workersAreWorking")  // work is in progress
         ) then {
             // worker is in the area & work is happening
 
@@ -101,7 +103,6 @@ private _null = [_worker] spawn {
                     _worker setVariable ["SCAR_UCM_pieceToWorldPos", _pieceToWorldPos, true];
                     _worker setVariable ["SCAR_UCM_rotation", _rotation, true];
 
-
                     // add waypoint
                     private _wp = _group addWaypoint [_pieceToWorldPos, 0];
                     _wp setWaypointType "MOVE";
@@ -121,6 +122,9 @@ private _null = [_worker] spawn {
 
             // stop animation & sound
             [_worker, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
+
+            // ensure to stop so that they don't keep fleeing
+            doStop _worker;
 
             // reset
             _lastPiece = objNull;

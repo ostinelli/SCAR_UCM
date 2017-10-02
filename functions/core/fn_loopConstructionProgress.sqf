@@ -86,7 +86,7 @@ private _null = [_logicModule] spawn {
         // check workers that are actually working
 		private _workersWorking = [];
 		{
-			if ((speed _x) < 5) then {  // not moving
+			if ((speed _x) < 2) then {  // not moving
 			    _workersWorking pushBack _x;
 			};
 		} forEach _workersInArea;

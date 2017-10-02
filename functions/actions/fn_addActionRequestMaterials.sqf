@@ -18,8 +18,12 @@ if !(hasInterface) exitWith {};
 
 params ["_unit"];
 
+// vars
+private _logicModule = _unit getVariable "SCAR_UCM_logicModule";
+private _side        = _logicModule getVariable "SCAR_UCM_side";
+
 // check side
-if !((side player) == (side _unit)) exitWith {};
+if !((side player) == _side) exitWith {};
 
 // code
 private _statement = {

@@ -42,11 +42,11 @@ private _materialsWeight        = _logicModule getVariable ["MaterialsWeight", 1
 // sync'ed
 private _helicopterLandingZones = [_logicModule, "SCAR_UCM_ModuleUtilitiesConstructionLandingZone"] call BIS_fnc_synchronizedObjects;
 if ((count _helicopterLandingZones) == 0) then { throw format ["UCM: no Landing Zone module has been synchronized to module '%1'", _logicModule]; };
-_helicopterLandingZone = _helicopterLandingZones select 0;
+private _helicopterLandingZone = _helicopterLandingZones select 0;
 
 private _helicopterOrigins = [_logicModule, "SCAR_UCM_ModuleUtilitiesConstructionHelicopterOrigin"] call BIS_fnc_synchronizedObjects;
 if ((count _helicopterOrigins) == 0) then { throw format ["UCM: no Helicopter Origin module has been synchronized to module '%1'", _logicModule]; };
-_helicopterOrigin = _helicopterOrigins select 0;
+private _helicopterOrigin = _helicopterOrigins select 0;
 
 // convert to side
 _side = [_side] call SCAR_UCM_fnc_convertSideStrToSide;

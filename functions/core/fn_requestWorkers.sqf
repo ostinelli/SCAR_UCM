@@ -53,6 +53,12 @@ private _group   = _result select 2;
 
 // set careless
 _group setBehaviour "CARELESS";
+_group allowFleeing 0;
+{
+    _x setSkill ["courage", 1];
+    _x setSkill ["spotDistance", 0];
+    _x setSkill ["spotTime", 0];
+} forEach _crew;
 
 // create workers
 private _newWorkers = [_logicModule, _workersCount, _vehicle] call SCAR_UCM_fnc_createWorkers;
@@ -72,26 +78,42 @@ _destinationPos = [_destinationPos select 0, _destinationPos select 1, 0];
 // --> heli: unload
 private _wpUnload = _group addWaypoint [_destinationPos, 0];
 _wpUnload setWaypointType "TR UNLOAD";
+_wpUnload setWaypointStatements ["true", "(vehicle this) land 'get out';"];
 
-// --> cargo: get out
-{
-    _wp = (group _x) addWaypoint [_destinationPos, 0];
-    _wp setWaypointType "GETOUT";
-} forEach _newWorkers;
+// --> heli: hold
+private _wpHold = _group addWaypoint [_destinationPos, 1];
+_wpHold setWaypointType "HOLD";
 
 // --> heli: leave
-private _wpLeave = _group addWaypoint [_helicopterOriginWorkersPos, 0];
+private _wpLeave = _group addWaypoint [_helicopterOriginWorkersPos, 2];
 _wpLeave setWaypointType "MOVE";
 _wpLeave setWaypointStatements ["true", "deleteVehicle (vehicle this); { deleteVehicle _x } forEach thisList;"];
 
-/*
+// trigger
+private _triggerLeave = createTrigger ["EmptyDetector", _destinationPos];
+_triggerLeave setTriggerActivation ["NONE"];
+_triggerLeave setTriggerType "SWITCH";
+_triggerLeave synchronizeTrigger [_wpHold];
+_triggerLeave setVariable ["SCAR_UCM_newWorkers", _newWorkers];
+_triggerLeave setVariable ["SCAR_UCM_vehicle", _vehicle];
+_triggerLeave setTriggerStatements [
+    "private _newWorkers = thisTrigger getVariable 'SCAR_UCM_newWorkers'; private _vehicle = thisTrigger getVariable 'SCAR_UCM_vehicle'; ({_x in _vehicle} count _newWorkers) == 0;",
+    "",
+    ""
+];
+// --> cargo: get out
+{
+    _wpGetOut = (group _x) addWaypoint [_destinationPos, 0];
+    _wpGetOut setWaypointType "GETOUT";
+    _wpGetOut synchronizeWaypoint [_wpUnload];
+} forEach _newWorkers;
+
 // --> cargo: move
 _destinationPos = _destinationPos getPos [15, random(360)];
 {
     _wp = (group _x) addWaypoint [_destinationPos, 10];
     _wp setWaypointType "MOVE";
 } forEach _newWorkers;
-*/
 
 // return
 true

@@ -55,6 +55,15 @@ _vehicle setVariable ["SCAR_UCM_logicModule", _logicModule, true];
 // set safety valve on object
 [_vehicle, _crew] call SCAR_UCM_fnc_safetyDeleteVehicleAndCrew;
 
+// set careless
+_group setBehaviour "CARELESS";
+_group allowFleeing 0;
+{
+    _x setSkill ["courage", 1];
+    _x setSkill ["spotDistance", 0];
+    _x setSkill ["spotTime", 0];
+} forEach _crew;
+
 // event
 ["UCM_RequestedMaterials", [_logicModule]] call CBA_fnc_serverEvent;
 

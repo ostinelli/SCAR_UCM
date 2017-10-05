@@ -38,7 +38,7 @@ You can get the module from [Steam](http://steamcommunity.com/sharedfiles/filede
 
 ## Persistence
 
-UCM has its own Persistence Module. It works by saving data to the `profileNamespace` on the server.
+UCM has its own Persistence Module. It works by saving data to the `profileNamespace` on the server. You will see the save menu in the standard Arma menu of the Pause screen.
 
 A few important things to note:
 
@@ -59,9 +59,9 @@ The workers are not profiled by ALiVE [Virtual_AI_System](http://alivemod.com/wi
 
 #### ALiVE Persistence
 
-Whan ALiVE saves its data, it will trigger an `endMission`. UCM listens for that event and automatically uses its Persistent Module to save its data. Therefore, if you want UCM data to be also saved when you save ALiVE, the only thing you have to do is to drop the UCM Persistent Module in your mission in addition to the ALiVE Data module.
+UCM integrates with ALiVE save features. Therefore, if you want UCM data to be also saved when you save ALiVE, the only thing you have to do is to drop the UCM Persistent Module in your mission in addition to the ALiVE Data module.
 
-Note that UCM data will be saved locally, regardless of the ALiVE Data setting. More [here](http://alivemod.com/forum/3168-get-save-data-from-cloud).
+> UCM data will be saved locally, regardless of the ALiVE Data setting.
 
 ## Functions
 

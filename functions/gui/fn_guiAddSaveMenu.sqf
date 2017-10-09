@@ -69,7 +69,7 @@ private _null = [] spawn {
 
                 // create UCM button
                 private _saveText = ctrlText _saveCtrl;
-                _ucmSaveCtrl = _displayPause ctrlCreate ["RscButtonMenu", -1];
+                _ucmSaveCtrl = _displayPause ctrlCreate ["RscButtonMenu", 20950];
                 _ucmSaveCtrl ctrlSetText format ["%1 (%2)", _saveText, localize ("STR_SCAR_UCM_Menu_UCM_Only")];
                 _ucmSaveCtrl ctrlSetPosition _savePosition;
                 _ucmSaveCtrl ctrlCommit 0;
@@ -84,6 +84,26 @@ private _null = [] spawn {
                     _displayPause closeDisplay 1;
                     // message
                     hint localize "STR_SCAR_UCM_Menu_UCM_SavedOK";
+                }];
+
+                // get options control
+                private _optionsCtrl = _displayPause displayCtrl 101;
+
+                // quick & dirty fix to avoid buttons overlapping
+                _optionsCtrl ctrlAddEventHandler ["buttonClick", {
+                    // get interface
+                    private _displayType = if (isMultiplayer) then { "RscDisplayMPInterrupt" } else { "RscDisplayInterrupt" };
+                    private _displayPause = uiNamespace getVariable _displayType;
+                    // ucm control
+                    private _ucmSaveCtrl = _displayPause displayCtrl 20950;
+
+                    if (uiNamespace getVariable "BIS_DisplayInterrupt_isOptionsExpanded") then {
+                        // options open
+                        _ucmSaveCtrl ctrlShow true;
+                    } else {
+                        // options closed
+                        _ucmSaveCtrl ctrlShow false;
+                    };
                 }];
             };
         };

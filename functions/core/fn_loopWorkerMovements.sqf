@@ -87,10 +87,7 @@ private _null = [_worker] spawn {
 
                 // delete all existing waypoints
                 private _group = group _worker;
-                while {(count (waypoints _group)) > 0} do
-                {
-                    deleteWaypoint ((waypoints _group) select 0);
-                };
+                [_group] call SCAR_UCM_fnc_deleteAllWaypoints;
 
                 // check distance
                 private _pieceToWorldPos = _currentPiece modelToWorld _relativePos;

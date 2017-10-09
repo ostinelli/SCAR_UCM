@@ -34,10 +34,7 @@ private _statement = {
 
     // delete all existing waypoints
     private _group = group _target;
-    while {(count (waypoints _group)) > 0} do
-    {
-        deleteWaypoint ((waypoints _group) select 0);
-    };
+    [_group] call SCAR_UCM_fnc_deleteAllWaypoints;
 
     // remove handcuffs if ACE is enabled
     if (SCAR_UCM_ACE) then {

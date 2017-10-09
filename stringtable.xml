@@ -266,16 +266,28 @@
 
     <Package name="Menu">
         <Key ID="STR_SCAR_UCM_Menu_WithUCM">
-            <English>with UCM</English>
-            <Italian>con UCM</Italian>
+            <English>with UCM Data</English>
+            <Italian>con dati UCM</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Menu_UCM_Only">
-            <English>UCM only</English>
-            <Italian>Solo UCM</Italian>
+        <Key ID="STR_SCAR_UCM_Menu_Save_UCM_Only">
+            <English>Save (only UCM data)</English>
+            <Italian>Salva (solo dati UCM)</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Menu_Delete_UCM">
+            <English>Delete UCM data</English>
+            <Italian>Cancella i dati UCM</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Menu_UCM_SavedOK">
             <English>UCM Data has been saved</English>
             <Italian>I dati di UCM sono stati salvati</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Menu_UCM_DeleteAreYouSure">
+            <English>Are you sure to delete all UCM data for this mission?</English>
+            <Italian>Sei sicuro di volere cancellare tutti i dati UCM di questa missione?</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Menu_UCM_DeletedOK">
+            <English>UCM Data has been delete</English>
+            <Italian>I dati di UCM sono stati cancellati</Italian>
         </Key>
     </Package>
 </Project>

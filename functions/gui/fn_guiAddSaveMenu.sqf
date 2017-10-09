@@ -34,76 +34,61 @@ private _null = [] spawn {
             // get display
             private _displayPause = uiNamespace getVariable _displayType;
 
+            // get UCM menu
+            private _ucmMenuTitle  = _displayPause displayCtrl 20950;
+            private _ucmSaveCtrl   = _displayPause displayCtrl 20951;
+            private _ucmDeleteCtrl = _displayPause displayCtrl 20952;
+
+            // prepare menu
+            _ucmMenuTitle ctrlSetPosition [(1 * GUI_GRID_W + GUI_GRID_X), (4.1 * GUI_GRID_H + GUI_GRID_Y), 15 * GUI_GRID_W, GUI_GRID_H];
+            _ucmMenuTitle ctrlCommit 0;
+            _ucmSaveCtrl ctrlSetPosition [(1 * GUI_GRID_W + GUI_GRID_X), (5.2 * GUI_GRID_H + GUI_GRID_Y), 15 * GUI_GRID_W, GUI_GRID_H];
+            _ucmSaveCtrl ctrlCommit 0;
+            _ucmDeleteCtrl ctrlSetPosition [(1 * GUI_GRID_W + GUI_GRID_X), (6.3 * GUI_GRID_H + GUI_GRID_Y), 15 * GUI_GRID_W, GUI_GRID_H];
+            _ucmDeleteCtrl ctrlCommit 0;
+
+            // add save event
+            _ucmSaveCtrl ctrlAddEventHandler ["buttonClick", {
+                // save on server
+                [] remoteExec ["SCAR_UCM_fnc_saveAll", 2];
+                // close interface
+                private _displayType = if (isMultiplayer) then { "RscDisplayMPInterrupt" } else { "RscDisplayInterrupt" };
+                private _displayPause = uiNamespace getVariable _displayType;
+                _displayPause closeDisplay 1;
+                // message
+                hint localize "STR_SCAR_UCM_Menu_UCM_SavedOK";
+            }];
+
+            // add delete event
+             _ucmDeleteCtrl ctrlAddEventHandler ["buttonClick", {
+                private _null = [] spawn {
+                    // are you sure?
+                    _result = [(localize "STR_SCAR_UCM_Menu_UCM_DeleteAreYouSure"), "OK", true, true] call BIS_fnc_guiMessage;
+                    if (_result) then {
+                        // delete all on server
+                        [] remoteExec ["SCAR_UCM_fnc_profileNamespaceClear", 2];
+                        // message
+                        hint localize "STR_SCAR_UCM_Menu_UCM_DeletedOK";
+                    };
+                };
+            }];
+
             // get save control & text
-            private _saveCtrl     = _displayPause displayCtrl 103;
-            private _originalText = ctrlText _saveCtrl;
+            private _saveCtrl = _displayPause displayCtrl 103;
 
             if (ctrlEnabled _saveCtrl) then {
-                // hook into original save control to also save UCM
+                // original save enabled, hook into original save control to also save UCM
 
-                // set text
+                // add UCM portion to original text
+                private _originalText = ctrlText _saveCtrl;
                 _saveCtrl ctrlSetText format ["%1 (%2)", _originalText, localize ("STR_SCAR_UCM_Menu_WithUCM")];
 
-                // add event
+                // add event to save jointly
                 _saveCtrl ctrlAddEventHandler ["buttonClick", {
                     // save on server
                     [] remoteExec ["SCAR_UCM_fnc_saveAll", 2];
-                }];
-
-            } else {
-                // save control disabled, add button to save only UCM
-
-                // save position
-                _savePosition = ctrlPosition _saveCtrl;
-
-                // spacing
-                _spacing = 0.003;
-
-                // move all buttons including save UP
-                {
-                    _control  = _displayPause displayCtrl _x;
-                    _position = ctrlPosition _control;
-                    _control ctrlSetPosition [_position select 0, (_position select 1) - GUI_GRID_H - _spacing];
-                    _control ctrlCommit 0;
-                } forEach [1050, 523, 109, 2, 103]; // title background, title, player name, continue, save
-
-                // create UCM button
-                private _saveText = ctrlText _saveCtrl;
-                _ucmSaveCtrl = _displayPause ctrlCreate ["RscButtonMenu", 20950];
-                _ucmSaveCtrl ctrlSetText format ["%1 (%2)", _saveText, localize ("STR_SCAR_UCM_Menu_UCM_Only")];
-                _ucmSaveCtrl ctrlSetPosition _savePosition;
-                _ucmSaveCtrl ctrlCommit 0;
-
-                // add event
-                _ucmSaveCtrl ctrlAddEventHandler ["buttonClick", {
-                    // save on server
-                    [] remoteExec ["SCAR_UCM_fnc_saveAll", 2];
-                    // close interface
-                    private _displayType = if (isMultiplayer) then { "RscDisplayMPInterrupt" } else { "RscDisplayInterrupt" };
-                    private _displayPause = uiNamespace getVariable _displayType;
-                    _displayPause closeDisplay 1;
                     // message
                     hint localize "STR_SCAR_UCM_Menu_UCM_SavedOK";
-                }];
-
-                // get options control
-                private _optionsCtrl = _displayPause displayCtrl 101;
-
-                // quick & dirty fix to avoid buttons overlapping
-                _optionsCtrl ctrlAddEventHandler ["buttonClick", {
-                    // get interface
-                    private _displayType = if (isMultiplayer) then { "RscDisplayMPInterrupt" } else { "RscDisplayInterrupt" };
-                    private _displayPause = uiNamespace getVariable _displayType;
-                    // ucm control
-                    private _ucmSaveCtrl = _displayPause displayCtrl 20950;
-
-                    if (uiNamespace getVariable "BIS_DisplayInterrupt_isOptionsExpanded") then {
-                        // options open
-                        _ucmSaveCtrl ctrlShow true;
-                    } else {
-                        // options closed
-                        _ucmSaveCtrl ctrlShow false;
-                    };
                 }];
             };
         };

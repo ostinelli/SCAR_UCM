@@ -104,12 +104,6 @@ private _workerClass = switch (_side) do {
 _logicModule setVariable ["SCAR_UCM_workerClass", _workerClass, true];
 _logicModule setVariable ["SCAR_UCM_piecesCount", ([_logicModule] call SCAR_UCM_fnc_getPiecesCount), true];
 
-// recreate helipad
-private _heliPad = _logicModule getVariable ["SCAR_UCM_heliPad", objNull];
-if !(_heliPad isEqualTo objNull) then { deleteVehicle _heliPad; };
-_heliPad = "Land_HelipadEmpty_F" createVehicle (getPos _helicopterLandingZone);
-_logicModule setVariable ["SCAR_UCM_heliPad", _heliPad, true];
-
 // log
 [_logicModule, "  --> FIXED variables have been set."] call SCAR_UCM_fnc_log;
 

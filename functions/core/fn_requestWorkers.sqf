@@ -20,12 +20,12 @@ if !(isServer) exitWith {};
 params ["_logicModule", "_caller"];
 
 // vars
-private _workers          = _logicModule getVariable "SCAR_UCM_workers";
-private _workersCount     = _logicModule getVariable "SCAR_UCM_workersCount";
-private _helicopterClass  = _logicModule getVariable "SCAR_UCM_helicopterClass";
-private _helicopterOrigin = _logicModule getVariable "SCAR_UCM_helicopterOrigin";
-private _heliPad          = _logicModule getVariable "SCAR_UCM_heliPad";
-private _side             = _logicModule getVariable "SCAR_UCM_side";
+private _workers               = _logicModule getVariable "SCAR_UCM_workers";
+private _workersCount          = _logicModule getVariable "SCAR_UCM_workersCount";
+private _helicopterClass       = _logicModule getVariable "SCAR_UCM_helicopterClass";
+private _helicopterOrigin      = _logicModule getVariable "SCAR_UCM_helicopterOrigin";
+private _helicopterLandingZone = _logicModule getVariable "SCAR_UCM_helicopterLandingZone";
+private _side                  = _logicModule getVariable "SCAR_UCM_side";
 
 if ((count _workers) >= _workersCount) exitWith {
     // chat only to caller
@@ -64,8 +64,12 @@ _group allowFleeing 0;
 private _newWorkers = [_logicModule, _workersCount, _vehicle] call SCAR_UCM_fnc_createWorkers;
 
 // destination
-private _destinationPos = getPos _heliPad;
+private _destinationPos = getPos _helicopterLandingZone;
 _destinationPos = [_destinationPos select 0, _destinationPos select 1, 0];
+
+// create helipad
+private _heliPad = "Land_HelipadEmpty_F" createVehicle _destinationPos;
+_vehicle setVariable ["SCAR_UCM_helipad", _heliPad];
 
 // event
 ["UCM_RequestedWorkers", [_logicModule]] call CBA_fnc_serverEvent;
@@ -74,10 +78,16 @@ _destinationPos = [_destinationPos select 0, _destinationPos select 1, 0];
 [_side, "STR_SCAR_UCM_Radio_RequestedWorkers"] remoteExec ["SCAR_UCM_fnc_sideChatLocalized", 0];
 
 // waypoints
+
 // --> heli: unload
 private _wpUnload = _group addWaypoint [_destinationPos, 0];
 _wpUnload setWaypointType "TR UNLOAD";
-_wpUnload setWaypointStatements ["true", "(vehicle this) land 'GET OUT';"];
+_wpUnload setWaypointStatements ["true",
+    "private _vehicle = vehicle this;" +
+    "_vehicle land 'GET OUT';" +
+    "private _heliPad = _vehicle getVariable 'SCAR_UCM_helipad';"+
+    "deleteVehicle _heliPad;"
+];
 
 // --> cargo: get out
 {

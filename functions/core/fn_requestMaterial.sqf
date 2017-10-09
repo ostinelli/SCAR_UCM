@@ -34,10 +34,10 @@ if (_onGoing) exitWith {
 _logicModule setVariable ["SCAR_UCM_requestMaterialOngoing", true, true];
 
 // vars
-private _helicopterClass  = _logicModule getVariable "SCAR_UCM_helicopterClass";
-private _helicopterOrigin = _logicModule getVariable "SCAR_UCM_helicopterOrigin";
-private _foreman          = _logicModule getVariable "SCAR_UCM_foreman";
-private _heliPad          = _logicModule getVariable "SCAR_UCM_heliPad";
+private _helicopterClass       = _logicModule getVariable "SCAR_UCM_helicopterClass";
+private _helicopterOrigin      = _logicModule getVariable "SCAR_UCM_helicopterOrigin";
+private _foreman               = _logicModule getVariable "SCAR_UCM_foreman";
+private _helicopterLandingZone = _logicModule getVariable "SCAR_UCM_helicopterLandingZone";
 
 // create helicopter with crew
 private _size = sizeOf _helicopterClass;
@@ -73,7 +73,7 @@ _group allowFleeing 0;
 // waypoints
 
 // --> heli: unload
-private _wpUnload = _group addWaypoint [getPos _heliPad, 0];
+private _wpUnload = _group addWaypoint [getPos _helicopterLandingZone, 0];
 _wpUnload setWaypointType "MOVE";
 _wpUnload setWaypointStatements ["true", "_vehicle = (vehicle this); [_vehicle] spawn SCAR_UCM_fnc_dropMaterialFromHelicopter;"];
 

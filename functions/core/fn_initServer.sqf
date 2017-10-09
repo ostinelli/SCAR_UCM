@@ -24,9 +24,6 @@ publicVariable "SCAR_UCM_ACE";
 // (we have to do it like this because of the name bug when using 'function' in the Module Framework)
 private _allLogicModules = entities "SCAR_UCM_ModuleUtilitiesConstructionMod";
 
-// init persistence
-[] call SCAR_UCM_fnc_initPersistence;
-
 // init logic modules
 {
     // init
@@ -59,6 +56,9 @@ private _allLogicModules = entities "SCAR_UCM_ModuleUtilitiesConstructionMod";
     [_logicModule] remoteExec ["SCAR_UCM_fnc_setMarkerLandingZone", 0 , true];
 
 } forEach _allLogicModules;
+
+// init persistence
+[] call SCAR_UCM_fnc_initPersistence;
 
 // init finished
 "Server init done." call SCAR_UCM_fnc_log;

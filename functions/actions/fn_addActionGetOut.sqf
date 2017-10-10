@@ -28,8 +28,7 @@ private _statement = {
 
         if (_isWorker) then {
             // get out
-            [_x] orderGetIn false;
-            unassignVehicle _x;
+            [_x] call SCAR_UCM_fnc_getOutVehicle;
         };
     } forEach (crew _target);
 };

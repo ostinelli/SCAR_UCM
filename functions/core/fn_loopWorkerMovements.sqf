@@ -58,6 +58,7 @@ private _null = [_worker] spawn {
         if (
             ((_worker distance _currentPiece) < _workingDistance) && // in range
             (vehicle _worker == _worker)  &&                         // not in vehicle
+            !(_worker getVariable ["SCAR_UCM_goingToVehicle", false]) &&      // not ordered to get in vehicle
             (_logicModule getVariable "SCAR_UCM_workersAreWorking")  // work is in progress
         ) then {
             // worker is in the area & work is happening
@@ -119,9 +120,6 @@ private _null = [_worker] spawn {
 
             // stop animation & sound
             [_worker, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
-
-            // ensure to stop so that they don't keep fleeing
-            doStop _worker;
 
             // reset
             _lastPiece = objNull;

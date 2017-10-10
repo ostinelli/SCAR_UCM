@@ -11,7 +11,7 @@
 	true
 
 	Example:
-	[_logicModule] call SCAR_UCM_fnc_loadSettings;
+	[_logicModule] call SCAR_UCM_fnc_initSettings;
 */
 
 if !(isServer) exitWith {};
@@ -24,7 +24,7 @@ params ["_logicModule"];
 // ====================================================== \/ MODULE VARS ===================================================
 
 // get vars
-private _side                   = _logicModule getVariable ["Side", "blufor"];
+private _side                   = _logicModule getVariable ["Side", "BLUFOR"];
 private _workersCount           = _logicModule getVariable ["WorkersCount", 3];
 private _pieceWorkingManSeconds = _logicModule getVariable ["PieceWorkingManSeconds", 1800];
 private _pieceNamePrefix        = _logicModule getVariable ["PieceNamePrefix", "UCM_piece_"];

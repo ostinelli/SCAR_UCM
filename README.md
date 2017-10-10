@@ -108,6 +108,13 @@ private _id = ["UCM_ConstructionAreaMoved", {
 }] call CBA_fnc_addEventHandler;
 ```
 
+## Thank you
+
+Thanks to all alhpa and beta testers, in particular:
+
+  * 2RGT Hollywood
+  * W4lly63
+
 ## Contribute
 
 So you want to contribute? That's great! Please follow the guidelines below. It will make it easier to get merged in.

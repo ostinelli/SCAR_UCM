@@ -70,10 +70,10 @@ class CfgVehicles
                 defaultValue = """BLUFOR""";
 
                 class Values {
-                    class Blufor      { name = "BLUFOR"; value = """BLUFOR"""; default = 1; };
-                    class Opfor       { name = "OPFOR"; value = """OPFOR"""; };
-                    class Independent { name = "INDEPENDENT"; value = """INDEPENDENT"""; };
-                    class Civilian    { name = "CIVILIAN"; value = """CIVILIAN"""; };
+                    class Blufor      { name = "BLUFOR"; value = "BLUFOR"; default = 1; };
+                    class Opfor       { name = "OPFOR"; value = "OPFOR"; };
+                    class Independent { name = "INDEPENDENT"; value = "INDEPENDENT"; };
+                    class Civilian    { name = "CIVILIAN"; value = "CIVILIAN"; };
                 };
             };
             class WorkersCount: Edit

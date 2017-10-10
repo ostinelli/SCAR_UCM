@@ -110,7 +110,7 @@ private _id = ["UCM_ConstructionAreaMoved", {
 
 ## Thank you
 
-Thanks to all alhpa and beta testers, in particular:
+Thanks to all alpha and beta testers, in particular:
 
   * 2RGT Hollywood
   * W4lly63

@@ -265,6 +265,10 @@
     </Package>
 
     <Package name="Menu">
+        <Key ID="STR_SCAR_UCM_Menu">
+            <English>UCM Menu</English>
+            <Italian>UCM Menu</Italian>
+        </Key>
         <Key ID="STR_SCAR_UCM_Menu_WithUCM">
             <English>with UCM Data</English>
             <Italian>con dati UCM</Italian>
@@ -286,7 +290,7 @@
             <Italian>Sei sicuro di volere cancellare tutti i dati UCM di questa missione?</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Menu_UCM_DeletedOK">
-            <English>UCM Data has been delete</English>
+            <English>UCM Data has been deleted</English>
             <Italian>I dati di UCM sono stati cancellati</Italian>
         </Key>
     </Package>

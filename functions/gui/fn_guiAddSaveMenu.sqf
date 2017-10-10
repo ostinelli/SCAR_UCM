@@ -41,10 +41,13 @@ private _null = [] spawn {
 
             // prepare menu
             _ucmMenuTitle ctrlSetPosition [(1 * GUI_GRID_W + GUI_GRID_X), (4.1 * GUI_GRID_H + GUI_GRID_Y), 15 * GUI_GRID_W, GUI_GRID_H];
+            _ucmMenuTitle ctrlShow true;
             _ucmMenuTitle ctrlCommit 0;
             _ucmSaveCtrl ctrlSetPosition [(1 * GUI_GRID_W + GUI_GRID_X), (5.2 * GUI_GRID_H + GUI_GRID_Y), 15 * GUI_GRID_W, GUI_GRID_H];
+            _ucmSaveCtrl ctrlShow true;
             _ucmSaveCtrl ctrlCommit 0;
             _ucmDeleteCtrl ctrlSetPosition [(1 * GUI_GRID_W + GUI_GRID_X), (6.3 * GUI_GRID_H + GUI_GRID_Y), 15 * GUI_GRID_W, GUI_GRID_H];
+            _ucmDeleteCtrl ctrlShow true;
             _ucmDeleteCtrl ctrlCommit 0;
 
             // add save event
@@ -63,7 +66,7 @@ private _null = [] spawn {
              _ucmDeleteCtrl ctrlAddEventHandler ["buttonClick", {
                 private _null = [] spawn {
                     // are you sure?
-                    _result = [(localize "STR_SCAR_UCM_Menu_UCM_DeleteAreYouSure"), "OK", true, true] call BIS_fnc_guiMessage;
+                    _result = [(localize "STR_SCAR_UCM_Menu_UCM_DeleteAreYouSure"), "UCM", true, true] call BIS_fnc_guiMessage;
                     if (_result) then {
                         // delete all on server
                         [] remoteExec ["SCAR_UCM_fnc_profileNamespaceClear", 2];

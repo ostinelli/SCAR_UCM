@@ -31,8 +31,10 @@ if (["ALiVE_mil_opcom"] call ALIVE_fnc_isModuleAvailable) then {
     [] call SCAR_UCM_fnc_aliveOnConstructionAreaMoved;
 };
 
-// add event to save when ALiVE is saved to all players
-[] remoteExec ["SCAR_UCM_fnc_aliveSaveOnQuit", 0, true];
+// add event to save when ALiVE is saved to all players, if persistence module is found
+if ([] call SCAR_UCM_fnc_isPersistenceEnabled) then {
+    [] remoteExec ["SCAR_UCM_fnc_aliveSaveOnQuit", 0, true];
+};
 
 // return
 true

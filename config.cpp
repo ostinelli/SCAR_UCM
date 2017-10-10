@@ -38,6 +38,7 @@ class CfgVehicles
         {
             class Edit;
             class Combo;
+            class Checkbox;
         };
     };
 
@@ -63,39 +64,39 @@ class CfgVehicles
             class Side: Combo
             {
                 property     = "SCAR_UCM_Side";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_Side_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_Side_tooltip;
+                displayName  = $STR_SCAR_UCM_Module_Side_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_Side_tooltip;
                 typeName     = "STRING";
-                defaultValue = "BLUFOR";
+                defaultValue = """BLUFOR""";
 
                 class Values {
-                    class Blufor      { name = "BLUFOR"; value = "BLUFOR"; default = 1; };
-                    class Opfor       { name = "OPFOR"; value = "OPFOR"; };
-                    class Independent { name = "INDEPENDENT"; value = "INDEPENDENT"; };
-                    class Civilian    { name = "CIVILIAN"; value = "CIVILIAN"; };
+                    class Blufor      { name = "BLUFOR"; value = """BLUFOR"""; default = 1; };
+                    class Opfor       { name = "OPFOR"; value = """OPFOR"""; };
+                    class Independent { name = "INDEPENDENT"; value = """INDEPENDENT"""; };
+                    class Civilian    { name = "CIVILIAN"; value = """CIVILIAN"""; };
                 };
             };
             class WorkersCount: Edit
             {
                 property     = "SCAR_UCM_WorkersCount";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersCount_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_WorkersCount_tooltip;
+                displayName  = $STR_SCAR_UCM_Module_WorkersCount_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_WorkersCount_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "3";
             };
             class PieceWorkingManSeconds: Edit
             {
                 property     = "SCAR_UCM_PieceWorkingManSeconds";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_tooltip;
+                displayName  = $STR_SCAR_UCM_Module_PieceWorkingManSeconds_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_PieceWorkingManSeconds_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "1800";
             };
             class PiecesFromMaterial: Edit
             {
                 property     = "SCAR_UCM_PiecesFromMaterial";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_tooltip;
+                displayName  = $STR_SCAR_UCM_Module_PiecesFromMaterial_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_PiecesFromMaterial_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "3";
             };
@@ -103,16 +104,16 @@ class CfgVehicles
             class PieceNamePrefix: Edit
             {
                 property     = "SCAR_UCM_PieceNamePrefix";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_tooltip;
+                displayName  = $STR_SCAR_UCM_Module_PieceNamePrefix_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_PieceNamePrefix_tooltip;
                 typeName     = "STRING";
                 defaultValue = """UCM_piece_""";
             };
             class PieceStartHeight: Edit
             {
                 property     = "SCAR_UCM_PieceStartHeight";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_tooltip;
+                displayName  = $STR_SCAR_UCM_Module_PieceStartHeight_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_PieceStartHeight_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "-0.6";
             };
@@ -120,24 +121,24 @@ class CfgVehicles
             class MaterialsClass: Edit
             {
                 property     = "SCAR_UCM_MaterialsClass";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_tooltip;
+                displayName  = $STR_SCAR_UCM_Module_MaterialsClass_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_MaterialsClass_tooltip;
                 typeName     = "STRING";
                 defaultValue = """Land_IronPipes_F""";
             };
             class MaterialEndHeight: Edit
             {
                 property     = "SCAR_UCM_MaterialEndHeight";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_tooltip;
+                displayName  = $STR_SCAR_UCM_Module_MaterialEndHeight_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_MaterialEndHeight_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "-1.4";
             };
             class MaterialsWeight: Edit
             {
                 property     = "SCAR_UCM_MaterialsWeight";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_tooltip;
+                displayName  = $STR_SCAR_UCM_Module_MaterialsWeight_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_MaterialsWeight_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "16";
             };
@@ -145,8 +146,8 @@ class CfgVehicles
             class WorkingDistance: Edit
             {
                 property     = "SCAR_UCM_WorkingDistance";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_tooltip;
+                displayName  = $STR_SCAR_UCM_Module_WorkingDistance_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_WorkingDistance_tooltip;
                 typeName     = "NUMBER";
                 defaultValue = "100";
             };
@@ -154,8 +155,8 @@ class CfgVehicles
             class Foreman: Edit
             {
                 property     = "SCAR_UCM_Foreman";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_Foreman_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_Foreman_tooltip;
+                displayName  = $STR_SCAR_UCM_Module_Foreman_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_Foreman_tooltip;
                 typeName     = "STRING";
                 defaultValue = """UCM_foreman""";
             };
@@ -163,8 +164,8 @@ class CfgVehicles
             class HelicopterClass: Edit
             {
                 property     = "SCAR_UCM_HelicopterClass";
-                displayName  = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_displayName;
-                tooltip      = $STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_tooltip;
+                displayName  = $STR_SCAR_UCM_Module_HelicopterClass_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_HelicopterClass_tooltip;
                 typeName     = "STRING";
                 defaultValue = """B_Heli_Transport_03_unarmed_F""";
             };
@@ -175,7 +176,7 @@ class CfgVehicles
     {
         // Standard object definitions
         scope = 2;
-        displayName = $STR_SCAR_UCM_Module_SCAR_UCM_ModuleUtilitiesConstructionLandingZone;
+        displayName = $STR_SCAR_UCM_Module_ModuleUtilitiesConstructionLandingZone;
         icon = "\scar_ucm\gfx\logo.paa";
         category = "SCAR_UCM_UtilitiesConstructionMod";
 
@@ -208,6 +209,20 @@ class CfgVehicles
         isGlobal           = 1;
         isTriggerActivated = 0;
         isDisposable       = 0;
+
+        // Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
+        class Attributes: AttributesBase
+        {
+            // Module specific arguments
+			class PersistenceSaveOnEndMission: Checkbox
+  			{
+                property     = "SCAR_UCM_PersistenceSaveOnEndMission";
+                displayName  = $STR_SCAR_UCM_Module_PersistenceSaveOnEndMission_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_PersistenceSaveOnEndMission_tooltip;
+                typeName     = "BOOL";
+                defaultValue = "false";
+			};
+        };
     };
 };
 

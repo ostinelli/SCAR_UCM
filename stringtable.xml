@@ -5,7 +5,7 @@
             <English>UCM Logic</English>
             <Italian>UCM Logica</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_ModuleUtilitiesConstructionLandingZone">
+        <Key ID="STR_SCAR_UCM_Module_ModuleUtilitiesConstructionLandingZone">
             <English>UCM Landing Zone</English>
             <Italian>UCM Zona d'atterraggio</Italian>
         </Key>
@@ -17,101 +17,109 @@
             <English>UCM Persistence</English>
             <Italian>UCM Persistenza</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_Side_displayName">
+        <Key ID="STR_SCAR_UCM_Module_Side_displayName">
             <English>Side</English>
             <Italian>Fazione</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_Side_tooltip">
+        <Key ID="STR_SCAR_UCM_Module_Side_tooltip">
             <English>The side of the construction workers (can be 'blufor', 'opfor', 'independent', 'civilian')</English>
             <Italian>La fazione dei lavoratori (può essere 'blufor', 'opfor', 'independent', 'civilian')</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkersCount_displayName">
+        <Key ID="STR_SCAR_UCM_Module_WorkersCount_displayName">
             <English>Workers Count</English>
             <Italian>Numero di lavoratori</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkersCount_tooltip">
+        <Key ID="STR_SCAR_UCM_Module_WorkersCount_tooltip">
             <English>The maximum number of construction workers</English>
             <Italian>Il numero massimo di lavoratori in cantiere</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_displayName">
+        <Key ID="STR_SCAR_UCM_Module_PieceWorkingManSeconds_displayName">
             <English>Man-Seconds per piece</English>
             <Italian>Secondi-Uomo per pezzo</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceWorkingManSeconds_tooltip">
+        <Key ID="STR_SCAR_UCM_Module_PieceWorkingManSeconds_tooltip">
             <English>The number of man-seconds needed to complete a single piece</English>
             <Italian>Il numero di secondi-uomo richiesti per completare un pezzo</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_displayName">
+        <Key ID="STR_SCAR_UCM_Module_PieceNamePrefix_displayName">
             <English>Pieces' name prefix</English>
             <Italian>Prefisso del nome dei pezzi</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceNamePrefix_tooltip">
+        <Key ID="STR_SCAR_UCM_Module_PieceNamePrefix_tooltip">
             <English>The prefix to be used in piece variable names</English>
             <Italian>Il prefisso da usare nel nome delle variabili dei pezzi</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_displayName">
+        <Key ID="STR_SCAR_UCM_Module_PiecesFromMaterial_displayName">
             <English>Pieces from material</English>
             <Italian>Pezzi da un materiale</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PiecesFromMaterial_tooltip">
+        <Key ID="STR_SCAR_UCM_Module_PiecesFromMaterial_tooltip">
             <English>The number of pieces that can be built with a single material</English>
             <Italian>Il numero di pezzi che possono essere completati con un singolo materiale</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_displayName">
+        <Key ID="STR_SCAR_UCM_Module_WorkingDistance_displayName">
             <English>Max Working distance (m)</English>
             <Italian>Distanza max di lavoro (m)</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_WorkingDistance_tooltip">
+        <Key ID="STR_SCAR_UCM_Module_WorkingDistance_tooltip">
             <English>The distance (in meters) of workers and materials from the current piece for the construction to be active</English>
             <Italian>La distanza (in metri) dei lavoratori e del materiale dal pezzo corrente affinché il cantiere sia in corso</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_displayName">
+        <Key ID="STR_SCAR_UCM_Module_PieceStartHeight_displayName">
             <English>Piece starting position (Z)</English>
             <Italian>Posizione di partenza del pezzo (Z)</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_PieceStartHeight_tooltip">
+        <Key ID="STR_SCAR_UCM_Module_PieceStartHeight_tooltip">
             <English>The starting Z position of a piece on the ground (it will raise to the original Z position at the end)</English>
             <Italian>La posizione Z di partenza di un pezzo per terra (salirà fino alla posizione Z iniale)</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_displayName">
+        <Key ID="STR_SCAR_UCM_Module_MaterialEndHeight_displayName">
             <English>Material end position (Z)</English>
             <Italian>Posizione alla fine del materiale (Z)</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialEndHeight_tooltip">
+        <Key ID="STR_SCAR_UCM_Module_MaterialEndHeight_tooltip">
             <English>The ending Z position of a material on the ground (it will start with Z = 0 at the beginning)</English>
             <Italian>La posizione Z alla fine di un materiale per terra (comincerà a Z = 0 all'inizio)</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_Foreman_displayName">
+        <Key ID="STR_SCAR_UCM_Module_Foreman_displayName">
             <English>The foreman</English>
             <Italian>Il capocantiere</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_Foreman_tooltip">
+        <Key ID="STR_SCAR_UCM_Module_Foreman_tooltip">
             <English>The foreman's variable name</English>
             <Italian>Il nome della variabile del capocantiere</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_displayName">
+        <Key ID="STR_SCAR_UCM_Module_HelicopterClass_displayName">
             <English>The helicopters' class</English>
             <Italian>La classe degli elicotteri</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_HelicopterClass_tooltip">
+        <Key ID="STR_SCAR_UCM_Module_HelicopterClass_tooltip">
             <English>The helicopters' class name</English>
             <Italian>Il nome della classe degli elicotteri</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_displayName">
+        <Key ID="STR_SCAR_UCM_Module_MaterialsClass_displayName">
             <English>The materials' class</English>
             <Italian>La classe dei materiali</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialsClass_tooltip">
+        <Key ID="STR_SCAR_UCM_Module_MaterialsClass_tooltip">
             <English>The materials' class name</English>
             <Italian>Il nome della classe dei materiali</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_displayName">
+        <Key ID="STR_SCAR_UCM_Module_MaterialsWeight_displayName">
             <English>The materials' weight</English>
             <Italian>Il peso dei materiali</Italian>
         </Key>
-        <Key ID="STR_SCAR_UCM_Module_SCAR_UCM_MaterialsWeight_tooltip">
+        <Key ID="STR_SCAR_UCM_Module_MaterialsWeight_tooltip">
             <English>The materials' weight (if ACE is enabled, this is as defined by ACE cargo, otherwise it's a vanilla approximation)</English>
             <Italian>Il peso dei materiali (se ACE abilitato, come definito da ACE cargo, altrimenti è una approssimazione sul motore nativo)</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Module_PersistenceSaveOnEndMission_displayName">
+            <English>Save on End Mission</English>
+            <Italian>Salva a fine missione</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Module_PersistenceSaveOnEndMission_tooltip">
+            <English>Automatically save when a mission end (endMission trigger)</English>
+            <Italian>Salva automaticamente quando finisce una missione (trigger endMission)</Italian>
         </Key>
     </Package>
 

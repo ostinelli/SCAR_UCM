@@ -65,6 +65,14 @@
             <English>The distance (in meters) of workers and materials from the current piece for the construction to be active</English>
             <Italian>La distanza (in metri) dei lavoratori e del materiale dal pezzo corrente affinché il cantiere sia in corso</Italian>
         </Key>
+        <Key ID="STR_SCAR_UCM_Module_MaterialsAvailabilityIntervalMin_displayName">
+            <English>Materials availability interval</English>
+            <Italian>Intervallo disponibilità di materiali</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Module_MaterialsAvailabilityIntervalMin_tooltip">
+            <English>The minimum time interval (in minutes) before materials become available again after being delivered</English>
+            <Italian>Il tempo minimo necessario (in minuti) prima che nuovi materiali siano disponibili ad essere consegnati</Italian>
+        </Key>
         <Key ID="STR_SCAR_UCM_Module_PieceStartHeight_displayName">
             <English>Piece starting position (Z)</English>
             <Italian>Posizione di partenza del pezzo (Z)</Italian>
@@ -210,6 +218,10 @@
         <Key ID="STR_SCAR_UCM_Radio_ErrorRequestMaterialsAlreadyInProgress">
             <English>You have requested additional materials, but a delivery is already in progress.</English>
             <Italian>Hai richiesto materiale aggiuntivo, ma una consegna è già in corso.</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Radio_ErrorRequestMaterialsTooSoon">
+            <English>You have requested additional materials, but a delivery has been made recently. You'll need to wait another %1 minute(s).</English>
+            <Italian>Hai richiesto materiale aggiuntivo, ma una consegna è stata effettuata recentemente. Sarà necessario attendere ancora %1 minuto/i.</Italian>
         </Key>
         <Key ID="STR_SCAR_UCM_Radio_ErrorRequestWorkersAlreadyMaxed">
             <English>You have requested additional workers, but the available maximum is already there.</English>

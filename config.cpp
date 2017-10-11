@@ -151,6 +151,14 @@ class CfgVehicles
                 typeName     = "NUMBER";
                 defaultValue = "100";
             };
+            class MaterialsAvailabilityIntervalMin: Edit
+            {
+                property     = "SCAR_UCM_MaterialsAvailabilityIntervalMin";
+                displayName  = $STR_SCAR_UCM_Module_MaterialsAvailabilityIntervalMin_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_MaterialsAvailabilityIntervalMin_tooltip;
+                typeName     = "NUMBER";
+                defaultValue = "15";
+            };
 
             class Foreman: Edit
             {

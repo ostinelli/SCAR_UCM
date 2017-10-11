@@ -10,7 +10,7 @@
     1: UNIT - The unit calling this function.
 
     Return:
-    0: BOOLEAN
+    BOOLEAN
 
     Example:
     [_logicModule, player] call SCAR_UCM_fnc_requestMaterial;
@@ -20,9 +20,13 @@ if !(isServer) exitWith {};
 
 params ["_logicModule", "_caller"];
 
-private _onGoing = _logicModule getVariable ["SCAR_UCM_requestMaterialOngoing", false];
-private _side    = _logicModule getVariable "SCAR_UCM_side";
+// vars
+private _onGoing                          = _logicModule getVariable ["SCAR_UCM_requestMaterialOngoing", false];
+private _side                             = _logicModule getVariable "SCAR_UCM_side";
+private _materialsAvailabilityIntervalSec = _logicModule getVariable "SCAR_UCM_materialsAvailabilityIntervalSec";
+private _lastMaterialRequestTime          = _logicModule getVariable ["SCAR_UCM_lastMaterialRequestTime", time - _materialsAvailabilityIntervalSec];
 
+// ongoing?
 if (_onGoing) exitWith {
     // chat only to caller
     [_side, "STR_SCAR_UCM_Radio_ErrorRequestMaterialsAlreadyInProgress"] remoteExec ["SCAR_UCM_fnc_sideChatLocalized", _caller];
@@ -30,8 +34,19 @@ if (_onGoing) exitWith {
     false
 };
 
-// flag
+// has enough time passed?
+private _currentTime      = time;
+private _remainingSeconds = _materialsAvailabilityIntervalSec - (_currentTime - _lastMaterialRequestTime);
+if (_remainingSeconds > 0) exitWith {
+    // chat only to caller
+    [_side, "STR_SCAR_UCM_Radio_ErrorRequestMaterialsTooSoon", ceil(_remainingSeconds / 60)] remoteExec ["SCAR_UCM_fnc_sideChatLocalized", _caller];
+    // return
+    false
+};
+
+// flags
 _logicModule setVariable ["SCAR_UCM_requestMaterialOngoing", true, true];
+_logicModule setVariable ["SCAR_UCM_lastMaterialRequestTime", _currentTime, true];
 
 // vars
 private _helicopterClass       = _logicModule getVariable "SCAR_UCM_helicopterClass";
@@ -82,8 +97,12 @@ private _wpLeave = _group addWaypoint [_helicopterOriginMaterialPos, 0];
 _wpLeave setWaypointType "MOVE";
 _wpLeave setWaypointStatements ["true", "deleteVehicle (vehicle this); { deleteVehicle _x } forEach thisList;"];
 
-// flag
-_logicModule setVariable ["SCAR_UCM_requestMaterialOngoing", false, true];
+// reset ongoing flag when helicopter is deleted
+_vehicle addEventHandler ["deleted", {
+    private _vehicle     = _this select 0;
+    private _logicModule = _vehicle getVariable "SCAR_UCM_logicModule";
+    _logicModule setVariable ["SCAR_UCM_requestMaterialOngoing", false, true];
+}];
 
 // return
 true

@@ -24,18 +24,19 @@ params ["_logicModule"];
 // ====================================================== \/ MODULE VARS ===================================================
 
 // get vars
-private _side                   = _logicModule getVariable ["Side", "BLUFOR"];
-private _workersCount           = _logicModule getVariable ["WorkersCount", 3];
-private _pieceWorkingManSeconds = _logicModule getVariable ["PieceWorkingManSeconds", 1800];
-private _pieceNamePrefix        = _logicModule getVariable ["PieceNamePrefix", "UCM_piece_"];
-private _piecesFromMaterial     = _logicModule getVariable ["PiecesFromMaterial", 3];
-private _workingDistance        = _logicModule getVariable ["WorkingDistance", 100];
-private _pieceStartHeight       = _logicModule getVariable ["PieceStartHeight", -0.6];
-private _materialEndHeight      = _logicModule getVariable ["MaterialEndHeight", -1.4];
-private _foremanVarname         = _logicModule getVariable ["Foreman", "UCM_foreman"];
-private _helicopterClass        = _logicModule getVariable ["HelicopterClass", "B_Heli_Transport_03_unarmed_F"];
-private _materialsClass         = _logicModule getVariable ["MaterialsClass", "Land_IronPipes_F"];
-private _materialsWeight        = _logicModule getVariable ["MaterialsWeight", 16];
+private _side                             = _logicModule getVariable ["Side", "BLUFOR"];
+private _workersCount                     = _logicModule getVariable ["WorkersCount", 3];
+private _pieceWorkingManSeconds           = _logicModule getVariable ["PieceWorkingManSeconds", 1800];
+private _pieceNamePrefix                  = _logicModule getVariable ["PieceNamePrefix", "UCM_piece_"];
+private _piecesFromMaterial               = _logicModule getVariable ["PiecesFromMaterial", 3];
+private _workingDistance                  = _logicModule getVariable ["WorkingDistance", 100];
+private _materialsAvailabilityIntervalMin = _logicModule getVariable ["MaterialsAvailabilityIntervalMin", 15];
+private _pieceStartHeight                 = _logicModule getVariable ["PieceStartHeight", -0.6];
+private _materialEndHeight                = _logicModule getVariable ["MaterialEndHeight", -1.4];
+private _foremanVarname                   = _logicModule getVariable ["Foreman", "UCM_foreman"];
+private _helicopterClass                  = _logicModule getVariable ["HelicopterClass", "B_Heli_Transport_03_unarmed_F"];
+private _materialsClass                   = _logicModule getVariable ["MaterialsClass", "Land_IronPipes_F"];
+private _materialsWeight                  = _logicModule getVariable ["MaterialsWeight", 16];
 
 // interpret & checks
 
@@ -62,6 +63,7 @@ _logicModule setVariable ["SCAR_UCM_pieceWorkingManSeconds", _pieceWorkingManSec
 _logicModule setVariable ["SCAR_UCM_pieceNamePrefix", _pieceNamePrefix, true];
 _logicModule setVariable ["SCAR_UCM_piecesFromMaterial", _piecesFromMaterial, true];
 _logicModule setVariable ["SCAR_UCM_workingDistance", _workingDistance, true];
+_logicModule setVariable ["SCAR_UCM_materialsAvailabilityIntervalSec", (_materialsAvailabilityIntervalMin * 60), true];
 _logicModule setVariable ["SCAR_UCM_pieceStartHeight", _pieceStartHeight, true];
 _logicModule setVariable ["SCAR_UCM_materialEndHeight", _materialEndHeight, true];
 _logicModule setVariable ["SCAR_UCM_foreman", _foreman, true];

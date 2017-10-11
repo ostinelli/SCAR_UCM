@@ -17,10 +17,14 @@
 
 if !(hasInterface) exitWith {};
 
-params ["_side", "_stringId"];
+params ["_side", "_stringId", "_param"];
 
 // set marker text
-[_side, "HQ"] sideChat localize _stringId;
+if !(isNil "_param") then {
+    [_side, "HQ"] sideChat format [(localize _stringId), _param];
+} else {
+    [_side, "HQ"] sideChat localize _stringId;
+};
 
 // return
 true

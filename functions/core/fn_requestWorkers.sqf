@@ -23,9 +23,12 @@ params ["_logicModule", "_caller"];
 private _workers               = _logicModule getVariable "SCAR_UCM_workers";
 private _workersCount          = _logicModule getVariable "SCAR_UCM_workersCount";
 private _helicopterClass       = _logicModule getVariable "SCAR_UCM_helicopterClass";
-private _helicopterOrigin      = _logicModule getVariable "SCAR_UCM_helicopterOrigin";
+private _helicopterOrigins     = _logicModule getVariable "SCAR_UCM_helicopterOrigins";
 private _helicopterLandingZone = _logicModule getVariable "SCAR_UCM_helicopterLandingZone";
 private _side                  = _logicModule getVariable "SCAR_UCM_side";
+
+// get origin
+private _helicopterOrigin = selectRandom _helicopterOrigins;
 
 if ((count _workers) >= _workersCount) exitWith {
     // chat only to caller

@@ -50,9 +50,12 @@ _logicModule setVariable ["SCAR_UCM_lastMaterialRequestTime", _currentTime, true
 
 // vars
 private _helicopterClass       = _logicModule getVariable "SCAR_UCM_helicopterClass";
-private _helicopterOrigin      = _logicModule getVariable "SCAR_UCM_helicopterOrigin";
+private _helicopterOrigins     = _logicModule getVariable "SCAR_UCM_helicopterOrigins";
 private _foreman               = _logicModule getVariable "SCAR_UCM_foreman";
 private _helicopterLandingZone = _logicModule getVariable "SCAR_UCM_helicopterLandingZone";
+
+// get origin
+private _helicopterOrigin = selectRandom _helicopterOrigins;
 
 // create helicopter with crew
 private _size = sizeOf _helicopterClass;

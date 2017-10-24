@@ -124,6 +124,7 @@ _logicModule setVariable ["SCAR_UCM_piecesCount", ([_logicModule] call SCAR_UCM_
 [_logicModule, "SCAR_UCM_workersAreWorking", false] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
 [_logicModule, "SCAR_UCM_workersInArea", []] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
 [_logicModule, "SCAR_UCM_materialsInArea", []] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
+[_logicModule, "SCAR_UCM_customHash", ([] call CBA_fnc_hashCreate)] call SCAR_UCM_fnc_setGlobalVariableIfUnset;
 
 [_logicModule, "  --> PROGRESS variables have been set."] call SCAR_UCM_fnc_log;
 

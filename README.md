@@ -74,11 +74,45 @@ Parameter(s):
 0: OBJECT - The logicModule.
 
 Return:
-0: BOOLEAN
+BOOLEAN
 
 Example:
 [_logicModule] call SCAR_UCM_fnc_isInitialized;
 ```
+
+##### SCAR_UCM_fnc_setCustomVariable
+```
+Description:
+Sets a custom variable on UCM logic's namespace. Will be persisted if persistence is enabled.
+
+Parameter(s):
+0: OBJECT - The logicModule.
+1: STRING - The key.
+2: STRING, BOOL, NUMBER, ARRAY, CBA HASH - The value.
+
+Return:
+true
+
+Example:
+[_logicModule, _key, _value] call SCAR_UCM_fnc_setCustomVariable;
+```
+
+##### SCAR_UCM_fnc_getCustomVariable
+```
+Description:
+Gets a custom variable from the UCM logic's namespace. Will be persisted if persistence is enabled.
+
+Parameter(s):
+0: OBJECT - The logicModule.
+1: STRING - The key.
+
+Return:
+STRING, BOOL, NUMBER, ARRAY, CBA HASH
+
+Example:
+[_logicModule, _key] call SCAR_UCM_fnc_getCustomVariable;
+```
+
 
 ## Events
 

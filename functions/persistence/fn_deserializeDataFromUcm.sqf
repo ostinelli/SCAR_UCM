@@ -33,7 +33,8 @@ params ["_logicModule", "_moduleHash"];
     };
 } forEach [
     "SCAR_UCM_pieceCurrentId",
-    "SCAR_UCM_pieceCurrentPercentage"
+    "SCAR_UCM_pieceCurrentPercentage",
+    "SCAR_UCM_customHash"
 ];
 
 // retrieve & spawn Workers

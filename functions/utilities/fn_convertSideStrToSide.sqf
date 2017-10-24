@@ -29,4 +29,3 @@ _sideStr = toUpper(_sideStr);
 // return
 if !(_sideStr in _sideKeys) exitWith { civilian };
 _sideValues select (_sideKeys find _sideStr)
-    

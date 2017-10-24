@@ -35,7 +35,8 @@ private _pairs = [];
 
 } forEach [
     "SCAR_UCM_pieceCurrentId",
-    "SCAR_UCM_pieceCurrentPercentage"
+    "SCAR_UCM_pieceCurrentPercentage",
+    "SCAR_UCM_customHash"
 ];
 
 // serialize Workers info

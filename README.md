@@ -126,6 +126,7 @@ Example:
 | `UCM_WorkerKilled` | A worker has been killed. | `_logicModule`, `_worker`
 | `UCM_RequestedMaterials` | New workers have been requested. | `_logicModule`
 | `UCM_RequestedWorkers` | New materials have been requested. | `_logicModule`
+| `UCM_BeforeSave` | Called before the UCM module is saved (if persistence is enabled). This is a good place to set custom variables that need persistence. | `_logicModule`
 
 All events will be called on the server only.
 

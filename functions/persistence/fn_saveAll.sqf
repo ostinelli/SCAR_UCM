@@ -21,6 +21,9 @@ private _allLogicModules = entities "SCAR_UCM_ModuleUtilitiesConstructionMod";
     // init
     private _logicModule = _x;
 
+    // on save event
+    ["UCM_BeforeSave", [_logicModule]] call CBA_fnc_serverEvent;
+
     // log
     [_logicModule, "Save state to persistence backend."] call SCAR_UCM_fnc_log;
 

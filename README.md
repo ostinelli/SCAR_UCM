@@ -124,8 +124,8 @@ Example:
 | `UCM_NoWorkersInConstructionArea` | Construction works are stopped, there are no more workers on the site. | `_logicModule`, `_currentPiece`
 | `UCM_NoMaterialsInConstructionArea` | Construction works are stopped, there are no more materials on the site. | `_logicModule`, `_currentPiece`
 | `UCM_WorkerKilled` | A worker has been killed. | `_logicModule`, `_worker`
-| `UCM_RequestedMaterials` | New workers have been requested. | `_logicModule`
-| `UCM_RequestedWorkers` | New materials have been requested. | `_logicModule`
+| `UCM_RequestedWorkers` | New workers have been requested. | `_logicModule`, `_vehicle`, `_newWorkers`
+| `UCM_RequestedMaterials` | New materials have been requested. | `_logicModule`, `_vehicle`
 | `UCM_BeforeSave` | Called before the UCM module is saved (if persistence is enabled). This is a good place to set custom variables that need persistence. | `_logicModule`
 
 All events will be called on the server only.

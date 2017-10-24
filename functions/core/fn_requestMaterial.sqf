@@ -80,7 +80,7 @@ _group allowFleeing 0;
 } forEach _crew;
 
 // event
-["UCM_RequestedMaterials", [_logicModule]] call CBA_fnc_serverEvent;
+["UCM_RequestedMaterials", [_logicModule, _vehicle]] call CBA_fnc_serverEvent;
 
 // radio
 [_side, "STR_SCAR_UCM_Radio_RequestedMaterials"] remoteExec ["SCAR_UCM_fnc_sideChatLocalized", 0];

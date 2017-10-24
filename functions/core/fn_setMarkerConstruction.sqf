@@ -2,11 +2,11 @@
     Author: _SCAR
 
     Description:
-    Sets the pieceline's map marker.
+    Broadcasts the construction map marker to all clients.
 
     Parameter(s):
     0: OBJECT - The logicModule.
-    1: POSITION - The position of the marker.
+    1: OBJECT - The piece.
 
     Return:
     true
@@ -15,31 +15,16 @@
     [_logicModule, _pos] call SCAR_UCM_fnc_setMarkerConstruction;
 */
 
-if !(hasInterface) exitWith {};
+if !(isServer) exitWith {};
 
-params ["_logicModule", "_pos"];
+params ["_logicModule", "_piece"];
 
-// vars
-private _marker = _logicModule getVariable ["SCAR_UCM_constructionAreaMarker", objNull];
-private _side   = _logicModule getVariable "SCAR_UCM_side";
+// prefs
+private _showAreaMarkers = _logicModule getVariable "SCAR_UCM_showAreaMarkers";
+if !(_showAreaMarkers) exitWith {};
 
-// check side
-if !((side player) == _side) exitWith {};
-
-// delete previous marker, if any
-if !(_marker isEqualTo objNull) then {
-    deleteMarker _marker;
-};
-
-// create
-_marker = createMarkerLocal ["SCAR_UCM_constructionAreaMarker", _pos];
-_marker setMarkerShapeLocal "ICON";
-_marker setMarkerTypeLocal "Select";
-_marker setMarkerColorLocal format["color%1", _side];
-_marker setMarkerTextLocal localize "STR_SCAR_UCM_Main_ConstructionArea";
-
-// store
-_logicModule setVariable ["SCAR_UCM_constructionAreaMarker", _marker];
+// broadcast
+[_logicModule, _piece] remoteExec ["SCAR_UCM_fnc_setMarkerConstructionLocal", 0, _piece];
 
 // return
 true

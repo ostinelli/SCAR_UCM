@@ -37,6 +37,8 @@ private _foremanVarname                   = _logicModule getVariable ["Foreman",
 private _helicopterClass                  = _logicModule getVariable ["HelicopterClass", "B_Heli_Transport_03_unarmed_F"];
 private _materialsClass                   = _logicModule getVariable ["MaterialsClass", "Land_IronPipes_F"];
 private _materialsWeight                  = _logicModule getVariable ["MaterialsWeight", 16];
+private _showAreaMarkers                  = _logicModule getVariable ["ShowAreaMarkers", true];
+private _showWorkersMarkers               = _logicModule getVariable ["ShowWorkersMarkers", true];
 
 // interpret & checks
 
@@ -72,6 +74,8 @@ _logicModule setVariable ["SCAR_UCM_helicopterOrigin", _helicopterOrigin, true];
 _logicModule setVariable ["SCAR_UCM_helicopterClass", _helicopterClass, true];
 _logicModule setVariable ["SCAR_UCM_materialsClass", _materialsClass, true];
 _logicModule setVariable ["SCAR_UCM_materialsWeight", _materialsWeight, true];
+_logicModule setVariable ["SCAR_UCM_showAreaMarkers", _showAreaMarkers, true];
+_logicModule setVariable ["SCAR_UCM_showWorkersMarkers", _showWorkersMarkers, true];
 
 [_logicModule, "  --> OPTION variables have been set."] call SCAR_UCM_fnc_log;
 

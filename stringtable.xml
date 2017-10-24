@@ -129,6 +129,22 @@
             <English>Automatically save when a mission end (endMission trigger)</English>
             <Italian>Salva automaticamente quando finisce una missione (trigger endMission)</Italian>
         </Key>
+        <Key ID="STR_SCAR_UCM_Module_ShowAreaMarkers_displayName">
+            <English>Show Area Markers</English>
+            <Italian>Mostra la posizione delle aree</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Module_ShowAreaMarkers_tooltip">
+            <English>Show the markers of the Construction Area and Landing Zone on the map</English>
+            <Italian>Rendi visibili in mappa i marker del Cantiere e della Zona d'atterraggio</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Module_ShowWorkersMarkers_displayName">
+            <English>Show Workers Markers</English>
+            <Italian>Mostra la posizione dei lavoratori</Italian>
+        </Key>
+        <Key ID="STR_SCAR_UCM_Module_ShowWorkersMarkers_tooltip">
+            <English>Show the worker markers on the map</English>
+            <Italian>Rendi visibili in mappa i marker dei lavoratori</Italian>
+        </Key>
     </Package>
 
     <Package name="Main">

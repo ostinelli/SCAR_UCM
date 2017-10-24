@@ -51,9 +51,6 @@ private _null = [_worker] spawn {
             [_worker, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
         };
 
-        // set marker worker
-        [_worker] remoteExec ["SCAR_UCM_fnc_setMarkerWorker", 0, _worker];
-
         // check presence of worker (on the ground, not flying nearby, not in vehicle)
         if (
             ((_worker distance _currentPiece) < _workingDistance) && // in range

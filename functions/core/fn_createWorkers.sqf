@@ -96,6 +96,9 @@ for "_i" from 1 to _workersCount do {
 
     // init worker animations
     [_worker] call SCAR_UCM_fnc_loopWorkerMovements;
+
+    // init map trackers
+    [_worker] call SCAR_UCM_fnc_setMarkerWorker;
 };
 
 // logicModule

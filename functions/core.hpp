@@ -13,6 +13,8 @@ class SCAR_UCM_core {
         class getPiecesCount {};
         class getStatusString {};
         class initForeman {};
+        class initMarkerWorker {};
+        class initMarkerWorkerLocal {};
         class initPlayer { postInit = true; };
         class initServer { postInit = true; };
         class initSettings {};
@@ -21,8 +23,9 @@ class SCAR_UCM_core {
         class requestMaterial {};
         class requestWorkers {};
         class setMarkerConstruction {};
+        class setMarkerConstructionLocal {};
         class setMarkerLandingZone {};
-        class setMarkerWorker {};
+        class setMarkerLandingZoneLocal {};
         class setRandomWorkerLoadout {};
         class setWorkerAnimation {};
     };

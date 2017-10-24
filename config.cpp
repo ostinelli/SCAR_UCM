@@ -22,11 +22,11 @@ class CfgPatches
 
 class CfgFactionClasses
 {
-	class NO_CATEGORY;
-	class SCAR_UCM_UtilitiesConstructionMod: NO_CATEGORY
-	{
-		displayName = "Utilities Construction Mod";
-	};
+    class NO_CATEGORY;
+    class SCAR_UCM_UtilitiesConstructionMod: NO_CATEGORY
+    {
+        displayName = "Utilities Construction Mod";
+    };
 };
 
 class CfgVehicles
@@ -177,6 +177,22 @@ class CfgVehicles
                 typeName     = "STRING";
                 defaultValue = """B_Heli_Transport_03_unarmed_F""";
             };
+            class ShowAreaMarkers: Checkbox
+            {
+                property     = "SCAR_UCM_ShowAreaMarkers";
+                displayName  = $STR_SCAR_UCM_Module_ShowAreaMarkers_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_ShowAreaMarkers_tooltip;
+                typeName     = "BOOL";
+                defaultValue = "true";
+            };
+            class ShowWorkersMarkers: Checkbox
+            {
+                property     = "SCAR_UCM_ShowWorkersMarkers";
+                displayName  = $STR_SCAR_UCM_Module_ShowWorkersMarkers_displayName;
+                tooltip      = $STR_SCAR_UCM_Module_ShowWorkersMarkers_tooltip;
+                typeName     = "BOOL";
+                defaultValue = "true";
+            };
         };
     };
 
@@ -222,14 +238,14 @@ class CfgVehicles
         class Attributes: AttributesBase
         {
             // Module specific arguments
-			class PersistenceSaveOnEndMission: Checkbox
-  			{
+            class PersistenceSaveOnEndMission: Checkbox
+            {
                 property     = "SCAR_UCM_PersistenceSaveOnEndMission";
                 displayName  = $STR_SCAR_UCM_Module_PersistenceSaveOnEndMission_displayName;
                 tooltip      = $STR_SCAR_UCM_Module_PersistenceSaveOnEndMission_tooltip;
                 typeName     = "BOOL";
                 defaultValue = "false";
-			};
+            };
         };
     };
 };

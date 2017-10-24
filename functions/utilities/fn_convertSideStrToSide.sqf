@@ -16,11 +16,17 @@
 
 params ["_sideStr"];
 
-// fix weird bug when side is sometimes passed in as side from module settings
-_sideStr = toUpper(format ["%1", _sideStr]);
+// if already side, return
+if (typeName == "SIDE") exitWith { _sideStr };
 
-private _sideKeys     = ["BLUFOR", "WEST", "OPFOR", "EAST", "RESISTANCE", "INDEPENDENT", "CIVILIAN"];
-private _sideValues   = [blufor, blufor, opfor, opfor, independent, independent, civilian];
+// define relations
+private _sideKeys   = ["BLUFOR", "WEST", "OPFOR", "EAST", "RESISTANCE", "INDEPENDENT", "GUER"];
+private _sideValues = [blufor, blufor, opfor, opfor, independent, independent, independent];
+
+// upcase
+_sideStr = toUpper(_sideStr);
 
 // return
+if !(_sideStr in _sideKeys) exitWith { civilian };
 _sideValues select (_sideKeys find _sideStr)
+    

@@ -80,6 +80,50 @@ Example:
 [_logicModule] call SCAR_UCM_fnc_isInitialized;
 ```
 
+##### SCAR_UCM_fnc_getWorkers
+```
+Description:
+Returns the current workers.
+
+Parameter(s):
+0: OBJECT - The logicModule.
+
+Return:
+ARRAY of UNITS
+
+Example:
+[_logicModule] call SCAR_UCM_fnc_getWorkers;
+```
+##### SCAR_UCM_fnc_getMaterials
+```
+Description:
+Returns the current materials.
+
+Parameter(s):
+0: OBJECT - The logicModule.
+
+Return:
+ARRAY of UNITS
+
+Example:
+[_logicModule] call SCAR_UCM_fnc_getMaterials;
+```
+
+##### SCAR_UCM_fnc_getCurrentPiece
+```
+Description:
+Returns the active piece of the construction.
+
+Parameter(s):
+0: OBJECT - The logicModule.
+
+Return:
+OBJECT or objNull
+
+Example:
+[_logicModule] call SCAR_UCM_fnc_getCurrentPiece;
+```
+
 ##### SCAR_UCM_fnc_setCustomVariable
 ```
 Description:

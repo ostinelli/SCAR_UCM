@@ -2,13 +2,13 @@
     Author: _SCAR
 
     Description:
-    Gets the active piece of the construction.
+    Returns the active piece of the construction.
 
     Parameter(s):
     0: OBJECT - The logicModule.
 
     Return:
-    0: OBJECT or objNull
+    OBJECT or objNull
 
     Example:
     [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;

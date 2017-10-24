@@ -4,6 +4,8 @@ class SCAR_UCM_api {
     class functions {
         file = "\scar_ucm\functions\api";
 
+        class getWorkers {};
+        class getMaterials {};
         class isInitialized {};
     };
 };

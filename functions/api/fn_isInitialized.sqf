@@ -8,7 +8,7 @@
     0: OBJECT - The logicModule.
 
     Return:
-    0: BOOLEAN
+    BOOLEAN
 
     Example:
     [_logicModule] call SCAR_UCM_fnc_isInitialized;

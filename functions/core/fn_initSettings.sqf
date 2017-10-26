@@ -45,8 +45,6 @@ private _showWorkersMarkers               = _logicModule getVariable ["ShowWorke
 // sync'ed
 private _helicopterLandingZones = [_logicModule, "SCAR_UCM_ModuleUtilitiesConstructionLandingZone"] call BIS_fnc_synchronizedObjects;
 if ((count _helicopterLandingZones) == 0) then { throw format ["UCM: no Landing Zone module has been synchronized to module '%1'", _logicModule]; };
-if ((count _helicopterLandingZones) > 1) then { throw format ["UCM: Too many Landing Zone modules have been synchronized to module '%1'. Only 1 is allowed.", _logicModule]; };
-private _helicopterLandingZone = _helicopterLandingZones select 0;
 
 private _helicopterOrigins = [_logicModule, "SCAR_UCM_ModuleUtilitiesConstructionHelicopterOrigin"] call BIS_fnc_synchronizedObjects;
 if ((count _helicopterOrigins) == 0) then { throw format ["UCM: no Helicopter Origin module has been synchronized to module '%1'", _logicModule]; };
@@ -69,7 +67,7 @@ _logicModule setVariable ["SCAR_UCM_materialsAvailabilityIntervalSec", (_materia
 _logicModule setVariable ["SCAR_UCM_pieceStartHeight", _pieceStartHeight, true];
 _logicModule setVariable ["SCAR_UCM_materialEndHeight", _materialEndHeight, true];
 _logicModule setVariable ["SCAR_UCM_foreman", _foreman, true];
-_logicModule setVariable ["SCAR_UCM_helicopterLandingZone", _helicopterLandingZone, true];
+_logicModule setVariable ["SCAR_UCM_helicopterLandingZones", _helicopterLandingZones, true];
 _logicModule setVariable ["SCAR_UCM_helicopterOrigins", _helicopterOrigins, true];
 _logicModule setVariable ["SCAR_UCM_helicopterClass", _helicopterClass, true];
 _logicModule setVariable ["SCAR_UCM_materialsClass", _materialsClass, true];

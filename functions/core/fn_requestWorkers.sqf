@@ -20,15 +20,16 @@ if !(isServer) exitWith {};
 params ["_logicModule", "_caller"];
 
 // vars
-private _workers               = _logicModule getVariable "SCAR_UCM_workers";
-private _workersCount          = _logicModule getVariable "SCAR_UCM_workersCount";
-private _helicopterClass       = _logicModule getVariable "SCAR_UCM_helicopterClass";
-private _helicopterOrigins     = _logicModule getVariable "SCAR_UCM_helicopterOrigins";
-private _helicopterLandingZone = _logicModule getVariable "SCAR_UCM_helicopterLandingZone";
-private _side                  = _logicModule getVariable "SCAR_UCM_side";
+private _workers                = _logicModule getVariable "SCAR_UCM_workers";
+private _workersCount           = _logicModule getVariable "SCAR_UCM_workersCount";
+private _helicopterClass        = _logicModule getVariable "SCAR_UCM_helicopterClass";
+private _helicopterOrigins      = _logicModule getVariable "SCAR_UCM_helicopterOrigins";
+private _helicopterLandingZones = _logicModule getVariable "SCAR_UCM_helicopterLandingZones";
+private _side                   = _logicModule getVariable "SCAR_UCM_side";
 
-// get origin
-private _helicopterOrigin = selectRandom _helicopterOrigins;
+// get origin & destination
+private _helicopterOrigin      = selectRandom _helicopterOrigins;
+private _helicopterLandingZone = selectRandom _helicopterLandingZones;
 
 if ((count _workers) >= _workersCount) exitWith {
     // chat only to caller

@@ -19,19 +19,20 @@ if !(hasInterface) exitWith {};
 params ["_logicModule"];
 
 // vars
-private _marker       = _logicModule getVariable ["SCAR_UCM_helicopterLandingZoneMarker", objNull];
-private _landingZone  = _logicModule getVariable "SCAR_UCM_helicopterLandingZone";
+private _landingZones = _logicModule getVariable "SCAR_UCM_helicopterLandingZones";
 private _side         = _logicModule getVariable "SCAR_UCM_side";
 
 // check side
 if !((side (group player)) == _side) exitWith {};
 
-// create
-_marker = createMarkerLocal ["SCAR_UCM_helicopterLandingZoneMarker", getPos _landingZone];
-_marker setMarkerShapeLocal "ICON";
-_marker setMarkerTypeLocal "Select";
-_marker setMarkerColorLocal format["color%1", _side];
-_marker setMarkerTextLocal localize "STR_SCAR_UCM_Main_LandingZone";
+// create markers
+{
+    _marker = createMarkerLocal ["SCAR_UCM_helicopterLandingZoneMarker", getPos _x];
+    _marker setMarkerShapeLocal "ICON";
+    _marker setMarkerTypeLocal "Select";
+    _marker setMarkerColorLocal format["color%1", _side];
+    _marker setMarkerTextLocal localize "STR_SCAR_UCM_Main_LandingZone";
+} forEach _landingZones;
 
 // return
 true

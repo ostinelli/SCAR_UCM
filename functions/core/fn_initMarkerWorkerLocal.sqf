@@ -34,10 +34,12 @@ private _null = [_worker] spawn {
     _marker setMarkerTextLocal localize "STR_SCAR_UCM_Main_Worker";
 
     while { alive _worker} do {
-        // set position
-        _marker setMarkerPosLocal getPos _worker;
+        if (visibleMap) then {
+            // set position
+            _marker setMarkerPosLocal getPos _worker;
+        };
         // sleep
-        sleep 1;
+        sleep 0.1;
     };
 
     // worker killed, delete

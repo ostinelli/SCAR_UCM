@@ -17,7 +17,7 @@
 params ["_sideStr"];
 
 // if already side, return
-if (typeName == "SIDE") exitWith { _sideStr };
+if ((typeName _sideStr) == "SIDE") exitWith { _sideStr };
 
 // define relations
 private _sideKeys   = ["BLUFOR", "WEST", "OPFOR", "EAST", "RESISTANCE", "INDEPENDENT", "GUER"];

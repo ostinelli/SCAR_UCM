@@ -49,6 +49,7 @@ if (SCAR_UCM_ACE) then {
         _condition
     ] call ace_interact_menu_fnc_createAction;
     [_unit,	0, ["ACE_MainActions"],	_action] call ace_interact_menu_fnc_addActionToObject;
+
 } else {
     // VANILLA
 

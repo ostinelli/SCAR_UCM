@@ -46,11 +46,7 @@ if (SCAR_UCM_ACE) then {
         (localize "STR_SCAR_UCM_Main_RequestWorkers"),
         "",
         _statement,
-        // condition
-        {
-            params ["_target"];
-            [_target] call SCAR_UCM_fnc_canRespondToActions
-        }
+        _condition
     ] call ace_interact_menu_fnc_createAction;
     [_unit,	0, ["ACE_MainActions"],	_action] call ace_interact_menu_fnc_addActionToObject;
 
@@ -65,7 +61,7 @@ if (SCAR_UCM_ACE) then {
         true, // showWindow
         true, // hideOnUse
         "",   // shortcut
-        "[_target] call SCAR_UCM_fnc_canRespondToActions", // condition
+        (_condition call SCAR_UCM_fnc_convertCodeToStr),
         5     // radius
     ];
 };

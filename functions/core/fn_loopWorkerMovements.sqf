@@ -53,10 +53,10 @@ private _null = [_worker] spawn {
 
         // check presence of worker (on the ground, not flying nearby, not in vehicle)
         if (
-            ((_worker distance _currentPiece) < _workingDistance) && // in range
-            (vehicle _worker == _worker)  &&                         // not in vehicle
-            !(_worker getVariable ["SCAR_UCM_goingToVehicle", false]) &&      // not ordered to get in vehicle
-            (_logicModule getVariable "SCAR_UCM_workersAreWorking")  // work is in progress
+            ((_worker distance _currentPiece) < _workingDistance) &&     // in range
+            (vehicle _worker == _worker)  &&                             // not in vehicle
+            !(_worker getVariable ["SCAR_UCM_goingToVehicle", false]) && // not ordered to get in vehicle
+            (_logicModule getVariable "SCAR_UCM_workersAreWorking")      // work is in progress
         ) then {
             // worker is in the area & work is happening
 
@@ -87,31 +87,30 @@ private _null = [_worker] spawn {
                 private _group = group _worker;
                 [_group] call SCAR_UCM_fnc_deleteAllWaypoints;
 
-                // check distance
+                // compute position
                 private _pieceToWorldPos = _currentPiece modelToWorld _relativePos;
-                if ((_worker distance _pieceToWorldPos) <= _workingDistance) then {
 
-                    // vars
-                    private _animation       = selectRandom _workerAnimations;
-                    private _rotation        = ((getDir _currentPiece) - _sideX * 90);
-                    _worker setVariable ["SCAR_UCM_animation", _animation, true];
-                    _worker setVariable ["SCAR_UCM_pieceToWorldPos", _pieceToWorldPos, true];
-                    _worker setVariable ["SCAR_UCM_rotation", _rotation, true];
+                // vars
+                private _animation = selectRandom _workerAnimations;
+                private _rotation  = ((getDir _currentPiece) - _sideX * 90);
+                _worker setVariable ["SCAR_UCM_animation", _animation, true];
+                _worker setVariable ["SCAR_UCM_pieceToWorldPos", _pieceToWorldPos, true];
+                _worker setVariable ["SCAR_UCM_rotation", _rotation, true];
 
-                    // add waypoint
-                    private _wp = _group addWaypoint [_pieceToWorldPos, 0];
-                    _wp setWaypointType "MOVE";
-                    _wp setWaypointStatements ["true",
-                        "private _animation = this getVariable 'SCAR_UCM_animation';" +
-                        "private _pieceToWorldPos = this getVariable 'SCAR_UCM_pieceToWorldPos';" +
-                        "private _rotation = this getVariable 'SCAR_UCM_rotation';" +
-                        "[this, 1, _animation, _pieceToWorldPos, _rotation] remoteExec ['SCAR_UCM_fnc_setWorkerAnimation'];"
-                    ];
+                // add waypoint
+                private _wp = _group addWaypoint [_pieceToWorldPos, 0];
+                _wp setWaypointType "MOVE";
+                _wp setWaypointStatements ["true",
+                    "private _animation = this getVariable 'SCAR_UCM_animation';" +
+                    "private _pieceToWorldPos = this getVariable 'SCAR_UCM_pieceToWorldPos';" +
+                    "private _rotation = this getVariable 'SCAR_UCM_rotation';" +
+                    "[this, 1, _animation, _pieceToWorldPos, _rotation] call SCAR_UCM_fnc_setWorkerAnimation;"
+                ];
 
-                    // flag
-                    _lastPiece = _currentPiece;
-                };
+                // flag
+                _lastPiece = _currentPiece;
             };
+
         } else {
             // not working
 

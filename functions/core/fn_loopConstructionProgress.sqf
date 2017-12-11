@@ -95,14 +95,13 @@ private _null = [_logicModule] spawn {
 		private _materialsInArea = [];
 		{
 			// init
-			private _material            = _x select 0;
-			private _remainingPercentage = _x select 1;
+			private _material = _x select 0;
 
 			// altitude
 			private _materialZ = getPos _material select 2;
 			if (
 			    _materialZ < 2      // material on ground
-			    && _materialZ > -50 // not loaded
+			    && _materialZ > -50 // not loaded on vehicle
 			) then {
 				// count
 				if ( (_material distance _currentPiece) < _workingDistance) then {
@@ -120,13 +119,13 @@ private _null = [_logicModule] spawn {
 			_logicModule setVariable ["SCAR_UCM_workersAreWorking", true, true];
 
 			// compute the work that has been done on the current piece
-			_totalSecondsWorked     = (count _workersWorking) * _sleepTime;
-			_pieceCurrentPercentage = (_logicModule getVariable "SCAR_UCM_pieceCurrentPercentage") + (_totalSecondsWorked / _pieceWorkingManSeconds);
+			private _totalSecondsWorked     = (count _workersWorking) * _sleepTime;
+			private _pieceCurrentPercentage = (_logicModule getVariable "SCAR_UCM_pieceCurrentPercentage") + (_totalSecondsWorked / _pieceWorkingManSeconds);
 			if (_pieceCurrentPercentage > 1) then { _pieceCurrentPercentage = 1.0; }; // round for division errors
 			_logicModule setVariable ["SCAR_UCM_pieceCurrentPercentage", _pieceCurrentPercentage, true];
 
 			// set piece height for current work
-			_altitude = _pieceStartHeight + ((_logicModule getVariable "SCAR_UCM_pieceCurrentPercentage") * (-_pieceStartHeight));
+			private _altitude = _pieceStartHeight + ((_logicModule getVariable "SCAR_UCM_pieceCurrentPercentage") * (-_pieceStartHeight));
 			[_currentPiece, _altitude] call SCAR_UCM_fnc_setAltitudeToGround;
 
             // piece status?
@@ -134,13 +133,13 @@ private _null = [_logicModule] spawn {
 				// a piece has been finished
 
                 // compute consumption of first available material
-				_materialEntry = _materialsInArea select 0; // simplify and just get get first element
-				_materials     = (_logicModule getVariable "SCAR_UCM_materials") - [_materialEntry]; // remove element, will be either updated here below or not added back
+				private _materialEntry = _materialsInArea select 0; // simplify and just get get first element
+				private _materials     = (_logicModule getVariable "SCAR_UCM_materials") - [_materialEntry]; // remove element, will be either updated here below or not added back
 
-				_material              = _materialEntry select 0;
-				_remainingPercentage   = _materialEntry select 1;
-				_consumptionPercentage = 1.0 / _piecesFromMaterial;
-				_remainingPercentage   = _remainingPercentage - _consumptionPercentage;
+				private _material              = _materialEntry select 0;
+				private _remainingPercentage   = _materialEntry select 1;
+				private _consumptionPercentage = 1.0 / _piecesFromMaterial;
+				_remainingPercentage           = _remainingPercentage - _consumptionPercentage;
 
 				// update materials
 				if (_remainingPercentage <= 0.01) then { // round for division errors

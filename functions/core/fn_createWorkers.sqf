@@ -88,7 +88,7 @@ for "_i" from 1 to _workersCount do {
         private _side = _killed getVariable "SCAR_UCM_side";
         [_side, "STR_SCAR_UCM_Radio_WorkerKilled"] remoteExec ["SCAR_UCM_fnc_sideChatLocalized", 0];
         // fire event
-        ["UCM_WorkerKilled", [_logicModule, _killed]] call CBA_fnc_serverEvent;
+        ["UCM_WorkerKilled", [_logicModule, _killed]] spawn CBA_fnc_serverEvent;
     }];
 
     // add actions

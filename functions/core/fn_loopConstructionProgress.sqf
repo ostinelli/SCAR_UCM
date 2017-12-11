@@ -170,7 +170,7 @@ private _null = [_logicModule] spawn {
 					[_logicModule, _newPiece] call SCAR_UCM_fnc_setMarkerConstruction;
 
 					// fire event
-					["UCM_ConstructionAreaMoved", [_logicModule, _newPiece]] call CBA_fnc_serverEvent;
+					["UCM_ConstructionAreaMoved", [_logicModule, _newPiece]] spawn CBA_fnc_serverEvent;
 				} else {
 					// construction work is done
 
@@ -179,7 +179,7 @@ private _null = [_logicModule] spawn {
 					_continue = false;
 
 					// fire event
-					["UCM_ConstructionDone", [_logicModule, _currentPiece]] call CBA_fnc_serverEvent;
+					["UCM_ConstructionDone", [_logicModule, _currentPiece]] spawn CBA_fnc_serverEvent;
 				};
 			};
 		} else {
@@ -191,19 +191,19 @@ private _null = [_logicModule] spawn {
 
 			if (_logicModule getVariable "SCAR_UCM_workersAreWorking") then {
 			    // fire event
-			    ["UCM_ConstructionNowInProgress", [_logicModule, _currentPiece]] call CBA_fnc_serverEvent;
+			    ["UCM_ConstructionNowInProgress", [_logicModule, _currentPiece]] spawn CBA_fnc_serverEvent;
 			    // radio
                 [_side, "STR_SCAR_UCM_Radio_ConstructionNowInProgress"] remoteExec ["SCAR_UCM_fnc_sideChatLocalized", 0];
 			} else {
 				if ( (count _workersInArea) == 0) then {
                     // fire event
-                    ["UCM_NoWorkersInConstructionArea", [_logicModule, _currentPiece]] call CBA_fnc_serverEvent;
+                    ["UCM_NoWorkersInConstructionArea", [_logicModule, _currentPiece]] spawn CBA_fnc_serverEvent;
                     // radio
                     [_side, "STR_SCAR_UCM_Radio_NoWorkersInConstructionArea"] remoteExec ["SCAR_UCM_fnc_sideChatLocalized", 0];
 				};
 				if ( (count _materialsInArea) == 0) then {
                     // fire event
-                    ["UCM_NoMaterialsInConstructionArea", [_logicModule, _currentPiece]] call CBA_fnc_serverEvent;
+                    ["UCM_NoMaterialsInConstructionArea", [_logicModule, _currentPiece]] spawn CBA_fnc_serverEvent;
                     // radio
                     [_side, "STR_SCAR_UCM_Radio_NoMaterialsInConstructionArea"] remoteExec ["SCAR_UCM_fnc_sideChatLocalized", 0];
 				};

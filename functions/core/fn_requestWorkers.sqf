@@ -76,7 +76,7 @@ private _heliPad = "Land_HelipadEmpty_F" createVehicle _destinationPos;
 _vehicle setVariable ["SCAR_UCM_helipad", _heliPad];
 
 // event
-["UCM_RequestedWorkers", [_logicModule, _vehicle, _newWorkers]] call CBA_fnc_serverEvent;
+["UCM_RequestedWorkers", [_logicModule, _vehicle, _newWorkers]] spawn CBA_fnc_serverEvent;
 
 // radio
 [_side, "STR_SCAR_UCM_Radio_RequestedWorkers"] remoteExec ["SCAR_UCM_fnc_sideChatLocalized", 0];

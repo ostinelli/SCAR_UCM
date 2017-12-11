@@ -42,7 +42,7 @@ private _condition = {
         private _isWorker = _x getVariable ["SCAR_UCM_isWorker", false];
         if (
             _isWorker
-            && ((side _x) == (side player))
+            && ((side _x) == (side group player))
         ) then { _count = _count + 1; };
     } forEach (crew _target);
 

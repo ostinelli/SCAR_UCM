@@ -23,7 +23,7 @@ private _logicModule = _unit getVariable "SCAR_UCM_logicModule";
 private _side        = _logicModule getVariable "SCAR_UCM_side";
 
 // check side
-if !((side player) == _side) exitWith {};
+if !((side group player) == _side) exitWith {};
 
 // code
 private _statement = {

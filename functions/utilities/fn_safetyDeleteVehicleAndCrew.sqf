@@ -20,7 +20,7 @@ if !(isServer) exitWith {};
 params ["_vehicle", "_crew"];
 
 // init
-private _deleteAfter = 1200; // 20 minutes
+private _deleteAfter = 600; // 10 minutes
 
 private _null = [_vehicle, _crew, _deleteAfter] spawn {
 

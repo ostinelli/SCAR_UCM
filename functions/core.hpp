@@ -15,7 +15,6 @@ class SCAR_UCM_core {
         class initForeman {};
         class initMarkerWorker {};
         class initMarkerWorkerLocal {};
-        class initPlayer { postInit = true; };
         class initServer { postInit = true; };
         class initSettings {};
         class loopWorkerMovements {};

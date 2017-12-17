@@ -8,7 +8,7 @@
     0: OBJECT - The logicModule.
 
     Return:
-    OBJECT or objNull
+    OBJECT or objNull if contruction is ended
 
     Example:
     [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;

@@ -102,7 +102,7 @@ _wpLeave setWaypointStatements ["true", "deleteVehicle (vehicle this); { deleteV
 
 // reset ongoing flag when helicopter is deleted
 _vehicle addEventHandler ["deleted", {
-    private _vehicle     = _this select 0;
+    params ["_vehicle"];
     private _logicModule = _vehicle getVariable "SCAR_UCM_logicModule";
     _logicModule setVariable ["SCAR_UCM_requestMaterialOngoing", false, true];
 }];

@@ -52,7 +52,7 @@ private _condition = {
 if (SCAR_UCM_ACE) then {
     // ACE
 
-    _actionInfo = [
+    private _actionInfo = [
         "SCAR_UCM_AllWorkersGetOutOfVehicle",
         (localize "STR_SCAR_UCM_Main_AllWorkersExitVehicle"),
         "",
@@ -61,7 +61,7 @@ if (SCAR_UCM_ACE) then {
     ];
 
     // add action to everyone
-     _action = _actionInfo call ace_interact_menu_fnc_createAction;
+    private _action = _actionInfo call ace_interact_menu_fnc_createAction;
     [_vehicle, 0, ["ACE_MainActions", "ACE_Passengers"], _action] call ace_interact_menu_fnc_addActionToObject;
 } else {
     // VANILLA

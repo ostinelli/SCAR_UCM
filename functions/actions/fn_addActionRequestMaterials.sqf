@@ -41,7 +41,7 @@ private _condition = {
 if (SCAR_UCM_ACE) then {
     // ACE
 
-    _action = [
+    private _action = [
         "SCAR_UCM_RequestMaterial",
         (localize "STR_SCAR_UCM_Main_RequestMaterials"),
         "",

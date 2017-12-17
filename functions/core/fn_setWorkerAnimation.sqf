@@ -24,7 +24,7 @@ params ["_worker", "_state", "_animation", "_pos", "_rotation"];
 private _logicModule   = _worker getVariable "SCAR_UCM_logicModule";
 private _workerObjects = _logicModule getVariable "SCAR_UCM_workerObjects";
 
-// delete all
+// delete global objects
 if (isServer) then {
     private _tool = _worker getVariable ["SCAR_UCM_tool", objNull];
 

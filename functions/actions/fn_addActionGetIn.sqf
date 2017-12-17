@@ -24,7 +24,7 @@ if !((side group player) == (side _worker)) exitWith {};
 if (SCAR_UCM_ACE) then {
     // ACE
 
-    _actionInfo = [
+    private _actionInfo = [
         "SCAR_UCM_GetInVehicle",
         (localize "STR_SCAR_UCM_Main_GoToVehicle"),
         "",
@@ -75,7 +75,7 @@ if (SCAR_UCM_ACE) then {
             _actions
         }
     ];
-     _action = _actionInfo call ace_interact_menu_fnc_createAction;
+    private _action = _actionInfo call ace_interact_menu_fnc_createAction;
     [_worker, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 } else {

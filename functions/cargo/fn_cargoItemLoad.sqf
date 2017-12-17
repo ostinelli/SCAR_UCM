@@ -23,7 +23,7 @@ params ["_item", "_vehicle"];
 private _vehicleSize = sizeOf (typeOf _vehicle); // size of vehicle, such as 10.15198
 private _itemWeight = _item getVariable "SCAR_UCM_cargoItemWeight";
 
-// acceptable ration
+// acceptable ratio
 private _acceptableRatio = 0.65;
 
 if ( (_itemWeight / _vehicleSize) <= _acceptableRatio) then {

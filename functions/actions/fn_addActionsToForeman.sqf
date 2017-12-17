@@ -19,7 +19,7 @@ if !(isServer) exitWith {};
 params ["_logicModule"];
 
 // vars
-_foreman = _logicModule getVariable "SCAR_UCM_foreman";
+private _foreman = _logicModule getVariable "SCAR_UCM_foreman";
 
 // status
 [_foreman] remoteExec ["SCAR_UCM_fnc_addActionRequestStatus", 0, _foreman]; // JIP

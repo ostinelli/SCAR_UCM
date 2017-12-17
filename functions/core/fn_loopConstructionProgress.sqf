@@ -38,6 +38,8 @@ for "_i" from (_logicModule getVariable "SCAR_UCM_pieceCurrentId") to (_piecesCo
 
 // show current piece
 private _currentPiece = [_logicModule] call SCAR_UCM_fnc_getCurrentPiece;
+if (_currentPiece isEqualTo objNull) exitWith {}; // construction is finished
+
 _currentPiece hideObjectGlobal false;
 private _altitude = _pieceStartHeight + ( (_logicModule getVariable "SCAR_UCM_pieceCurrentPercentage") * (-_pieceStartHeight));
 [_currentPiece, _altitude] call SCAR_UCM_fnc_setAltitudeToGround;

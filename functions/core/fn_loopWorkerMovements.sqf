@@ -114,11 +114,12 @@ private _null = [_worker] spawn {
         } else {
             // not working
 
-            // stop animation & sound
-            [_worker, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
-
-            // reset
-            _lastPiece = objNull;
+            if !(_lastPiece isEqualTo objNull) then {
+                // stop animation & sound
+                [_worker, 0] remoteExec ["SCAR_UCM_fnc_setWorkerAnimation"];
+                // reset
+                _lastPiece = objNull;
+            };
         };
 
         sleep 5;

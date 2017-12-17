@@ -65,8 +65,7 @@ private _allLogicModules = entities "SCAR_UCM_ModuleUtilitiesConstructionMod";
 
 // broadcast
 "Broadcasting variable 'SCAR_UCM_initialized'." call SCAR_UCM_fnc_log;
-SCAR_UCM_initialized = true;
-publicVariable "SCAR_UCM_initialized";
+missionNamespace setVariable ["SCAR_UCM_initialized", true, true];
 
 // return
 true

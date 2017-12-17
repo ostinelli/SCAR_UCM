@@ -23,7 +23,6 @@ params ["_logicModule", "_workersCount", "_position_or_vehicle"];
 // vars
 private _side        = _logicModule getVariable "SCAR_UCM_side";
 private _workerClass = _logicModule getVariable "SCAR_UCM_workerClass";
-private _workers     = _logicModule getVariable "SCAR_UCM_workers";
 
 // vehicle or pos?
 private _position = objNull;

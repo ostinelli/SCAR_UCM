@@ -11,7 +11,9 @@ class SCAR_UCM_actions {
         class addActionRequestStatus {};
         class addActionRequestWorkers {};
         class addActionsToForeman {};
+        class addActionsToForemanLocal {};
         class addActionsToWorker {};
+        class addActionsToWorkerLocal {};
         class addActionToLoadCargo {};
         class addActionToUnloadCargo {};
         class canRespondToActions {};

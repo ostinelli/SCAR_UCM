@@ -21,14 +21,8 @@ params ["_logicModule"];
 // vars
 private _foreman = _logicModule getVariable "SCAR_UCM_foreman";
 
-// status
-[_foreman] remoteExec ["SCAR_UCM_fnc_addActionRequestStatus", 0, _foreman]; // JIP
-
-// workers
-[_foreman] remoteExec ["SCAR_UCM_fnc_addActionRequestWorkers", 0, _foreman]; // JIP
-
-// materials
-[_foreman] remoteExec ["SCAR_UCM_fnc_addActionRequestMaterials", 0, _foreman]; // JIP
+// add actions to local players
+[_foreman] remoteExec ["SCAR_UCM_fnc_addActionsToForemanLocal", 0, _foreman]; // JIP
 
 // return
 true

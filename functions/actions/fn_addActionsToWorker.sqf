@@ -19,7 +19,16 @@ params ["_worker"];
 if !(isServer) exitWith {};
 
 // add actions to local players
-[_worker] remoteExec ["SCAR_UCM_fnc_addActionsToWorkerLocal", 0, _worker]; // JIP
+private _jipRef = format["SCAR_UCM_actions_%1", (_worker call BIS_fnc_netId)];
+[_worker] remoteExec ["SCAR_UCM_fnc_addActionsToWorkerLocal", 0, _jipRef]; // JIP
+
+// remove if dead
+_worker addEventHandler ["killed", {
+    params ["_worker"];
+    // removes from the JIP queue
+    private _jipRef = format["SCAR_UCM_actions_%1", (_worker call BIS_fnc_netId)];
+    remoteExec ["", _jipRef];
+}];
 
 // add get out actions to a vehicles a worker has been in
 // condition on the action will be to check for alive workers in, so no need to remove action
